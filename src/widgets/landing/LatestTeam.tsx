@@ -12,7 +12,7 @@ export const LatestTeamSection = ({}) => {
   return (
     <div className="bg-[#fbfaf2] min-h-screen p-4 md:p-8 lg:p-12 xl:p-16 space-y-12">
       <div className="flex flex-wrap gap-4 justify-between">
-        <h2 className="text-black font-bold text-4xl">Энэ улиралын багийн гишүүд</h2>
+        <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд</h2>
         <Link
           href="/about"
           className="p-4 py-2 border-2 rounded-full w-fit text-black hover:bg-orange-400 focus:bg-orange-500 font-bold tracking-widest"
