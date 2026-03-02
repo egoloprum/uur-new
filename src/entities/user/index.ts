@@ -5,11 +5,22 @@ export interface User {
   description: string
   role: Role[]
 
+  // should be started_at date then substract from current date to calculate duration
+
+  duration: string
+
   seasonId: string[]
   contributerOfPostId: string[]
 }
 
-export type RoleTypes = 'Coordinator' | 'Researcher' | 'Redactor' | 'Writer' | 'Designer' | 'Developer' | 'Marketer'
+export type RoleTypes =
+  | 'Coordinator'
+  | 'Researcher'
+  | 'Redactor'
+  | 'Writer'
+  | 'Designer'
+  | 'Developer'
+  | 'Marketer'
 
 export interface Role {
   type: RoleTypes
@@ -40,6 +51,7 @@ export const defaultUserData: User[] = [
         seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: ['12b00a56-8253-44ac-a53a-25ff73b63f99'],
@@ -67,6 +79,7 @@ export const defaultUserData: User[] = [
         seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: ['41b0081f-d6a3-45f8-a09b-884fc0145f17'],
@@ -86,6 +99,7 @@ export const defaultUserData: User[] = [
         seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: [''],
@@ -105,6 +119,7 @@ export const defaultUserData: User[] = [
         seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8'],
@@ -124,6 +139,7 @@ export const defaultUserData: User[] = [
         seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8'],
@@ -139,6 +155,7 @@ export const defaultUserData: User[] = [
         seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: [''],
@@ -154,6 +171,7 @@ export const defaultUserData: User[] = [
         seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: [''],
@@ -173,6 +191,7 @@ export const defaultUserData: User[] = [
         seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: [''],
@@ -192,6 +211,7 @@ export const defaultUserData: User[] = [
         seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
+    duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
     contributerOfPostId: [''],

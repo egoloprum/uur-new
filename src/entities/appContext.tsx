@@ -39,7 +39,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [seasons, setSeasons] = useState<Season[]>(defaultSeasonData)
   const [users, setUsers] = useState<User[]>(defaultUserData)
 
-  const currentSeasonId = '56a6a473-4733-4204-8b29-1633f0084d97'
+  const currentSeasonId = '405e4a2d-e198-4fa8-942d-3727d36861e2'
 
   const getPostById = (id: string) => posts.find(p => p.id === id) || null
 
