@@ -51,11 +51,11 @@ const members = [
 export const LatestTeamSection = ({}) => {
   return (
     <div className="bg-[#fbfaf2] min-h-screen p-4 md:p-8 lg:p-12 xl:p-16 space-y-12">
-      <div className="flex justify-between">
+      <div className="flex flex-wrap gap-4 justify-between">
         <h2 className="text-black font-bold text-4xl">Энэ улиралын багийн гишүүд</h2>
         <Link
           href="/about"
-          className="p-4 py-2 border rounded-full w-fit text-black hover:bg-orange-400 font-bold tracking-widest"
+          className="p-4 py-2 border-2 rounded-full w-fit text-black hover:bg-orange-400 focus:bg-orange-500 font-bold tracking-widest"
         >
           Бүх гишүүд
         </Link>
@@ -65,10 +65,10 @@ export const LatestTeamSection = ({}) => {
           <li className="py-6 border-t border-gray-400 grid grid-cols-12" key={member.name}>
             <div className="space-y-2 col-span-6">
               <p className="text-black font-bold tracking-widest text-3xl">{member.name}</p>
-              <ul className="flex gap-2">
+              <ul className="flex flex-wrap gap-2">
                 {member.roles.map(role => (
                   <li
-                    className="text-black uppercase border rounded-full px-1"
+                    className="text-black uppercase border rounded-full px-1 text-nowrap text-sm md:text-base"
                     key={member.name + role}
                   >
                     {role}
@@ -76,7 +76,7 @@ export const LatestTeamSection = ({}) => {
                 ))}
               </ul>
             </div>
-            <p className="text-black tracking-widest col-start-10 text-xl self-center">
+            <p className="text-black tracking-widest col-start-10 text-xl text-nowrap self-center">
               {member.duration}
             </p>
           </li>
