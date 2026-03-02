@@ -3,6 +3,7 @@ import { Montserrat } from 'next/font/google'
 import './globals.css'
 import { Footer, Sidebar } from '../widgets'
 import { AppProvider } from '../entities'
+import { LenisScrollProvider } from '../shared/components'
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -22,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${montserrat.variable} antialiased`}>
-        <AppProvider>{children}</AppProvider>
-        <Footer />
-        <Sidebar />
+        <LenisScrollProvider>
+          <AppProvider>{children}</AppProvider>
+          <Footer />
+          <Sidebar />
+        </LenisScrollProvider>
       </body>
     </html>
   )
