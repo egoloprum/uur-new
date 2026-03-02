@@ -15,7 +15,7 @@ export const LatestTeamSection = ({}) => {
         <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд</h2>
         <Link
           href="/about"
-          className="p-4 py-2 border-2 rounded-full w-fit text-black hover:bg-orange-400 focus:bg-orange-500 font-bold tracking-widest"
+          className="p-4 py-2 border-2 rounded-full w-fit uppercase text-black hover:bg-orange-400 focus:bg-orange-500 font-bold tracking-widest"
         >
           Бүх гишүүд
         </Link>

@@ -10,6 +10,7 @@ import { gsap } from 'gsap'
 export const LatestPostsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
+  const [isDisabled, setIsDisabled] = useState(false)
 
   const { getPostsByLatest } = useApp()
   const posts = getPostsByLatest()
@@ -17,13 +18,33 @@ export const LatestPostsSection = () => {
 
   const textRef = useRef<HTMLDivElement | null>(null)
   const imageRef = useRef<HTMLDivElement | null>(null)
+  const intervalRef = useRef<NodeJS.Timeout | null>(null)
+  const animatingRef = useRef(false)
+
+  const resetTimer = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current)
+
+    if (isPlaying) {
+      intervalRef.current = setInterval(() => {
+        handleNext()
+      }, 5000)
+    }
+  }
 
   const handlePrev = () => {
+    if (animatingRef.current) return
+
     setCurrentIndex(prev => (prev === 0 ? posts.length - 1 : prev - 1))
+
+    resetTimer()
   }
 
   const handleNext = () => {
+    if (animatingRef.current) return
+
     setCurrentIndex(prev => (prev === posts.length - 1 ? 0 : prev + 1))
+
+    resetTimer()
   }
 
   const handleToggle = () => {
@@ -33,17 +54,32 @@ export const LatestPostsSection = () => {
   const onNext = useEffectEvent(handleNext)
 
   useEffect(() => {
-    if (!isPlaying) return
-    const interval = setInterval(() => {
+    if (!isPlaying) {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+      return
+    }
+
+    intervalRef.current = setInterval(() => {
       onNext()
-    }, 3000)
-    return () => clearInterval(interval)
+    }, 5000)
+
+    return () => {
+      if (intervalRef.current) clearInterval(intervalRef.current)
+    }
   }, [isPlaying])
 
   useLayoutEffect(() => {
     if (!textRef.current || !imageRef.current) return
 
-    const tl = gsap.timeline()
+    animatingRef.current = true
+    setIsDisabled(true)
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        animatingRef.current = false
+        setIsDisabled(false)
+      },
+    })
 
     tl.fromTo(
       imageRef.current,
@@ -77,7 +113,7 @@ export const LatestPostsSection = () => {
 
         <Link
           href={`/posts/${currentPost.slug}`}
-          className="p-4 py-2 border-2 rounded-full w-fit hover:bg-orange-400 text-black font-bold tracking-widest"
+          className="p-4 py-2 border-2 rounded-full w-fit hover:bg-orange-400 focus:bg-orange-500 uppercase text-black font-bold tracking-widest"
         >
           Цааш унших
         </Link>
@@ -102,6 +138,7 @@ export const LatestPostsSection = () => {
           onNext={handleNext}
           onToggle={handleToggle}
           isPlaying={isPlaying}
+          isDisabled={isDisabled}
         />
       </div>
     </div>

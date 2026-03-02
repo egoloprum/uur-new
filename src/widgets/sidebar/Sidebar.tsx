@@ -131,7 +131,7 @@ export const Sidebar = () => {
                 <li className="text-gray-700 text-4xl tracking-widest">Улирал</li>
               </ul>
               <button
-                className="mt-auto border-2 border-black rounded-full w-fit px-8 py-2 uppercase text-2xl text-black flex items-center gap-2"
+                className="mt-auto border-2 border-black rounded-full w-fit px-8 py-2 uppercase text-2xl text-black flex items-center gap-2 cursor-pointer hover:bg-indigo-300 focus:bg-indigo-400"
                 type="submit"
               >
                 <span>Хайх</span>

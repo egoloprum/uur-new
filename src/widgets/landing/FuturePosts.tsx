@@ -50,7 +50,7 @@ export const FuturePostsSection = ({}) => {
 
           <Link
             href="/about"
-            className="p-4 py-2 border-2 rounded-full w-fit text-black text-nowrap hover:bg-orange-400 focus:bg-orange-500 font-bold tracking-widest max-md:mt-4"
+            className="p-4 py-2 border-2 rounded-full w-fit uppercase text-black text-nowrap hover:bg-orange-400 focus:bg-orange-500 font-bold tracking-widest max-md:mt-4"
           >
             Бүх нийтлэлүүд
           </Link>
