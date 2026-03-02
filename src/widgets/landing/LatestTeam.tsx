@@ -22,7 +22,10 @@ export const LatestTeamSection = ({}) => {
       </div>
       <ul>
         {members.map(member => (
-          <li className="py-6 border-t border-gray-400 grid grid-cols-12" key={member.id}>
+          <li
+            className="py-6 border-t border-gray-400 grid grid-cols-12 md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer"
+            key={member.id}
+          >
             <div className="space-y-2 col-span-6">
               <p className="text-black font-bold tracking-widest text-3xl">{member.name}</p>
               <ul className="flex flex-wrap gap-2">
