@@ -1,44 +1,51 @@
+'use client'
+
 import { createContext, ReactNode, useContext, useMemo, useState } from 'react'
 import { defaultPostData, Post } from './post'
 import { defaultSeasonData, Season } from './season'
 import { defaultUserData, RoleTypes, User } from './user'
 
-interface UurContextType {
+interface AppContextType {
   posts: Post[]
   seasons: Season[]
   users: User[]
 
-  getPostById: (id: string) => Post | undefined
-  getSeasonById: (id: string) => Season | undefined
-  getUserById: (id: string) => User | undefined
+  currentSeasonId: string
+
+  getPostById: (id: string) => Post | null
+  getSeasonById: (id: string) => Season | null
+  getUserById: (id: string) => User | null
 
   // find the user by id then get posts by contributer id
-  getPostsByContributerId: (id: string) => Post[] | undefined
+  getPostsByContributerId: (id: string) => Post[] | []
 
   // find posts by season id
-  getPostsBySeasonId: (seasonId: string) => Post[] | undefined
+  getPostsBySeasonId: (seasonId: string) => Post[] | []
+
+  // get latest 5 posts
+  getPostsByLatest: () => Post[] | []
 
   // find users by role type
-  getMembersByRole: (type: RoleTypes) => User[] | undefined
+  getMembersByRole: (type: RoleTypes) => User[] | []
 
   // find users by season id
-  getMembersBySeasonId: (seasonId: string) => User[] | undefined
+  getMembersBySeasonId: (seasonId: string) => User[] | []
 }
 
-const UurContext = createContext<UurContextType | undefined>(undefined)
+const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [posts, setPosts] = useState<Post[]>(defaultPostData)
   const [seasons, setSeasons] = useState<Season[]>(defaultSeasonData)
   const [users, setUsers] = useState<User[]>(defaultUserData)
 
-  const currentSeasonId = '405e4a2d-e198-4fa8-942d-3727d36861e2'
+  const currentSeasonId = '56a6a473-4733-4204-8b29-1633f0084d97'
 
-  const getPostById = (id: string) => posts.find(p => p.id === id)
+  const getPostById = (id: string) => posts.find(p => p.id === id) || null
 
-  const getSeasonById = (id: string) => seasons.find(s => s.id === id)
+  const getSeasonById = (id: string) => seasons.find(s => s.id === id) || null
 
-  const getUserById = (id: string) => users.find(u => u.id === id)
+  const getUserById = (id: string) => users.find(u => u.id === id) || null
 
   const getPostsByContributerId = (userId: string) => {
     const user = users.find(u => u.id === userId)
@@ -52,6 +59,13 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     if (!season) return []
 
     return posts.filter(p => season.postId.includes(p.id))
+  }
+
+  const getPostsByLatest = (): Post[] => {
+    const LATEST_COUNT = 5
+    return [...posts]
+      .sort((a, b) => b.releaseDate.localeCompare(a.releaseDate))
+      .slice(0, LATEST_COUNT)
   }
 
   const getMembersByRole = (type: RoleTypes, seasonId?: string) => {
@@ -79,17 +93,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getUserById,
       getPostsByContributerId,
       getPostsBySeasonId,
+      getPostsByLatest,
       getMembersByRole,
       getMembersBySeasonId,
     }),
     [posts, seasons, users]
   )
 
-  return <UurContext.Provider value={value}>{children}</UurContext.Provider>
+  return <AppContext.Provider value={value}>{children}</AppContext.Provider>
 }
 
 export const useApp = () => {
-  const context = useContext(UurContext)
+  const context = useContext(AppContext)
   if (!context) {
     throw new Error('useApp must be used inside AppProvider')
   }

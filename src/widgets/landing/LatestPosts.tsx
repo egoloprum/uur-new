@@ -1,40 +1,18 @@
 'use client'
 
+import { useApp } from '@/src/entities'
 import { LatestPostsScroll } from '@/src/features/landing'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-const posts = [
-  {
-    id: 1,
-    title: 'Хиймэл оюун ухаан',
-    description:
-      'Хиймэл оюун ухаан нь анхандаа янз бүрийн дүрснүүдийг хооронд нь ялган таних, төрөл бүрийн хэл дээр ойлгох ярилцах, шинэ мэдээллүүдэд суралцан дэвших зэргийг гол зорилгоо болгож байв.',
-    image: '/ai.jpg',
-    slug: 'jazz',
-  },
-  {
-    id: 2,
-    title: 'Жазз',
-    description:
-      'Жазз хөгжмийг Луис Армстронгийн “​​What a Wonderful World” дуугүйгээр төсөөлөхийн аргагүй..',
-    image: '/jazz.png',
-    slug: 'jazz',
-  },
-  {
-    id: 3,
-    title: 'Сүүний парадокс',
-    description: 'Хүнийг сүү боловсруулдаг болгосон генийн мутаци гэж юу вэ?',
-    image: '/milk.jpg',
-    slug: 'milk',
-  },
-]
-
 export const LatestPostsSection = ({}) => {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPlaying, setIsPlaying] = useState(true)
 
+  const { getPostsByLatest } = useApp()
+
+  const posts = getPostsByLatest()
   const currentPost = posts[currentIndex]
 
   const handlePrev = () => {
@@ -64,18 +42,23 @@ export const LatestPostsSection = ({}) => {
       <div className="md:col-span-6 flex flex-col gap-8">
         <p className="uppercase text-black text-lg">Сүүлчийн нийтлэлүүд</p>
         <div className="space-y-4">
-          <h3 className="text-4xl text-black font-bold">{currentPost.title}</h3>
+          <h3 className="text-4xl text-black font-bold">{currentPost.name}</h3>
           <p className="text-black text-xl h-20 line-clamp-4">{currentPost.description}</p>
         </div>
         <Link
-          href="/posts"
+          href={`/posts/${currentPost.slug}`}
           className="p-4 py-2 border-2 rounded-full w-fit hover:bg-orange-400 focus:bg-orange-500 text-black hover:text-black font-bold tracking-widest"
         >
           Цааш унших
         </Link>
       </div>
       <div className="min-h-100 max-md:mb-20 md:col-start-8 md:col-span-5 xl:col-start-9 xl:col-span-4 relative">
-        <Image src={currentPost.image} className="object-cover" fill alt={currentPost.slug} />
+        <Image
+          src={currentPost.imageUrl}
+          className="object-cover"
+          fill
+          alt={currentPost.imageAlt}
+        />
       </div>
       <div className="mt-auto absolute bottom-4 md:bottom-8 lg:bottom-12 xl:bottom-16 left-4 md:left-8 lg:left-12 xl:left-16">
         <LatestPostsScroll

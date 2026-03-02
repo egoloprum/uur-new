@@ -4,6 +4,8 @@ export interface Post {
   slug: string
   description: string
   releaseDate: string
+  imageUrl: string
+  imageAlt: string
 
   writerId: string[]
   researchId: string[]
@@ -18,6 +20,8 @@ export const defaultPostData: Post[] = [
     description:
       'Хиймэл оюун ухаан нь анхандаа янз бүрийн дүрснүүдийг хооронд нь ялган таних, төрөл бүрийн хэл дээр ойлгох ярилцах, шинэ мэдээллүүдэд суралцан дэвших зэргийг гол зорилгоо болгож байв. Гэвч сүүлийн үед хүмүүс AI-аар жинхэнэ мэт зураг, бичлэг хийлгэж, зүгээр л үйл явдлыг нь тайлбарлаад шинэ видео, website ч бүтээлгэдэг болсон.',
     releaseDate: '2025-12-31',
+    imageUrl: '/0/Bidnii-anzaardaggui-AI-iin-nuutsuud.jpg',
+    imageAlt: 'Bidnii-anzaardaggui-AI-iin-nuutsuud',
 
     writerId: ['569d55a5-580b-469f-9218-b3dcb53ab48a'],
     researchId: ['569d55a5-580b-469f-9218-b3dcb53ab48a', '02b8538a-ff85-40ed-ae38-bd68cdfa5567'],
@@ -30,6 +34,8 @@ export const defaultPostData: Post[] = [
     description:
       'Жазз хөгжмийг Луис Армстронгийн “​​What a Wonderful World” дуугүйгээр төсөөлөхийн аргагүй.',
     releaseDate: '2025-12-31',
+    imageUrl: '/0/Jazz.png',
+    imageAlt: 'Jazz',
 
     writerId: ['537df664-4972-4c8d-b0e5-b44b50033d7a'],
     researchId: ['537df664-4972-4c8d-b0e5-b44b50033d7a'],
@@ -42,6 +48,8 @@ export const defaultPostData: Post[] = [
     description:
       'Гадаадад удаан сүү цагаан идээ бараг хэрэглэхгүй байж байгаад Монголын хөдөө буцаж ирээд, өдөр тутамдаа сүү цагаан идээ хэрэглэхэд миний гэдэс ихээр дүүрч, тавгүй санагддаг.',
     releaseDate: '2025-12-31',
+    imageUrl: '/0/Suunii-paradoks.jpg',
+    imageAlt: 'Suunii-paradoks',
 
     writerId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
     researchId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
