@@ -4,7 +4,7 @@ import { useApp } from '@/src/entities'
 import { LatestPostsScroll } from '@/src/features/landing'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useEffectEvent } from 'react'
 
 export const LatestPostsSection = ({}) => {
   const [currentIndex, setCurrentIndex] = useState(0)
@@ -27,15 +27,17 @@ export const LatestPostsSection = ({}) => {
     setIsPlaying(!isPlaying)
   }
 
+  const onNext = useEffectEvent(handleNext)
+
   useEffect(() => {
     if (!isPlaying) return
 
     const interval = setInterval(() => {
-      handleNext()
+      onNext()
     }, 3000)
 
     return () => clearInterval(interval)
-  }, [isPlaying, currentIndex])
+  }, [isPlaying])
 
   return (
     <div className="bg-indigo-300 h-fit md:min-h-screen p-4 md:p-8 lg:p-12 xl:p-16 gap-y-8 grid md:grid-cols-12 relative">
