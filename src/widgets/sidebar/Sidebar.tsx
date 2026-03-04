@@ -100,6 +100,10 @@ export const Sidebar = () => {
                 <MoveRight className="w-6 h-6" />
               </Link>
               <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+                <span>Сэдвүүд</span>
+                <MoveRight className="w-6 h-6" />
+              </Link>
+              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
                 <span>Бидний тухай</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
