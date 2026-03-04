@@ -29,22 +29,22 @@ const posts = [
   },
 ]
 
-export const FuturePostsSection = ({}) => {
+export const LastSeasonPostsSection = ({}) => {
   return (
     <div className="bg-[#fbfaf2] space-y-8">
       <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
-        <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын нийтлэлүүд</h2>
+        <h2 className="text-black font-bold text-4xl uppercase">Өмнөх улиралын нийтлэлүүд</h2>
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
           <p className="flex gap-2">
-            <span className="h-4 w-4 aspect-square rounded-full bg-red-400"></span>
+            <span className="h-4 w-4 aspect-square rounded-full bg-black"></span>
             <span className="text-black tracking-widest uppercase text-nowrap">Шинжлэх ухаан</span>
           </p>
           <p className="flex gap-2">
-            <span className="h-4 w-4 aspect-square rounded-full bg-blue-400"></span>
+            <span className="h-4 w-4 aspect-square rounded-full bg-indigo-400"></span>
             <span className="text-black tracking-widest uppercase text-nowrap">Технологи</span>
           </p>
           <p className="flex gap-2">
-            <span className="h-4 w-4 aspect-square rounded-full bg-green-400"></span>
+            <span className="h-4 w-4 aspect-square rounded-full bg-orange-400"></span>
             <span className="text-black tracking-widest uppercase text-nowrap">Урлаг</span>
           </p>
 
@@ -69,8 +69,8 @@ export const FuturePostsSection = ({}) => {
               <p className="text-xl">{post.description}</p>
             </div>
 
-            <div className="flex gap-8 tracking-widest">
-              <span className="h-4 w-4 rounded-full bg-red-400"></span>
+            <div className="flex gap-8 tracking-widest mt-auto">
+              <span className="h-4 w-4 rounded-full bg-indigo-400"></span>
               <p>{post.releaseDate}</p>
               <p className="uppercase">{post.author}</p>
             </div>

@@ -5,7 +5,7 @@ import { getSlugOfRole } from '@/src/shared'
 import { MoveRight } from 'lucide-react'
 import Link from 'next/link'
 
-export const LatestTeamSection = ({}) => {
+export const CurrentSeasonTeamSection = ({}) => {
   const { currentSeasonId, getMembersBySeasonId } = useApp()
 
   const members = getMembersBySeasonId(currentSeasonId)
