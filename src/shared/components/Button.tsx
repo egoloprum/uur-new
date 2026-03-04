@@ -29,7 +29,7 @@ export const Button = ({
     'transition duration-300',
     mode === 'primary' && 'hover:bg-orange-400 focus:bg-orange-500',
     mode === 'secondary' && 'hover:bg-indigo-400 focus:bg-indigo-500',
-    mode === 'clear' && 'hover:bg-white',
+    mode === 'clear' && 'hover:bg-white hover:text-black',
     className,
   ])
 
