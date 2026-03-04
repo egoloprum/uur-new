@@ -2,6 +2,7 @@
 
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
+import { MoveRight } from 'lucide-react'
 import Link from 'next/link'
 
 export const LatestTeamSection = ({}) => {
@@ -23,15 +24,15 @@ export const LatestTeamSection = ({}) => {
       <ul>
         {members.map(member => (
           <li
-            className="py-6 border-t border-gray-400 grid grid-cols-12 md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer"
+            className="py-6 border-t border-gray-400 flex justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer"
             key={member.id}
           >
-            <div className="space-y-2 col-span-6">
-              <p className="text-black font-bold tracking-widest text-3xl">{member.name}</p>
+            <div className="space-y-2">
+              <p className="text-black font-bold font-advent-pro text-3xl">{member.name}</p>
               <ul className="flex flex-wrap gap-2">
                 {member.role.map(role => (
                   <li
-                    className="text-black uppercase border rounded-full px-1 text-nowrap text-sm md:text-base"
+                    className="text-black uppercase border rounded-full px-2 text-nowrap text-sm md:text-base font-advent-pro"
                     key={member.id + role.type}
                   >
                     {getSlugOfRole(role.type)}
@@ -39,9 +40,10 @@ export const LatestTeamSection = ({}) => {
                 ))}
               </ul>
             </div>
-            <p className="text-black tracking-widest col-start-10 text-xl text-nowrap self-center">
-              {member.duration}
-            </p>
+            <button className="col-start-11 self-center w-fit flex gap-2 items-center px-2 py-2 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 border-black text-black font-advent-pro tracking-wider font-bold">
+              <span>Дэлгэрэнгүй</span>
+              <MoveRight />
+            </button>
           </li>
         ))}
       </ul>

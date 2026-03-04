@@ -67,17 +67,17 @@ export const Sidebar = () => {
   return (
     <>
       <aside className="fixed top-0 right-0 z-100">
-        <div className="flex flex-col gap-2 z-20 p-4 py-8 bg-orange-400">
+        <div className="flex flex-col gap-2 z-20 px-1 py-8 bg-orange-400">
           <button
             onClick={() => toggleSidebar('Menu')}
-            className="p-4 hover:bg-indigo-400 rounded-full text-black"
+            className="p-4 rounded-full text-black cursor-pointer"
           >
             {isOpen && mode === 'Menu' ? <X /> : <Menu />}
           </button>
 
           <button
             onClick={() => toggleSidebar('Search')}
-            className="p-4 hover:bg-indigo-400 rounded-full text-black"
+            className="p-4 rounded-full text-black cursor-pointer"
           >
             {isOpen && mode === 'Search' ? <X /> : <Search />}
           </button>

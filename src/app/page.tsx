@@ -11,7 +11,7 @@ export default function Home() {
     <main className="space-y-16 bg-[#fbfaf2]">
       <HeroSection />
       <DescriptionSection />
-      <LatestPostsSection />
+      <FuturePostsSection />
       <LatestTeamSection />
       <FuturePostsSection />
       <div className="bg-indigo-300 grid lg:grid-cols-2 p-4 md:p-8 lg:p-12 xl:p-16 py-20 relative">

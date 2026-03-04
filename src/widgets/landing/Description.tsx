@@ -72,7 +72,7 @@ export const DescriptionSection = () => {
 
   return (
     <div ref={sectionRef} className="relative w-full overflow-hidden bg-black">
-      <ul ref={listRef} className="flex gap-16">
+      <ul ref={listRef} className="flex gap-16 font-advent-pro font-bold tracking-widest">
         <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
           <span className="text-8xl whitespace-nowrap uppercase">Шинжлэх ухаан</span>
           <button className="flex gap-2 items-center px-4 py-2 uppercase hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-xl">

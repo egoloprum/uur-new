@@ -31,7 +31,7 @@ const posts = [
 
 export const FuturePostsSection = ({}) => {
   return (
-    <div className="bg-[#fbfaf2] md:min-h-screen space-y-8">
+    <div className="bg-[#fbfaf2] space-y-8">
       <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
         <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын нийтлэлүүд</h2>
         <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
