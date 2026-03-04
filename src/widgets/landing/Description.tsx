@@ -4,6 +4,7 @@ import { useRef, useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MoveRight } from 'lucide-react'
+import { Button } from '@/src/shared/components'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -75,28 +76,31 @@ export const DescriptionSection = () => {
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Шинжлэх ухаан
           </span>
-          <button className="flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 uppercase hover:bg-white hover:text-black cursor-pointer rounded-full transition-colors border md:border-2 text-xs sm:text-base md:text-xl">
+          <Button
+            mode="clear"
+            className="text-xs sm:text-base md:text-xl text-white border-white hover:bg-white hover:text-black"
+          >
             <span>Дэлгэрэнгүй</span>
-            <MoveRight />
-          </button>
+            <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
+          </Button>
         </li>
         <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Технологи
           </span>
-          <button className="flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 uppercase hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border md:border-2 text-xs sm:text-base md:text-xl">
+          <Button mode="primary" className="text-xs sm:text-base md:text-xl">
             <span>Дэлгэрэнгүй</span>
-            <MoveRight />
-          </button>
+            <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
+          </Button>
         </li>
         <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Урлаг
           </span>
-          <button className="flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 uppercase hover:bg-indigo-400 focus:bg-indigo-500 cursor-pointer rounded-full transition-colors border md:border-2 text-xs sm:text-base md:text-xl">
+          <Button mode="secondary" className="text-xs sm:text-base md:text-xl">
             <span>Дэлгэрэнгүй</span>
-            <MoveRight />
-          </button>
+            <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
+          </Button>
         </li>
       </ul>
     </div>

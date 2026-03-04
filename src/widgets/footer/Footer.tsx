@@ -9,13 +9,13 @@ export const Footer = ({}) => {
           <Button
             href="/"
             mode="clear"
-            className="aspect-square text-white w-10! h-10! px-2! border-2 border-white relative"
+            className="aspect-square text-white w-10! h-10! px-2! border-white relative"
           >
             <span className="absolute top-1/2 left-1/2 -translate-1/2">IG</span>
           </Button>
         </div>
       </nav>
-      <hr />
+      <hr className="border-gray-400" />
       <nav>
         <p className="text-sm md:text-xl tracking-wider">
           © 2026 он. Бүх бичвэрүүд зохиогчийн эрхээр хамгаалагдсан. Бичвэр, дүрслэлийг ашиглахдаа
