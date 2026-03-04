@@ -1,9 +1,10 @@
 'use client'
 
-import { Menu, Search, X } from 'lucide-react'
+import { Menu, MoveRight, Search, X } from 'lucide-react'
 import Link from 'next/link'
 import { useState, useRef, useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
+import { Button } from '@/src/shared/components'
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -67,20 +68,13 @@ export const Sidebar = () => {
   return (
     <>
       <aside className="fixed top-0 right-0 z-100">
-        <div className="flex flex-col gap-2 z-20 px-1 py-8 bg-orange-400">
-          <button
-            onClick={() => toggleSidebar('Menu')}
-            className="p-4 rounded-full text-black cursor-pointer"
-          >
+        <div className="flex flex-col gap-2 z-20 px-1 py-8 bg-orange-300 border-l border-b md:border-l-2 md:border-b-2 border-black">
+          <Button onClick={() => toggleSidebar('Menu')} className="p-2! md:p-4! border-none">
             {isOpen && mode === 'Menu' ? <X /> : <Menu />}
-          </button>
-
-          <button
-            onClick={() => toggleSidebar('Search')}
-            className="p-4 rounded-full text-black cursor-pointer"
-          >
+          </Button>
+          <Button onClick={() => toggleSidebar('Search')} className="p-2! md:p-4! border-none">
             {isOpen && mode === 'Search' ? <X /> : <Search />}
-          </button>
+          </Button>
         </div>
       </aside>
 
@@ -92,28 +86,22 @@ export const Sidebar = () => {
 
       <div
         ref={panelRef}
-        className="fixed top-0 right-0 h-screen w-fit bg-orange-400 z-50 pr-22 flex items-center"
+        className="fixed top-0 right-0 h-screen w-fit bg-orange-300 z-50 pr-12 md:pr-16 flex items-center font-advent-pro"
       >
-        <div className="p-4 px-8 w-fit md:w-100 h-[calc(100%-6rem)] border-r-2 border-black flex justify-center">
+        <div className="py-2 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">
           {mode === 'Menu' && (
-            <nav className="flex flex-col gap-4 text-black w-full">
-              <Link
-                href="#"
-                className="hover:underline underline-offset-4 text-4xl tracking-widest leading-16"
-              >
-                Нийтлэлүүд
+            <nav className="flex flex-col gap-4 w-fit md:w-full text-black text-2xl md:text-4xl tracking-wide font-medium underline underline-offset-8">
+              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+                <span>Нийтлэлүүд</span>
+                <MoveRight className="w-6 h-6" />
               </Link>
-              <Link
-                href="#"
-                className="hover:underline underline-offset-4 text-4xl tracking-widest leading-16"
-              >
-                Улиралууд
+              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+                <span>Улиралууд</span>
+                <MoveRight className="w-6 h-6" />
               </Link>
-              <Link
-                href="#"
-                className="hover:underline underline-offset-4 text-4xl tracking-widest leading-16"
-              >
-                Бидний тухай
+              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+                <span>Бидний тухай</span>
+                <MoveRight className="w-6 h-6" />
               </Link>
             </nav>
           )}
@@ -123,20 +111,17 @@ export const Sidebar = () => {
               <input
                 type="text"
                 placeholder="Хайлт"
-                className="outline-none w-full text-black text-4xl"
+                className="outline-none w-60 text-black text-2xl md:text-4xl"
               />
-              <ul>
-                <li className="text-gray-700 text-4xl tracking-widest">Багийн гишүүн</li>
-                <li className="text-gray-700 text-4xl tracking-widest">Нийтлэл</li>
-                <li className="text-gray-700 text-4xl tracking-widest">Улирал</li>
+              <ul className="text-2xl md:text-4xl tracking-wide font-medium w-60">
+                <li className="text-gray-700">Багийн гишүүн</li>
+                <li className="text-gray-700">Нийтлэл</li>
+                <li className="text-gray-700">Улирал</li>
               </ul>
-              <button
-                className="mt-auto border-2 border-black rounded-full w-fit px-8 py-2 uppercase text-2xl text-black flex items-center gap-2 cursor-pointer hover:bg-indigo-300 focus:bg-indigo-400"
-                type="submit"
-              >
+              <Button type="submit" mode="secondary" className="mt-auto max-sm:mb-20 px-4!">
                 <span>Хайх</span>
-                <Search />
-              </button>
+                <Search className="w-4 h-4 md:w-6 md:h-6" />
+              </Button>
             </form>
           )}
         </div>
