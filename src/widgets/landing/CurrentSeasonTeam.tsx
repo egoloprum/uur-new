@@ -2,8 +2,9 @@
 
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
+import { Button } from '@/src/shared/components'
+import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
-import Link from 'next/link'
 
 export const CurrentSeasonTeamSection = ({}) => {
   const { currentSeasonId, getMembersBySeasonId } = useApp()
@@ -11,28 +12,30 @@ export const CurrentSeasonTeamSection = ({}) => {
   const members = getMembersBySeasonId(currentSeasonId)
 
   return (
-    <div className="bg-[#fbfaf2] min-h-screen p-4 md:p-8 lg:p-12 xl:p-16 space-y-12">
+    <div className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 space-y-8 font-advent-pro">
       <div className="flex flex-wrap gap-4 justify-between">
         <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд</h2>
-        <Link
-          href="/about"
-          className="p-4 py-2 border-2 rounded-full w-fit uppercase text-black hover:bg-orange-400 focus:bg-orange-500 font-bold tracking-widest"
-        >
-          Бүх гишүүд
-        </Link>
+        <Button mode="primary" href="/about" className="max-sm:mt-4">
+          <span>Бүх гишүүд</span>
+          <MoveRight />
+        </Button>
       </div>
+
       <ul>
-        {members.map(member => (
+        {members.map((member, index) => (
           <li
-            className="py-6 border-t border-gray-400 flex justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer"
+            className={clsx([
+              'py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer',
+              members.length - 1 === index && 'border-b',
+            ])}
             key={member.id}
           >
             <div className="space-y-2">
-              <p className="text-black font-bold font-advent-pro text-3xl">{member.name}</p>
+              <p className="text-black font-bold text-2xl md:text-3xl">{member.name}</p>
               <ul className="flex flex-wrap gap-2">
                 {member.role.map(role => (
                   <li
-                    className="text-black uppercase border rounded-full px-2 text-nowrap text-sm md:text-base font-advent-pro"
+                    className="text-black uppercase border rounded-full px-2 text-nowrap text-xs sm:text-sm md:text-base"
                     key={member.id + role.type}
                   >
                     {getSlugOfRole(role.type)}
@@ -40,10 +43,11 @@ export const CurrentSeasonTeamSection = ({}) => {
                 ))}
               </ul>
             </div>
-            <button className="col-start-11 self-center w-fit flex gap-2 items-center px-2 py-2 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 border-black text-black font-advent-pro tracking-wider font-bold">
+
+            <Button mode="primary" href="/" className="text-xs md:text-sm px-2! py-1! max-sm:mt-4">
               <span>Дэлгэрэнгүй</span>
-              <MoveRight />
-            </button>
+              <MoveRight className="h-4 w-4" />
+            </Button>
           </li>
         ))}
       </ul>

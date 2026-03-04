@@ -49,7 +49,7 @@ export const LastSeasonPostsSection = ({}) => {
             <span className="text-black tracking-wide uppercase text-nowrap">Урлаг</span>
           </p>
 
-          <Button mode="primary" href="/about" className="max-sm: mt-4">
+          <Button mode="primary" href="/about" className="max-sm:mt-4">
             <span>Бүх нийтлэлүүд</span>
             <MoveRight />
           </Button>
@@ -76,7 +76,7 @@ export const LastSeasonPostsSection = ({}) => {
               </div>
               <Button mode="primary" href="/" className="text-xs md:text-sm px-2! py-1!">
                 <span>Цааш унших</span>
-                <MoveRight />
+                <MoveRight className="h-4 w-4" />
               </Button>
             </div>
           </li>

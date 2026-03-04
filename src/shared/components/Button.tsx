@@ -23,7 +23,7 @@ export const Button = ({
   ...rest
 }: ButtonProps) => {
   const classNames = clsx([
-    'flex gap-2 items-center w-fit',
+    'flex gap-2 items-center w-fit h-fit',
     'cursor-pointer px-2 py-1 md:px-4 md:py-2 border md:border-2 border-black rounded-full',
     'uppercase text-black text-nowrap font-bold tracking-wide',
     'transition duration-300',
