@@ -31,7 +31,6 @@ export const DescriptionSection = () => {
     const ctx = gsap.context(() => {
       const getScrollDistance = () => list.scrollWidth - section.offsetWidth
 
-      // Horizontal scroll
       const horizontalTween = gsap.to(list, {
         x: () => -getScrollDistance(),
         ease: 'none',
@@ -44,7 +43,6 @@ export const DescriptionSection = () => {
         },
       })
 
-      // Background color per item
       items.forEach((item, index) => {
         ScrollTrigger.create({
           trigger: item,
@@ -74,22 +72,28 @@ export const DescriptionSection = () => {
     <div ref={sectionRef} className="relative w-full overflow-hidden bg-black">
       <ul ref={listRef} className="flex gap-16 font-advent-pro font-bold tracking-widest">
         <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
-          <span className="text-8xl whitespace-nowrap uppercase">Шинжлэх ухаан</span>
-          <button className="flex gap-2 items-center px-4 py-2 uppercase hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-xl">
+          <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
+            Шинжлэх ухаан
+          </span>
+          <button className="flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 uppercase hover:bg-white hover:text-black cursor-pointer rounded-full transition-colors border md:border-2 text-xs sm:text-base md:text-xl">
             <span>Дэлгэрэнгүй</span>
             <MoveRight />
           </button>
         </li>
         <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
-          <span className="text-8xl whitespace-nowrap uppercase">Технологи</span>
-          <button className="flex gap-2 items-center px-4 py-2 uppercase hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-xl">
+          <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
+            Технологи
+          </span>
+          <button className="flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 uppercase hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border md:border-2 text-xs sm:text-base md:text-xl">
             <span>Дэлгэрэнгүй</span>
             <MoveRight />
           </button>
         </li>
         <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
-          <span className="text-8xl whitespace-nowrap uppercase">Урлаг</span>
-          <button className="flex gap-2 items-center px-4 py-2 uppercase hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-xl">
+          <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
+            Урлаг
+          </span>
+          <button className="flex gap-2 items-center px-2 py-1 md:px-4 md:py-2 uppercase hover:bg-indigo-400 focus:bg-indigo-500 cursor-pointer rounded-full transition-colors border md:border-2 text-xs sm:text-base md:text-xl">
             <span>Дэлгэрэнгүй</span>
             <MoveRight />
           </button>
