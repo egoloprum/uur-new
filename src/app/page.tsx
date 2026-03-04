@@ -1,4 +1,5 @@
 import {
+  DescriptionSection,
   FuturePostsSection,
   HeroSection,
   LatestPostsSection,
@@ -9,20 +10,7 @@ export default function Home() {
   return (
     <main className="space-y-16 bg-[#fbfaf2]">
       <HeroSection />
-      <div className="bg-[#fbfaf2] grid grid-cols-2">
-        <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative">
-          <div className="absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)] w-full border-x top-1/2 -translate-y-1/2 left-0" />
-          <div className="absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full border-y top-0 -translate-x-1/2 left-1/2" />
-          <p className="text-2xl">Одоогийн улирал: Хүч чадал</p>
-          <p className="text-3xl">1/18 - 3/29</p>
-        </div>
-        <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative">
-          <div className="absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)] w-full border-x top-1/2 -translate-y-1/2 left-0" />
-          <div className="absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full border-y top-0 -translate-x-1/2 left-1/2" />
-          <p className="text-2xl">Шинэ улирал: Ховор</p>
-          <p className="text-3xl">Тун удахгүй</p>
-        </div>
-      </div>
+      <DescriptionSection />
       <LatestPostsSection />
       <LatestTeamSection />
       <FuturePostsSection />

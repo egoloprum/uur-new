@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Montserrat } from 'next/font/google'
+import { Montserrat, Advent_Pro } from 'next/font/google'
 import './globals.css'
 import { Footer, Sidebar } from '../widgets'
 import { AppProvider } from '../entities'
@@ -8,6 +8,11 @@ import { LenisScrollProvider } from '../shared/components'
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
+})
+
+const adventPro = Advent_Pro({
+  subsets: ['cyrillic'],
+  variable: '--font-advent-pro',
 })
 
 export const metadata: Metadata = {
@@ -22,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} antialiased`}>
+      <body className={`${montserrat.variable} ${adventPro.variable} antialiased`}>
         <LenisScrollProvider>
           <AppProvider>{children}</AppProvider>
           <Footer />

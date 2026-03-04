@@ -6,9 +6,6 @@ export const HeroSection = ({}) => {
           <span className="block">Үүр</span>
           <span className="block">товхимол</span>
         </h1>
-        <p className="text-black text-2xl md:text-4xl">
-          Монгол хэл дээрх шинжлэх ухаан, технологи, урлагийн товхимол
-        </p>
       </section>
     </div>
   )
