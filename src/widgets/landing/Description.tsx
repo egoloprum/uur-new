@@ -72,7 +72,7 @@ export const DescriptionSection = () => {
   return (
     <div ref={sectionRef} className="relative w-full overflow-hidden bg-black">
       <ul ref={listRef} className="flex gap-16 font-advent-pro font-bold tracking-widest">
-        <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
+        <li className="px-4 md:px-8 lg:px-12 xl:px-16 py-12 lg:py-16 min-w-screen flex justify-between items-center gap-8">
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Шинжлэх ухаан
           </span>
@@ -84,7 +84,7 @@ export const DescriptionSection = () => {
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>
         </li>
-        <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
+        <li className="px-4 md:px-8 lg:px-12 xl:px-16 py-12 lg:py-16 min-w-screen flex justify-between items-center gap-8">
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Технологи
           </span>
@@ -93,7 +93,7 @@ export const DescriptionSection = () => {
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>
         </li>
-        <li className="p-4 md:p-8 lg:p-12 xl:p-16 min-w-screen flex justify-between items-center gap-8">
+        <li className="px-4 md:px-8 lg:px-12 xl:px-16 py-12 lg:py-16 min-w-screen flex justify-between items-center gap-8">
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Урлаг
           </span>
