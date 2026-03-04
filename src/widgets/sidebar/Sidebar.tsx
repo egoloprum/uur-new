@@ -68,7 +68,7 @@ export const Sidebar = () => {
   return (
     <>
       <aside className="fixed top-0 right-0 z-100">
-        <div className="flex flex-col gap-2 z-20 px-1 py-8 bg-orange-300 border-l border-b md:border-l-2 md:border-b-2 border-black">
+        <div className="flex flex-col gap-2 z-20 px-1 py-8 bg-[#fb923c] border-l border-b md:border-l-2 md:border-b-2 border-black">
           <Button onClick={() => toggleSidebar('Menu')} className="p-2! md:p-4! border-none">
             {isOpen && mode === 'Menu' ? <X /> : <Menu />}
           </Button>
@@ -86,9 +86,9 @@ export const Sidebar = () => {
 
       <div
         ref={panelRef}
-        className="fixed top-0 right-0 h-screen w-fit bg-orange-300 z-50 pr-12 md:pr-16 flex items-center font-advent-pro"
+        className="fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center font-advent-pro"
       >
-        <div className="py-2 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">
+        <div className="py-20 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">
           {mode === 'Menu' && (
             <nav className="flex flex-col gap-4 w-fit md:w-full text-black text-2xl md:text-4xl tracking-wide font-medium underline underline-offset-8">
               <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
@@ -122,7 +122,7 @@ export const Sidebar = () => {
                 <li className="text-gray-700">Нийтлэл</li>
                 <li className="text-gray-700">Улирал</li>
               </ul>
-              <Button type="submit" mode="secondary" className="mt-auto max-sm:mb-20 px-4!">
+              <Button type="submit" mode="secondary" className="mt-auto px-4!">
                 <span>Хайх</span>
                 <Search className="w-4 h-4 md:w-6 md:h-6" />
               </Button>
