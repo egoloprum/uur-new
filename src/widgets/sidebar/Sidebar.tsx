@@ -5,10 +5,16 @@ import Link from 'next/link'
 import { useState, useRef, useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
 import { Button } from '@/src/shared/components'
+import { usePathname, useRouter } from 'next/navigation'
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [mode, setMode] = useState<'Menu' | 'Search'>('Menu')
+
+  const router = useRouter()
+  const pathname = usePathname()
+
+  console.log({ pathname })
 
   const panelRef = useRef<HTMLDivElement | null>(null)
   const overlayRef = useRef<HTMLDivElement | null>(null)
@@ -91,22 +97,48 @@ export const Sidebar = () => {
         <div className="py-20 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">
           {mode === 'Menu' && (
             <nav className="flex flex-col gap-4 w-fit md:w-full text-black text-2xl md:text-4xl tracking-wide font-medium underline underline-offset-8">
-              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+              <Link
+                href="/posts"
+                className="w-60 flex text-nowrap items-center gap-4"
+                onClick={() => setIsOpen(false)}
+              >
                 <span>Нийтлэлүүд</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
-              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+              <Link
+                href="seasons"
+                className="w-60 flex text-nowrap items-center gap-4"
+                onClick={() => setIsOpen(false)}
+              >
                 <span>Улиралууд</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
-              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+              <Link
+                href="topics"
+                className="w-60 flex text-nowrap items-center gap-4"
+                onClick={() => setIsOpen(false)}
+              >
                 <span>Сэдвүүд</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
-              <Link href="#" className="w-60 flex text-nowrap items-center gap-4">
+              <Link
+                href="about"
+                className="w-60 flex text-nowrap items-center gap-4"
+                onClick={() => setIsOpen(false)}
+              >
                 <span>Бидний тухай</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
+              {pathname !== '/' && (
+                <Link
+                  href="/"
+                  className="w-60 flex text-nowrap items-center gap-4"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <span>Нүүр</span>
+                  <MoveRight className="w-6 h-6" />
+                </Link>
+              )}
             </nav>
           )}
 
