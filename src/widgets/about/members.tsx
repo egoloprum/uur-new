@@ -10,15 +10,15 @@ export const MembersSection = ({}) => {
   const { users } = useApp()
 
   return (
-    <ul className="grid sm:grid-cols-2 lg:grid-cols-2 font-advent-pro">
+    <ul className="grid md:grid-cols-2 font-advent-pro pb-16">
       {users.map((member, index) => (
         <li
-          className="text-black p-4 md:p-8 lg:p-12 xl:p-16 grid grid-cols-12 gap-4 relative"
+          className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex justify-between gap-4 relative group"
           key={member.name + index}
         >
           <div className="absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)] w-full border-x border-gray-400 top-1/2 -translate-y-1/2 left-0" />
           <div className="absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full border-y border-gray-400 top-0 -translate-x-1/2 left-1/2" />
-          <div className="space-y-4 z-10 col-span-9 flex flex-col gap-8 h-75">
+          <div className="space-y-4 z-10 flex flex-col gap-4 md:min-h-70">
             <div className="space-y-2">
               <section className="flex justify-between items-center">
                 <p className="text-black font-bold tracking-wide text-2xl md:text-3xl">
@@ -28,8 +28,9 @@ export const MembersSection = ({}) => {
               <ul className="flex flex-wrap gap-2">
                 {member.role.map(role => (
                   <li
-                    className="text-black uppercase border rounded-full px-2 text-nowrap text-xs sm:text-sm md:text-base"
+                    className="text-black uppercase border rounded-full px-2"
                     key={member.id + role.type}
+                    style={{ fontSize: 'clamp(0.75rem, 2vw, .875rem)' }}
                   >
                     {getSlugOfRole(role.type)}
                   </li>
@@ -37,7 +38,12 @@ export const MembersSection = ({}) => {
               </ul>
             </div>
             <div className="mt-auto space-y-4">
-              <p className="text-base md:text-xl line-clamp-4">{member.description}</p>
+              <p
+                className="line-clamp-2 md:line-clamp-4"
+                style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}
+              >
+                {member.description}
+              </p>
               <Button
                 mode="primary"
                 href={`/about/${member.slug}`}
@@ -48,7 +54,7 @@ export const MembersSection = ({}) => {
               </Button>
             </div>
           </div>
-          <div className="relative col-start-10 col-span-3">
+          <div className="relative min-w-35 md:min-w-37.5 lg:min-w-40 max-md:min-h-60 grayscale brightness-75 group-hover:grayscale-0 group-hover:brightness-100 transition-all duration-300">
             <Image src={member.imageUrl} fill alt={member.name} />
           </div>
         </li>

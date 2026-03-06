@@ -13,8 +13,6 @@ export const Sidebar = () => {
 
   const pathname = usePathname()
 
-  console.log({ pathname })
-
   const panelRef = useRef<HTMLDivElement | null>(null)
   const overlayRef = useRef<HTMLDivElement | null>(null)
 
