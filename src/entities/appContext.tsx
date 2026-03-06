@@ -1,6 +1,15 @@
 'use client'
 
-import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react'
+import {
+  createContext,
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  useCallback,
+  useContext,
+  useMemo,
+  useState,
+} from 'react'
 import { defaultPostData, Post } from './post'
 import { defaultSeasonData, Season } from './season'
 import { defaultUserData, RoleTypes, User } from './user'
@@ -9,6 +18,9 @@ interface AppContextType {
   posts: Post[]
   seasons: Season[]
   users: User[]
+
+  selectedSeasonId: string
+  setSelectedSeasonId: Dispatch<SetStateAction<string>>
 
   currentSeasonId: string
 
@@ -30,6 +42,8 @@ interface AppContextType {
 
   // find users by season id
   getMembersBySeasonId: (seasonId: string) => User[]
+
+  getActiveSeasons: () => Season[]
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
@@ -38,6 +52,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [posts] = useState<Post[]>(defaultPostData)
   const [seasons] = useState<Season[]>(defaultSeasonData)
   const [users] = useState<User[]>(defaultUserData)
+
+  const [selectedSeasonId, setSelectedSeasonId] = useState<string>('')
 
   const currentSeasonId = '405e4a2d-e198-4fa8-942d-3727d36861e2'
 
@@ -89,6 +105,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   const getMembersBySeasonId = useCallback(
     (seasonId: string) => {
+      if (seasonId === '') return users
+
       const season = seasons.find(s => s.id === seasonId)
       if (!season) return []
 
@@ -97,11 +115,21 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     [seasons, users]
   )
 
+  const getActiveSeasons = useCallback(() => {
+    const season = seasons.filter(s => s.isActive === true)
+    if (!season) return []
+
+    return season
+  }, [seasons])
+
   const value = useMemo(
     () => ({
       posts,
       seasons,
       users,
+      selectedSeasonId,
+      setSelectedSeasonId,
+
       currentSeasonId,
 
       getPostById,
@@ -112,12 +140,17 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByLatest,
       getMembersByRole,
       getMembersBySeasonId,
+      getActiveSeasons,
     }),
     [
       posts,
       seasons,
       users,
+      selectedSeasonId,
+      setSelectedSeasonId,
+
       currentSeasonId,
+
       getPostById,
       getSeasonById,
       getUserById,
@@ -126,6 +159,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByLatest,
       getMembersByRole,
       getMembersBySeasonId,
+      getActiveSeasons,
     ]
   )
 

@@ -7,7 +7,8 @@ import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
 
 export const MembersSection = ({}) => {
-  const { users } = useApp()
+  const { selectedSeasonId, getMembersBySeasonId } = useApp()
+  const users = getMembersBySeasonId(selectedSeasonId)
 
   return (
     <ul className="grid md:grid-cols-2 font-advent-pro pb-16">
@@ -21,9 +22,9 @@ export const MembersSection = ({}) => {
           <div className="space-y-4 z-10 flex flex-col gap-4 md:min-h-70">
             <div className="space-y-2">
               <section className="flex justify-between items-center">
-                <p className="text-black font-bold tracking-wide text-2xl md:text-3xl">
+                <h2 className="text-black font-bold tracking-wide text-2xl md:text-3xl">
                   {member.name}
-                </p>
+                </h2>
               </section>
               <ul className="flex flex-wrap gap-2">
                 {member.role.map(role => (

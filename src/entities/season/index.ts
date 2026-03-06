@@ -5,6 +5,7 @@ export interface Season {
   description: string
   duration: string
   serial: number
+  isActive: boolean
 
   memberId: string[]
   postId: string[]
@@ -18,6 +19,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 0,
+    isActive: true,
 
     memberId: [
       'a7c1aa0b-2257-4025-b92e-c99fc72afb99',
@@ -39,6 +41,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 1,
+    isActive: true,
 
     memberId: [
       'a7c1aa0b-2257-4025-b92e-c99fc72afb99',
@@ -60,6 +63,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 2,
+    isActive: false,
 
     memberId: [''],
     postId: [''],
@@ -71,6 +75,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 3,
+    isActive: false,
 
     memberId: [''],
     postId: [''],
@@ -82,6 +87,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 4,
+    isActive: false,
 
     memberId: [''],
     postId: [''],
@@ -93,6 +99,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 5,
+    isActive: false,
 
     memberId: [''],
     postId: [''],
@@ -104,6 +111,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 6,
+    isActive: false,
 
     memberId: [''],
     postId: [''],
@@ -115,6 +123,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 7,
+    isActive: false,
 
     memberId: [''],
     postId: [''],
@@ -126,6 +135,7 @@ export const defaultSeasonData: Season[] = [
     description: '',
     duration: '',
     serial: 8,
+    isActive: false,
 
     memberId: [''],
     postId: [''],
