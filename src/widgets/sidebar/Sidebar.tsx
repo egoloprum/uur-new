@@ -5,13 +5,12 @@ import Link from 'next/link'
 import { useState, useRef, useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
 import { Button } from '@/src/shared/components'
-import { usePathname, useRouter } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
   const [mode, setMode] = useState<'Menu' | 'Search'>('Menu')
 
-  const router = useRouter()
   const pathname = usePathname()
 
   console.log({ pathname })
