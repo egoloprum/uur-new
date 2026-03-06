@@ -46,7 +46,7 @@ export const CurrentSeasonTeamSection = ({}) => {
 
             <Button
               mode="primary"
-              href={`about/${member.slug}`}
+              href={`/about/${member.slug}`}
               className="text-xs md:text-sm px-2! py-1! max-sm:mt-4"
             >
               <span>Дэлгэрэнгүй</span>

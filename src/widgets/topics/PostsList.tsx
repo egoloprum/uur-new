@@ -31,7 +31,7 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
 
               <Button
                 mode="primary"
-                href={`posts/${post.slug}`}
+                href={`/posts/${post.slug}`}
                 className="text-xs md:text-sm px-2! py-1!"
               >
                 <span>Цааш унших</span>

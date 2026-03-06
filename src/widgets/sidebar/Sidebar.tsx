@@ -103,7 +103,7 @@ export const Sidebar = () => {
                 <MoveRight className="w-6 h-6" />
               </Link>
               <Link
-                href="seasons"
+                href="/seasons"
                 className="w-60 flex text-nowrap items-center gap-4"
                 onClick={() => setIsOpen(false)}
               >
@@ -111,7 +111,7 @@ export const Sidebar = () => {
                 <MoveRight className="w-6 h-6" />
               </Link>
               <Link
-                href="topics"
+                href="/topics"
                 className="w-60 flex text-nowrap items-center gap-4"
                 onClick={() => setIsOpen(false)}
               >
@@ -119,7 +119,7 @@ export const Sidebar = () => {
                 <MoveRight className="w-6 h-6" />
               </Link>
               <Link
-                href="about"
+                href="/about"
                 className="w-60 flex text-nowrap items-center gap-4"
                 onClick={() => setIsOpen(false)}
               >

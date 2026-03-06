@@ -9,6 +9,18 @@ const routes: Record<string, string> = {
   topics: 'сэдвүүд',
   about: 'бидний тухай',
   '/': 'нүүр',
+  'Bidnii-anzaardaggui-AI-iin-nuutsuud': 'Бидний анзаардаггүй AI-ын нууцууд',
+  Jazz: 'Жазз',
+  'Suunii-paradoks': 'Сүүний парадокс',
+  Tsolmon: 'Цолмон',
+  Undariya: 'Ундаръяа',
+  Minjinsor: 'Минжинсор',
+  'Munkh-Orgil': 'Мөнх-Оргил',
+  'Bat-Ireedui': 'Бат-Ирээдүй',
+  Ankhmandakh: 'Aнхмандах',
+  Amar: 'Aмар',
+  Ganbayar: 'Ганбаяр',
+  'Gan-Erdene': 'Ган-Эрдэнэ',
 }
 
 export const Breadcrumb = () => {
