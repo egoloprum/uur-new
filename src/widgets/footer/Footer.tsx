@@ -1,17 +1,34 @@
 import { Button } from '@/src/shared/components'
+import { CardSim, Mail } from 'lucide-react'
 
 export const Footer = ({}) => {
   return (
     <footer className="px-4 md:px-8 lg:px-12 xl:px-16 py-8 space-y-8 bg-[#14110F] font-advent-pro">
       <nav className="flex justify-between items-center">
         <p className="text-xl md:text-2xl tracking-wide">Үүртэй хамтрах</p>
-        <div>
+        <div className="flex gap-2">
           <Button
-            href="/"
+            href="https://www.instagram.com/uur.mn"
+            target="_blank"
             mode="clear"
             className="aspect-square text-white w-10! h-10! px-2! border-white relative"
           >
             <span className="absolute top-1/2 left-1/2 -translate-1/2">IG</span>
+          </Button>
+          <Button
+            href="https://docs.google.com/forms/d/1Z1YYoo4KdJPMfHpAPw3Bpbpt9mrrsMeAjLS1htCBn34"
+            target="_blank"
+            mode="clear"
+            className="aspect-square text-white w-10! h-10! px-2! border-white relative"
+          >
+            <CardSim className="absolute top-1/2 left-1/2 -translate-1/2 h-4 w-4" />
+          </Button>
+          <Button
+            href="mailto:uur.mon.project@gmail.com"
+            mode="clear"
+            className="aspect-square text-white w-10! h-10! px-2! border-white relative"
+          >
+            <Mail className="absolute top-1/2 left-1/2 -translate-1/2 h-4 w-4" />
           </Button>
         </div>
       </nav>

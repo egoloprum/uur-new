@@ -7,7 +7,7 @@ export interface Post {
   imageUrl: string
   imageAlt: string
 
-  writerId: string[]
+  writerId: string
   researchId: string[]
   redactorId: string[]
 }
@@ -23,7 +23,7 @@ export const defaultPostData: Post[] = [
     imageUrl: '/0/Bidnii-anzaardaggui-AI-iin-nuutsuud.jpg',
     imageAlt: 'Bidnii-anzaardaggui-AI-iin-nuutsuud',
 
-    writerId: ['569d55a5-580b-469f-9218-b3dcb53ab48a'],
+    writerId: '569d55a5-580b-469f-9218-b3dcb53ab48a',
     researchId: ['569d55a5-580b-469f-9218-b3dcb53ab48a', '02b8538a-ff85-40ed-ae38-bd68cdfa5567'],
     redactorId: [''],
   },
@@ -37,7 +37,7 @@ export const defaultPostData: Post[] = [
     imageUrl: '/0/Jazz.png',
     imageAlt: 'Jazz',
 
-    writerId: ['537df664-4972-4c8d-b0e5-b44b50033d7a'],
+    writerId: '537df664-4972-4c8d-b0e5-b44b50033d7a',
     researchId: ['537df664-4972-4c8d-b0e5-b44b50033d7a'],
     redactorId: [''],
   },
@@ -51,7 +51,7 @@ export const defaultPostData: Post[] = [
     imageUrl: '/0/Suunii-paradoks.jpg',
     imageAlt: 'Suunii-paradoks',
 
-    writerId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
+    writerId: 'a7c1aa0b-2257-4025-b92e-c99fc72afb99',
     researchId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
     redactorId: [''],
   },

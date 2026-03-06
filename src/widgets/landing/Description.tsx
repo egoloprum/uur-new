@@ -79,6 +79,7 @@ export const DescriptionSection = () => {
           <Button
             mode="clear"
             className="text-xs sm:text-base md:text-xl text-white border-white hover:bg-white hover:text-black"
+            href="/topics"
           >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
@@ -88,7 +89,7 @@ export const DescriptionSection = () => {
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Технологи
           </span>
-          <Button mode="primary" className="text-xs sm:text-base md:text-xl">
+          <Button mode="primary" className="text-xs sm:text-base md:text-xl" href="/topics">
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>
@@ -97,7 +98,7 @@ export const DescriptionSection = () => {
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Урлаг
           </span>
-          <Button mode="secondary" className="text-xs sm:text-base md:text-xl">
+          <Button mode="secondary" className="text-xs sm:text-base md:text-xl" href="/topics">
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>

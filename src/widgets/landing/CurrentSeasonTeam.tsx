@@ -25,7 +25,7 @@ export const CurrentSeasonTeamSection = ({}) => {
         {members.map((member, index) => (
           <li
             className={clsx([
-              'py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer',
+              'py-4 md:py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer',
               members.length - 1 === index && 'border-b',
             ])}
             key={member.id}
@@ -44,7 +44,11 @@ export const CurrentSeasonTeamSection = ({}) => {
               </ul>
             </div>
 
-            <Button mode="primary" href="/" className="text-xs md:text-sm px-2! py-1! max-sm:mt-4">
+            <Button
+              mode="primary"
+              href={`/about/${member.slug}`}
+              className="text-xs md:text-sm px-2! py-1! max-sm:mt-4"
+            >
               <span>Дэлгэрэнгүй</span>
               <MoveRight className="h-4 w-4" />
             </Button>

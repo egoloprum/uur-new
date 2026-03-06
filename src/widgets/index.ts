@@ -1,2 +1,4 @@
 export * from './footer/Footer'
 export * from './sidebar/Sidebar'
+export * from './breadcrumb/Breadcrumb'
+export * from './logo/Logo'

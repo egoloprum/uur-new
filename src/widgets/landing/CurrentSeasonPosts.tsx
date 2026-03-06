@@ -49,7 +49,7 @@ export const CurrentSeasonPostsSection = ({}) => {
             <span className="text-black tracking-wide uppercase text-nowrap">Урлаг</span>
           </p>
 
-          <Button mode="primary" href="/about" className="max-sm:mt-4">
+          <Button mode="primary" href="/posts" className="max-sm:mt-4">
             <span>Бүх нийтлэлүүд</span>
             <MoveRight />
           </Button>
