@@ -10,7 +10,7 @@ export const MembersList = ({ members }: { members: User[] }) => {
       {members.map((member, index) => (
         <li
           className={clsx([
-            'px-4 md:px-8 lg:px-12 xl:px-16 py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer',
+            'px-4 md:px-8 lg:px-12 xl:px-16 py-4 md:py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer',
             members.length - 1 === index && 'border-b',
           ])}
           key={member.id}
