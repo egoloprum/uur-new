@@ -16,7 +16,8 @@ export const defaultSeasonData: Season[] = [
     id: '56a6a473-4733-4204-8b29-1633f0084d97',
     name: 'Нууц',
     slug: 'Nuuts',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 0,
     isActive: true,
@@ -38,7 +39,8 @@ export const defaultSeasonData: Season[] = [
     id: '405e4a2d-e198-4fa8-942d-3727d36861e2',
     name: 'Хүч чадал',
     slug: 'Khuch-chadal',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 1,
     isActive: true,
@@ -60,7 +62,8 @@ export const defaultSeasonData: Season[] = [
     id: '9e07dc3e-3aca-417d-844f-c9675406de4b',
     name: 'Ховор',
     slug: 'Khovor',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 2,
     isActive: false,
@@ -72,7 +75,8 @@ export const defaultSeasonData: Season[] = [
     id: '37a5ab23-56b6-4996-8e25-57508a746956',
     name: 'Тэгш/тэнцүү',
     slug: 'Tegsh-tentsuu',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 3,
     isActive: false,
@@ -84,7 +88,8 @@ export const defaultSeasonData: Season[] = [
     id: '02527a1b-ecd8-4b61-8f65-9cab09ff1ce2',
     name: 'Аюул',
     slug: '',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 4,
     isActive: false,
@@ -96,7 +101,8 @@ export const defaultSeasonData: Season[] = [
     id: '2d059598-952c-4e77-92ba-1bbcfe439432',
     name: 'Аз',
     slug: 'Az',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 5,
     isActive: false,
@@ -108,7 +114,8 @@ export const defaultSeasonData: Season[] = [
     id: '87752e78-2ef7-420c-baf3-a2d0e25fb8ae',
     name: 'Харанхуй',
     slug: 'Kharankhui',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 6,
     isActive: false,
@@ -120,7 +127,8 @@ export const defaultSeasonData: Season[] = [
     id: '2c7d527d-6b3a-4783-b25e-b7f76195d533',
     name: 'Эмх цэгц',
     slug: 'Emkh-tsegts',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 7,
     isActive: false,
@@ -132,7 +140,8 @@ export const defaultSeasonData: Season[] = [
     id: 'bf9a3a85-515c-421b-aada-b701903b41f4',
     name: 'Хувирал',
     slug: 'Khuviral',
-    description: '',
+    description:
+      'Өдөр бүр бидний амьдралд харагдах зүйлс. Гэхдээ тэдний дунд бидэнд мэдэгдэхгүй нуугдах нууц. Нууц амьдрал, нууц код, нууц газрын зураг.',
     duration: '',
     serial: 8,
     isActive: false,

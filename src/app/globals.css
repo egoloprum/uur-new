@@ -32,3 +32,15 @@ body {
 .font-advent-pro {
   font-family: var(--font-advent-pro);
 }
+
+/* ::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #818cf8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fb923c;
+} */

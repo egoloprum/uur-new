@@ -14,6 +14,8 @@ import { defaultPostData, Post } from './post'
 import { defaultSeasonData, Season } from './season'
 import { defaultUserData, RoleTypes, User } from './user'
 
+const CURRENT_SEASON_ID = '405e4a2d-e198-4fa8-942d-3727d36861e2'
+
 interface AppContextType {
   posts: Post[]
   seasons: Season[]
@@ -43,19 +45,21 @@ interface AppContextType {
   // find users by season id
   getMembersBySeasonId: (seasonId: string) => User[]
 
-  getActiveSeasons: () => Season[]
+  getSeasonsBySelectedSeasonId: () => Season[]
 }
 
 const AppContext = createContext<AppContextType | undefined>(undefined)
 
 export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [posts] = useState<Post[]>(defaultPostData)
-  const [seasons] = useState<Season[]>(defaultSeasonData)
   const [users] = useState<User[]>(defaultUserData)
+  const [seasons] = useState<Season[]>(() =>
+    defaultSeasonData.filter(s => s.isActive === true).reverse()
+  )
 
   const [selectedSeasonId, setSelectedSeasonId] = useState<string>('')
 
-  const currentSeasonId = '405e4a2d-e198-4fa8-942d-3727d36861e2'
+  const currentSeasonId = CURRENT_SEASON_ID
 
   const getPostById = useCallback((id: string) => posts.find(p => p.id === id) || null, [posts])
 
@@ -115,12 +119,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     [seasons, users]
   )
 
-  const getActiveSeasons = useCallback(() => {
-    const season = seasons.filter(s => s.isActive === true)
-    if (!season) return []
+  const getSeasonsBySelectedSeasonId = useCallback(() => {
+    if (selectedSeasonId === '') return seasons
 
-    return season
-  }, [seasons])
+    return seasons.filter(s => s.id === selectedSeasonId)
+  }, [seasons, selectedSeasonId])
 
   const value = useMemo(
     () => ({
@@ -140,7 +143,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByLatest,
       getMembersByRole,
       getMembersBySeasonId,
-      getActiveSeasons,
+      getSeasonsBySelectedSeasonId,
     }),
     [
       posts,
@@ -159,7 +162,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByLatest,
       getMembersByRole,
       getMembersBySeasonId,
-      getActiveSeasons,
+      getSeasonsBySelectedSeasonId,
     ]
   )
 
