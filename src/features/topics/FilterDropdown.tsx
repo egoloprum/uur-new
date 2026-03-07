@@ -4,11 +4,13 @@ import { useApp } from '@/src/entities'
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
 
 export const FilterDropdown = ({}) => {
-  const { topics, setSelectedTopicId } = useApp()
+  const { topics, getTopicById, setSelectedTopicId, selectedTopicId } = useApp()
+
+  const topic = getTopicById(selectedTopicId)
 
   return (
     <Dropdown setSelectedItem={setSelectedTopicId}>
-      <DropdownTrigger>Сэдвүүд</DropdownTrigger>
+      <DropdownTrigger>{topic ? topic.name : 'Сэдвүүд'}</DropdownTrigger>
       <DropdownContent>
         {topics.map(topic => (
           <DropdownItem key={topic.id} value={topic.id}>

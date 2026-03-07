@@ -83,7 +83,7 @@ export const defaultUserData: User[] = [
         seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
-    imageUrl: '/members/member-1.jpg',
+    imageUrl: '/members/member-2.jpg',
     duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
@@ -127,7 +127,7 @@ export const defaultUserData: User[] = [
         seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
-    imageUrl: '/members/member-1.jpg',
+    imageUrl: '/members/member-2.jpg',
     duration: '1-3/2026',
 
     seasonId: ['56a6a473-4733-4204-8b29-1633f0084d97', '405e4a2d-e198-4fa8-942d-3727d36861e2'],
@@ -167,7 +167,7 @@ export const defaultUserData: User[] = [
         seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
-    imageUrl: '/members/member-1.jpg',
+    imageUrl: '/members/member-2.jpg',
     duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
@@ -207,7 +207,7 @@ export const defaultUserData: User[] = [
         seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
       },
     ],
-    imageUrl: '/members/member-1.jpg',
+    imageUrl: '/members/member-2.jpg',
     duration: '1-3/2026',
 
     seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],

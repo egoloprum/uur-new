@@ -1,37 +1,123 @@
 'use client'
 
+import { useRef, useLayoutEffect, useState } from 'react'
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
+import Image from 'next/image'
+import { gsap } from 'gsap'
 
-export const CurrentSeasonTeamSection = ({}) => {
+export const CurrentSeasonTeamSection = () => {
   const { currentSeasonId, getMembersBySeasonId } = useApp()
-
   const members = getMembersBySeasonId(currentSeasonId)
 
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const imageRef = useRef<HTMLDivElement | null>(null)
+
+  const [activeImage, setActiveImage] = useState<string | null>(null)
+
+  useLayoutEffect(() => {
+    const container = containerRef.current
+    const image = imageRef.current
+    if (!container || !image) return
+
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches
+    if (!isDesktop) return
+
+    const items = container.querySelectorAll<HTMLLIElement>('li[data-member]')
+
+    const xTo = gsap.quickTo(image, 'x', { duration: 0.25, ease: 'power3' })
+    const yTo = gsap.quickTo(image, 'y', { duration: 0.25, ease: 'power3' })
+    const rTo = gsap.quickTo(image, 'rotation', { duration: 0.35, ease: 'power3' })
+
+    let lastX = 0
+    let lastY = 0
+
+    const moveImage = (e: MouseEvent) => {
+      const x = e.clientX + 24
+      const y = e.clientY + 24
+
+      xTo(x)
+      yTo(y)
+
+      const dx = e.clientX - lastX
+      const dy = e.clientY - lastY
+
+      const velocity = Math.sqrt(dx * dx + dy * dy)
+
+      const rotation = gsap.utils.clamp(-15, 15, dx * 0.2 + velocity * 0.05)
+
+      rTo(rotation)
+
+      lastX = e.clientX
+      lastY = e.clientY
+    }
+
+    items.forEach(item => {
+      const memberImage = item.dataset.image
+
+      const enter = () => {
+        if (memberImage) setActiveImage(memberImage)
+
+        gsap.to(image, {
+          opacity: 1,
+          scale: 1,
+          duration: 0.25,
+          ease: 'power2.out',
+        })
+
+        window.addEventListener('mousemove', moveImage)
+      }
+
+      const leave = () => {
+        gsap.to(image, {
+          opacity: 0,
+          scale: 0.8,
+          rotation: 0,
+          duration: 0.2,
+        })
+
+        window.removeEventListener('mousemove', moveImage)
+      }
+
+      item.addEventListener('mouseenter', enter)
+      item.addEventListener('mouseleave', leave)
+    })
+
+    return () => {
+      window.removeEventListener('mousemove', moveImage)
+    }
+  }, [])
+
   return (
-    <div className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 space-y-8 font-advent-pro">
+    <div
+      ref={containerRef}
+      className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 space-y-8 font-advent-pro relative"
+    >
       <div className="flex flex-wrap gap-4 justify-between">
-        <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд</h2>
+        <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд </h2>
         <Button mode="primary" href="/about" className="max-sm:mt-4">
           <span>Бүх гишүүд</span>
           <MoveRight />
         </Button>
       </div>
-
       <ul>
         {members.map((member, index) => (
           <li
-            className={clsx([
-              'py-4 md:py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 cursor-pointer',
-              members.length - 1 === index && 'border-b',
-            ])}
             key={member.id}
+            data-member
+            data-image={member.imageUrl}
+            className={clsx(
+              'py-4 md:py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between',
+              'md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 relative',
+              members.length - 1 === index && 'border-b'
+            )}
           >
             <div className="space-y-2">
               <p className="text-black font-bold text-2xl md:text-3xl">{member.name}</p>
+
               <ul className="flex flex-wrap gap-2">
                 {member.role.map(role => (
                   <li
@@ -55,6 +141,20 @@ export const CurrentSeasonTeamSection = ({}) => {
           </li>
         ))}
       </ul>
+      <div
+        ref={imageRef}
+        className="fixed top-0 left-0 pointer-events-none opacity-0 scale-75 z-50 will-change-transform"
+      >
+        {activeImage && (
+          <Image
+            src={activeImage}
+            width={170}
+            height={170}
+            alt="member preview"
+            className="object-contain select-none"
+          />
+        )}
+      </div>
     </div>
   )
 }
