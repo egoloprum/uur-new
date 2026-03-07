@@ -34,6 +34,7 @@ interface AppContextType {
   getPostById: (id: string) => Post | null
   getSeasonById: (id: string) => Season | null
   getUserById: (id: string) => User | null
+  getTopicById: (id: string) => Topic | null
 
   getPostsByContributerId: (id: string) => Post[]
   getPostsBySeasonId: (seasonId: string) => Post[]
@@ -70,6 +71,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   )
 
   const getUserById = useCallback((id: string) => users.find(u => u.id === id) || null, [users])
+
+  const getTopicById = useCallback((id: string) => topics.find(t => t.id === id) || null, [topics])
 
   const getPostsByContributerId = useCallback(
     (userId: string) => {
@@ -159,6 +162,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostById,
       getSeasonById,
       getUserById,
+      getTopicById,
+
       getPostsByContributerId,
       getPostsBySeasonId,
       getPostsByLatest,
@@ -184,6 +189,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostById,
       getSeasonById,
       getUserById,
+      getTopicById,
+
       getPostsByContributerId,
       getPostsBySeasonId,
       getPostsByLatest,

@@ -6,6 +6,7 @@ import { useState, useRef, useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
 import { Button } from '@/src/shared/components'
 import { usePathname } from 'next/navigation'
+import { useApp } from '@/src/entities'
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -15,6 +16,8 @@ export const Sidebar = () => {
 
   const panelRef = useRef<HTMLDivElement | null>(null)
   const overlayRef = useRef<HTMLDivElement | null>(null)
+
+  const { setSelectedSeasonId, setSelectedTopicId } = useApp()
 
   const toggleSidebar = (type: 'Menu' | 'Search') => {
     if (!isOpen) {
@@ -68,6 +71,12 @@ export const Sidebar = () => {
     }
   }, [isOpen])
 
+  const onClick = () => {
+    setIsOpen(false)
+    setSelectedSeasonId('')
+    setSelectedTopicId('')
+  }
+
   return (
     <>
       <aside className="fixed top-0 right-0 z-100">
@@ -97,7 +106,7 @@ export const Sidebar = () => {
               <Link
                 href="/posts"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={() => setIsOpen(false)}
+                onClick={onClick}
               >
                 <span>Нийтлэлүүд</span>
                 <MoveRight className="w-6 h-6" />
@@ -105,7 +114,7 @@ export const Sidebar = () => {
               <Link
                 href="/seasons"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={() => setIsOpen(false)}
+                onClick={onClick}
               >
                 <span>Улиралууд</span>
                 <MoveRight className="w-6 h-6" />
@@ -113,7 +122,7 @@ export const Sidebar = () => {
               <Link
                 href="/topics"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={() => setIsOpen(false)}
+                onClick={onClick}
               >
                 <span>Сэдвүүд</span>
                 <MoveRight className="w-6 h-6" />
@@ -121,7 +130,7 @@ export const Sidebar = () => {
               <Link
                 href="/about"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={() => setIsOpen(false)}
+                onClick={onClick}
               >
                 <span>Бидний тухай</span>
                 <MoveRight className="w-6 h-6" />
@@ -130,7 +139,7 @@ export const Sidebar = () => {
                 <Link
                   href="/"
                   className="w-60 flex text-nowrap items-center gap-4"
-                  onClick={() => setIsOpen(false)}
+                  onClick={onClick}
                 >
                   <span>Нүүр</span>
                   <MoveRight className="w-6 h-6" />

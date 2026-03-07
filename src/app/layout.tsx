@@ -29,9 +29,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${montserrat.variable} ${adventPro.variable} antialiased`}>
         <LenisScrollProvider>
-          <AppProvider>{children}</AppProvider>
-          <Footer />
-          <Sidebar />
+          <AppProvider>
+            {children}
+            <Footer />
+            <Sidebar />
+          </AppProvider>
         </LenisScrollProvider>
       </body>
     </html>
