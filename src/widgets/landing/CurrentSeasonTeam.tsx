@@ -13,7 +13,7 @@ export const CurrentSeasonTeamSection = () => {
   const { currentSeasonId, getMembersBySeasonId } = useApp()
   const members = getMembersBySeasonId(currentSeasonId)
 
-  const containerRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLUListElement | null>(null)
   const imageRef = useRef<HTMLDivElement | null>(null)
 
   const [activeImage, setActiveImage] = useState<string | null>(null)
@@ -26,16 +26,16 @@ export const CurrentSeasonTeamSection = () => {
     const isDesktop = window.matchMedia('(min-width: 1024px)').matches
     if (!isDesktop) return
 
-    const items = container.querySelectorAll<HTMLLIElement>('li[data-member]')
-
     const xTo = gsap.quickTo(image, 'x', { duration: 0.25, ease: 'power3' })
     const yTo = gsap.quickTo(image, 'y', { duration: 0.25, ease: 'power3' })
     const rTo = gsap.quickTo(image, 'rotation', { duration: 0.35, ease: 'power3' })
 
     let lastX = 0
     let lastY = 0
+    let activeItem: HTMLElement | null = null
 
-    const moveImage = (e: MouseEvent) => {
+    const moveImage = (e: PointerEvent) => {
+      if (!activeItem) return
       const x = e.clientX + 24
       const y = e.clientY + 24
 
@@ -44,7 +44,6 @@ export const CurrentSeasonTeamSection = () => {
 
       const dx = e.clientX - lastX
       const dy = e.clientY - lastY
-
       const velocity = Math.sqrt(dx * dx + dy * dy)
 
       const rotation = gsap.utils.clamp(-15, 15, dx * 0.2 + velocity * 0.05)
@@ -55,47 +54,55 @@ export const CurrentSeasonTeamSection = () => {
       lastY = e.clientY
     }
 
-    items.forEach(item => {
-      const memberImage = item.dataset.image
+    const hideImage = () => {
+      activeItem = null
+      gsap.to(image, {
+        opacity: 0,
+        scale: 0.8,
+        rotation: 0,
+        duration: 0.2,
+      })
 
-      const enter = () => {
-        if (memberImage) setActiveImage(memberImage)
+      window.removeEventListener('pointermove', moveImage)
+    }
 
-        gsap.to(image, {
-          opacity: 1,
-          scale: 1,
-          duration: 0.25,
-          ease: 'power2.out',
-        })
+    const pointerOver = (e: PointerEvent) => {
+      const li = (e.target as HTMLElement).closest('li[data-member]') as HTMLElement | null
+      if (!li || li === activeItem) return
 
-        window.addEventListener('mousemove', moveImage)
+      activeItem = li
+
+      const memberImage = li.dataset.image
+      if (memberImage) setActiveImage(memberImage)
+
+      gsap.to(image, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.25,
+      })
+
+      window.addEventListener('pointermove', moveImage)
+    }
+
+    const pointerOut = (e: PointerEvent) => {
+      const related = e.relatedTarget as HTMLElement | null
+      if (!related || !container.contains(related)) {
+        hideImage()
       }
+    }
 
-      const leave = () => {
-        gsap.to(image, {
-          opacity: 0,
-          scale: 0.8,
-          rotation: 0,
-          duration: 0.2,
-        })
-
-        window.removeEventListener('mousemove', moveImage)
-      }
-
-      item.addEventListener('mouseenter', enter)
-      item.addEventListener('mouseleave', leave)
-    })
+    container.addEventListener('pointerover', pointerOver)
+    container.addEventListener('pointerout', pointerOut)
 
     return () => {
-      window.removeEventListener('mousemove', moveImage)
+      window.removeEventListener('pointermove', moveImage)
+      container.removeEventListener('pointerover', pointerOver)
+      container.removeEventListener('pointerout', pointerOut)
     }
   }, [])
 
   return (
-    <div
-      ref={containerRef}
-      className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 space-y-8 font-advent-pro relative"
-    >
+    <div className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 space-y-8 font-advent-pro relative">
       <div className="flex flex-wrap gap-4 justify-between">
         <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд </h2>
         <Button mode="primary" href="/about" className="max-sm:mt-4">
@@ -103,7 +110,7 @@ export const CurrentSeasonTeamSection = () => {
           <MoveRight />
         </Button>
       </div>
-      <ul>
+      <ul ref={containerRef}>
         {members.map((member, index) => (
           <li
             key={member.id}
