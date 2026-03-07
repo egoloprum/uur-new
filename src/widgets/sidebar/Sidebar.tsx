@@ -7,6 +7,7 @@ import { gsap } from 'gsap'
 import { Button } from '@/src/shared/components'
 import { usePathname } from 'next/navigation'
 import { useApp } from '@/src/entities'
+import clsx from 'clsx'
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -40,11 +41,8 @@ export const Sidebar = () => {
     if (!panel || !overlay) return
 
     if (isOpen) {
-      gsap.set(panel, { xPercent: 100 })
-      gsap.set(overlay, { opacity: 0, pointerEvents: 'none' })
-
       gsap.to(panel, {
-        xPercent: 0,
+        xPercent: -100,
         duration: 0.45,
         ease: 'power3.out',
       })
@@ -57,7 +55,7 @@ export const Sidebar = () => {
       })
     } else {
       gsap.to(panel, {
-        xPercent: 100,
+        xPercent: 0,
         duration: 0.4,
         ease: 'power3.in',
       })
@@ -93,12 +91,14 @@ export const Sidebar = () => {
       <div
         ref={overlayRef}
         onClick={() => setIsOpen(false)}
-        className="fixed inset-0 bg-black/40 z-40 pointer-events-none"
+        className="fixed inset-0 bg-black/40 z-40 opacity-0 pointer-events-none"
       />
 
       <div
         ref={panelRef}
-        className="fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center font-advent-pro"
+        className={clsx([
+          'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center font-advent-pro translate-x-full',
+        ])}
       >
         <div className="py-20 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">
           {mode === 'Menu' && (
