@@ -113,23 +113,32 @@ export const DropdownTrigger = ({ children }: DropdownTriggerProps) => {
       aria-haspopup="listbox"
     >
       <span>{children}</span>
-      <ChevronDown className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />
+      <ChevronDown
+        className={clsx([
+          'transition-transform duration-200 w-5 h-5 md:w-6 md:h-6',
+          isOpen && 'rotate-180',
+        ])}
+      />
     </Button>
   )
 }
 
 interface DropdownContentProps {
+  className?: string
   children: ReactNode
 }
 
-export const DropdownContent = ({ children }: DropdownContentProps) => {
+export const DropdownContent = ({ className, children }: DropdownContentProps) => {
   const { isOpen } = useDropdown()
 
   if (!isOpen) return null
 
   return (
     <div
-      className="absolute left-0 mt-2 w-48 bg-[#fbfaf2] shadow-lg border border-black focus:outline-none z-50"
+      className={clsx([
+        'absolute left-0 mt-2 w-48 bg-[#fbfaf2] shadow-lg border border-black focus:outline-none z-50',
+        className,
+      ])}
       role="listbox"
     >
       <ul>{children}</ul>

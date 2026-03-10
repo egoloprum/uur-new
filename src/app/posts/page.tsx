@@ -1,4 +1,8 @@
+import { FilterDropdown, SortDropdown } from '@/src/features/posts'
+import { FilterByTopicDropdown } from '@/src/features/posts/FilterByTopicDropdown'
+import { TopicsList } from '@/src/shared/components'
 import { Breadcrumb, Logo } from '@/src/widgets'
+import { PostsList } from '@/src/widgets/posts'
 
 export const Page = ({}) => {
   return (
@@ -13,6 +17,19 @@ export const Page = ({}) => {
           Нийтлэлүүд
         </h1>
       </div>
+
+      <section className="px-4 md:px-8 lg:px-12 xl:px-16">
+        <div className="border-y border-gray-400 py-4 md:py-8 lg:py-12 xl:py-16 flex flex-wrap gap-4 justify-between items-center">
+          <div className="flex gap-4 flex-wrap">
+            <FilterDropdown />
+            <SortDropdown />
+            <FilterByTopicDropdown />
+          </div>
+          <TopicsList />
+        </div>
+      </section>
+
+      <PostsList />
     </main>
   )
 }

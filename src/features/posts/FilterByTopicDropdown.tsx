@@ -3,8 +3,8 @@
 import { useApp } from '@/src/entities'
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
 
-export const FilterDropdown = ({}) => {
-  const { topics, getTopicById, setSelectedTopicId, selectedTopicId } = useApp()
+export const FilterByTopicDropdown = ({}) => {
+  const { topics, getTopicById, selectedTopicId, setSelectedTopicId } = useApp()
 
   const topic = getTopicById(selectedTopicId)
 

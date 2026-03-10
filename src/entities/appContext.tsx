@@ -12,7 +12,7 @@ import {
 } from 'react'
 import { defaultPostData, Post } from './post'
 import { defaultSeasonData, Season } from './season'
-import { defaultUserData, RoleTypes, User } from './user'
+import { defaultUserData, User } from './user'
 import { defaultTopicData, Topic } from './topic'
 
 const CURRENT_SEASON_ID = '405e4a2d-e198-4fa8-942d-3727d36861e2'
@@ -29,6 +29,9 @@ interface AppContextType {
   selectedTopicId: string
   setSelectedTopicId: Dispatch<SetStateAction<string>>
 
+  selectedRole: string
+  setSelectedRole: Dispatch<SetStateAction<string>>
+
   currentSeasonId: string
 
   getPostById: (id: string) => Post | null
@@ -41,7 +44,7 @@ interface AppContextType {
   getPostsByLatest: () => Post[]
   getPostsByTopicId: (topicId: string) => Post[]
 
-  getMembersByRole: (type: RoleTypes) => User[]
+  getMembersByRole: (type: string) => User[]
   getMembersBySeasonId: (seasonId: string) => User[]
 
   getSeasonsBySelectedSeasonId: () => Season[]
@@ -60,6 +63,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   const [selectedSeasonId, setSelectedSeasonId] = useState<string>('')
   const [selectedTopicId, setSelectedTopicId] = useState<string>('')
+  const [selectedRole, setSelectedRole] = useState<string>('')
 
   const currentSeasonId = CURRENT_SEASON_ID
 
@@ -102,6 +106,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   const getPostsByTopicId = useCallback(
     (topicId: string) => {
+      if (topicId === '') return posts
       const topic = topics.find(s => s.id === topicId)
       if (!topic) return []
 
@@ -111,12 +116,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   )
 
   const getMembersByRole = useCallback(
-    (type: RoleTypes, seasonId?: string) => {
-      return users.filter(user =>
-        user.role.some(
-          role => role.type === type && (!seasonId || role.seasonId.includes(seasonId))
-        )
-      )
+    (type: string) => {
+      return users.filter(user => user.role.some(role => role.type === type))
     },
     [users]
   )
@@ -156,6 +157,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       setSelectedSeasonId,
       selectedTopicId,
       setSelectedTopicId,
+      selectedRole,
+      setSelectedRole,
 
       currentSeasonId,
 
@@ -183,6 +186,8 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       setSelectedSeasonId,
       selectedTopicId,
       setSelectedTopicId,
+      selectedRole,
+      setSelectedRole,
 
       currentSeasonId,
 

@@ -10,6 +10,8 @@ export interface Post {
   writerId: string
   researchId: string[]
   redactorId: string[]
+
+  topicId: string
 }
 
 export const defaultPostData: Post[] = [
@@ -26,6 +28,7 @@ export const defaultPostData: Post[] = [
     writerId: '569d55a5-580b-469f-9218-b3dcb53ab48a',
     researchId: ['569d55a5-580b-469f-9218-b3dcb53ab48a', '02b8538a-ff85-40ed-ae38-bd68cdfa5567'],
     redactorId: [''],
+    topicId: '6bbf7cbb-79e6-4475-adf9-adb68f60cd1e',
   },
   {
     id: '41b0081f-d6a3-45f8-a09b-884fc0145f17',
@@ -40,6 +43,7 @@ export const defaultPostData: Post[] = [
     writerId: '537df664-4972-4c8d-b0e5-b44b50033d7a',
     researchId: ['537df664-4972-4c8d-b0e5-b44b50033d7a'],
     redactorId: [''],
+    topicId: '8c4fbc01-e7ea-4f51-995c-d869f409046d',
   },
   {
     id: '12b00a56-8253-44ac-a53a-25ff73b63f99',
@@ -54,5 +58,6 @@ export const defaultPostData: Post[] = [
     writerId: 'a7c1aa0b-2257-4025-b92e-c99fc72afb99',
     researchId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
     redactorId: [''],
+    topicId: '34aa259b-2506-4e56-9e1b-c2c520312524',
   },
 ]

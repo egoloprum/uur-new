@@ -3,7 +3,7 @@
 import { useApp } from '@/src/entities'
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
 
-export const FilterDropdown = ({}) => {
+export const SortDropdown = ({}) => {
   const { seasons, getSeasonById, setSelectedSeasonId, selectedSeasonId } = useApp()
 
   const season = getSeasonById(selectedSeasonId)
@@ -13,11 +13,7 @@ export const FilterDropdown = ({}) => {
       <DropdownTrigger>{season ? season.name : 'Улиралууд'}</DropdownTrigger>
       <DropdownContent>
         {seasons.map(season => (
-          <DropdownItem
-            key={season.id}
-            value={season.id}
-            className={`${selectedSeasonId === season.id && 'bg-indigo-300'}`}
-          >
+          <DropdownItem key={season.id} value={season.id}>
             {season.name}
           </DropdownItem>
         ))}
