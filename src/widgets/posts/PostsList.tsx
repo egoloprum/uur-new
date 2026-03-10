@@ -30,9 +30,13 @@ export const PostsList = () => {
     currentPosts = getPostsByTopicId(selectedTopicId)
   }
 
-  // if (!currentPosts.length) {
-  //   return <p>empty</p>
-  // }
+  if (!currentPosts.length) {
+    return (
+      <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16">
+        <p className="text-center text-2xl md:text-4xl">Нийтлэл олдсонгүй...</p>
+      </div>
+    )
+  }
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
