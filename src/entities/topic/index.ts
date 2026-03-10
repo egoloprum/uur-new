@@ -3,6 +3,7 @@ export interface Topic {
   name: string
   description: string
   serial: number
+  color: string
 
   postId: string[]
 }
@@ -15,6 +16,7 @@ export const defaultTopicData: Topic[] = [
       'From quantum mechanics to climate science, this category feeds your curiosity. We translate dense academic papers into digestible stories, exploring the discoveries that explain our past and predict our future. future. It is not just about memorizing facts; It is about understanding the fundamental forces that govern reality.',
 
     serial: 1,
+    color: 'bg-black',
     postId: ['12b00a56-8253-44ac-a53a-25ff73b63f99'],
   },
   {
@@ -24,6 +26,7 @@ export const defaultTopicData: Topic[] = [
       'Technology is moving faster than ever. In this section, we cut through the hype to look at what actually actually matters. We review the latest tools, break down complex concepts like blockchain and machine and machine learning, and discuss the ethical implications of the code that runs our lives. If it plugs in, connects or computes, we are covering it.',
 
     serial: 2,
+    color: 'bg-indigo-400',
     postId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8'],
   },
   {
@@ -33,6 +36,7 @@ export const defaultTopicData: Topic[] = [
       'Art is the mirror of society. Here, we celebrate creativity in all its forms. We explore classic masterpieces and contemporary digital installations alike. We look at how artists are using new tools (like AI and VR) to tell stories and how creativity remains the uniquely human element in an automated world.',
 
     serial: 3,
+    color: 'bg-orange-400',
     postId: ['41b0081f-d6a3-45f8-a09b-884fc0145f17'],
   },
 ]
