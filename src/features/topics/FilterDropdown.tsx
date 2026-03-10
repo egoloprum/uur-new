@@ -13,7 +13,11 @@ export const FilterDropdown = ({}) => {
       <DropdownTrigger>{topic ? topic.name : 'Сэдвүүд'}</DropdownTrigger>
       <DropdownContent>
         {topics.map(topic => (
-          <DropdownItem key={topic.id} value={topic.id}>
+          <DropdownItem
+            key={topic.id}
+            value={topic.id}
+            className={`${selectedTopicId === topic.id && 'bg-indigo-300'}`}
+          >
             {topic.name}
           </DropdownItem>
         ))}
