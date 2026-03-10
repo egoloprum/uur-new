@@ -6,13 +6,37 @@ import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
 export const PostsList = () => {
-  const { getUserById, getTopicById, getPostsByTopicId, selectedTopicId } = useApp()
+  const {
+    posts,
+    getUserById,
+    getTopicById,
+    getPostsByTopicId,
+    getPostsBySeasonId,
+    selectedTopicId,
+    selectedSeasonId,
+  } = useApp()
 
-  const posts = getPostsByTopicId(selectedTopicId)
+  let currentPosts = posts
+
+  if (selectedSeasonId && selectedTopicId) {
+    const seasonPosts = getPostsBySeasonId(selectedSeasonId)
+    const topicPosts = getPostsByTopicId(selectedTopicId)
+
+    const topicPostSet = new Set(topicPosts)
+    currentPosts = seasonPosts.filter(post => topicPostSet.has(post))
+  } else if (selectedSeasonId) {
+    currentPosts = getPostsBySeasonId(selectedSeasonId)
+  } else if (selectedTopicId) {
+    currentPosts = getPostsByTopicId(selectedTopicId)
+  }
+
+  // if (!currentPosts.length) {
+  //   return <p>empty</p>
+  // }
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
-      {posts.map((post, index) => {
+      {currentPosts.map((post, index) => {
         const author = getUserById(post.writerId)
         const topic = getTopicById(post.topicId)
 
