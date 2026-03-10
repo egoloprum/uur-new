@@ -13,7 +13,11 @@ export const FilterDropdown = ({}) => {
       <DropdownTrigger>{season ? season.name : 'Улиралууд'}</DropdownTrigger>
       <DropdownContent>
         {seasons.map(season => (
-          <DropdownItem key={season.id} value={season.id}>
+          <DropdownItem
+            key={season.id}
+            value={season.id}
+            className={`${selectedSeasonId === season.id && 'bg-indigo-300'}`}
+          >
             {season.name}
           </DropdownItem>
         ))}

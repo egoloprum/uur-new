@@ -7,12 +7,24 @@ import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
 
 export const MembersSection = ({}) => {
-  const { selectedSeasonId, getMembersBySeasonId } = useApp()
-  const users = getMembersBySeasonId(selectedSeasonId)
+  const { users, selectedSeasonId, getMembersBySeasonId, selectedRole, getMembersByRole } = useApp()
+  let currentMembers = users
+
+  if (selectedSeasonId && selectedRole) {
+    const seasonMembers = getMembersBySeasonId(selectedSeasonId)
+    const roleMembers = getMembersByRole(selectedRole)
+
+    const roleMemberSet = new Set(roleMembers)
+    currentMembers = seasonMembers.filter(post => roleMemberSet.has(post))
+  } else if (selectedSeasonId) {
+    currentMembers = getMembersBySeasonId(selectedSeasonId)
+  } else if (selectedRole) {
+    currentMembers = getMembersByRole(selectedRole)
+  }
 
   return (
     <ul className="grid md:grid-cols-2 2xl:grid-cols-3 font-advent-pro pb-16">
-      {users.map((member, index) => (
+      {currentMembers.map((member, index) => (
         <li
           className="text-black p-4 md:p-8 lg:p-12 xl:p-16 max-md:flex max-md:justify-between max-xl:grid max-xl:grid-cols-12 xl:flex xl:justify-between gap-4 relative group"
           key={member.name + index}
