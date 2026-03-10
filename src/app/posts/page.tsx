@@ -1,4 +1,5 @@
 import { FilterDropdown, SortDropdown } from '@/src/features/posts'
+import { FilterByTopicDropdown } from '@/src/features/posts/FilterByTopicDropdown'
 import { TopicsList } from '@/src/shared/components'
 import { Breadcrumb, Logo } from '@/src/widgets'
 import { PostsList } from '@/src/widgets/posts'
@@ -22,6 +23,7 @@ export const Page = ({}) => {
           <div className="flex gap-4">
             <FilterDropdown />
             <SortDropdown />
+            <FilterByTopicDropdown />
           </div>
           <TopicsList />
         </div>
