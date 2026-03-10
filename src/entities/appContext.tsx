@@ -102,6 +102,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
 
   const getPostsByTopicId = useCallback(
     (topicId: string) => {
+      if (topicId === '') return posts
       const topic = topics.find(s => s.id === topicId)
       if (!topic) return []
 

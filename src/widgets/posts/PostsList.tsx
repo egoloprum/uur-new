@@ -6,7 +6,9 @@ import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
 export const PostsList = () => {
-  const { posts, getUserById, getTopicById } = useApp()
+  const { getUserById, getTopicById, getPostsByTopicId, selectedTopicId } = useApp()
+
+  const posts = getPostsByTopicId(selectedTopicId)
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
@@ -32,7 +34,11 @@ export const PostsList = () => {
                 <p>{post.releaseDate}</p>
                 <p className="uppercase">{author?.name}</p>
               </div>
-              <Button mode="primary" href="/" className="text-xs md:text-sm px-2! py-1!">
+              <Button
+                mode="primary"
+                href={`/posts/${post.slug}`}
+                className="text-xs md:text-sm px-2! py-1!"
+              >
                 <span>Цааш унших</span>
                 <MoveRight className="h-4 w-4" />
               </Button>
