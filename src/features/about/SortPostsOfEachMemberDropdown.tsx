@@ -9,11 +9,11 @@ export const SortPostsOfEachMemberDropdown = ({}) => {
   const { selectedSortingMethodofMembers, setSelectedSortingMethodofMembers } = useApp()
 
   return (
-    <Dropdown setSelectedItem={setSelectedSortingMethodofMembers}>
-      <DropdownTrigger>
+    <Dropdown className="max-sm:w-full" setSelectedItem={setSelectedSortingMethodofMembers}>
+      <DropdownTrigger className="max-sm:w-full max-sm:justify-center">
         {selectedSortingMethodofMembers ? selectedSortingMethodofMembers : 'Дугаарлах'}
       </DropdownTrigger>
-      <DropdownContent>
+      <DropdownContent className="max-sm:w-full">
         {sortingMethodsOfMembers.map((sort, index) => (
           <DropdownItem
             key={sort + index}

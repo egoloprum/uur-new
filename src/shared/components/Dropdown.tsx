@@ -34,9 +34,16 @@ interface DropdownProps {
   contents?: { id: string; name: string }[]
   setSelectedItem: Dispatch<SetStateAction<string>>
   children?: ReactNode
+  className?: string
 }
 
-export const Dropdown = ({ label, contents, setSelectedItem, children }: DropdownProps) => {
+export const Dropdown = ({
+  label,
+  contents,
+  setSelectedItem,
+  children,
+  className,
+}: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
@@ -62,7 +69,7 @@ export const Dropdown = ({ label, contents, setSelectedItem, children }: Dropdow
   if (children) {
     return (
       <DropdownContext.Provider value={{ isOpen, setIsOpen, close, setSelectedItem }}>
-        <div className="relative" ref={dropdownRef}>
+        <div className={clsx(['relative', className])} ref={dropdownRef}>
           {children}
         </div>
       </DropdownContext.Provider>
@@ -99,9 +106,10 @@ export const Dropdown = ({ label, contents, setSelectedItem, children }: Dropdow
 
 interface DropdownTriggerProps {
   children: ReactNode
+  className?: string
 }
 
-export const DropdownTrigger = ({ children }: DropdownTriggerProps) => {
+export const DropdownTrigger = ({ children, className }: DropdownTriggerProps) => {
   const { isOpen, setIsOpen } = useDropdown()
 
   return (
@@ -111,6 +119,7 @@ export const DropdownTrigger = ({ children }: DropdownTriggerProps) => {
       onClick={() => setIsOpen(!isOpen)}
       aria-expanded={isOpen}
       aria-haspopup="listbox"
+      className={className}
     >
       <span>{children}</span>
       <ChevronDown

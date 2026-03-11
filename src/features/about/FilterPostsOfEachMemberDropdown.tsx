@@ -9,9 +9,11 @@ export const FilterPostsOfEachMemberDropdown = ({}) => {
   const season = getSeasonById(selectedSeasonId)
 
   return (
-    <Dropdown setSelectedItem={setSelectedSeasonId}>
-      <DropdownTrigger>{season ? season.name : 'Улиралууд'}</DropdownTrigger>
-      <DropdownContent>
+    <Dropdown className="max-sm:w-full" setSelectedItem={setSelectedSeasonId}>
+      <DropdownTrigger className="max-sm:w-full max-sm:justify-center">
+        {season ? season.name : 'Улиралууд'}
+      </DropdownTrigger>
+      <DropdownContent className="max-sm:w-full">
         {seasons.map(season => (
           <DropdownItem
             key={season.id}
