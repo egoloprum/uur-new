@@ -18,7 +18,13 @@ export const Sidebar = () => {
   const panelRef = useRef<HTMLDivElement | null>(null)
   const overlayRef = useRef<HTMLDivElement | null>(null)
 
-  const { setSelectedSeasonId, setSelectedTopicId, setSelectedRole } = useApp()
+  const {
+    setSelectedSeasonId,
+    setSelectedTopicId,
+    setSelectedRole,
+    setSelectedSortingMethodofPosts,
+    setSelectedSortingMethodofMembers,
+  } = useApp()
 
   const toggleSidebar = (type: 'Menu' | 'Search') => {
     if (!isOpen) {
@@ -74,6 +80,8 @@ export const Sidebar = () => {
     setSelectedSeasonId('')
     setSelectedTopicId('')
     setSelectedRole('')
+    setSelectedSortingMethodofMembers('')
+    setSelectedSortingMethodofPosts('')
   }
 
   return (

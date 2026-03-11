@@ -4,6 +4,7 @@ import { useApp } from '@/src/entities'
 import { Button } from '@/src/shared/components'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
+import { useMemo } from 'react'
 
 export const PostsList = () => {
   const {
@@ -14,33 +15,52 @@ export const PostsList = () => {
     getPostsBySeasonId,
     selectedTopicId,
     selectedSeasonId,
+    selectedSortingMethodofPosts,
   } = useApp()
 
-  let currentPosts = posts
+  const filteredPosts = useMemo(() => {
+    if (selectedSeasonId && selectedTopicId) {
+      const seasonPosts = getPostsBySeasonId(selectedSeasonId)
+      const topicPosts = getPostsByTopicId(selectedTopicId)
+      const topicPostSet = new Set(topicPosts)
+      return seasonPosts.filter(post => topicPostSet.has(post))
+    } else if (selectedSeasonId) {
+      return getPostsBySeasonId(selectedSeasonId)
+    } else if (selectedTopicId) {
+      return getPostsByTopicId(selectedTopicId)
+    }
+    return posts
+  }, [posts, selectedSeasonId, selectedTopicId, getPostsBySeasonId, getPostsByTopicId])
 
-  if (selectedSeasonId && selectedTopicId) {
-    const seasonPosts = getPostsBySeasonId(selectedSeasonId)
-    const topicPosts = getPostsByTopicId(selectedTopicId)
+  const sortedPosts = useMemo(() => {
+    if (!selectedSortingMethodofPosts) return filteredPosts
 
-    const topicPostSet = new Set(topicPosts)
-    currentPosts = seasonPosts.filter(post => topicPostSet.has(post))
-  } else if (selectedSeasonId) {
-    currentPosts = getPostsBySeasonId(selectedSeasonId)
-  } else if (selectedTopicId) {
-    currentPosts = getPostsByTopicId(selectedTopicId)
-  }
+    const sorted = [...filteredPosts]
+    switch (selectedSortingMethodofPosts) {
+      case 'Newest':
+        return sorted.sort((a, b) => b.releaseDate.localeCompare(a.releaseDate))
+      case 'Oldest':
+        return sorted.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate))
+      case 'A-Z':
+        return sorted.sort((a, b) => a.name.localeCompare(b.name))
+      case 'Z-A':
+        return sorted.sort((a, b) => b.name.localeCompare(a.name))
+      default:
+        return filteredPosts
+    }
+  }, [filteredPosts, selectedSortingMethodofPosts])
 
-  if (!currentPosts.length) {
+  if (!sortedPosts.length) {
     return (
-      <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16">
+      <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16 py-16">
         <p className="text-center text-2xl md:text-4xl">Нийтлэл олдсонгүй...</p>
       </div>
     )
   }
 
   return (
-    <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
-      {currentPosts.map((post, index) => {
+    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">
+      {sortedPosts.map((post, index) => {
         const author = getUserById(post.writerId)
         const topic = getTopicById(post.topicId)
 

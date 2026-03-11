@@ -5,26 +5,53 @@ import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
 import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
+import { useMemo } from 'react'
 
-export const MembersSection = ({}) => {
-  const { users, selectedSeasonId, getMembersBySeasonId, selectedRole, getMembersByRole } = useApp()
-  let currentMembers = users
+export const MembersList = ({}) => {
+  const {
+    users,
+    selectedSeasonId,
+    getMembersBySeasonId,
+    selectedRole,
+    getMembersByRole,
+    selectedSortingMethodofMembers,
+  } = useApp()
 
-  if (selectedSeasonId && selectedRole) {
-    const seasonMembers = getMembersBySeasonId(selectedSeasonId)
-    const roleMembers = getMembersByRole(selectedRole)
+  const filteredMembers = useMemo(() => {
+    if (selectedSeasonId && selectedRole) {
+      const seasonMembers = getMembersBySeasonId(selectedSeasonId)
+      const roleMembers = getMembersByRole(selectedRole)
+      const roleMemberSet = new Set(roleMembers)
+      return seasonMembers.filter(member => roleMemberSet.has(member))
+    } else if (selectedSeasonId) {
+      return getMembersBySeasonId(selectedSeasonId)
+    } else if (selectedRole) {
+      return getMembersByRole(selectedRole)
+    }
+    return users
+  }, [users, selectedSeasonId, selectedRole, getMembersBySeasonId, getMembersByRole])
 
-    const roleMemberSet = new Set(roleMembers)
-    currentMembers = seasonMembers.filter(post => roleMemberSet.has(post))
-  } else if (selectedSeasonId) {
-    currentMembers = getMembersBySeasonId(selectedSeasonId)
-  } else if (selectedRole) {
-    currentMembers = getMembersByRole(selectedRole)
-  }
+  const sortedMembers = useMemo(() => {
+    if (!selectedSortingMethodofMembers) return filteredMembers
+
+    const sorted = [...filteredMembers]
+    switch (selectedSortingMethodofMembers) {
+      // case 'Newest':
+      //   return sorted.sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''))
+      // case 'Oldest':
+      //   return sorted.sort((a, b) => (a.createdAt || '').localeCompare(b.createdAt || ''))
+      case 'A-Z':
+        return sorted.sort((a, b) => a.name.localeCompare(b.name))
+      case 'Z-A':
+        return sorted.sort((a, b) => b.name.localeCompare(a.name))
+      default:
+        return filteredMembers
+    }
+  }, [filteredMembers, selectedSortingMethodofMembers])
 
   return (
     <ul className="grid md:grid-cols-2 2xl:grid-cols-3 font-advent-pro pb-16">
-      {currentMembers.map((member, index) => (
+      {sortedMembers.map((member, index) => (
         <li
           className="text-black p-4 md:p-8 lg:p-12 xl:p-16 max-md:flex max-md:justify-between max-xl:grid max-xl:grid-cols-12 xl:flex xl:justify-between gap-4 relative group"
           key={member.name + index}

@@ -32,6 +32,12 @@ interface AppContextType {
   selectedRole: string
   setSelectedRole: Dispatch<SetStateAction<string>>
 
+  selectedSortingMethodofPosts: string
+  setSelectedSortingMethodofPosts: Dispatch<SetStateAction<string>>
+
+  selectedSortingMethodofMembers: string
+  setSelectedSortingMethodofMembers: Dispatch<SetStateAction<string>>
+
   currentSeasonId: string
 
   getPostById: (id: string) => Post | null
@@ -64,6 +70,9 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [selectedSeasonId, setSelectedSeasonId] = useState<string>('')
   const [selectedTopicId, setSelectedTopicId] = useState<string>('')
   const [selectedRole, setSelectedRole] = useState<string>('')
+
+  const [selectedSortingMethodofPosts, setSelectedSortingMethodofPosts] = useState<string>('')
+  const [selectedSortingMethodofMembers, setSelectedSortingMethodofMembers] = useState<string>('')
 
   const currentSeasonId = CURRENT_SEASON_ID
 
@@ -160,6 +169,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       selectedRole,
       setSelectedRole,
 
+      selectedSortingMethodofPosts,
+      setSelectedSortingMethodofPosts,
+      selectedSortingMethodofMembers,
+      setSelectedSortingMethodofMembers,
+
       currentSeasonId,
 
       getPostById,
@@ -188,6 +202,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       setSelectedTopicId,
       selectedRole,
       setSelectedRole,
+
+      selectedSortingMethodofPosts,
+      setSelectedSortingMethodofPosts,
+      selectedSortingMethodofMembers,
+      setSelectedSortingMethodofMembers,
 
       currentSeasonId,
 

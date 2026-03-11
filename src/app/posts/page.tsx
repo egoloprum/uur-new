@@ -19,11 +19,11 @@ export const Page = ({}) => {
       </div>
 
       <section className="px-4 md:px-8 lg:px-12 xl:px-16">
-        <div className="border-y border-gray-400 py-4 md:py-8 lg:py-12 xl:py-16 flex flex-wrap gap-4 justify-between items-center">
-          <div className="flex gap-4 flex-wrap">
+        <div className="border-y border-gray-400 py-4 md:py-8 lg:py-12 xl:py-16 flex flex-wrap max-sm:flex-col gap-4 sm:justify-between sm:items-center">
+          <div className="flex flex-wrap max-sm:flex-col gap-4">
             <FilterDropdown />
-            <SortDropdown />
             <FilterByTopicDropdown />
+            <SortDropdown />
           </div>
           <TopicsList />
         </div>

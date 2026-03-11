@@ -3,22 +3,22 @@
 import { useApp } from '@/src/entities'
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
 
-const sortingMethodsOfPosts = ['Oldest', 'Newest', 'A-Z', 'Z-A']
+const sortingMethodsOfMembers = ['Oldest', 'Newest', 'A-Z', 'Z-A']
 
 export const SortDropdown = ({}) => {
-  const { selectedSortingMethodofPosts, setSelectedSortingMethodofPosts } = useApp()
+  const { selectedSortingMethodofMembers, setSelectedSortingMethodofMembers } = useApp()
 
   return (
-    <Dropdown setSelectedItem={setSelectedSortingMethodofPosts}>
+    <Dropdown setSelectedItem={setSelectedSortingMethodofMembers}>
       <DropdownTrigger>
-        {selectedSortingMethodofPosts ? selectedSortingMethodofPosts : 'Дугаарлах'}
+        {selectedSortingMethodofMembers ? selectedSortingMethodofMembers : 'Дугаарлах'}
       </DropdownTrigger>
       <DropdownContent>
-        {sortingMethodsOfPosts.map((sort, index) => (
+        {sortingMethodsOfMembers.map((sort, index) => (
           <DropdownItem
             key={sort + index}
             value={sort}
-            className={`${selectedSortingMethodofPosts === sort && 'bg-indigo-300'}`}
+            className={`${selectedSortingMethodofMembers === sort && 'bg-indigo-300'}`}
           >
             {sort}
           </DropdownItem>
