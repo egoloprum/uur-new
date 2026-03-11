@@ -1,1 +1,2 @@
-export * from './membersList'
+export * from './MembersList'
+export * from './EachMemberPostsList'
