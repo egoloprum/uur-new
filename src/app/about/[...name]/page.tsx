@@ -22,27 +22,27 @@ export const Page = ({}) => {
       </div>
       <section className="px-4 md:px-8 lg:px-12 xl:px-16">
         <div className="border-y border-gray-400 py-4 md:py-8 lg:py-12 xl:py-16 flex flex-wrap max-sm:flex-col gap-4 sm:justify-between sm:items-center">
-          <ul className="flex flex-wrap max-sm:flex-col gap-4">
+          <ul className="flex flex-wrap gap-2 md:gap-4">
             <li
-              className="text-black uppercase border rounded-full px-2"
+              className="text-black uppercase border rounded-full px-2 w-fit"
               style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}
             >
               Координатор
             </li>
             <li
-              className="text-black uppercase border rounded-full px-2"
+              className="text-black uppercase border rounded-full px-2 w-fit"
               style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}
             >
               Координатор
             </li>
             <li
-              className="text-black uppercase border rounded-full px-2"
+              className="text-black uppercase border rounded-full px-2 w-fit"
               style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}
             >
               Координатор
             </li>
             <li
-              className="text-black uppercase border rounded-full px-2"
+              className="text-black uppercase border rounded-full px-2 w-fit"
               style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}
             >
               Координатор
@@ -60,21 +60,25 @@ export const Page = ({}) => {
         </div>
       </section>
 
-      <section className="p-4 md:p-8 lg:p-12 xl:p-16 grid grid-cols-12">
-        <div className="relative col-span-4">
-          <Image src="/members/member-1.jpg" height={500} width={500} alt="qwe" />
+      <section className="p-4 md:p-8 lg:p-12 xl:p-16 sm:grid sm:grid-cols-12 flex flex-col max-sm:space-y-12">
+        <div className="relative sm:col-span-5 lg:col-span-4 max-sm:h-150 max-md:h-125 max-lg:h-125 lg:h-150 xl:h-175">
+          <Image src="/members/member-1.jpg" className="object-cover" fill alt="qwe" />
         </div>
-        <div className="col-start-6 col-span-7 grid grid-rows-2 gap-4 md:gap-8 lg:gap-12 xl:gap-16 text-black">
-          <div className="flex flex-col justify-between">
-            <h2 className="text-4xl font-semibold text-end">ҮҮР-ээс гадуур юу хийдэг вэ?</h2>
-            <p className="text-2xl">
+        <div className="sm:col-start-7 sm:col-span-6 lg:col-start-6 lg:col-span-7 grid sm:grid-rows-2 gap-8 md:gap-8 lg:gap-12 xl:gap-16 text-black">
+          <div className="flex flex-col justify-between space-y-4 md:space-y-8 lg:space-y-12 xl:space-y-16">
+            <h2 className="text-2xl lg:text-4xl font-semibold sm:text-end">
+              ҮҮР-ээс гадуур юу хийдэг вэ?
+            </h2>
+            <p className="text-base md:text-xl lg:text-2xl">
               Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн
               трапезийн анхлан суралцагч
             </p>
           </div>
-          <div className="flex flex-col justify-between">
-            <h2 className="text-4xl font-semibold text-end">Ойрд уншиж, үзэж буй зүйлс</h2>
-            <p className="text-2xl">
+          <div className="flex flex-col justify-between space-y-4 md:space-y-8 lg:space-y-12 xl:space-y-16">
+            <h2 className="text-2xl lg:text-4xl font-semibold sm:text-end">
+              Ойрд уншиж, үзэж буй зүйлс
+            </h2>
+            <p className="text-base md:text-xl lg:text-2xl">
               Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис
               хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн
               подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст
@@ -84,12 +88,12 @@ export const Page = ({}) => {
       </section>
 
       <section className="px-4 md:px-8 lg:px-12 xl:px-16">
-        <div className="border-y border-gray-400 py-4 md:py-8 lg:py-12 xl:py-16 flex flex-wrap max-sm:flex-col gap-4 sm:justify-between sm:items-center">
-          <div className="flex flex-wrap max-sm:flex-col gap-4">
+        <div className="border-y border-gray-400 py-4 md:py-8 lg:py-12 xl:py-16 flex flex-wrap max-md:flex-col gap-4 md:justify-between md:items-center">
+          <div className="flex flex-wrap gap-4">
             <FilterPostsOfEachMemberDropdown />
             <SortPostsOfEachMemberDropdown />
           </div>
-          <TopicsList />
+          <TopicsList className="flex-row flex-wrap max-sm:gap-x-4" />
         </div>
       </section>
 
