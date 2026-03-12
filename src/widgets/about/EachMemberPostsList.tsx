@@ -4,63 +4,18 @@ import { useApp } from '@/src/entities'
 import { Button } from '@/src/shared/components'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
-import { useMemo } from 'react'
 
-export const EachMemberPostsList = ({}) => {
-  const {
-    posts,
-    getUserById,
-    getTopicById,
-    getPostsByTopicId,
-    getPostsBySeasonId,
-    selectedTopicId,
-    selectedSeasonId,
-    selectedSortingMethodofPosts,
-  } = useApp()
+export const EachMemberPostsList = ({ slug }: { slug: string }) => {
+  const { getUserById, getTopicById, getMemberBySlug, getPostsByContributerId } = useApp()
 
-  const filteredPosts = useMemo(() => {
-    if (selectedSeasonId && selectedTopicId) {
-      const seasonPosts = getPostsBySeasonId(selectedSeasonId)
-      const topicPosts = getPostsByTopicId(selectedTopicId)
-      const topicPostSet = new Set(topicPosts)
-      return seasonPosts.filter(post => topicPostSet.has(post))
-    } else if (selectedSeasonId) {
-      return getPostsBySeasonId(selectedSeasonId)
-    } else if (selectedTopicId) {
-      return getPostsByTopicId(selectedTopicId)
-    }
-    return posts
-  }, [posts, selectedSeasonId, selectedTopicId, getPostsBySeasonId, getPostsByTopicId])
+  const member = getMemberBySlug(slug)
+  if (!member) return null
 
-  const sortedPosts = useMemo(() => {
-    if (!selectedSortingMethodofPosts) return filteredPosts
-
-    const sorted = [...filteredPosts]
-    switch (selectedSortingMethodofPosts) {
-      case 'Newest':
-        return sorted.sort((a, b) => b.releaseDate.localeCompare(a.releaseDate))
-      case 'Oldest':
-        return sorted.sort((a, b) => a.releaseDate.localeCompare(b.releaseDate))
-      case 'A-Z':
-        return sorted.sort((a, b) => a.name.localeCompare(b.name))
-      case 'Z-A':
-        return sorted.sort((a, b) => b.name.localeCompare(a.name))
-      default:
-        return filteredPosts
-    }
-  }, [filteredPosts, selectedSortingMethodofPosts])
-
-  if (!sortedPosts.length) {
-    return (
-      <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16 py-16">
-        <p className="text-center text-2xl md:text-4xl">Нийтлэл олдсонгүй...</p>
-      </div>
-    )
-  }
+  const posts = getPostsByContributerId(member.id)
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">
-      {sortedPosts.map((post, index) => {
+      {posts.map((post, index) => {
         const author = getUserById(post.writerId)
         const topic = getTopicById(post.topicId)
 

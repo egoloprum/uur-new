@@ -52,6 +52,7 @@ interface AppContextType {
 
   getMembersByRole: (type: string) => User[]
   getMembersBySeasonId: (seasonId: string) => User[]
+  getMemberBySlug: (slug: string) => User | null
 
   getSeasonsBySelectedSeasonId: () => Season[]
   getTopicsBySelectedTopicId: () => Topic[]
@@ -143,6 +144,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     [seasons, users]
   )
 
+  const getMemberBySlug = useCallback(
+    (slug: string) => {
+      if (slug === '') return null
+
+      const user = users.find(u => u.slug === slug)
+      if (!user) return null
+
+      return user
+    },
+    [users]
+  )
+
   const getSeasonsBySelectedSeasonId = useCallback(() => {
     if (selectedSeasonId === '') return seasons
 
@@ -187,6 +200,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByTopicId,
       getMembersByRole,
       getMembersBySeasonId,
+      getMemberBySlug,
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     }),
@@ -221,6 +235,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByTopicId,
       getMembersByRole,
       getMembersBySeasonId,
+      getMemberBySlug,
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     ]

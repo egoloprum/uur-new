@@ -1,2 +1,5 @@
 export * from './MembersList'
 export * from './EachMemberPostsList'
+export * from './MemberHero'
+export * from './MemberDescription'
+export * from './MemberAbout'
