@@ -53,7 +53,7 @@ export const PostsList = () => {
   if (!sortedPosts.length) {
     return (
       <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16 py-16">
-        <p className="text-center text-2xl md:text-4xl">Нийтлэл олдсонгүй...</p>
+        <p className="text-base md:text-2xl">Нийтлэл олдсонгүй...</p>
       </div>
     )
   }

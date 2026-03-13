@@ -49,6 +49,14 @@ export const MembersList = ({}) => {
     }
   }, [filteredMembers, selectedSortingMethodofMembers])
 
+  if (!sortedMembers.length) {
+    return (
+      <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16">
+        <p className="text-base md:text-2xl">Гишүүн олдсонгүй...</p>
+      </div>
+    )
+  }
+
   return (
     <ul className="grid md:grid-cols-2 2xl:grid-cols-3 font-advent-pro pb-16">
       {sortedMembers.map((member, index) => (

@@ -13,6 +13,14 @@ export const EachMemberPostsList = ({ slug }: { slug: string }) => {
 
   const posts = getPostsByContributerId(member.id)
 
+  if (!posts.length) {
+    return (
+      <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16">
+        <p className="text-base md:text-2xl">Нийтлэл одоогоор байхгүй байна...</p>
+      </div>
+    )
+  }
+
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">
       {posts.map((post, index) => {
