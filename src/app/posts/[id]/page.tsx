@@ -2,7 +2,7 @@ import { Breadcrumb, Logo } from '@/src/widgets'
 
 export const Page = ({}) => {
   return (
-    <main className="bg-[#fbfaf2] font-advent-pro">
+    <main className="bg-[#fbfaf2] font-advent-pro-local">
       <div className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-20 relative overflow-hidden">
         <Logo />
         <Breadcrumb />

@@ -3,7 +3,7 @@
 import { useApp } from '@/src/entities'
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
 
-export const FilterDropdown = ({}) => {
+export const MembersFilterDropdown = ({}) => {
   const { seasons, getSeasonById, setSelectedSeasonId, selectedSeasonId } = useApp()
 
   const season = getSeasonById(selectedSeasonId)

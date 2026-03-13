@@ -1,11 +1,15 @@
+'use client'
+
 import { useApp } from '@/src/entities'
-import { Post } from '@/src/entities/post'
+import { User } from '@/src/entities/user'
 import { Button } from '@/src/shared/components'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
-export const PostsList = ({ posts }: { posts: Post[] }) => {
-  const { getUserById } = useApp()
+export const EachMemberPostsList = ({ member }: { member: User }) => {
+  const { getUserById, getTopicById, getPostsByContributerId } = useApp()
+
+  const posts = getPostsByContributerId(member.id)
 
   if (!posts.length) {
     return (
@@ -16,14 +20,15 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
   }
 
   return (
-    <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
+    <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">
       {posts.map((post, index) => {
-        const member = getUserById(post.writerId)
+        const author = getUserById(post.writerId)
+        const topic = getTopicById(post.topicId)
 
         return (
           <li
             className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
-            key={post.name + member?.name + index}
+            key={post.name + post.writerId + index}
           >
             <div
               className={clsx([
@@ -50,10 +55,10 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
 
             <div className="flex flex-wrap justify-between items-center gap-4 tracking-wide mt-auto z-10">
               <div className="flex gap-2 md:gap-8">
+                <span className={clsx(['h-4 w-4 aspect-square rounded-full'], topic?.color)}></span>
                 <p>{post.releaseDate}</p>
-                <p className="uppercase">{member?.name}</p>
+                <p className="uppercase">{author?.name}</p>
               </div>
-
               <Button
                 mode="primary"
                 href={`/posts/${post.slug}`}

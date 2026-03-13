@@ -102,7 +102,7 @@ export const CurrentSeasonTeamSection = () => {
   }, [])
 
   return (
-    <div className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 space-y-8 font-advent-pro relative">
+    <div className="bg-[#fbfaf2] px-4 md:px-8 lg:px-12 xl:px-16 space-y-8 relative">
       <div className="flex flex-wrap gap-4 justify-between">
         <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд </h2>
         <Button mode="primary" href="/about" className="max-sm:mt-4">

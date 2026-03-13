@@ -16,6 +16,7 @@ import { defaultUserData, User } from './user'
 import { defaultTopicData, Topic } from './topic'
 
 const CURRENT_SEASON_ID = '405e4a2d-e198-4fa8-942d-3727d36861e2'
+const PREVIOUS_SEASON_ID = '56a6a473-4733-4204-8b29-1633f0084d97'
 
 interface AppContextType {
   posts: Post[]
@@ -32,7 +33,14 @@ interface AppContextType {
   selectedRole: string
   setSelectedRole: Dispatch<SetStateAction<string>>
 
+  selectedSortingMethodofPosts: string
+  setSelectedSortingMethodofPosts: Dispatch<SetStateAction<string>>
+
+  selectedSortingMethodofMembers: string
+  setSelectedSortingMethodofMembers: Dispatch<SetStateAction<string>>
+
   currentSeasonId: string
+  previousSeasonId: string
 
   getPostById: (id: string) => Post | null
   getSeasonById: (id: string) => Season | null
@@ -46,6 +54,7 @@ interface AppContextType {
 
   getMembersByRole: (type: string) => User[]
   getMembersBySeasonId: (seasonId: string) => User[]
+  getMemberBySlug: (slug: string) => User | null
 
   getSeasonsBySelectedSeasonId: () => Season[]
   getTopicsBySelectedTopicId: () => Topic[]
@@ -65,7 +74,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [selectedTopicId, setSelectedTopicId] = useState<string>('')
   const [selectedRole, setSelectedRole] = useState<string>('')
 
+  const [selectedSortingMethodofPosts, setSelectedSortingMethodofPosts] = useState<string>('')
+  const [selectedSortingMethodofMembers, setSelectedSortingMethodofMembers] = useState<string>('')
+
   const currentSeasonId = CURRENT_SEASON_ID
+  const previousSeasonId = PREVIOUS_SEASON_ID
 
   const getPostById = useCallback((id: string) => posts.find(p => p.id === id) || null, [posts])
 
@@ -134,6 +147,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     [seasons, users]
   )
 
+  const getMemberBySlug = useCallback(
+    (slug: string) => {
+      if (slug === '') return null
+
+      const user = users.find(u => u.slug === slug)
+      if (!user) return null
+
+      return user
+    },
+    [users]
+  )
+
   const getSeasonsBySelectedSeasonId = useCallback(() => {
     if (selectedSeasonId === '') return seasons
 
@@ -160,7 +185,13 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       selectedRole,
       setSelectedRole,
 
+      selectedSortingMethodofPosts,
+      setSelectedSortingMethodofPosts,
+      selectedSortingMethodofMembers,
+      setSelectedSortingMethodofMembers,
+
       currentSeasonId,
+      previousSeasonId,
 
       getPostById,
       getSeasonById,
@@ -173,6 +204,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByTopicId,
       getMembersByRole,
       getMembersBySeasonId,
+      getMemberBySlug,
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     }),
@@ -189,7 +221,13 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       selectedRole,
       setSelectedRole,
 
+      selectedSortingMethodofPosts,
+      setSelectedSortingMethodofPosts,
+      selectedSortingMethodofMembers,
+      setSelectedSortingMethodofMembers,
+
       currentSeasonId,
+      previousSeasonId,
 
       getPostById,
       getSeasonById,
@@ -202,6 +240,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsByTopicId,
       getMembersByRole,
       getMembersBySeasonId,
+      getMemberBySlug,
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     ]

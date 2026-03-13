@@ -4,11 +4,11 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
 const routes: Record<string, string> = {
-  posts: 'нийтлэлүүд',
-  seasons: 'улиралууд',
-  topics: 'сэдвүүд',
-  about: 'бидний тухай',
-  '/': 'нүүр',
+  posts: 'Нийтлэлүүд',
+  seasons: 'Улиралууд',
+  topics: 'Сэдвүүд',
+  about: 'Бидний тухай',
+  '/': 'Нүүр',
   'Bidnii-anzaardaggui-AI-iin-nuutsuud': 'Бидний анзаардаггүй AI-ын нууцууд',
   Jazz: 'Жазз',
   'Suunii-paradoks': 'Сүүний парадокс',
@@ -41,7 +41,7 @@ export const Breadcrumb = () => {
     <nav aria-label="Breadcrumb">
       <ul className="flex items-center gap-2 text-black">
         {breadcrumbs.map((crumb, index) => (
-          <li key={crumb.href} className="flex items-center capitalize text-xl tracking-wide">
+          <li key={crumb.href} className="flex items-center text-xl tracking-wide">
             {index > 0 && <span className="mr-2 text-gray-400">/</span>}
             {index === breadcrumbs.length - 1 ? (
               <span className="">{crumb.label}</span>
