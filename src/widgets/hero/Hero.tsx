@@ -1,8 +1,14 @@
 import { Breadcrumb, Logo } from '@/src/widgets'
+import clsx from 'clsx'
 
-export const HeroSection = ({ title }: { title: string }) => {
+export const HeroSection = ({ title, className }: { title: string; className?: string }) => {
   return (
-    <div className="bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-20 relative overflow-hidden">
+    <div
+      className={clsx([
+        'bg-[#fbfaf2] p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-20 relative overflow-hidden',
+        className,
+      ])}
+    >
       <Logo />
       <Breadcrumb />
       <h1

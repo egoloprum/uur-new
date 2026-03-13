@@ -6,9 +6,9 @@ import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
 export const PreviousSeasonPostsSection = ({}) => {
-  const { getPostsBySeasonId, getTopicById, getUserById, currentSeasonId } = useApp()
+  const { getPostsBySeasonId, getTopicById, getUserById, previousSeasonId } = useApp()
 
-  const posts = getPostsBySeasonId(currentSeasonId)
+  const posts = getPostsBySeasonId(previousSeasonId)
 
   return (
     <div className="bg-[#fbfaf2] space-y-8 font-advent-pro">

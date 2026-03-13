@@ -1,15 +1,13 @@
 'use client'
 
 import { useApp } from '@/src/entities'
+import { User } from '@/src/entities/user'
 import { Button } from '@/src/shared/components'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
-export const EachMemberPostsList = ({ slug }: { slug: string }) => {
-  const { getUserById, getTopicById, getMemberBySlug, getPostsByContributerId } = useApp()
-
-  const member = getMemberBySlug(slug)
-  if (!member) return null
+export const EachMemberPostsList = ({ member }: { member: User }) => {
+  const { getUserById, getTopicById, getPostsByContributerId } = useApp()
 
   const posts = getPostsByContributerId(member.id)
 

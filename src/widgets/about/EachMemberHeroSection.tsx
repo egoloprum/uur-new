@@ -8,5 +8,10 @@ export const EachMemberHeroSection = ({ slug }: { slug: string }) => {
 
   const member = getMemberBySlug(slug)
 
-  return <HeroSection title={member?.name || 'Гишүүн олдсонгүй'} />
+  return (
+    <HeroSection
+      title={member?.name || 'Гишүүн олдсонгүй'}
+      className={member ? '' : 'pb-20! md:pb-40! lg:pb-60!'}
+    />
+  )
 }
