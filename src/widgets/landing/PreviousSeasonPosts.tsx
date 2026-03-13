@@ -5,7 +5,7 @@ import { Button } from '@/src/shared/components'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
-export const CurrentSeasonPostsSection = ({}) => {
+export const PreviousSeasonPostsSection = ({}) => {
   const { getPostsBySeasonId, getTopicById, getUserById, currentSeasonId } = useApp()
 
   const posts = getPostsBySeasonId(currentSeasonId)
@@ -13,7 +13,7 @@ export const CurrentSeasonPostsSection = ({}) => {
   return (
     <div className="bg-[#fbfaf2] space-y-8 font-advent-pro">
       <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
-        <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын нийтлэлүүд</h2>
+        <h2 className="text-black font-bold text-4xl uppercase">Өмнөх улиралын нийтлэлүүд</h2>
         <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
           <div className="flex flex-col md:flex-row max-sm:flex-row md:items-center gap-2 max-sm:gap-4 md:gap-8">
             <p className="flex gap-2">

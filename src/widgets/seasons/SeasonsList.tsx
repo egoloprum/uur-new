@@ -26,7 +26,7 @@ export const SeasonsList = ({}) => {
             <div className="px-4 md:px-8 lg:px-12 xl:px-16 mt-12 my-8">
               <h3 className="text-2xl font-semibold">Улиралын нийтлэлүүд</h3>
             </div>
-            <PostsList seasonId={season.id} />
+            <PostsList posts={posts} />
             <div className="px-4 md:px-8 lg:px-12 xl:px-16 mt-12 my-8">
               <h3 className="text-2xl font-semibold">Улиралын гишүүд</h3>
             </div>

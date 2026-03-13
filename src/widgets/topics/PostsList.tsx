@@ -7,6 +7,14 @@ import { MoveRight } from 'lucide-react'
 export const PostsList = ({ posts }: { posts: Post[] }) => {
   const { getUserById } = useApp()
 
+  if (!posts.length) {
+    return (
+      <div className="text-black px-4 md:px-8 lg:px-12 xl:px-16 py-0">
+        <p className="text-base md:text-2xl">Нийтлэл одоогоор байхгүй байна...</p>
+      </div>
+    )
+  }
+
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
       {posts.map((post, index) => {

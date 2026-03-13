@@ -2,7 +2,7 @@ import {
   CurrentSeasonPostsSection,
   DescriptionSection,
   HeroSection,
-  LastSeasonPostsSection,
+  PreviousSeasonPostsSection,
   CurrentSeasonTeamSection,
   AboutSection,
 } from '../widgets/landing'
@@ -14,7 +14,7 @@ export default function Home() {
       <DescriptionSection />
       <CurrentSeasonPostsSection />
       <CurrentSeasonTeamSection />
-      <LastSeasonPostsSection />
+      <PreviousSeasonPostsSection />
       <AboutSection />
     </main>
   )

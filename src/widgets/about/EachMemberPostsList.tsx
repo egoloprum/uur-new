@@ -15,7 +15,7 @@ export const EachMemberPostsList = ({ slug }: { slug: string }) => {
 
   if (!posts.length) {
     return (
-      <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16">
+      <div className="text-black px-4 md:px-8 lg:px-12 xl:px-16 py-0">
         <p className="text-base md:text-2xl">Нийтлэл одоогоор байхгүй байна...</p>
       </div>
     )
