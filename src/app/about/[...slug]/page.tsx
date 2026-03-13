@@ -19,10 +19,7 @@ interface PageProps {
 export const Page = async ({ params }: { params: Promise<PageProps['params']> }) => {
   const resolvedParams = await params
   const { slug } = resolvedParams
-
   const decodedTitle = decodeURIComponent(slug)
-
-  console.log(decodedTitle)
 
   return (
     <main className="bg-[#fbfaf2] font-advent-pro">
