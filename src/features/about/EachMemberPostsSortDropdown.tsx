@@ -5,7 +5,7 @@ import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/
 
 const sortingMethodsOfMembers = ['Oldest', 'Newest', 'A-Z', 'Z-A']
 
-export const SortPostsOfEachMemberDropdown = ({}) => {
+export const EachMemberPostsSortDropdown = ({}) => {
   const { selectedSortingMethodofMembers, setSelectedSortingMethodofMembers } = useApp()
 
   return (

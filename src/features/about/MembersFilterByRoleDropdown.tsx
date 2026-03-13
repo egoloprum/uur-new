@@ -15,7 +15,7 @@ const Roles: RoleTypes[] = [
   'Marketer',
 ]
 
-export const FilterByRoleDropdown = ({}) => {
+export const MembersFilterByRoleDropdown = ({}) => {
   const { setSelectedRole, selectedRole } = useApp()
 
   return (

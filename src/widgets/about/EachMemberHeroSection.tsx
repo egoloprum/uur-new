@@ -3,7 +3,7 @@
 import { useApp } from '@/src/entities'
 import { HeroSection } from '../hero/Hero'
 
-export const MemberHeroSection = ({ slug }: { slug: string }) => {
+export const EachMemberHeroSection = ({ slug }: { slug: string }) => {
   const { getMemberBySlug } = useApp()
 
   const member = getMemberBySlug(slug)

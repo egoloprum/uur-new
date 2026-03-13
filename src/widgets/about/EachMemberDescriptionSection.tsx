@@ -4,7 +4,7 @@ import { useApp } from '@/src/entities'
 import { RoleTypes } from '@/src/entities/user'
 import { getSlugOfRole } from '@/src/shared'
 
-export const MemberDescriptionSection = ({ slug }: { slug: string }) => {
+export const EachMemberDescriptionSection = ({ slug }: { slug: string }) => {
   const { getMemberBySlug } = useApp()
 
   const member = getMemberBySlug(slug)

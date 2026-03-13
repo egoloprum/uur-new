@@ -3,7 +3,7 @@
 import { useApp } from '@/src/entities'
 import Image from 'next/image'
 
-export const MemberAboutSection = ({ slug }: { slug: string }) => {
+export const EachMemberAboutSection = ({ slug }: { slug: string }) => {
   const { getMemberBySlug } = useApp()
   const member = getMemberBySlug(slug)
 

@@ -1,6 +1,6 @@
-export * from './FilterDropdown'
-export * from './FilterByRoleDropdown'
-export * from './SortDropdown'
+export * from './MembersFilterDropdown'
+export * from './MembersFilterByRoleDropdown'
+export * from './MembersSortDropdown'
 
-export * from './FilterPostsOfEachMemberDropdown'
-export * from './SortPostsOfEachMemberDropdown'
+export * from './EachMemberPostsFilterDropdown'
+export * from './EachMemberPostsSortDropdown'
