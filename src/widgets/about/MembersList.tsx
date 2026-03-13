@@ -59,7 +59,7 @@ export const MembersList = ({}) => {
   }
 
   return (
-    <ul className="grid md:grid-cols-2 2xl:grid-cols-3 font-advent-pro pb-16">
+    <ul className="grid md:grid-cols-2 2xl:grid-cols-3 pb-16">
       {sortedMembers.map((member, index) => (
         <li
           className="text-black p-4 md:p-8 lg:p-12 xl:p-16 max-md:flex max-md:justify-between max-xl:grid max-xl:grid-cols-12 xl:flex xl:justify-between gap-4 relative group"

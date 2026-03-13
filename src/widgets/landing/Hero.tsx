@@ -46,7 +46,7 @@ export const HeroSection = () => {
   }, [])
 
   return (
-    <div className="bg-[#fbfaf2] lg:min-h-dvh p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col max-sm:gap-40 max-md:gap-60 max-lg:gap-80 font-advent-pro relative overflow-hidden">
+    <div className="bg-[#fbfaf2] lg:min-h-dvh p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col max-sm:gap-40 max-md:gap-60 max-lg:gap-80 relative overflow-hidden">
       <section className="flex flex-col justify-between">
         <h1 className="font-bold uppercase z-10">
           <span className="block text-8xl md:text-[10rem] tracking-wide text-black">Үүр</span>
