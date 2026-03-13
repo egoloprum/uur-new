@@ -18,7 +18,7 @@ export const Page = async ({ params }: { params: Promise<PageProps['params']> })
   const decodedTitle = decodeURIComponent(slug)
 
   return (
-    <main className="bg-[#fbfaf2] font-advent-pro">
+    <main className="bg-[#fbfaf2] font-advent-pro-local">
       <EachMemberHeroSection slug={decodedTitle} />
       <EachMemberDescriptionSection slug={decodedTitle} />
       <EachMemberAboutSection slug={decodedTitle} />

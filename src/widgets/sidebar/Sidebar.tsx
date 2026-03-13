@@ -106,7 +106,7 @@ export const Sidebar = () => {
       <div
         ref={panelRef}
         className={clsx([
-          'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center translate-x-full font-advent-pro',
+          'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center translate-x-full font-advent-pro-local',
         ])}
       >
         <div className="py-20 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">

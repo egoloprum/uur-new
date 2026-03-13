@@ -3,7 +3,7 @@ import { CardSim, Mail } from 'lucide-react'
 
 export const Footer = ({}) => {
   return (
-    <footer className="px-4 md:px-8 lg:px-12 xl:px-16 py-8 space-y-8 bg-[#14110F] font-advent-pro">
+    <footer className="px-4 md:px-8 lg:px-12 xl:px-16 py-8 space-y-8 bg-[#14110F] font-advent-pro-local">
       <nav className="flex justify-between items-center">
         <p className="text-xl md:text-2xl tracking-wide">Үүртэй хамтрах</p>
         <div className="flex gap-2">

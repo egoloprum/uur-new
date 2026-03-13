@@ -8,7 +8,7 @@ import { MembersList } from '@/src/widgets/about'
 
 export const Page = ({}) => {
   return (
-    <main className="bg-[#fbfaf2] font-advent-pro">
+    <main className="bg-[#fbfaf2] font-advent-pro-local">
       <HeroSection title="Багийн гишүүд" />
 
       <section className="px-4 md:px-8 lg:px-12 xl:px-16">

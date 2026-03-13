@@ -6,7 +6,7 @@ import { PostsList } from '@/src/widgets/posts'
 
 export const Page = ({}) => {
   return (
-    <main className="bg-[#fbfaf2] font-advent-pro">
+    <main className="bg-[#fbfaf2] font-advent-pro-local">
       <HeroSection title="Нийтлэлүүд" />
 
       <section className="px-4 md:px-8 lg:px-12 xl:px-16">

@@ -4,7 +4,7 @@ import { TopicsList } from '@/src/widgets/topics'
 
 export const Page = ({}) => {
   return (
-    <main className="bg-[#fbfaf2] font-advent-pro">
+    <main className="bg-[#fbfaf2] font-advent-pro-local">
       <HeroSection title="Сэдвүүд" />
 
       <section className="px-4 md:px-8 lg:px-12 xl:px-16">
