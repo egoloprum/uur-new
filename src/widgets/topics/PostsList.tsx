@@ -1,6 +1,7 @@
 import { useApp } from '@/src/entities'
 import { Post } from '@/src/entities/post'
 import { Button } from '@/src/shared/components'
+import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
 export const PostsList = ({ posts }: { posts: Post[] }) => {
@@ -16,8 +17,24 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
             className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
             key={post.name + member?.name + index}
           >
-            <div className="absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)] w-full border-x border-gray-400 top-1/2 -translate-y-1/2 left-0" />
-            <div className="absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full border-y border-gray-400 top-0 -translate-x-1/2 left-1/2" />
+            <div
+              className={clsx([
+                'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
+                'w-full border-l max-sm:border-r border-gray-400 top-1/2 -translate-y-1/2 left-0',
+                (index === posts.length - 1 || (index + 1) % 3 === 0) && 'lg:border-r',
+                (index + 1) % 2 === 0 && 'max-lg:border-r',
+                index + 1 === posts.length && 'max-lg:border-r',
+              ])}
+            />
+            <div
+              className={clsx([
+                'absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full',
+                'border-t border-gray-400 top-0 -translate-x-1/2 left-1/2',
+                index >= posts.length - 3 && 'lg:border-b',
+                index >= posts.length - 2 && 'max-lg:border-b',
+                index === posts.length - 1 && 'max-sm:border-b max-sm:border-t-0',
+              ])}
+            />
             <div className="space-y-4 z-10">
               <h3 className="text-2xl md:text-4xl font-semibold">{post.name}</h3>
               <p className="text-base md:text-xl line-clamp-4">{post.description}</p>

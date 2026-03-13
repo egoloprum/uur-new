@@ -1,6 +1,13 @@
 import clsx from 'clsx'
+import { ReactNode } from 'react'
 
-export const TopicsList = ({ className }: { className?: string }) => {
+export const TopicsList = ({
+  className,
+  children,
+}: {
+  className?: string
+  children?: ReactNode
+}) => {
   return (
     <div
       className={clsx([
@@ -26,6 +33,8 @@ export const TopicsList = ({ className }: { className?: string }) => {
           Урлаг
         </span>
       </p>
+
+      {children}
     </div>
   )
 }
