@@ -57,7 +57,11 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
                 <p>{post.releaseDate}</p>
                 <p className="uppercase">{member?.name}</p>
               </div>
-              <Button mode="primary" href="/" className="text-xs md:text-sm px-2! py-1!">
+              <Button
+                mode="primary"
+                href={`/posts/${post.slug}`}
+                className="text-xs md:text-sm px-2! py-1!"
+              >
                 <span>Цааш унших</span>
                 <MoveRight className="h-4 w-4" />
               </Button>
