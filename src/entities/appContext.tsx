@@ -51,6 +51,7 @@ interface AppContextType {
   getPostsBySeasonId: (seasonId: string) => Post[]
   getPostsByLatest: () => Post[]
   getPostsByTopicId: (topicId: string) => Post[]
+  getPostBySlug: (slug: string) => Post | null
 
   getMembersByRole: (type: string) => User[]
   getMembersBySeasonId: (seasonId: string) => User[]
@@ -128,6 +129,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     [topics, posts]
   )
 
+  const getPostBySlug = useCallback(
+    (slug: string) => {
+      if (slug === '') return null
+
+      const post = posts.find(p => p.slug === slug)
+      if (!post) return null
+
+      return post
+    },
+    [posts]
+  )
+
   const getMembersByRole = useCallback(
     (type: string) => {
       return users.filter(user => user.role.some(role => role.type === type))
@@ -202,9 +215,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsBySeasonId,
       getPostsByLatest,
       getPostsByTopicId,
+      getPostBySlug,
+
       getMembersByRole,
       getMembersBySeasonId,
       getMemberBySlug,
+
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     }),
@@ -238,9 +254,12 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getPostsBySeasonId,
       getPostsByLatest,
       getPostsByTopicId,
+      getPostBySlug,
+
       getMembersByRole,
       getMembersBySeasonId,
       getMemberBySlug,
+
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     ]
