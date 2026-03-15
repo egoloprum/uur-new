@@ -77,7 +77,7 @@ export const CurrentSeasonPostsSection = ({}) => {
                 />
                 <div className="space-y-4 z-10">
                   <h3 className="text-2xl md:text-4xl font-semibold">{post.name}</h3>
-                  <p className="text-base md:text-xl">{post.description}</p>
+                  <p className="text-base md:text-xl line-clamp-4">{post.description}</p>
                 </div>
 
                 <div className="flex flex-wrap justify-between items-center gap-4 tracking-wide mt-auto z-10">

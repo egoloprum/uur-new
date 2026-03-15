@@ -14,6 +14,7 @@ import { defaultPostData, Post } from './post'
 import { defaultSeasonData, Season } from './season'
 import { defaultUserData, User } from './user'
 import { defaultTopicData, Topic } from './topic'
+import { Article, defaultArticleData } from './article'
 
 const CURRENT_SEASON_ID = '405e4a2d-e198-4fa8-942d-3727d36861e2'
 const PREVIOUS_SEASON_ID = '56a6a473-4733-4204-8b29-1633f0084d97'
@@ -23,6 +24,7 @@ interface AppContextType {
   seasons: Season[]
   users: User[]
   topics: Topic[]
+  articles: Article[]
 
   selectedSeasonId: string
   setSelectedSeasonId: Dispatch<SetStateAction<string>>
@@ -46,11 +48,13 @@ interface AppContextType {
   getSeasonById: (id: string) => Season | null
   getUserById: (id: string) => User | null
   getTopicById: (id: string) => Topic | null
+  getArticleById: (id: string) => Article | null
 
   getPostsByContributerId: (id: string) => Post[]
   getPostsBySeasonId: (seasonId: string) => Post[]
   getPostsByLatest: () => Post[]
   getPostsByTopicId: (topicId: string) => Post[]
+  getPostBySlug: (slug: string) => Post | null
 
   getMembersByRole: (type: string) => User[]
   getMembersBySeasonId: (seasonId: string) => User[]
@@ -69,6 +73,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
     defaultSeasonData.filter(s => s.isActive === true).reverse()
   )
   const [topics] = useState<Topic[]>(defaultTopicData)
+  const [articles] = useState<Article[]>(defaultArticleData)
 
   const [selectedSeasonId, setSelectedSeasonId] = useState<string>('')
   const [selectedTopicId, setSelectedTopicId] = useState<string>('')
@@ -90,6 +95,11 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const getUserById = useCallback((id: string) => users.find(u => u.id === id) || null, [users])
 
   const getTopicById = useCallback((id: string) => topics.find(t => t.id === id) || null, [topics])
+
+  const getArticleById = useCallback(
+    (id: string) => articles.find(a => a.id === id) || null,
+    [articles]
+  )
 
   const getPostsByContributerId = useCallback(
     (userId: string) => {
@@ -126,6 +136,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       return posts.filter(p => topic.postId.includes(p.id))
     },
     [topics, posts]
+  )
+
+  const getPostBySlug = useCallback(
+    (slug: string) => {
+      if (slug === '') return null
+
+      const post = posts.find(p => p.slug === slug)
+      if (!post) return null
+
+      return post
+    },
+    [posts]
   )
 
   const getMembersByRole = useCallback(
@@ -177,6 +199,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       seasons,
       users,
       topics,
+      articles,
 
       selectedSeasonId,
       setSelectedSeasonId,
@@ -197,14 +220,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getSeasonById,
       getUserById,
       getTopicById,
+      getArticleById,
 
       getPostsByContributerId,
       getPostsBySeasonId,
       getPostsByLatest,
       getPostsByTopicId,
+      getPostBySlug,
+
       getMembersByRole,
       getMembersBySeasonId,
       getMemberBySlug,
+
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     }),
@@ -213,6 +240,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       seasons,
       users,
       topics,
+      articles,
 
       selectedSeasonId,
       setSelectedSeasonId,
@@ -233,14 +261,18 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getSeasonById,
       getUserById,
       getTopicById,
+      getArticleById,
 
       getPostsByContributerId,
       getPostsBySeasonId,
       getPostsByLatest,
       getPostsByTopicId,
+      getPostBySlug,
+
       getMembersByRole,
       getMembersBySeasonId,
       getMemberBySlug,
+
       getSeasonsBySelectedSeasonId,
       getTopicsBySelectedTopicId,
     ]

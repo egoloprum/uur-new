@@ -1,7 +1,14 @@
 import { Breadcrumb, Logo } from '@/src/widgets'
 import clsx from 'clsx'
+import { ReactNode } from 'react'
 
-export const HeroSection = ({ title, className }: { title: string; className?: string }) => {
+export const HeroSection = ({
+  className,
+  children,
+}: {
+  className?: string
+  children: ReactNode
+}) => {
   return (
     <div
       className={clsx([
@@ -11,12 +18,7 @@ export const HeroSection = ({ title, className }: { title: string; className?: s
     >
       <Logo />
       <Breadcrumb />
-      <h1
-        className="font-bold uppercase z-10 text-black tracking-wide mt-20 leading-12"
-        style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
-      >
-        {title}
-      </h1>
+      <div>{children}</div>
     </div>
   )
 }
