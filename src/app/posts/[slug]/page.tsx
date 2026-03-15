@@ -1,5 +1,4 @@
-import { Breadcrumb, Logo } from '@/src/widgets'
-import { EachPostHeroSection } from '@/src/widgets/posts'
+import { EachPostHeroSection, EachArticleSection } from '@/src/widgets/posts'
 
 interface PageProps {
   params: {
@@ -15,6 +14,7 @@ export const Page = async ({ params }: { params: Promise<PageProps['params']> })
   return (
     <main className="bg-[#fbfaf2] font-advent-pro-local">
       <EachPostHeroSection slug={decodedTitle} />
+      <EachArticleSection slug={decodedTitle} />
     </main>
   )
 }
