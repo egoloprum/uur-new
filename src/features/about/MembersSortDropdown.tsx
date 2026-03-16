@@ -2,39 +2,42 @@
 
 import { useApp } from '@/src/entities'
 import {
-  Dropdown,
-  DropdownContent,
-  DropdownItem,
-  DropdownTrigger
+	Dropdown,
+	DropdownContent,
+	DropdownItem,
+	DropdownTrigger
 } from '@/src/shared/components'
 
-const sortingMethodsOfMembers = ['Oldest', 'Newest', 'A-Z', 'Z-A']
+const sortMethods = ['Oldest', 'Newest', 'A-Z', 'Z-A']
 
 export const MembersSortDropdown = ({}) => {
-  const { selectedSortingMethodofMembers, setSelectedSortingMethodofMembers } =
-    useApp()
+	const { filters, setFilters } = useApp()
 
-  return (
-    <Dropdown setSelectedItem={setSelectedSortingMethodofMembers}>
-      <DropdownTrigger>
-        {selectedSortingMethodofMembers
-          ? selectedSortingMethodofMembers
-          : 'Дугаарлах'}
-      </DropdownTrigger>
-      <DropdownContent>
-        {sortingMethodsOfMembers.map((sort, index) => (
-          <DropdownItem
-            key={sort + index}
-            value={sort}
-            className={`${selectedSortingMethodofMembers === sort && 'bg-indigo-300'}`}
-          >
-            {sort}
-          </DropdownItem>
-        ))}
-        <DropdownItem value="" className=" border-t">
-          Болих
-        </DropdownItem>
-      </DropdownContent>
-    </Dropdown>
-  )
+	const selectedSort = filters.memberSort
+
+	const setSelectedSort = (value: string) => {
+		setFilters(f => ({ ...f, memberSort: value }))
+	}
+
+	return (
+		<Dropdown setSelectedItem={setSelectedSort}>
+			<DropdownTrigger>
+				{selectedSort ? selectedSort : 'Дугаарлах'}
+			</DropdownTrigger>
+			<DropdownContent>
+				{sortMethods.map((sort, index) => (
+					<DropdownItem
+						key={sort + index}
+						value={sort}
+						className={`${selectedSort === sort && 'bg-indigo-300'}`}
+					>
+						{sort}
+					</DropdownItem>
+				))}
+				<DropdownItem value="" className=" border-t">
+					Болих
+				</DropdownItem>
+			</DropdownContent>
+		</Dropdown>
+	)
 }

@@ -22,7 +22,6 @@ export const FilterByTopicDropdown = ({}) => {
 	const setSelectedTopicId = (id: string) => {
 		setFilters(f => ({ ...f, topicId: id }))
 	}
-
 	return (
 		<Dropdown setSelectedItem={setSelectedTopicId}>
 			<DropdownTrigger>{topic ? topic.name : 'Сэдвүүд'}</DropdownTrigger>
@@ -47,20 +46,7 @@ export const FilterByTopicDropdown = ({}) => {
 						{topic.name}
 					</DropdownItem>
 				))}
-				<DropdownItem
-					value=""
-					className=" border-t"
-					onClick={() => {
-						trackEvent({
-							type: 'filter_used',
-							route: pathname,
-							metadata: {
-								title: 'Бүх сэдвүүд',
-								type: 'topic'
-							}
-						})
-					}}
-				>
+				<DropdownItem value="" className=" border-t">
 					Бүх сэдвүүд
 				</DropdownItem>
 			</DropdownContent>

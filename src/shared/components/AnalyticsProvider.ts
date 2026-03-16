@@ -6,14 +6,14 @@ import { useEffect } from 'react'
 import { trackEvent } from '@/src/shared/lib/analytics'
 
 export function AnalyticsProvider() {
-  const pathname = usePathname()
+	const pathname = usePathname()
 
-  useEffect(() => {
-    trackEvent({
-      type: 'page_view',
-      route: pathname
-    })
-  }, [pathname])
+	useEffect(() => {
+		trackEvent({
+			type: 'page_view',
+			route: pathname
+		})
+	}, [pathname])
 
-  return null
+	return null
 }
