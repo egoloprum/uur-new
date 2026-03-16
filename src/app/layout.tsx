@@ -3,7 +3,7 @@ import localFont from 'next/font/local'
 import './globals.css'
 import { Footer, Sidebar } from '../widgets'
 import { AppProvider } from '../entities'
-import { LenisScrollProvider } from '../shared/components'
+import { AnalyticsProvider, LenisScrollProvider } from '../shared/components'
 
 const adventProLocal = localFont({
   src: [
@@ -71,6 +71,7 @@ export default function RootLayout({
       <body className={`${adventProLocal.variable} antialiased`}>
         <LenisScrollProvider>
           <AppProvider>
+            <AnalyticsProvider />
             {children}
             <Footer />
             <Sidebar />
