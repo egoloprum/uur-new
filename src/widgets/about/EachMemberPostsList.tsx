@@ -32,6 +32,8 @@ export const EachMemberPostsList = ({ member }: { member: User }) => {
     return contributorPosts
   }, [selectedSeasonId, member.id, getPostsByContributerId, getPostsBySeasonId])
 
+  const pathname = usePathname()
+
   if (!filteredPosts.length) {
     return (
       <div className="text-black px-4 md:px-8 lg:px-12 xl:px-16 py-0">
@@ -39,8 +41,6 @@ export const EachMemberPostsList = ({ member }: { member: User }) => {
       </div>
     )
   }
-
-  const pathname = usePathname()
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">

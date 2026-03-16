@@ -52,6 +52,8 @@ export const PostsList = () => {
     }
   }, [filteredPosts, selectedSortingMethodofPosts])
 
+  const pathname = usePathname()
+
   if (!sortedPosts.length) {
     return (
       <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16 py-16">
@@ -59,8 +61,6 @@ export const PostsList = () => {
       </div>
     )
   }
-
-  const pathname = usePathname()
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">

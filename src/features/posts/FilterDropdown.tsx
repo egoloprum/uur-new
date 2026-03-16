@@ -4,7 +4,6 @@ import { useApp } from '@/src/entities'
 import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
 import { trackEvent } from '@/src/shared/lib'
 import { usePathname } from 'next/navigation'
-import { title } from 'process'
 
 export const FilterDropdown = ({}) => {
   const { seasons, getSeasonById, setSelectedSeasonId, selectedSeasonId } = useApp()

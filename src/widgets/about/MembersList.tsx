@@ -52,6 +52,8 @@ export const MembersList = ({}) => {
     }
   }, [filteredMembers, selectedSortingMethodofMembers])
 
+  const pathname = usePathname()
+
   if (!sortedMembers.length) {
     return (
       <div className="text-black p-4 md:p-8 lg:p-12 xl:p-16">
@@ -59,8 +61,6 @@ export const MembersList = ({}) => {
       </div>
     )
   }
-
-  const pathname = usePathname()
 
   return (
     <ul className="grid md:grid-cols-2 2xl:grid-cols-3 pb-16">

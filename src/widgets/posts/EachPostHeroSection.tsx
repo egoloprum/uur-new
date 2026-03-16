@@ -11,6 +11,8 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 
   const post = getPostBySlug(slug)
 
+  const pathname = usePathname()
+
   if (!post) {
     return (
       <>
@@ -27,8 +29,6 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
   }
 
   const member = getUserById(post.writerId)
-
-  const pathname = usePathname()
 
   return (
     <>
