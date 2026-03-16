@@ -8,6 +8,7 @@ import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
 import { gsap } from 'gsap'
+import { trackEvent } from '@/src/shared/lib'
 
 export const CurrentSeasonTeamSection = () => {
   const { currentSeasonId, getMembersBySeasonId } = useApp()
@@ -141,6 +142,15 @@ export const CurrentSeasonTeamSection = () => {
               mode="primary"
               href={`/about/${member.slug}`}
               className="text-xs md:text-sm px-2! py-1! max-sm:mt-4"
+              onClick={() =>
+                trackEvent({
+                  type: 'member_visit',
+                  route: '/',
+                  metadata: {
+                    title: member.name,
+                  },
+                })
+              }
             >
               <span>Дэлгэрэнгүй</span>
               <MoveRight className="h-4 w-4" />

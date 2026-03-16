@@ -1,10 +1,11 @@
 import { User } from '@/src/entities/user'
 import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
-export const MembersList = ({ members }: { members: User[] }) => {
+export const MembersList = ({ members, pathname }: { members: User[]; pathname: string }) => {
   return (
     <ul className="">
       {members.map((member, index) => (
@@ -35,6 +36,15 @@ export const MembersList = ({ members }: { members: User[] }) => {
             mode="primary"
             href={`/about/${member.slug}`}
             className="text-xs md:text-sm px-2! py-1! max-sm:mt-4"
+            onClick={() =>
+              trackEvent({
+                type: 'member_visit',
+                route: pathname,
+                metadata: {
+                  title: member.name,
+                },
+              })
+            }
           >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="h-4 w-4" />

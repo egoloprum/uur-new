@@ -3,15 +3,38 @@
 import { useApp } from '@/src/entities'
 import { User } from '@/src/entities/user'
 import { Button } from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { useMemo } from 'react'
+
+// TODO: add sorting for posts
 
 export const EachMemberPostsList = ({ member }: { member: User }) => {
-  const { getUserById, getTopicById, getPostsByContributerId } = useApp()
+  const {
+    getUserById,
+    getTopicById,
+    getPostsByContributerId,
+    getPostsBySeasonId,
+    selectedSeasonId,
+  } = useApp()
 
-  const posts = getPostsByContributerId(member.id)
+  const filteredPosts = useMemo(() => {
+    const contributorPosts = getPostsByContributerId(member.id)
 
-  if (!posts.length) {
+    if (selectedSeasonId) {
+      const seasonPosts = getPostsBySeasonId(selectedSeasonId)
+      const seasonPostIds = new Set(seasonPosts.map(post => post.id))
+      return contributorPosts.filter(post => seasonPostIds.has(post.id))
+    }
+
+    return contributorPosts
+  }, [selectedSeasonId, member.id, getPostsByContributerId, getPostsBySeasonId])
+
+  const pathname = usePathname()
+
+  if (!filteredPosts.length) {
     return (
       <div className="text-black px-4 md:px-8 lg:px-12 xl:px-16 py-0">
         <p className="text-base md:text-2xl">Нийтлэл одоогоор байхгүй байна...</p>
@@ -21,7 +44,7 @@ export const EachMemberPostsList = ({ member }: { member: User }) => {
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">
-      {posts.map((post, index) => {
+      {filteredPosts.map((post, index) => {
         const author = getUserById(post.writerId)
         const topic = getTopicById(post.topicId)
 
@@ -34,18 +57,18 @@ export const EachMemberPostsList = ({ member }: { member: User }) => {
               className={clsx([
                 'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
                 'w-full border-l max-sm:border-r border-gray-400 top-1/2 -translate-y-1/2 left-0',
-                (index === posts.length - 1 || (index + 1) % 3 === 0) && 'lg:border-r',
+                (index === filteredPosts.length - 1 || (index + 1) % 3 === 0) && 'lg:border-r',
                 (index + 1) % 2 === 0 && 'max-lg:border-r',
-                index + 1 === posts.length && 'max-lg:border-r',
+                index + 1 === filteredPosts.length && 'max-lg:border-r',
               ])}
             />
             <div
               className={clsx([
                 'absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full',
                 'border-t border-gray-400 top-0 -translate-x-1/2 left-1/2',
-                index >= posts.length - 3 && 'lg:border-b',
-                index >= posts.length - 2 && 'max-lg:border-b',
-                index === posts.length - 1 && 'max-sm:border-b max-sm:border-t-0',
+                index >= filteredPosts.length - 3 && 'lg:border-b',
+                index >= filteredPosts.length - 2 && 'max-lg:border-b',
+                index === filteredPosts.length - 1 && 'max-sm:border-b max-sm:border-t-0',
               ])}
             />
             <div className="space-y-4 z-10">
@@ -63,6 +86,15 @@ export const EachMemberPostsList = ({ member }: { member: User }) => {
                 mode="primary"
                 href={`/posts/${post.slug}`}
                 className="text-xs md:text-sm px-2! py-1!"
+                onClick={() =>
+                  trackEvent({
+                    type: 'post_visit',
+                    route: pathname,
+                    metadata: {
+                      title: post.name,
+                    },
+                  })
+                }
               >
                 <span>Цааш унших</span>
                 <MoveRight className="h-4 w-4" />

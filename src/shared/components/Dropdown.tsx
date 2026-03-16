@@ -160,9 +160,10 @@ interface DropdownItemProps {
   value: string
   children: ReactNode
   className?: string
+  onClick?: () => void
 }
 
-export const DropdownItem = ({ value, children, className }: DropdownItemProps) => {
+export const DropdownItem = ({ value, children, className, onClick }: DropdownItemProps) => {
   const { close, setSelectedItem } = useDropdown()
 
   const classNames = clsx([
@@ -178,6 +179,7 @@ export const DropdownItem = ({ value, children, className }: DropdownItemProps) 
         role="option"
         aria-selected
         onClick={() => {
+          onClick?.()
           setSelectedItem(value)
           close()
         }}

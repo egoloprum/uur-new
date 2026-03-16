@@ -3,11 +3,14 @@
 import { useApp } from '@/src/entities'
 import { PostsList } from './PostsList'
 import { MembersList } from './MembersList'
+import { usePathname } from 'next/navigation'
 
 export const SeasonsList = ({}) => {
   const { getSeasonsBySelectedSeasonId, getMembersBySeasonId, getPostsBySeasonId } = useApp()
 
   const seasons = getSeasonsBySelectedSeasonId()
+
+  const pathname = usePathname()
 
   return (
     <ul className="px-4 md:px-8 lg:px-12 xl:px-16 text-black pb-16">
@@ -26,11 +29,11 @@ export const SeasonsList = ({}) => {
             <div className="px-4 md:px-8 lg:px-12 xl:px-16 mt-12 my-8">
               <h3 className="text-2xl font-semibold">Улиралын нийтлэлүүд</h3>
             </div>
-            <PostsList posts={posts} />
+            <PostsList posts={posts} pathname={pathname} />
             <div className="px-4 md:px-8 lg:px-12 xl:px-16 mt-12 my-8">
               <h3 className="text-2xl font-semibold">Улиралын гишүүд</h3>
             </div>
-            <MembersList members={members} />
+            <MembersList members={members} pathname={pathname} />
           </li>
         )
       })}

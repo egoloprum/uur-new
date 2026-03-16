@@ -5,6 +5,8 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MoveRight } from 'lucide-react'
 import { Button } from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
+import { usePathname } from 'next/navigation'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -21,6 +23,8 @@ const getTextColor = (index: number) => {
 export const DescriptionSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null)
   const listRef = useRef<HTMLUListElement>(null)
+
+  const pathname = usePathname()
 
   useLayoutEffect(() => {
     const section = sectionRef.current
@@ -80,6 +84,15 @@ export const DescriptionSection = () => {
             mode="clear"
             className="text-xs sm:text-base md:text-xl text-white border-white hover:bg-white hover:text-black"
             href="/topics"
+            onClick={() =>
+              trackEvent({
+                type: 'topic_visit',
+                route: pathname,
+                metadata: {
+                  title: 'Шинжлэх ухаан',
+                },
+              })
+            }
           >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
@@ -89,7 +102,20 @@ export const DescriptionSection = () => {
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Технологи
           </span>
-          <Button mode="primary" className="text-xs sm:text-base md:text-xl" href="/topics">
+          <Button
+            mode="primary"
+            className="text-xs sm:text-base md:text-xl"
+            href="/topics"
+            onClick={() =>
+              trackEvent({
+                type: 'topic_visit',
+                route: pathname,
+                metadata: {
+                  title: 'Технологи',
+                },
+              })
+            }
+          >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>
@@ -98,7 +124,20 @@ export const DescriptionSection = () => {
           <span className="text-2xl sm:text-5xl md:text-6xl lg:text-8xl whitespace-nowrap uppercase">
             Урлаг
           </span>
-          <Button mode="secondary" className="text-xs sm:text-base md:text-xl" href="/topics">
+          <Button
+            mode="secondary"
+            className="text-xs sm:text-base md:text-xl"
+            href="/topics"
+            onClick={() =>
+              trackEvent({
+                type: 'topic_visit',
+                route: pathname,
+                metadata: {
+                  title: 'Урлаг',
+                },
+              })
+            }
+          >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>

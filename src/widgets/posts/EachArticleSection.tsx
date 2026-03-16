@@ -2,9 +2,11 @@
 
 import { useApp } from '@/src/entities'
 import { ContentItem, DefinitionItem, SourceItem } from '@/src/entities/article'
+import { trackEvent } from '@/src/shared/lib'
 import clsx from 'clsx'
 import Image from 'next/image'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 export const EachArticleSection = ({ slug }: { slug: string }) => {
   const { getArticleById, getPostBySlug } = useApp()
@@ -42,11 +44,19 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
         )}
 
         {!!article.sourcesText.length && (
-          <SourcesRenderer items={article.sourcesText} title="Бичвэрийн эх сурвалжууд" />
+          <SourcesRenderer
+            items={article.sourcesText}
+            title="Бичвэрийн эх сурвалжууд"
+            articleId={article.id}
+          />
         )}
 
         {!!article.sourcesImage.length && (
-          <SourcesRenderer items={article.sourcesImage} title="Зурагнуудын эх сурвалжууд" />
+          <SourcesRenderer
+            items={article.sourcesImage}
+            title="Зурагнуудын эх сурвалжууд"
+            articleId={article.id}
+          />
         )}
       </section>
     </article>
@@ -90,7 +100,17 @@ const QuestionsRenderer = ({ items, title }: { items: string[]; title: string })
   )
 }
 
-const SourcesRenderer = ({ items, title }: { items: SourceItem[]; title: string }) => {
+const SourcesRenderer = ({
+  items,
+  title,
+  articleId,
+}: {
+  items: SourceItem[]
+  title: string
+  articleId: string
+}) => {
+  const pathname = usePathname()
+
   return (
     <div className="space-y-6 md:space-y-8">
       <h2 className="text-2xl md:text-4xl font-semibold">{title}</h2>
@@ -103,6 +123,16 @@ const SourcesRenderer = ({ items, title }: { items: SourceItem[]; title: string 
               href={item.href}
               target="_blank"
               className="ml-6 underline underline-offset-2 break-all"
+              onClick={() =>
+                trackEvent({
+                  type: 'source_visit',
+                  route: pathname,
+                  post_id: articleId,
+                  metadata: {
+                    title: title,
+                  },
+                })
+              }
             >
               {item.href}
             </Link>
