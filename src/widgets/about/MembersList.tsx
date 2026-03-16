@@ -3,9 +3,11 @@
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 
 export const MembersList = ({}) => {
@@ -57,6 +59,8 @@ export const MembersList = ({}) => {
       </div>
     )
   }
+
+  const pathname = usePathname()
 
   return (
     <ul className="grid md:grid-cols-2 2xl:grid-cols-3 pb-16">
@@ -113,6 +117,15 @@ export const MembersList = ({}) => {
                 mode="primary"
                 href={`/about/${member.slug}`}
                 className="text-xs md:text-sm px-2! py-1!"
+                onClick={() =>
+                  trackEvent({
+                    type: 'member_visit',
+                    route: pathname,
+                    metadata: {
+                      title: member.name,
+                    },
+                  })
+                }
               >
                 <span>Дэлгэрэнгүй</span>
                 <MoveRight className="h-4 w-4" />
