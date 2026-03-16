@@ -29,7 +29,7 @@ export async function POST(req: Request) {
 
   const allowedHosts = [
     new URL(process.env.NEXT_PUBLIC_DOMAIN!).host,
-    new URL(process.env.NEXT_PUBLIC_LOCAL_DOMAIN!).host,
+    new URL(process.env.NEXT_LOCAL_DOMAIN!).host,
   ]
 
   if (!allowedHosts.includes(originHost)) {
@@ -84,7 +84,7 @@ export async function POST(req: Request) {
   const { error } = await supabase.from('events').insert(rows)
 
   if (error) {
-    return new Response(error, { status: 500 })
+    return new Response('db error', { status: 500 })
   }
 
   return Response.json({ ok: true })
