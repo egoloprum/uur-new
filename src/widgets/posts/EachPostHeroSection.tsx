@@ -3,6 +3,8 @@
 import { useApp } from '@/src/entities'
 import { HeroSection } from '../hero/Hero'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { trackEvent } from '@/src/shared/lib'
 
 export const EachPostHeroSection = ({ slug }: { slug: string }) => {
   const { getPostBySlug, getUserById } = useApp()
@@ -26,6 +28,8 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 
   const member = getUserById(post.writerId)
 
+  const pathname = usePathname()
+
   return (
     <>
       <HeroSection className={post ? '' : 'pb-20! md:pb-40! lg:pb-60!'}>
@@ -39,6 +43,15 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
           <Link
             href={`/about/${member?.slug}`}
             className="text-base md:text-2xl hover:underline underline-offset-4"
+            onClick={() =>
+              trackEvent({
+                type: 'member_visit',
+                route: pathname,
+                metadata: {
+                  title: member?.name,
+                },
+              })
+            }
           >
             {member?.name}
           </Link>
