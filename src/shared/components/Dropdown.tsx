@@ -75,10 +75,12 @@ export const Dropdown = ({
   if (children) {
     return (
       <DropdownContext.Provider
-        value={{ isOpen, setIsOpen, close, setSelectedItem }}>
+        value={{ isOpen, setIsOpen, close, setSelectedItem }}
+      >
         <div
           className={clsx(['relative', 'max-sm:w-full', className])}
-          ref={dropdownRef}>
+          ref={dropdownRef}
+        >
           {children}
         </div>
       </DropdownContext.Provider>
@@ -98,7 +100,8 @@ export const Dropdown = ({
         setIsOpen,
         close,
         setSelectedItem
-      }}>
+      }}
+    >
       <div className="relative" ref={dropdownRef}>
         <DropdownTrigger>{label}</DropdownTrigger>
         <DropdownContent>
@@ -132,7 +135,8 @@ export const DropdownTrigger = ({
       onClick={() => setIsOpen(!isOpen)}
       aria-expanded={isOpen}
       aria-haspopup="listbox"
-      className={clsx(['max-sm:w-full max-sm:justify-center', className])}>
+      className={clsx(['max-sm:w-full max-sm:justify-center', className])}
+    >
       <span>{children}</span>
       <ChevronDown
         className={clsx([
@@ -164,7 +168,8 @@ export const DropdownContent = ({
         'max-sm:w-full',
         className
       ])}
-      role="listbox">
+      role="listbox"
+    >
       <ul>{children}</ul>
     </div>
   )
@@ -201,7 +206,8 @@ export const DropdownItem = ({
           onClick?.()
           setSelectedItem(value)
           close()
-        }}>
+        }}
+      >
         {children}
       </button>
     </li>

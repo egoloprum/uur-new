@@ -65,7 +65,8 @@ export const HeroSection = () => {
       <section className="grow flex flex-col justify-between gap-20">
         <div
           ref={text1Ref}
-          className="text-black lg:absolute lg:top-40 lg:right-24 will-change-transform">
+          className="text-black lg:absolute lg:top-40 lg:right-24 will-change-transform"
+        >
           <span className="text-xl md:text-2xl">[01]</span>
           <p className="text-xl md:text-2xl lg:text-4xl font-semibold">
             Нар мандахын өмнөх хэсэг үе
@@ -74,7 +75,8 @@ export const HeroSection = () => {
 
         <div
           ref={text2Ref}
-          className="text-black lg:absolute lg:bottom-24 lg:left-24 will-change-transform ml-auto">
+          className="text-black lg:absolute lg:bottom-24 lg:left-24 will-change-transform ml-auto"
+        >
           <span className="text-xl md:text-2xl">[02]</span>
           <p className="text-xl md:text-2xl lg:text-4xl font-semibold">
             Амьтны орогнох оромж
@@ -83,7 +85,8 @@ export const HeroSection = () => {
 
         <div
           ref={text3Ref}
-          className="text-black lg:absolute lg:bottom-24 lg:right-24 will-change-transform">
+          className="text-black lg:absolute lg:bottom-24 lg:right-24 will-change-transform"
+        >
           <span className="text-xl md:text-2xl">[03]</span>
           <p className="text-xl md:text-2xl lg:text-4xl font-semibold">
             Өнө мөнх

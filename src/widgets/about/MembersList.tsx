@@ -74,7 +74,8 @@ export const MembersList = ({}) => {
       {sortedMembers.map((member, index) => (
         <li
           className="text-black p-4 md:p-8 lg:p-12 xl:p-16 max-md:flex max-md:justify-between max-xl:grid max-xl:grid-cols-12 xl:flex xl:justify-between gap-4 relative group"
-          key={member.name + index}>
+          key={member.name + index}
+        >
           <div
             className={clsx([
               'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
@@ -107,7 +108,8 @@ export const MembersList = ({}) => {
                   <li
                     className="text-black uppercase border rounded-full px-2"
                     key={member.id + role.type}
-                    style={{ fontSize: 'clamp(0.75rem, 2vw, .875rem)' }}>
+                    style={{ fontSize: 'clamp(0.75rem, 2vw, .875rem)' }}
+                  >
                     {getSlugOfRole(role.type)}
                   </li>
                 ))}
@@ -116,7 +118,8 @@ export const MembersList = ({}) => {
             <div className="mt-auto space-y-4">
               <p
                 className="line-clamp-2 md:line-clamp-3 lg:line-clamp-4"
-                style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}>
+                style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}
+              >
                 {member.description}
               </p>
               <Button
@@ -132,7 +135,8 @@ export const MembersList = ({}) => {
                       title: member.name
                     }
                   })
-                }>
+                }
+              >
                 <span>Дэлгэрэнгүй</span>
                 <MoveRight className="h-4 w-4" />
               </Button>

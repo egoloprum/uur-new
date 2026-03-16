@@ -150,7 +150,8 @@ const SourcesRenderer = ({
                     title: title
                   }
                 })
-              }>
+              }
+            >
               {item.href}
             </Link>
           </li>
@@ -183,7 +184,8 @@ const ContentRenderer: React.FC<{
                   className={clsx([
                     'font-bold text-xl md:text-3xl',
                     prefixPath ? 'space-x-3' : 'space-x-4'
-                  ])}>
+                  ])}
+                >
                   <span>{displayIndex}</span>
                   <span>{item.header}</span>
                 </h3>
@@ -197,10 +199,8 @@ const ContentRenderer: React.FC<{
                     <li key={detailIndex} className="mb-2 md:mb-4">
                       <p className="text-base md:text-xl">
                         <span
-                          className={clsx([
-                            'mr-6',
-                            prefixPath && 'md:mr-10'
-                          ])}></span>
+                          className={clsx(['mr-6', prefixPath && 'md:mr-10'])}
+                        ></span>
                         <span>{det.text}</span>
                       </p>
                     </li>

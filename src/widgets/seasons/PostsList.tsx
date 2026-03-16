@@ -36,7 +36,8 @@ export const PostsList = ({
         return (
           <li
             className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
-            key={post.name + member?.name + index}>
+            key={post.name + member?.name + index}
+          >
             <div
               className={clsx([
                 'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
@@ -72,7 +73,8 @@ export const PostsList = ({
                   className={clsx(
                     ['h-4 w-4 aspect-square rounded-full'],
                     topic?.color
-                  )}></span>
+                  )}
+                ></span>
                 <p>{post.releaseDate}</p>
                 <p className="uppercase">{member?.name}</p>
               </div>
@@ -91,7 +93,8 @@ export const PostsList = ({
                       title: post.name
                     }
                   })
-                }>
+                }
+              >
                 <span>Цааш унших</span>
                 <MoveRight className="h-4 w-4" />
               </Button>

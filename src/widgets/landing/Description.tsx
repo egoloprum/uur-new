@@ -94,7 +94,8 @@ export const DescriptionSection = () => {
                   title: 'Шинжлэх ухаан'
                 }
               })
-            }>
+            }
+          >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>
@@ -116,7 +117,8 @@ export const DescriptionSection = () => {
                   title: 'Технологи'
                 }
               })
-            }>
+            }
+          >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>
@@ -138,7 +140,8 @@ export const DescriptionSection = () => {
                   title: 'Урлаг'
                 }
               })
-            }>
+            }
+          >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="w-4 h-4 md:w-6 md:h-6" />
           </Button>

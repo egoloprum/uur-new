@@ -38,7 +38,8 @@ export const MembersFilterDropdown = ({}) => {
                   type: 'season'
                 }
               })
-            }}>
+            }}
+          >
             {season.name}
           </DropdownItem>
         ))}
@@ -54,7 +55,8 @@ export const MembersFilterDropdown = ({}) => {
                 type: 'season'
               }
             })
-          }}>
+          }}
+        >
           Бүх улиралууд
         </DropdownItem>
       </DropdownContent>

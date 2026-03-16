@@ -23,7 +23,8 @@ export const MembersList = ({
             'md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300',
             members.length - 1 === index && 'border-b'
           ])}
-          key={member.id}>
+          key={member.id}
+        >
           <div className="space-y-2">
             <p className="text-black font-bold text-2xl md:text-3xl">
               {member.name}
@@ -32,7 +33,8 @@ export const MembersList = ({
               {member.role.map(role => (
                 <li
                   className="text-black uppercase border rounded-full px-2 text-nowrap text-xs sm:text-sm md:text-base"
-                  key={member.id + role.type}>
+                  key={member.id + role.type}
+                >
                   {getSlugOfRole(role.type)}
                 </li>
               ))}
@@ -52,7 +54,8 @@ export const MembersList = ({
                   title: member.name
                 }
               })
-            }>
+            }
+          >
             <span>Дэлгэрэнгүй</span>
             <MoveRight className="h-4 w-4" />
           </Button>

@@ -91,12 +91,14 @@ export const Sidebar = () => {
         <div className="flex flex-col gap-2 z-20 px-1 py-8 bg-[#fb923c] border-l border-b md:border-l-2 md:border-b-2 border-black">
           <Button
             onClick={() => toggleSidebar('Menu')}
-            className="p-2! md:p-4! border-none">
+            className="p-2! md:p-4! border-none"
+          >
             {isOpen && mode === 'Menu' ? <X /> : <Menu />}
           </Button>
           <Button
             onClick={() => toggleSidebar('Search')}
-            className="p-2! md:p-4! border-none">
+            className="p-2! md:p-4! border-none"
+          >
             {isOpen && mode === 'Search' ? <X /> : <Search />}
           </Button>
         </div>
@@ -112,35 +114,40 @@ export const Sidebar = () => {
         ref={panelRef}
         className={clsx([
           'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center translate-x-full font-advent-pro-local'
-        ])}>
+        ])}
+      >
         <div className="py-20 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">
           {mode === 'Menu' && (
             <nav className="flex flex-col gap-4 w-fit md:w-full text-black text-2xl md:text-4xl tracking-wide font-medium underline underline-offset-8">
               <Link
                 href="/posts"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={onClick}>
+                onClick={onClick}
+              >
                 <span>Нийтлэлүүд</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
               <Link
                 href="/seasons"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={onClick}>
+                onClick={onClick}
+              >
                 <span>Улиралууд</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
               <Link
                 href="/topics"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={onClick}>
+                onClick={onClick}
+              >
                 <span>Сэдвүүд</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
               <Link
                 href="/about"
                 className="w-60 flex text-nowrap items-center gap-4"
-                onClick={onClick}>
+                onClick={onClick}
+              >
                 <span>Бидний тухай</span>
                 <MoveRight className="w-6 h-6" />
               </Link>
@@ -148,7 +155,8 @@ export const Sidebar = () => {
                 <Link
                   href="/"
                   className="w-60 flex text-nowrap items-center gap-4"
-                  onClick={onClick}>
+                  onClick={onClick}
+                >
                   <span>Нүүр</span>
                   <MoveRight className="w-6 h-6" />
                 </Link>

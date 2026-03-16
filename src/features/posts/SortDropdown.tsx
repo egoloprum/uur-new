@@ -26,7 +26,8 @@ export const SortDropdown = ({}) => {
           <DropdownItem
             key={sort + index}
             value={sort}
-            className={`${selectedSortingMethodofPosts === sort && 'bg-indigo-300'}`}>
+            className={`${selectedSortingMethodofPosts === sort && 'bg-indigo-300'}`}
+          >
             {sort}
           </DropdownItem>
         ))}

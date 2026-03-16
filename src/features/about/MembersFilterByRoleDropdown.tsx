@@ -48,7 +48,8 @@ export const MembersFilterByRoleDropdown = ({}) => {
                   type: 'role'
                 }
               })
-            }}>
+            }}
+          >
             {getSlugOfRole(role)}
           </DropdownItem>
         ))}
@@ -64,7 +65,8 @@ export const MembersFilterByRoleDropdown = ({}) => {
                 type: 'role'
               }
             })
-          }}>
+          }}
+        >
           Бүх гишүүд
         </DropdownItem>
       </DropdownContent>

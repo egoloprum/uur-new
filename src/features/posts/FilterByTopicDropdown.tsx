@@ -37,7 +37,8 @@ export const FilterByTopicDropdown = ({}) => {
                   type: 'topic'
                 }
               })
-            }}>
+            }}
+          >
             {topic.name}
           </DropdownItem>
         ))}
@@ -53,7 +54,8 @@ export const FilterByTopicDropdown = ({}) => {
                 type: 'topic'
               }
             })
-          }}>
+          }}
+        >
           Бүх сэдвүүд
         </DropdownItem>
       </DropdownContent>

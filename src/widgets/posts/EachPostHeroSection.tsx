@@ -21,7 +21,8 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
         <HeroSection className={post ? '' : 'pb-20! md:pb-40! lg:pb-60!'}>
           <h1
             className="font-bold uppercase z-10 text-black tracking-wide mt-20 leading-12"
-            style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}>
+            style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
+          >
             Нийтлэл олдсонгүй
           </h1>
         </HeroSection>
@@ -36,7 +37,8 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
       <HeroSection className={post ? '' : 'pb-20! md:pb-40! lg:pb-60!'}>
         <h1
           className="font-bold uppercase z-10 text-black tracking-wide mt-20 leading-12"
-          style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}>
+          style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
+        >
           {post.name || 'Нийтлэл олдсонгүй'}
         </h1>
         <p className="text-gray-700 mt-4 space-x-4">
@@ -53,7 +55,8 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
                   title: member?.name
                 }
               })
-            }>
+            }
+          >
             {member?.name}
           </Link>
           <span className="text-sm md:text-xl">{post.releaseDate}</span>

@@ -129,7 +129,8 @@ export const CurrentSeasonTeamSection = () => {
               'py-4 md:py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between',
               'md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 relative',
               members.length - 1 === index && 'border-b'
-            )}>
+            )}
+          >
             <div className="space-y-2">
               <p className="text-black font-bold text-2xl md:text-3xl">
                 {member.name}
@@ -139,7 +140,8 @@ export const CurrentSeasonTeamSection = () => {
                 {member.role.map(role => (
                   <li
                     className="text-black uppercase border rounded-full px-2 text-nowrap text-xs sm:text-sm md:text-base"
-                    key={member.id + role.type}>
+                    key={member.id + role.type}
+                  >
                     {getSlugOfRole(role.type)}
                   </li>
                 ))}
@@ -159,7 +161,8 @@ export const CurrentSeasonTeamSection = () => {
                     title: member.name
                   }
                 })
-              }>
+              }
+            >
               <span>Дэлгэрэнгүй</span>
               <MoveRight className="h-4 w-4" />
             </Button>
@@ -168,7 +171,8 @@ export const CurrentSeasonTeamSection = () => {
       </ul>
       <div
         ref={imageRef}
-        className="fixed top-0 left-0 pointer-events-none opacity-0 scale-75 z-50 will-change-transform">
+        className="fixed top-0 left-0 pointer-events-none opacity-0 scale-75 z-50 will-change-transform"
+      >
         {activeImage && (
           <Image
             src={activeImage}

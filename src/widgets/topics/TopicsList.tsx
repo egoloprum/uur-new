@@ -27,7 +27,8 @@ export const TopicsList = ({}) => {
                 topic.name === 'Шинжлэх ухаан' && 'bg-black text-white',
                 topic.name === 'Технологи' && 'bg-indigo-400',
                 topic.name === 'Урлаг' && 'bg-orange-400'
-              ])}>
+              ])}
+            >
               <span className="text-2xl">[0{topic.serial}]</span>
               <span className="font-bold text-4xl">{topic.name}</span>
             </h2>

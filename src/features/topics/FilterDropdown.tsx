@@ -37,7 +37,8 @@ export const FilterDropdown = ({}) => {
                   type: 'topic'
                 }
               })
-            }}>
+            }}
+          >
             {topic.name}
           </DropdownItem>
         ))}
