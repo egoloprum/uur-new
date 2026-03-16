@@ -1,5 +1,6 @@
-export * from './scrollProvider'
+export * from './ScrollProvider'
+export * from './AnalyticsProvider'
+
 export * from './Button'
 export * from './Dropdown'
 export * from './TopicsList'
-export * from './AnalyticsProvider'
