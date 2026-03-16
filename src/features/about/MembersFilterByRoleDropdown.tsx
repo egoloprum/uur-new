@@ -3,73 +3,79 @@
 import { usePathname } from 'next/navigation'
 
 import { useApp } from '@/src/entities'
-import { RoleTypes } from '@/src/entities/user'
+import { RoleTypes } from '@/src/entities/member'
 import { getSlugOfRole } from '@/src/shared'
 import {
-  Dropdown,
-  DropdownContent,
-  DropdownItem,
-  DropdownTrigger
+	Dropdown,
+	DropdownContent,
+	DropdownItem,
+	DropdownTrigger
 } from '@/src/shared/components'
 import { trackEvent } from '@/src/shared/lib'
 
 const Roles: RoleTypes[] = [
-  'Coordinator',
-  'Researcher',
-  'Redactor',
-  'Writer',
-  'Designer',
-  'Developer',
-  'Marketer'
+	'Coordinator',
+	'Researcher',
+	'Redactor',
+	'Writer',
+	'Designer',
+	'Developer',
+	'Marketer'
 ]
 
 export const MembersFilterByRoleDropdown = ({}) => {
-  const { setSelectedRole, selectedRole } = useApp()
+	const { filters, setFilters } = useApp()
 
-  const pathname = usePathname()
+	const selectedRole = filters.role
 
-  return (
-    <Dropdown setSelectedItem={setSelectedRole}>
-      <DropdownTrigger>
-        {selectedRole ? getSlugOfRole(selectedRole as RoleTypes) : 'Үүрэг'}
-      </DropdownTrigger>
-      <DropdownContent className="md:w-64">
-        {Roles.map((role, index) => (
-          <DropdownItem
-            key={role + index}
-            value={role}
-            className={`${selectedRole === role && 'bg-indigo-300'}`}
-            onClick={() => {
-              trackEvent({
-                type: 'filter_used',
-                route: pathname,
-                metadata: {
-                  title: role,
-                  type: 'role'
-                }
-              })
-            }}
-          >
-            {getSlugOfRole(role)}
-          </DropdownItem>
-        ))}
-        <DropdownItem
-          value=""
-          className=" border-t"
-          onClick={() => {
-            trackEvent({
-              type: 'filter_used',
-              route: pathname,
-              metadata: {
-                title: 'Бүх гишүүд',
-                type: 'role'
-              }
-            })
-          }}
-        >
-          Бүх гишүүд
-        </DropdownItem>
-      </DropdownContent>
-    </Dropdown>
-  )
+	const pathname = usePathname()
+
+	const setSelectedRole = (role: string) => {
+		setFilters(f => ({ ...f, role: role }))
+	}
+
+	return (
+		<Dropdown setSelectedItem={setSelectedRole}>
+			<DropdownTrigger>
+				{selectedRole ? getSlugOfRole(selectedRole as RoleTypes) : 'Үүрэг'}
+			</DropdownTrigger>
+			<DropdownContent className="md:w-64">
+				{Roles.map((role, index) => (
+					<DropdownItem
+						key={role + index}
+						value={role}
+						className={`${selectedRole === role && 'bg-indigo-300'}`}
+						onClick={() => {
+							trackEvent({
+								type: 'filter_used',
+								route: pathname,
+								metadata: {
+									title: role,
+									type: 'role'
+								}
+							})
+						}}
+					>
+						{getSlugOfRole(role)}
+					</DropdownItem>
+				))}
+				<DropdownItem
+					value=""
+					className=" border-t"
+					onClick={() => {
+						trackEvent({
+							type: 'filter_used',
+							route: pathname,
+							metadata: {
+								title: 'Бүх гишүүд',
+								type: 'role'
+							}
+						})
+					}}
+				>
+					Бүх гишүүд
+				</DropdownItem>
+			</DropdownContent>
+		</Dropdown>
+	)
 }

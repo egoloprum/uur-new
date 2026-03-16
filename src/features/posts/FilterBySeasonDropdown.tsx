@@ -11,7 +11,7 @@ import {
 } from '@/src/shared/components'
 import { trackEvent } from '@/src/shared/lib'
 
-export const MembersFilterDropdown = ({}) => {
+export const FilterBySeasonDropdown = ({}) => {
 	const { seasons, getSeasonById, filters, setFilters } = useApp()
 
 	const selectedSeasonId = filters.seasonId

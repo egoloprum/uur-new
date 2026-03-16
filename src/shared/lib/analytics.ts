@@ -9,55 +9,55 @@ let buffer: AnalyticsEvent[] = []
 let intervalId: ReturnType<typeof setInterval> | null = null
 
 function flush() {
-  if (buffer.length === 0) return
+	if (buffer.length === 0) return
 
-  const events = [...buffer]
-  buffer = []
+	const events = [...buffer]
+	buffer = []
 
-  const payload = { events }
+	const payload = { events }
 
-  if (navigator.sendBeacon) {
-    const blob = new Blob([JSON.stringify(payload)], {
-      type: 'application/json'
-    })
-    navigator.sendBeacon('/api/analytics/batch', blob)
-  } else {
-    fetch('/api/analytics/batch', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-      keepalive: true,
-      credentials: 'same-origin'
-    }).catch(() => {
-      buffer.unshift(...events)
-    })
-  }
+	if (navigator.sendBeacon) {
+		const blob = new Blob([JSON.stringify(payload)], {
+			type: 'application/json'
+		})
+		navigator.sendBeacon('/api/analytics/batch', blob)
+	} else {
+		fetch('/api/analytics/batch', {
+			method: 'POST',
+			headers: { 'Content-Type': 'application/json' },
+			body: JSON.stringify(payload),
+			keepalive: true,
+			credentials: 'same-origin'
+		}).catch(() => {
+			buffer.unshift(...events)
+		})
+	}
 }
 
 if (typeof window !== 'undefined') {
-  intervalId = setInterval(flush, FLUSH_INTERVAL)
+	intervalId = setInterval(flush, FLUSH_INTERVAL)
 
-  window.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') {
-      flush()
-    }
-  })
+	window.addEventListener('visibilitychange', () => {
+		if (document.visibilityState === 'hidden') {
+			flush()
+		}
+	})
 
-  window.addEventListener('beforeunload', () => {
-    if (intervalId) clearInterval(intervalId)
-    flush()
-  })
+	window.addEventListener('beforeunload', () => {
+		if (intervalId) clearInterval(intervalId)
+		flush()
+	})
 }
 
 export function trackEvent(event: Omit<AnalyticsEvent, 'ts'>) {
-  const item: AnalyticsEvent = {
-    ...event,
-    ts: Date.now()
-  }
+	const item: AnalyticsEvent = {
+		...event,
+		ts: Date.now()
+	}
 
-  buffer.push(item)
+	buffer.push(item)
 
-  if (buffer.length >= BUFFER_LIMIT) {
-    flush()
-  }
+	if (buffer.length >= BUFFER_LIMIT) {
+		flush()
+	}
 }
