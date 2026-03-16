@@ -17,7 +17,9 @@ function flush() {
   const payload = { events }
 
   if (navigator.sendBeacon) {
-    const blob = new Blob([JSON.stringify(payload)], { type: 'application/json' })
+    const blob = new Blob([JSON.stringify(payload)], {
+      type: 'application/json'
+    })
     navigator.sendBeacon('/api/analytics/batch', blob)
   } else {
     fetch('/api/analytics/batch', {
@@ -25,7 +27,7 @@ function flush() {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
       keepalive: true,
-      credentials: 'same-origin',
+      credentials: 'same-origin'
     }).catch(() => {
       buffer.unshift(...events)
     })
@@ -50,7 +52,7 @@ if (typeof window !== 'undefined') {
 export function trackEvent(event: Omit<AnalyticsEvent, 'ts'>) {
   const item: AnalyticsEvent = {
     ...event,
-    ts: Date.now(),
+    ts: Date.now()
   }
 
   buffer.push(item)

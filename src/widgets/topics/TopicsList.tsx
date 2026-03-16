@@ -1,9 +1,11 @@
 'use client'
 
-import { useApp } from '@/src/entities'
-import { PostsList } from './PostsList'
 import clsx from 'clsx'
 import { usePathname } from 'next/navigation'
+
+import { useApp } from '@/src/entities'
+
+import { PostsList } from './PostsList'
 
 export const TopicsList = ({}) => {
   const { getPostsByTopicId, getTopicsBySelectedTopicId } = useApp()
@@ -24,7 +26,7 @@ export const TopicsList = ({}) => {
                 'flex gap-2',
                 topic.name === 'Шинжлэх ухаан' && 'bg-black text-white',
                 topic.name === 'Технологи' && 'bg-indigo-400',
-                topic.name === 'Урлаг' && 'bg-orange-400',
+                topic.name === 'Урлаг' && 'bg-orange-400'
               ])}
             >
               <span className="text-2xl">[0{topic.serial}]</span>

@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 
 export const TopicsList = ({
   className,
-  children,
+  children
 }: {
   className?: string
   children?: ReactNode
@@ -12,7 +12,7 @@ export const TopicsList = ({
     <div
       className={clsx([
         'flex flex-col md:flex-row max-sm:flex-row md:items-center gap-2 max-sm:gap-4 md:gap-8',
-        className,
+        className
       ])}
     >
       <p className="flex gap-2">

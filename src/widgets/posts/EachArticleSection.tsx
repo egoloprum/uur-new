@@ -1,12 +1,12 @@
 'use client'
 
+import clsx from 'clsx'
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+
 import { useApp } from '@/src/entities'
 import { ContentItem, DefinitionItem, SourceItem } from '@/src/entities/article'
 import { trackEvent } from '@/src/shared/lib'
-import clsx from 'clsx'
-import Image from 'next/image'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 export const EachArticleSection = ({ slug }: { slug: string }) => {
   const { getArticleById, getPostBySlug } = useApp()
@@ -27,7 +27,10 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
     <article className="text-black flex justify-center pb-20 p-4 md:p-8 lg:p-12 xl:p-16 py-16">
       <section className="md:w-[80%] xl:w-[60%] space-y-6 md:space-y-12 lg:space-y-16">
         {!!article.preQuestions.length && (
-          <QuestionsRenderer items={article.preQuestions} title="Бичвэрийн өмнөх асуултууд" />
+          <QuestionsRenderer
+            items={article.preQuestions}
+            title="Бичвэрийн өмнөх асуултууд"
+          />
         )}
 
         {!!article.wordDefinitions.length && (
@@ -40,7 +43,10 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
         <ContentRenderer items={article.content} />
 
         {!!article.postQuestions.length && (
-          <QuestionsRenderer items={article.postQuestions} title="Бичвэрийн дараах асуултууд" />
+          <QuestionsRenderer
+            items={article.postQuestions}
+            title="Бичвэрийн дараах асуултууд"
+          />
         )}
 
         {!!article.sourcesText.length && (
@@ -63,7 +69,13 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
   )
 }
 
-const DefinitionsRenderer = ({ items, title }: { items: DefinitionItem[]; title: string }) => {
+const DefinitionsRenderer = ({
+  items,
+  title
+}: {
+  items: DefinitionItem[]
+  title: string
+}) => {
   return (
     <div className="space-y-4 md:space-y-8">
       <h2 className="text-2xl md:text-4xl font-semibold">{title}</h2>
@@ -82,7 +94,13 @@ const DefinitionsRenderer = ({ items, title }: { items: DefinitionItem[]; title:
   )
 }
 
-const QuestionsRenderer = ({ items, title }: { items: string[]; title: string }) => {
+const QuestionsRenderer = ({
+  items,
+  title
+}: {
+  items: string[]
+  title: string
+}) => {
   return (
     <div className="space-y-6 md:space-y-8">
       <h2 className="text-2xl md:text-4xl font-semibold">{title}</h2>
@@ -103,7 +121,7 @@ const QuestionsRenderer = ({ items, title }: { items: string[]; title: string })
 const SourcesRenderer = ({
   items,
   title,
-  articleId,
+  articleId
 }: {
   items: SourceItem[]
   title: string
@@ -129,8 +147,8 @@ const SourcesRenderer = ({
                   route: pathname,
                   post_id: articleId,
                   metadata: {
-                    title: title,
-                  },
+                    title: title
+                  }
                 })
               }
             >
@@ -145,15 +163,17 @@ const SourcesRenderer = ({
 
 // TODO: image rendering
 
-const ContentRenderer: React.FC<{ items: ContentItem[]; prefixPath?: number[] }> = ({
-  items,
-  prefixPath,
-}) => {
+const ContentRenderer: React.FC<{
+  items: ContentItem[]
+  prefixPath?: number[]
+}> = ({ items, prefixPath }) => {
   return (
     <ul>
       {items.map((item, index) => {
         const currentNumber = index + 1
-        const currentPath = prefixPath ? [...prefixPath, currentNumber] : [currentNumber]
+        const currentPath = prefixPath
+          ? [...prefixPath, currentNumber]
+          : [currentNumber]
         const displayIndex = currentPath.join('.')
 
         return (
@@ -163,7 +183,7 @@ const ContentRenderer: React.FC<{ items: ContentItem[]; prefixPath?: number[] }>
                 <h3
                   className={clsx([
                     'font-bold text-xl md:text-3xl',
-                    prefixPath ? 'space-x-3' : 'space-x-4',
+                    prefixPath ? 'space-x-3' : 'space-x-4'
                   ])}
                 >
                   <span>{displayIndex}</span>
@@ -178,7 +198,9 @@ const ContentRenderer: React.FC<{ items: ContentItem[]; prefixPath?: number[] }>
                   return (
                     <li key={detailIndex} className="mb-2 md:mb-4">
                       <p className="text-base md:text-xl">
-                        <span className={clsx(['mr-6', prefixPath && 'md:mr-10'])}></span>
+                        <span
+                          className={clsx(['mr-6', prefixPath && 'md:mr-10'])}
+                        ></span>
                         <span>{det.text}</span>
                       </p>
                     </li>
@@ -203,7 +225,10 @@ const ContentRenderer: React.FC<{ items: ContentItem[]; prefixPath?: number[] }>
 
             {item.children && item.children.length > 0 && (
               <div className="md:ml-6 mt-6 md:mt-12">
-                <ContentRenderer items={item.children} prefixPath={currentPath} />
+                <ContentRenderer
+                  items={item.children}
+                  prefixPath={currentPath}
+                />
               </div>
             )}
           </li>

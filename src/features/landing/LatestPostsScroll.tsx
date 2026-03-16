@@ -5,7 +5,7 @@ export const LatestPostsScroll = ({
   onNext,
   onToggle,
   isPlaying,
-  isDisabled,
+  isDisabled
 }: {
   onPrev: () => void
   onNext: () => void

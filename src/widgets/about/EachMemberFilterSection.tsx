@@ -1,7 +1,10 @@
 'use client'
 
 import { useApp } from '@/src/entities'
-import { EachMemberPostsFilterDropdown, EachMemberPostsSortDropdown } from '@/src/features/about'
+import {
+  EachMemberPostsFilterDropdown,
+  EachMemberPostsSortDropdown
+} from '@/src/features/about'
 import { TopicsList } from '@/src/shared/components'
 
 export const EachMemberFilterSection = ({ slug }: { slug: string }) => {

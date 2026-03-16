@@ -1,12 +1,13 @@
 'use client'
 
-import { useRef, useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MoveRight } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { useRef, useLayoutEffect } from 'react'
+
 import { Button } from '@/src/shared/components'
 import { trackEvent } from '@/src/shared/lib'
-import { usePathname } from 'next/navigation'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -44,8 +45,8 @@ export const DescriptionSection = () => {
           start: 'top bottom-=300',
           end: 'top top+=300',
           scrub: 1,
-          invalidateOnRefresh: true,
-        },
+          invalidateOnRefresh: true
+        }
       })
 
       items.forEach((item, index) => {
@@ -58,14 +59,14 @@ export const DescriptionSection = () => {
             gsap.to(section, {
               backgroundColor: getBgColor(index),
               color: getTextColor(index),
-              duration: 0.4,
+              duration: 0.4
             }),
           onEnterBack: () =>
             gsap.to(section, {
               backgroundColor: getBgColor(index),
               color: getTextColor(index),
-              duration: 0.4,
-            }),
+              duration: 0.4
+            })
         })
       })
     }, section)
@@ -88,9 +89,10 @@ export const DescriptionSection = () => {
               trackEvent({
                 type: 'topic_visit',
                 route: pathname,
+                topic_id: '34aa259b-2506-4e56-9e1b-c2c520312524',
                 metadata: {
-                  title: 'Шинжлэх ухаан',
-                },
+                  title: 'Шинжлэх ухаан'
+                }
               })
             }
           >
@@ -110,9 +112,10 @@ export const DescriptionSection = () => {
               trackEvent({
                 type: 'topic_visit',
                 route: pathname,
+                topic_id: '6bbf7cbb-79e6-4475-adf9-adb68f60cd1e',
                 metadata: {
-                  title: 'Технологи',
-                },
+                  title: 'Технологи'
+                }
               })
             }
           >
@@ -132,9 +135,10 @@ export const DescriptionSection = () => {
               trackEvent({
                 type: 'topic_visit',
                 route: pathname,
+                topic_id: '8c4fbc01-e7ea-4f51-995c-d869f409046d',
                 metadata: {
-                  title: 'Урлаг',
-                },
+                  title: 'Урлаг'
+                }
               })
             }
           >

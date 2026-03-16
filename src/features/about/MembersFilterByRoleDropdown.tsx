@@ -1,11 +1,17 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
+
 import { useApp } from '@/src/entities'
 import { RoleTypes } from '@/src/entities/user'
 import { getSlugOfRole } from '@/src/shared'
-import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownItem,
+  DropdownTrigger
+} from '@/src/shared/components'
 import { trackEvent } from '@/src/shared/lib'
-import { usePathname } from 'next/navigation'
 
 const Roles: RoleTypes[] = [
   'Coordinator',
@@ -14,7 +20,7 @@ const Roles: RoleTypes[] = [
   'Writer',
   'Designer',
   'Developer',
-  'Marketer',
+  'Marketer'
 ]
 
 export const MembersFilterByRoleDropdown = ({}) => {
@@ -39,8 +45,8 @@ export const MembersFilterByRoleDropdown = ({}) => {
                 route: pathname,
                 metadata: {
                   title: role,
-                  type: 'role',
-                },
+                  type: 'role'
+                }
               })
             }}
           >
@@ -56,8 +62,8 @@ export const MembersFilterByRoleDropdown = ({}) => {
               route: pathname,
               metadata: {
                 title: 'Бүх гишүүд',
-                type: 'role',
-              },
+                type: 'role'
+              }
             })
           }}
         >

@@ -1,13 +1,14 @@
 'use client'
 
+import clsx from 'clsx'
+import { gsap } from 'gsap'
 import { Menu, MoveRight, Search, X } from 'lucide-react'
 import Link from 'next/link'
-import { useState, useRef, useLayoutEffect } from 'react'
-import { gsap } from 'gsap'
-import { Button } from '@/src/shared/components'
 import { usePathname } from 'next/navigation'
+import { useState, useRef, useLayoutEffect } from 'react'
+
 import { useApp } from '@/src/entities'
-import clsx from 'clsx'
+import { Button } from '@/src/shared/components'
 
 export const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -23,7 +24,7 @@ export const Sidebar = () => {
     setSelectedTopicId,
     setSelectedRole,
     setSelectedSortingMethodofPosts,
-    setSelectedSortingMethodofMembers,
+    setSelectedSortingMethodofMembers
   } = useApp()
 
   const toggleSidebar = (type: 'Menu' | 'Search') => {
@@ -50,27 +51,27 @@ export const Sidebar = () => {
       gsap.to(panel, {
         xPercent: -100,
         duration: 0.45,
-        ease: 'power3.out',
+        ease: 'power3.out'
       })
 
       gsap.to(overlay, {
         opacity: 1,
         pointerEvents: 'auto',
         duration: 0.3,
-        ease: 'power2.out',
+        ease: 'power2.out'
       })
     } else {
       gsap.to(panel, {
         xPercent: 0,
         duration: 0.4,
-        ease: 'power3.in',
+        ease: 'power3.in'
       })
 
       gsap.to(overlay, {
         opacity: 0,
         pointerEvents: 'none',
         duration: 0.25,
-        ease: 'power2.in',
+        ease: 'power2.in'
       })
     }
   }, [isOpen])
@@ -88,10 +89,16 @@ export const Sidebar = () => {
     <>
       <aside className="fixed top-0 right-0 z-100">
         <div className="flex flex-col gap-2 z-20 px-1 py-8 bg-[#fb923c] border-l border-b md:border-l-2 md:border-b-2 border-black">
-          <Button onClick={() => toggleSidebar('Menu')} className="p-2! md:p-4! border-none">
+          <Button
+            onClick={() => toggleSidebar('Menu')}
+            className="p-2! md:p-4! border-none"
+          >
             {isOpen && mode === 'Menu' ? <X /> : <Menu />}
           </Button>
-          <Button onClick={() => toggleSidebar('Search')} className="p-2! md:p-4! border-none">
+          <Button
+            onClick={() => toggleSidebar('Search')}
+            className="p-2! md:p-4! border-none"
+          >
             {isOpen && mode === 'Search' ? <X /> : <Search />}
           </Button>
         </div>
@@ -106,7 +113,7 @@ export const Sidebar = () => {
       <div
         ref={panelRef}
         className={clsx([
-          'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center translate-x-full font-advent-pro-local',
+          'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center translate-x-full font-advent-pro-local'
         ])}
       >
         <div className="py-20 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">

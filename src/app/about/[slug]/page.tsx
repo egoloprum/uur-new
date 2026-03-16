@@ -3,7 +3,7 @@ import {
   EachMemberDescriptionSection,
   EachMemberHeroSection,
   EachMemberFilterSection,
-  EachMemberPostsSection,
+  EachMemberPostsSection
 } from '@/src/widgets/about'
 
 interface PageProps {
@@ -12,7 +12,11 @@ interface PageProps {
   }
 }
 
-export const Page = async ({ params }: { params: Promise<PageProps['params']> }) => {
+export const Page = async ({
+  params
+}: {
+  params: Promise<PageProps['params']>
+}) => {
   const resolvedParams = await params
   const { slug } = resolvedParams
   const decodedTitle = decodeURIComponent(slug)

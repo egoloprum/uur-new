@@ -1,7 +1,7 @@
 'use client'
 
-import { useRef, useLayoutEffect } from 'react'
 import { gsap } from 'gsap'
+import { useRef, useLayoutEffect } from 'react'
 
 export const HeroSection = () => {
   const text1Ref = useRef<HTMLDivElement>(null)
@@ -9,7 +9,11 @@ export const HeroSection = () => {
   const text3Ref = useRef<HTMLDivElement>(null)
 
   useLayoutEffect(() => {
-    const elements = [text1Ref.current, text2Ref.current, text3Ref.current].filter(Boolean)
+    const elements = [
+      text1Ref.current,
+      text2Ref.current,
+      text3Ref.current
+    ].filter(Boolean)
     if (elements.length === 0) return
 
     const ctx = gsap.context(() => {
@@ -28,13 +32,13 @@ export const HeroSection = () => {
               x: gsap.utils.random(-xRange, xRange),
               y: gsap.utils.random(-yRange, yRange),
               duration: duration / 2,
-              ease: 'sine.inOut',
+              ease: 'sine.inOut'
             })
             .to(el, {
               x: gsap.utils.random(-xRange, xRange),
               y: gsap.utils.random(-yRange, yRange),
               duration: duration / 2,
-              ease: 'sine.inOut',
+              ease: 'sine.inOut'
             })
         })
 
@@ -49,7 +53,9 @@ export const HeroSection = () => {
     <div className="bg-[#fbfaf2] lg:min-h-dvh p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col max-sm:gap-40 max-md:gap-60 max-lg:gap-80 relative overflow-hidden">
       <section className="flex flex-col justify-between">
         <h1 className="font-bold uppercase z-10">
-          <span className="block text-8xl md:text-[10rem] tracking-wide text-black">Үүр</span>
+          <span className="block text-8xl md:text-[10rem] tracking-wide text-black">
+            Үүр
+          </span>
           <span className="block text-6xl md:text-[6rem] tracking-wide text-orange-500">
             Товхимол
           </span>
@@ -72,7 +78,9 @@ export const HeroSection = () => {
           className="text-black lg:absolute lg:bottom-24 lg:left-24 will-change-transform ml-auto"
         >
           <span className="text-xl md:text-2xl">[02]</span>
-          <p className="text-xl md:text-2xl lg:text-4xl font-semibold">Амьтны орогнох оромж</p>
+          <p className="text-xl md:text-2xl lg:text-4xl font-semibold">
+            Амьтны орогнох оромж
+          </p>
         </div>
 
         <div
@@ -80,7 +88,9 @@ export const HeroSection = () => {
           className="text-black lg:absolute lg:bottom-24 lg:right-24 will-change-transform"
         >
           <span className="text-xl md:text-2xl">[03]</span>
-          <p className="text-xl md:text-2xl lg:text-4xl font-semibold">Өнө мөнх</p>
+          <p className="text-xl md:text-2xl lg:text-4xl font-semibold">
+            Өнө мөнх
+          </p>
         </div>
       </section>
     </div>

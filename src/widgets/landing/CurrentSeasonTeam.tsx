@@ -1,13 +1,14 @@
 'use client'
 
+import clsx from 'clsx'
+import { gsap } from 'gsap'
+import { MoveRight } from 'lucide-react'
+import Image from 'next/image'
 import { useRef, useLayoutEffect, useState } from 'react'
+
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
-import clsx from 'clsx'
-import { MoveRight } from 'lucide-react'
-import Image from 'next/image'
-import { gsap } from 'gsap'
 import { trackEvent } from '@/src/shared/lib'
 
 export const CurrentSeasonTeamSection = () => {
@@ -29,7 +30,10 @@ export const CurrentSeasonTeamSection = () => {
 
     const xTo = gsap.quickTo(image, 'x', { duration: 0.25, ease: 'power3' })
     const yTo = gsap.quickTo(image, 'y', { duration: 0.25, ease: 'power3' })
-    const rTo = gsap.quickTo(image, 'rotation', { duration: 0.35, ease: 'power3' })
+    const rTo = gsap.quickTo(image, 'rotation', {
+      duration: 0.35,
+      ease: 'power3'
+    })
 
     let lastX = 0
     let lastY = 0
@@ -61,14 +65,16 @@ export const CurrentSeasonTeamSection = () => {
         opacity: 0,
         scale: 0.8,
         rotation: 0,
-        duration: 0.2,
+        duration: 0.2
       })
 
       window.removeEventListener('pointermove', moveImage)
     }
 
     const pointerOver = (e: PointerEvent) => {
-      const li = (e.target as HTMLElement).closest('li[data-member]') as HTMLElement | null
+      const li = (e.target as HTMLElement).closest(
+        'li[data-member]'
+      ) as HTMLElement | null
       if (!li || li === activeItem) return
 
       activeItem = li
@@ -79,7 +85,7 @@ export const CurrentSeasonTeamSection = () => {
       gsap.to(image, {
         opacity: 1,
         scale: 1,
-        duration: 0.25,
+        duration: 0.25
       })
 
       window.addEventListener('pointermove', moveImage)
@@ -105,7 +111,9 @@ export const CurrentSeasonTeamSection = () => {
   return (
     <div className="bg-[#fbfaf2] px-4 md:px-8 lg:px-12 xl:px-16 space-y-8 relative">
       <div className="flex flex-wrap gap-4 justify-between">
-        <h2 className="text-black font-bold text-4xl uppercase">Энэ улиралын багийн гишүүд </h2>
+        <h2 className="text-black font-bold text-4xl uppercase">
+          Энэ улиралын багийн гишүүд{' '}
+        </h2>
         <Button mode="primary" href="/about" className="max-sm:mt-4">
           <span>Бүх гишүүд</span>
           <MoveRight />
@@ -124,7 +132,9 @@ export const CurrentSeasonTeamSection = () => {
             )}
           >
             <div className="space-y-2">
-              <p className="text-black font-bold text-2xl md:text-3xl">{member.name}</p>
+              <p className="text-black font-bold text-2xl md:text-3xl">
+                {member.name}
+              </p>
 
               <ul className="flex flex-wrap gap-2">
                 {member.role.map(role => (
@@ -146,9 +156,10 @@ export const CurrentSeasonTeamSection = () => {
                 trackEvent({
                   type: 'member_visit',
                   route: '/',
+                  member_id: member.id,
                   metadata: {
-                    title: member.name,
-                  },
+                    title: member.name
+                  }
                 })
               }
             >

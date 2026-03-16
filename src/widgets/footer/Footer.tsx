@@ -1,5 +1,6 @@
-import { Button } from '@/src/shared/components'
 import { CardSim, Mail } from 'lucide-react'
+
+import { Button } from '@/src/shared/components'
 
 export const Footer = ({}) => {
   return (
@@ -35,8 +36,8 @@ export const Footer = ({}) => {
       <hr className="border-gray-400" />
       <nav>
         <p className="text-sm md:text-xl tracking-wider">
-          © 2026 он. Бүх бичвэрүүд зохиогчийн эрхээр хамгаалагдсан. Бичвэр, дүрслэлийг ашиглахдаа
-          заавал эш татна.
+          © 2026 он. Бүх бичвэрүүд зохиогчийн эрхээр хамгаалагдсан. Бичвэр,
+          дүрслэлийг ашиглахдаа заавал эш татна.
         </p>
       </nav>
     </footer>

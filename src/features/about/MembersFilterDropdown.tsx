@@ -1,12 +1,19 @@
 'use client'
 
-import { useApp } from '@/src/entities'
-import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
 import { usePathname } from 'next/navigation'
 
+import { useApp } from '@/src/entities'
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownItem,
+  DropdownTrigger
+} from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
+
 export const MembersFilterDropdown = ({}) => {
-  const { seasons, getSeasonById, setSelectedSeasonId, selectedSeasonId } = useApp()
+  const { seasons, getSeasonById, setSelectedSeasonId, selectedSeasonId } =
+    useApp()
 
   const season = getSeasonById(selectedSeasonId)
 
@@ -25,10 +32,11 @@ export const MembersFilterDropdown = ({}) => {
               trackEvent({
                 type: 'filter_used',
                 route: pathname,
+                season_id: season.id,
                 metadata: {
                   title: season.name,
-                  type: 'season',
-                },
+                  type: 'season'
+                }
               })
             }}
           >
@@ -44,8 +52,8 @@ export const MembersFilterDropdown = ({}) => {
               route: pathname,
               metadata: {
                 title: 'Бүх улиралууд',
-                type: 'season',
-              },
+                type: 'season'
+              }
             })
           }}
         >

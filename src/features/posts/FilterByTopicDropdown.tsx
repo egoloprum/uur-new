@@ -1,9 +1,15 @@
 'use client'
 
-import { useApp } from '@/src/entities'
-import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
 import { usePathname } from 'next/navigation'
+
+import { useApp } from '@/src/entities'
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownItem,
+  DropdownTrigger
+} from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
 
 export const FilterByTopicDropdown = ({}) => {
   const { topics, getTopicById, selectedTopicId, setSelectedTopicId } = useApp()
@@ -25,10 +31,11 @@ export const FilterByTopicDropdown = ({}) => {
               trackEvent({
                 type: 'filter_used',
                 route: pathname,
+                topic_id: topic.id,
                 metadata: {
                   title: topic.name,
-                  type: 'topic',
-                },
+                  type: 'topic'
+                }
               })
             }}
           >
@@ -44,8 +51,8 @@ export const FilterByTopicDropdown = ({}) => {
               route: pathname,
               metadata: {
                 title: 'Бүх сэдвүүд',
-                type: 'topic',
-              },
+                type: 'topic'
+              }
             })
           }}
         >

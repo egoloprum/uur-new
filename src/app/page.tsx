@@ -4,7 +4,7 @@ import {
   HeroSection,
   PreviousSeasonPostsSection,
   CurrentSeasonTeamSection,
-  AboutSection,
+  AboutSection
 } from '../widgets/landing'
 
 export default function Home() {

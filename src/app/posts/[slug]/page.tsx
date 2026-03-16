@@ -6,7 +6,11 @@ interface PageProps {
   }
 }
 
-export const Page = async ({ params }: { params: Promise<PageProps['params']> }) => {
+export const Page = async ({
+  params
+}: {
+  params: Promise<PageProps['params']>
+}) => {
   const resolvedParams = await params
   const { slug } = resolvedParams
   const decodedTitle = decodeURIComponent(slug)

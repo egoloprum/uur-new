@@ -1,6 +1,7 @@
 'use client'
 
 import { useApp } from '@/src/entities'
+
 import { HeroSection } from '../hero/Hero'
 
 export const EachMemberHeroSection = ({ slug }: { slug: string }) => {

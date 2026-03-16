@@ -1,17 +1,25 @@
 'use client'
 
 import { useApp } from '@/src/entities'
-import { Dropdown, DropdownContent, DropdownItem, DropdownTrigger } from '@/src/shared/components'
+import {
+  Dropdown,
+  DropdownContent,
+  DropdownItem,
+  DropdownTrigger
+} from '@/src/shared/components'
 
 const sortingMethodsOfMembers = ['Oldest', 'Newest', 'A-Z', 'Z-A']
 
 export const MembersSortDropdown = ({}) => {
-  const { selectedSortingMethodofMembers, setSelectedSortingMethodofMembers } = useApp()
+  const { selectedSortingMethodofMembers, setSelectedSortingMethodofMembers } =
+    useApp()
 
   return (
     <Dropdown setSelectedItem={setSelectedSortingMethodofMembers}>
       <DropdownTrigger>
-        {selectedSortingMethodofMembers ? selectedSortingMethodofMembers : 'Дугаарлах'}
+        {selectedSortingMethodofMembers
+          ? selectedSortingMethodofMembers
+          : 'Дугаарлах'}
       </DropdownTrigger>
       <DropdownContent>
         {sortingMethodsOfMembers.map((sort, index) => (

@@ -1,7 +1,7 @@
 import {
   MembersFilterByRoleDropdown,
   MembersFilterDropdown,
-  MembersSortDropdown,
+  MembersSortDropdown
 } from '@/src/features/about'
 import { HeroSection } from '@/src/widgets'
 import { MembersList } from '@/src/widgets/about'

@@ -17,7 +17,7 @@ export const defaultTopicData: Topic[] = [
 
     serial: 1,
     color: 'bg-black',
-    postId: ['12b00a56-8253-44ac-a53a-25ff73b63f99'],
+    postId: ['12b00a56-8253-44ac-a53a-25ff73b63f99']
   },
   {
     id: '6bbf7cbb-79e6-4475-adf9-adb68f60cd1e',
@@ -27,7 +27,7 @@ export const defaultTopicData: Topic[] = [
 
     serial: 2,
     color: 'bg-indigo-400',
-    postId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8'],
+    postId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8']
   },
   {
     id: '8c4fbc01-e7ea-4f51-995c-d869f409046d',
@@ -37,6 +37,6 @@ export const defaultTopicData: Topic[] = [
 
     serial: 3,
     color: 'bg-orange-400',
-    postId: ['41b0081f-d6a3-45f8-a09b-884fc0145f17'],
-  },
+    postId: ['41b0081f-d6a3-45f8-a09b-884fc0145f17']
+  }
 ]
