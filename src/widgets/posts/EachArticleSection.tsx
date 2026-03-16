@@ -123,7 +123,7 @@ const SourcesRenderer = ({
               href={item.href}
               target="_blank"
               className="ml-6 underline underline-offset-2 break-all"
-              onClick={() => {
+              onClick={() =>
                 trackEvent({
                   type: 'source_view',
                   route: pathname,
@@ -132,8 +132,7 @@ const SourcesRenderer = ({
                     title: title,
                   },
                 })
-                console.log('source is clicked')
-              }}
+              }
             >
               {item.href}
             </Link>
