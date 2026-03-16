@@ -125,7 +125,7 @@ const SourcesRenderer = ({
               className="ml-6 underline underline-offset-2 break-all"
               onClick={() =>
                 trackEvent({
-                  type: 'source_view',
+                  type: 'source_visit',
                   route: pathname,
                   post_id: articleId,
                   metadata: {

@@ -2,8 +2,8 @@ import { z } from 'zod'
 
 export type AnalyticsEventType =
   | 'page_view'
-  | 'post_view'
-  | 'source_view'
+  | 'source_visit'
+  | 'post_visit'
   | 'topic_visit'
   | 'season_visit'
   | 'writer_visit'
@@ -22,8 +22,8 @@ export type AnalyticsEvent = {
 const eventSchema = z.object({
   type: z.enum([
     'page_view',
-    'post_view',
-    'source_view',
+    'source_visit',
+    'post_visit',
     'topic_visit',
     'season_visit',
     'writer_visit',
