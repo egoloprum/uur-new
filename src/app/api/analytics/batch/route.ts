@@ -1,6 +1,7 @@
-import { cookies, headers } from 'next/headers'
+import { cookies } from 'next/headers'
 import { batchSchema } from '@/src/shared/lib'
 import { createServerSupabase } from '@/src/shared/db/supabase'
+import { geolocation } from '@vercel/functions'
 
 type EventRow = {
   visitor_id: string
@@ -61,11 +62,7 @@ export async function POST(req: Request) {
     return new Response('missing identity', { status: 400 })
   }
 
-  const h = await headers()
-
-  const country = h.get('x-vercel-ip-country') ?? h.get('cf-ipcountry') ?? null
-
-  const city = h.get('x-vercel-ip-city') ?? null
+  const { city, country } = geolocation(req)
 
   const rows: EventRow[] = parsed.data.events.map(event => ({
     visitor_id,
@@ -77,8 +74,8 @@ export async function POST(req: Request) {
     topic_id: event.topic_id ?? null,
     metadata: event.metadata ?? {},
     user_agent: ua,
-    country,
-    city,
+    country: country ?? null,
+    city: city ?? null,
     created_at: new Date(event.ts),
   }))
 
