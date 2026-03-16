@@ -3,10 +3,11 @@
 import { useApp } from '@/src/entities'
 import { Post } from '@/src/entities/post'
 import { Button } from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
-export const PostsList = ({ posts }: { posts: Post[] }) => {
+export const PostsList = ({ posts, pathname }: { posts: Post[]; pathname: string }) => {
   const { getUserById, getTopicById } = useApp()
 
   if (!posts.length) {
@@ -61,6 +62,15 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
                 mode="primary"
                 href={`/posts/${post.slug}`}
                 className="text-xs md:text-sm px-2! py-1!"
+                onClick={() =>
+                  trackEvent({
+                    type: 'post_visit',
+                    route: pathname,
+                    metadata: {
+                      title: post.name,
+                    },
+                  })
+                }
               >
                 <span>Цааш унших</span>
                 <MoveRight className="h-4 w-4" />
