@@ -3,8 +3,10 @@
 import { useApp } from '@/src/entities'
 import { User } from '@/src/entities/user'
 import { Button } from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 export const EachMemberPostsList = ({ member }: { member: User }) => {
   const { getUserById, getTopicById, getPostsByContributerId } = useApp()
@@ -18,6 +20,8 @@ export const EachMemberPostsList = ({ member }: { member: User }) => {
       </div>
     )
   }
+
+  const pathname = usePathname()
 
   return (
     <ul className="grid sm:grid-cols-2 lg:grid-cols-3 pb-16">
@@ -63,6 +67,15 @@ export const EachMemberPostsList = ({ member }: { member: User }) => {
                 mode="primary"
                 href={`/posts/${post.slug}`}
                 className="text-xs md:text-sm px-2! py-1!"
+                onClick={() =>
+                  trackEvent({
+                    type: 'post_visit',
+                    route: pathname,
+                    metadata: {
+                      title: post.name,
+                    },
+                  })
+                }
               >
                 <span>Цааш унших</span>
                 <MoveRight className="h-4 w-4" />
