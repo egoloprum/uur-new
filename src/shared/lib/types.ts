@@ -6,7 +6,7 @@ export type AnalyticsEventType =
   | 'post_visit'
   | 'topic_visit'
   | 'season_visit'
-  | 'writer_visit'
+  | 'member_visit'
   | 'filter_used'
 
 export type AnalyticsEvent = {
@@ -26,7 +26,7 @@ const eventSchema = z.object({
     'post_visit',
     'topic_visit',
     'season_visit',
-    'writer_visit',
+    'member_visit',
     'filter_used',
   ]),
   route: z.string(),
