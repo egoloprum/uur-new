@@ -1,6 +1,5 @@
 'use client'
 
-import { Button } from '@/src/shared/components'
 import clsx from 'clsx'
 import { ChevronDown } from 'lucide-react'
 import {
@@ -11,8 +10,10 @@ import {
   useEffect,
   ReactNode,
   Dispatch,
-  SetStateAction,
+  SetStateAction
 } from 'react'
+
+import { Button } from '@/src/shared/components'
 
 interface DropdownContextValue {
   isOpen: boolean
@@ -21,7 +22,9 @@ interface DropdownContextValue {
   setSelectedItem: Dispatch<SetStateAction<string>>
 }
 
-const DropdownContext = createContext<DropdownContextValue | undefined>(undefined)
+const DropdownContext = createContext<DropdownContextValue | undefined>(
+  undefined
+)
 
 const useDropdown = () => {
   const context = useContext(DropdownContext)
@@ -42,14 +45,17 @@ export const Dropdown = ({
   contents,
   setSelectedItem,
   children,
-  className,
+  className
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsOpen(false)
       }
     }
@@ -68,8 +74,11 @@ export const Dropdown = ({
   const close = () => setIsOpen(false)
   if (children) {
     return (
-      <DropdownContext.Provider value={{ isOpen, setIsOpen, close, setSelectedItem }}>
-        <div className={clsx(['relative', 'max-sm:w-full', className])} ref={dropdownRef}>
+      <DropdownContext.Provider
+        value={{ isOpen, setIsOpen, close, setSelectedItem }}>
+        <div
+          className={clsx(['relative', 'max-sm:w-full', className])}
+          ref={dropdownRef}>
           {children}
         </div>
       </DropdownContext.Provider>
@@ -77,7 +86,9 @@ export const Dropdown = ({
   }
 
   if (!label || !contents || !setSelectedItem) {
-    throw new Error('Dropdown with simple API requires label, contents, and setSelectedItem')
+    throw new Error(
+      'Dropdown with simple API requires label, contents, and setSelectedItem'
+    )
   }
 
   return (
@@ -86,9 +97,8 @@ export const Dropdown = ({
         isOpen,
         setIsOpen,
         close,
-        setSelectedItem,
-      }}
-    >
+        setSelectedItem
+      }}>
       <div className="relative" ref={dropdownRef}>
         <DropdownTrigger>{label}</DropdownTrigger>
         <DropdownContent>
@@ -109,7 +119,10 @@ interface DropdownTriggerProps {
   className?: string
 }
 
-export const DropdownTrigger = ({ children, className }: DropdownTriggerProps) => {
+export const DropdownTrigger = ({
+  children,
+  className
+}: DropdownTriggerProps) => {
   const { isOpen, setIsOpen } = useDropdown()
 
   return (
@@ -119,13 +132,12 @@ export const DropdownTrigger = ({ children, className }: DropdownTriggerProps) =
       onClick={() => setIsOpen(!isOpen)}
       aria-expanded={isOpen}
       aria-haspopup="listbox"
-      className={clsx(['max-sm:w-full max-sm:justify-center', className])}
-    >
+      className={clsx(['max-sm:w-full max-sm:justify-center', className])}>
       <span>{children}</span>
       <ChevronDown
         className={clsx([
           'transition-transform duration-200 w-5 h-5 md:w-6 md:h-6',
-          isOpen && 'rotate-180',
+          isOpen && 'rotate-180'
         ])}
       />
     </Button>
@@ -137,7 +149,10 @@ interface DropdownContentProps {
   children: ReactNode
 }
 
-export const DropdownContent = ({ className, children }: DropdownContentProps) => {
+export const DropdownContent = ({
+  className,
+  children
+}: DropdownContentProps) => {
   const { isOpen } = useDropdown()
 
   if (!isOpen) return null
@@ -147,10 +162,9 @@ export const DropdownContent = ({ className, children }: DropdownContentProps) =
       className={clsx([
         'absolute left-0 mt-2 w-48 bg-[#fbfaf2] shadow-lg border border-black focus:outline-none z-50',
         'max-sm:w-full',
-        className,
+        className
       ])}
-      role="listbox"
-    >
+      role="listbox">
       <ul>{children}</ul>
     </div>
   )
@@ -163,12 +177,17 @@ interface DropdownItemProps {
   onClick?: () => void
 }
 
-export const DropdownItem = ({ value, children, className, onClick }: DropdownItemProps) => {
+export const DropdownItem = ({
+  value,
+  children,
+  className,
+  onClick
+}: DropdownItemProps) => {
   const { close, setSelectedItem } = useDropdown()
 
   const classNames = clsx([
     'block w-full px-4 py-2 text-left text-black hover:bg-indigo-300 focus:bg-indigo-400 cursor-pointer',
-    className,
+    className
   ])
 
   return (
@@ -182,8 +201,7 @@ export const DropdownItem = ({ value, children, className, onClick }: DropdownIt
           onClick?.()
           setSelectedItem(value)
           close()
-        }}
-      >
+        }}>
         {children}
       </button>
     </li>

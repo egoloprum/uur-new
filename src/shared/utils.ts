@@ -7,7 +7,7 @@ const roleSlugMap: Record<RoleTypes, string> = {
   Marketer: 'Маркетинг хариуцагч',
   Redactor: 'Редактор',
   Researcher: 'Судлаач',
-  Writer: 'Бичээч',
+  Writer: 'Бичээч'
 }
 
 export const getSlugOfRole = (roleType: RoleTypes): string => {

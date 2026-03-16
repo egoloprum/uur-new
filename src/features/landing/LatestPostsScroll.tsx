@@ -5,7 +5,7 @@ export const LatestPostsScroll = ({
   onNext,
   onToggle,
   isPlaying,
-  isDisabled,
+  isDisabled
 }: {
   onPrev: () => void
   onNext: () => void
@@ -18,21 +18,18 @@ export const LatestPostsScroll = ({
       <button
         onClick={onPrev}
         disabled={isDisabled}
-        className={`p-4 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-black ${isDisabled && 'cursor-not-allowed!'}`}
-      >
+        className={`p-4 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-black ${isDisabled && 'cursor-not-allowed!'}`}>
         <ChevronLeft />
       </button>
       <button
         onClick={onToggle}
-        className="p-4 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-black"
-      >
+        className="p-4 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-black">
         {isPlaying ? <Pause /> : <Play />}
       </button>
       <button
         onClick={onNext}
         disabled={isDisabled}
-        className={`p-4 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-black ${isDisabled && 'cursor-not-allowed!'}`}
-      >
+        className={`p-4 hover:bg-orange-400 focus:bg-orange-500 cursor-pointer rounded-full transition-colors border-2 text-black ${isDisabled && 'cursor-not-allowed!'}`}>
         <ChevronRight />
       </button>
     </div>

@@ -1,4 +1,5 @@
 import { randomUUID } from 'crypto'
+
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
@@ -11,8 +12,8 @@ export function proxy(request: NextRequest) {
 
   const response = NextResponse.next({
     request: {
-      headers: requestHeaders,
-    },
+      headers: requestHeaders
+    }
   })
 
   let visitor_id = request.cookies.get('visitor_id')?.value
@@ -24,7 +25,7 @@ export function proxy(request: NextRequest) {
       maxAge: COOKIE_TIMEOUT,
       path: '/',
       httpOnly: true,
-      sameSite: 'lax',
+      sameSite: 'lax'
     })
   }
 
@@ -50,7 +51,7 @@ export function proxy(request: NextRequest) {
       maxAge: SESSION_TIMEOUT,
       path: '/',
       httpOnly: true,
-      sameSite: 'lax',
+      sameSite: 'lax'
     })
   }
 
@@ -58,12 +59,14 @@ export function proxy(request: NextRequest) {
     maxAge: SESSION_TIMEOUT,
     path: '/',
     httpOnly: true,
-    sameSite: 'lax',
+    sameSite: 'lax'
   })
 
   return response
 }
 
 export const config = {
-  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'],
+  matcher: [
+    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'
+  ]
 }

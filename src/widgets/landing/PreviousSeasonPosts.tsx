@@ -1,20 +1,24 @@
 'use client'
 
-import { useApp } from '@/src/entities'
-import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 
+import { useApp } from '@/src/entities'
+import { Button } from '@/src/shared/components'
+import { trackEvent } from '@/src/shared/lib'
+
 export const PreviousSeasonPostsSection = ({}) => {
-  const { getPostsBySeasonId, getTopicById, getUserById, previousSeasonId } = useApp()
+  const { getPostsBySeasonId, getTopicById, getUserById, previousSeasonId } =
+    useApp()
 
   const posts = getPostsBySeasonId(previousSeasonId)
 
   return (
     <div className="bg-[#fbfaf2] space-y-8">
       <div className="flex flex-col lg:flex-row gap-8 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
-        <h2 className="text-black font-bold text-4xl uppercase">Өмнөх улиралын нийтлэлүүд</h2>
+        <h2 className="text-black font-bold text-4xl uppercase">
+          Өмнөх улиралын нийтлэлүүд
+        </h2>
         <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
           <div className="flex flex-col md:flex-row max-sm:flex-row md:items-center gap-2 max-sm:gap-4 md:gap-8">
             <p className="flex gap-2">
@@ -47,7 +51,9 @@ export const PreviousSeasonPostsSection = ({}) => {
       <ul className="grid sm:grid-cols-2 lg:grid-cols-3">
         {!posts.length ? (
           <div className="text-black px-4 md:px-8 lg:px-12 xl:px-16 py-0">
-            <p className="text-base md:text-2xl">Нийтлэл одоогоор байхгүй байна...</p>
+            <p className="text-base md:text-2xl">
+              Нийтлэл одоогоор байхгүй байна...
+            </p>
           </div>
         ) : (
           posts.map((post, index) => {
@@ -57,14 +63,13 @@ export const PreviousSeasonPostsSection = ({}) => {
             return (
               <li
                 className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
-                key={post.name + member?.name + index}
-              >
+                key={post.name + member?.name + index}>
                 <div
                   className={clsx([
                     'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
                     'w-full border-gray-400 top-1/2 -translate-y-1/2 left-0',
                     index !== 0 && 'border-l',
-                    index === posts.length - 1 && 'border-r',
+                    index === posts.length - 1 && 'border-r'
                   ])}
                 />
                 <div
@@ -73,19 +78,26 @@ export const PreviousSeasonPostsSection = ({}) => {
                     'border-t border-gray-400 top-0 -translate-x-1/2 left-1/2',
                     index >= posts.length - 3 && 'lg:border-b',
                     index >= posts.length - 2 && 'max-lg:border-b',
-                    index === posts.length - 1 && 'max-sm:border-b max-sm:border-t-0',
+                    index === posts.length - 1 &&
+                      'max-sm:border-b max-sm:border-t-0'
                   ])}
                 />
                 <div className="space-y-4 z-10">
-                  <h3 className="text-2xl md:text-4xl font-semibold">{post.name}</h3>
-                  <p className="text-base md:text-xl line-clamp-4">{post.description}</p>
+                  <h3 className="text-2xl md:text-4xl font-semibold">
+                    {post.name}
+                  </h3>
+                  <p className="text-base md:text-xl line-clamp-4">
+                    {post.description}
+                  </p>
                 </div>
 
                 <div className="flex flex-wrap justify-between items-center gap-4 tracking-wide mt-auto z-10">
                   <div className="flex gap-2 md:gap-8">
                     <span
-                      className={clsx(['h-4 w-4 aspect-square rounded-full'], topic?.color)}
-                    ></span>
+                      className={clsx(
+                        ['h-4 w-4 aspect-square rounded-full'],
+                        topic?.color
+                      )}></span>
                     <p>{post.releaseDate}</p>
                     <p className="uppercase">{member?.name}</p>
                   </div>
@@ -96,13 +108,15 @@ export const PreviousSeasonPostsSection = ({}) => {
                     onClick={() =>
                       trackEvent({
                         type: 'post_visit',
+                        post_id: post.id,
+                        topic_id: topic?.id,
+                        member_id: member?.id,
                         route: '/',
                         metadata: {
-                          title: post.name,
-                        },
+                          title: post.name
+                        }
                       })
-                    }
-                  >
+                    }>
                     <span>Цааш унших</span>
                     <MoveRight className="h-4 w-4" />
                   </Button>

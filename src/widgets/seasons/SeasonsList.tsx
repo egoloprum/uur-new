@@ -1,12 +1,18 @@
 'use client'
 
-import { useApp } from '@/src/entities'
-import { PostsList } from './PostsList'
-import { MembersList } from './MembersList'
 import { usePathname } from 'next/navigation'
 
+import { useApp } from '@/src/entities'
+
+import { MembersList } from './MembersList'
+import { PostsList } from './PostsList'
+
 export const SeasonsList = ({}) => {
-  const { getSeasonsBySelectedSeasonId, getMembersBySeasonId, getPostsBySeasonId } = useApp()
+  const {
+    getSeasonsBySelectedSeasonId,
+    getMembersBySeasonId,
+    getPostsBySeasonId
+  } = useApp()
 
   const seasons = getSeasonsBySelectedSeasonId()
 

@@ -1,7 +1,7 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 
 const routes: Record<string, string> = {
   posts: 'Нийтлэлүүд',
@@ -20,7 +20,7 @@ const routes: Record<string, string> = {
   Ankhmandakh: 'Aнхмандах',
   Amar: 'Aмар',
   Ganbayar: 'Ганбаяр',
-  'Gan-Erdene': 'Ган-Эрдэнэ',
+  'Gan-Erdene': 'Ган-Эрдэнэ'
 }
 
 export const Breadcrumb = () => {

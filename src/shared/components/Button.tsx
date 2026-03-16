@@ -2,7 +2,11 @@
 
 import clsx from 'clsx'
 import Link from 'next/link'
-import { ButtonHTMLAttributes, HTMLAttributeAnchorTarget, LinkHTMLAttributes } from 'react'
+import {
+  ButtonHTMLAttributes,
+  HTMLAttributeAnchorTarget,
+  LinkHTMLAttributes
+} from 'react'
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
   LinkHTMLAttributes<HTMLAnchorElement> & {
@@ -30,7 +34,7 @@ export const Button = ({
     mode === 'primary' && 'hover:bg-orange-400 focus:bg-orange-500',
     mode === 'secondary' && 'hover:bg-indigo-400 focus:bg-indigo-500',
     mode === 'clear' && 'hover:bg-white hover:text-black',
-    className,
+    className
   ])
 
   if (href) {

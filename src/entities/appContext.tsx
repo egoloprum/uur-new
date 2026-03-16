@@ -8,16 +8,17 @@ import {
   useCallback,
   useContext,
   useMemo,
-  useState,
+  useState
 } from 'react'
+
+import { Article, defaultArticleData } from './article'
 import { defaultPostData, Post } from './post'
 import { defaultSeasonData, Season } from './season'
-import { defaultUserData, User } from './user'
 import { defaultTopicData, Topic } from './topic'
-import { Article, defaultArticleData } from './article'
+import { defaultUserData, User } from './user'
 
-const CURRENT_SEASON_ID = '405e4a2d-e198-4fa8-942d-3727d36861e2'
-const PREVIOUS_SEASON_ID = '56a6a473-4733-4204-8b29-1633f0084d97'
+const CURRENT_SEASON_ID = process.env.NEXT_PUBLIC_CURRENT_SEASON_ID!
+const PREVIOUS_SEASON_ID = process.env.NEXT_PUBLIC_PREVIOUS_SEASON_ID!
 
 interface AppContextType {
   posts: Post[]
@@ -79,22 +80,33 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
   const [selectedTopicId, setSelectedTopicId] = useState<string>('')
   const [selectedRole, setSelectedRole] = useState<string>('')
 
-  const [selectedSortingMethodofPosts, setSelectedSortingMethodofPosts] = useState<string>('')
-  const [selectedSortingMethodofMembers, setSelectedSortingMethodofMembers] = useState<string>('')
+  const [selectedSortingMethodofPosts, setSelectedSortingMethodofPosts] =
+    useState<string>('')
+  const [selectedSortingMethodofMembers, setSelectedSortingMethodofMembers] =
+    useState<string>('')
 
   const currentSeasonId = CURRENT_SEASON_ID
   const previousSeasonId = PREVIOUS_SEASON_ID
 
-  const getPostById = useCallback((id: string) => posts.find(p => p.id === id) || null, [posts])
+  const getPostById = useCallback(
+    (id: string) => posts.find(p => p.id === id) || null,
+    [posts]
+  )
 
   const getSeasonById = useCallback(
     (id: string) => seasons.find(s => s.id === id) || null,
     [seasons]
   )
 
-  const getUserById = useCallback((id: string) => users.find(u => u.id === id) || null, [users])
+  const getUserById = useCallback(
+    (id: string) => users.find(u => u.id === id) || null,
+    [users]
+  )
 
-  const getTopicById = useCallback((id: string) => topics.find(t => t.id === id) || null, [topics])
+  const getTopicById = useCallback(
+    (id: string) => topics.find(t => t.id === id) || null,
+    [topics]
+  )
 
   const getArticleById = useCallback(
     (id: string) => articles.find(a => a.id === id) || null,
@@ -233,7 +245,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getMemberBySlug,
 
       getSeasonsBySelectedSeasonId,
-      getTopicsBySelectedTopicId,
+      getTopicsBySelectedTopicId
     }),
     [
       posts,
@@ -274,7 +286,7 @@ export const AppProvider = ({ children }: { children: ReactNode }) => {
       getMemberBySlug,
 
       getSeasonsBySelectedSeasonId,
-      getTopicsBySelectedTopicId,
+      getTopicsBySelectedTopicId
     ]
   )
 

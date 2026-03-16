@@ -1,6 +1,7 @@
 'use client'
 
 import { useApp } from '@/src/entities'
+
 import { EachMemberPostsList } from './EachMemberPostsList'
 
 export const EachMemberPostsSection = ({ slug }: { slug: string }) => {

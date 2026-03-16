@@ -1,7 +1,8 @@
-import { cookies } from 'next/headers'
-import { batchSchema } from '@/src/shared/lib'
-import { createServerSupabase } from '@/src/shared/db/supabase'
 import { geolocation } from '@vercel/functions'
+import { cookies } from 'next/headers'
+
+import { createServerSupabase } from '@/src/shared/db/supabase'
+import { batchSchema } from '@/src/shared/lib'
 
 type EventRow = {
   visitor_id: string
@@ -9,8 +10,10 @@ type EventRow = {
   event_type: string
   route: string
   post_id: string | null
-  writer_id: string | null
+  member_id: string | null
   topic_id: string | null
+  season_id: string | null
+  current_season_id: string
   metadata: Record<string, unknown>
   user_agent: string | null
   country: string | null
@@ -29,7 +32,7 @@ export async function POST(req: Request) {
 
   const allowedHosts = [
     new URL(process.env.NEXT_PUBLIC_DOMAIN!).host,
-    new URL(process.env.NEXT_LOCAL_DOMAIN!).host,
+    new URL(process.env.NEXT_LOCAL_DOMAIN!).host
   ]
 
   if (!allowedHosts.includes(originHost)) {
@@ -70,17 +73,18 @@ export async function POST(req: Request) {
     event_type: event.type,
     route: event.route,
     post_id: event.post_id ?? null,
-    writer_id: event.writer_id ?? null,
+    member_id: event.member_id ?? null,
     topic_id: event.topic_id ?? null,
+    season_id: event.season_id ?? null,
+    current_season_id: process.env.NEXT_PUBLIC_CURRENT_SEASON_ID!,
     metadata: event.metadata ?? {},
     user_agent: ua,
     country: country ?? null,
     city: city ?? null,
-    created_at: new Date(event.ts),
+    created_at: new Date(event.ts)
   }))
 
   const supabase = createServerSupabase()
-
   const { error } = await supabase.from('events').insert(rows)
 
   if (error) {

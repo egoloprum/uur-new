@@ -1,5 +1,6 @@
-import { Button } from '@/src/shared/components'
 import { CardSim, Mail } from 'lucide-react'
+
+import { Button } from '@/src/shared/components'
 
 export const Footer = ({}) => {
   return (
@@ -11,23 +12,20 @@ export const Footer = ({}) => {
             href="https://www.instagram.com/uur.mn"
             target="_blank"
             mode="clear"
-            className="aspect-square text-white w-10! h-10! px-2! border-white relative"
-          >
+            className="aspect-square text-white w-10! h-10! px-2! border-white relative">
             <span className="absolute top-1/2 left-1/2 -translate-1/2">IG</span>
           </Button>
           <Button
             href="https://docs.google.com/forms/d/1Z1YYoo4KdJPMfHpAPw3Bpbpt9mrrsMeAjLS1htCBn34"
             target="_blank"
             mode="clear"
-            className="aspect-square text-white w-10! h-10! px-2! border-white relative"
-          >
+            className="aspect-square text-white w-10! h-10! px-2! border-white relative">
             <CardSim className="absolute top-1/2 left-1/2 -translate-1/2 h-4 w-4" />
           </Button>
           <Button
             href="mailto:uur.mon.project@gmail.com"
             mode="clear"
-            className="aspect-square text-white w-10! h-10! px-2! border-white relative"
-          >
+            className="aspect-square text-white w-10! h-10! px-2! border-white relative">
             <Mail className="absolute top-1/2 left-1/2 -translate-1/2 h-4 w-4" />
           </Button>
         </div>
@@ -35,8 +33,8 @@ export const Footer = ({}) => {
       <hr className="border-gray-400" />
       <nav>
         <p className="text-sm md:text-xl tracking-wider">
-          © 2026 он. Бүх бичвэрүүд зохиогчийн эрхээр хамгаалагдсан. Бичвэр, дүрслэлийг ашиглахдаа
-          заавал эш татна.
+          © 2026 он. Бүх бичвэрүүд зохиогчийн эрхээр хамгаалагдсан. Бичвэр,
+          дүрслэлийг ашиглахдаа заавал эш татна.
         </p>
       </nav>
     </footer>

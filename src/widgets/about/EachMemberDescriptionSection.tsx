@@ -21,8 +21,7 @@ export const EachMemberDescriptionSection = ({ slug }: { slug: string }) => {
             <li
               key={role.type + index}
               className="text-black uppercase border rounded-full px-2 w-fit"
-              style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}
-            >
+              style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}>
               {getSlugOfRole(role.type as RoleTypes)}
             </li>
           ))}
@@ -31,8 +30,7 @@ export const EachMemberDescriptionSection = ({ slug }: { slug: string }) => {
           <span className="h-4 w-4 aspect-square rounded-full bg-indigo-400"></span>
           <span
             className="text-base text-black tracking-wide uppercase text-nowrap"
-            style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}
-          >
+            style={{ fontSize: 'clamp(.875rem, 2vw, 1.25rem)' }}>
             Энэ улиралын гишүүн
           </span>
         </p>

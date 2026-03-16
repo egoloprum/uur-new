@@ -7,8 +7,8 @@ export function createServerSupabase() {
     {
       auth: {
         persistSession: false,
-        autoRefreshToken: false,
-      },
+        autoRefreshToken: false
+      }
     }
   )
 }
