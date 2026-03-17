@@ -9,10 +9,6 @@ import {
 	LenisScrollProvider
 } from '../shared/components'
 import { Footer, Sidebar } from '../widgets'
-import { JetBrains_Mono } from "next/font/google";
-import { cn } from "@/lib/utils";
-
-const jetbrainsMono = JetBrains_Mono({subsets:['latin'],variable:'--font-mono'});
 
 const adventProLocal = localFont({
 	src: [
@@ -76,7 +72,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }>) {
 	return (
-		<html lang="en" className={cn("font-mono", jetbrainsMono.variable)}>
+		<html lang="en">
 			<body className={`${adventProLocal.variable} antialiased`}>
 				<LenisScrollProvider>
 					<AppProviders>
