@@ -1,9 +1,9 @@
 'use client'
 
 import { CardSim, Mail } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 import { Button } from '@/src/shared/components'
-import { usePathname } from 'next/navigation'
 
 export const Footer = ({}) => {
 	const pathname = usePathname()

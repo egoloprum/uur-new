@@ -1,40 +1,61 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	:root {
+		--background: #0a0a0a;
+		--foreground: #ededed;
+	}
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-advent-pro-local) sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: var(--font-advent-pro-local) sans-serif;
 }
 
 .font-montserrat {
-  font-family: var(--font-montserrat);
+	font-family: var(--font-montserrat);
 }
 
 .font-advent-pro {
-  font-family: var(--font-advent-pro);
+	font-family: var(--font-advent-pro);
 }
 
 .font-advent-pro-local {
-  font-family: var(--font-advent-pro-local);
+	font-family: var(--font-advent-pro-local);
+}
+
+input:-webkit-autofill {
+	background-color: transparent !important;
+	-webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
+	-webkit-text-fill-color: #000 !important;
+}
+input:-webkit-autofill::first-line {
+	color: #000 !important;
+	-webkit-text-fill-color: #000 !important;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+	transition: background-color 5000s ease-in-out 0s !important;
+}
+
+input:-moz-autofill {
+	background-color: transparent !important;
+	-webkit-text-fill-color: #fff !important;
 }
 
 /* ::-webkit-scrollbar {
