@@ -1,5 +1,9 @@
 export const Page = ({}) => {
-	return <div>page</div>
+	return (
+		<main className="bg-[#14110F] min-h-screen font-advent-pro-local">
+			page
+		</main>
+	)
 }
 
 export default Page
