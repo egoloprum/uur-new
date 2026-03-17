@@ -71,6 +71,10 @@ export const Sidebar = () => {
 		setIsOpen(false)
 	}
 
+	if (pathname.split('/').includes('dashboard')) {
+		return null
+	}
+
 	return (
 		<>
 			<aside className="fixed top-0 right-0 z-100">
