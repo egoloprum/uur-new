@@ -33,10 +33,12 @@ const chartConfig = {
 	}
 } satisfies ChartConfig
 
-export function PostsInteractionSection() {
+export function CountriesInteractionSection() {
 	return (
 		<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
-			<h2 className="text-black md:text-2xl text-4xl">Posts Interactions</h2>
+			<h2 className="text-black md:text-2xl text-4xl">
+				Countries Interactions
+			</h2>
 			<ChartContainer config={chartConfig} className="aspect-square pb-0">
 				<RadarChart data={chartData}>
 					<ChartTooltip cursor={false} content={<ChartTooltipContent />} />

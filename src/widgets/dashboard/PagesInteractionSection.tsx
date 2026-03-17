@@ -134,7 +134,7 @@ export function PagesInteractionSection() {
 
 	return (
 		<div className="p-4 bg-[#fff5c4] text-black rounded-2xl">
-			<header className="flex justify-between">
+			<header className="flex flex-wrap justify-between gap-4">
 				<div className="flex flex-col justify-center">
 					<h2 className="text-2xl font-medium uppercase">Page interactions</h2>
 					<p className="text-xl">
