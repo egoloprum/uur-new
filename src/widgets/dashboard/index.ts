@@ -7,3 +7,4 @@ export * from './SeasonsInteractionSection'
 export * from './GeneralInteractionSection'
 
 export * from './CountriesInteractionSection'
+export * from './SourcesInteractionSection'

@@ -51,15 +51,6 @@ export async function POST(req: Request) {
 	const cookieStore = await cookies()
 	const visitor_id = cookieStore.get('visitor_id')?.value
 
-	// const ip = req.headers.get('x-forwarded-for')?.split(',')[0] ?? 'unknown'
-	// const identifier = visitor_id || ip
-
-	// const redis = Redis.fromEnv()
-	// const key = `rate:${identifier}`
-	// const count = await redis.incr(key)
-	// if (count === 1) await redis.expire(key, 60)
-	// if (count > 60) return new Response('Too many requests', { status: 429 })
-
 	const session_id = cookieStore.get('session_id')?.value
 	if (!visitor_id || !session_id) {
 		return new Response('missing identity', { status: 400 })

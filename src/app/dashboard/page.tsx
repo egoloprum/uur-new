@@ -7,7 +7,8 @@ import {
 	PagesInteractionSection,
 	PostsInteractionSection,
 	SeasonsInteractionSection,
-	TopicsInteractionSection
+	TopicsInteractionSection,
+	SourcesInteractionSection
 } from '@/src/widgets/dashboard'
 
 export const Page = ({}) => {
@@ -17,7 +18,7 @@ export const Page = ({}) => {
 				<h1 className="text-3xl md:text-6xl font-black uppercase tracking-wide">
 					Uur Dashboard
 				</h1>
-				<Button mode="primary" className="bg-orange-300">
+				<Button mode="primary" className="bg-[#fff5c4]">
 					Log out
 				</Button>
 			</div>
@@ -29,6 +30,7 @@ export const Page = ({}) => {
 				<MembersInteractionSection />
 				<CountriesInteractionSection />
 				<PostsInteractionSection />
+				<SourcesInteractionSection />
 			</div>
 			<PagesInteractionSection />
 		</main>
