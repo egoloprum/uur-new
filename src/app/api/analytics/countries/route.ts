@@ -1,1 +1,37 @@
-// Returns page_view counts grouped by country
+import { createServerSupabase } from '@/src/shared/db/supabase'
+import { NextRequest } from 'next/server'
+
+export async function GET(req: NextRequest) {
+	try {
+		const { searchParams } = new URL(req.url)
+		const seasonId = searchParams.get('seasonId')
+
+		const supabase = createServerSupabase()
+
+		let query = supabase.from('events').select('country')
+		if (seasonId) {
+			query = query.eq('current_season_id', seasonId)
+		}
+
+		const { data, error } = await query
+			.eq('event_type', 'page_view')
+			.not('country', 'is', null)
+
+		if (error) throw error
+
+		const counts: Record<string, number> = {}
+		data.forEach(({ country }) => {
+			if (country) counts[country] = (counts[country] || 0) + 1
+		})
+
+		const result = Object.entries(counts).map(([country, count]) => ({
+			country,
+			count
+		}))
+
+		return Response.json(result)
+	} catch (error) {
+		console.error('Countries stats error:', error)
+		return new Response('Internal Server Error', { status: 500 })
+	}
+}

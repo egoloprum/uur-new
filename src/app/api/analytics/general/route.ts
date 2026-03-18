@@ -1,74 +1,99 @@
-// Returns all-time stats for the top cards (page views, unique users, most visited page/post, most active day, filter uses)
-
 import { createServerSupabase } from '@/src/shared/db/supabase'
 import { NextRequest } from 'next/server'
 
 export async function GET(req: NextRequest) {
-	const { searchParams } = new URL(req.url)
-	const seasonId = searchParams.get('seasonId')
+	try {
+		const { searchParams } = new URL(req.url)
+		const seasonId = searchParams.get('seasonId')
 
-	const supabase = createServerSupabase()
+		const supabase = createServerSupabase()
 
-	// Build base query with optional season filter
-	let query = supabase.from('events').select('*')
-	if (seasonId) {
-		query = query.eq('season_id', seasonId)
+		// Base query with optional season filter
+		let query = supabase.from('events').select('*')
+		if (seasonId) {
+			query = query.eq('season_id', seasonId)
+		}
+
+		// 1. Total page views
+		const { count: pageViews, error: pageViewsError } = await query.eq(
+			'event_type',
+			'page_view'
+		)
+		if (pageViewsError) throw pageViewsError
+
+		// 2. Unique visitors
+		const { data: visitors, error: visitorsError } = await query
+			.select('visitor_id')
+			.eq('event_type', 'page_view')
+		if (visitorsError) throw visitorsError
+		const uniqueUsers = new Set(visitors.map(v => v.visitor_id)).size
+
+		// 3. Most visited page (route)
+		const { data: routes, error: routesError } = await query
+			.select('route')
+			.eq('event_type', 'page_view')
+		if (routesError) throw routesError
+		const routeCounts: Record<string, number> = {}
+		routes.forEach(({ route }) => {
+			routeCounts[route] = (routeCounts[route] || 0) + 1
+		})
+		const mostVisitedPage =
+			Object.entries(routeCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'N/A'
+
+		// 4. Most visited post (by post_visit events)
+		const { data: postVisits, error: postVisitsError } = await query
+			.select('post_id')
+			.eq('event_type', 'post_visit')
+			.not('post_id', 'is', null)
+		if (postVisitsError) throw postVisitsError
+		const postCounts: Record<string, number> = {}
+		postVisits.forEach(({ post_id }) => {
+			if (post_id) postCounts[post_id] = (postCounts[post_id] || 0) + 1
+		})
+		const sortedPosts = Object.entries(postCounts).sort((a, b) => b[1] - a[1])
+		const topPostId = sortedPosts[0]?.[0]
+
+		let mostVisitedPost = 'N/A'
+		if (topPostId) {
+			// Fetch post title from posts table
+			const { data: post } = await supabase
+				.from('posts')
+				.select('name')
+				.eq('id', topPostId)
+				.single()
+			mostVisitedPost = post?.name || 'Unknown'
+		}
+
+		// 5. Most active day (by created_at date)
+		const { data: days, error: daysError } = await query
+			.select('created_at')
+			.eq('event_type', 'page_view')
+		if (daysError) throw daysError
+		const dayCounts: Record<string, number> = {}
+		days.forEach(({ created_at }) => {
+			const day = new Date(created_at).toISOString().split('T')[0]
+			dayCounts[day] = (dayCounts[day] || 0) + 1
+		})
+		const mostActiveDay =
+			Object.entries(dayCounts).sort((a, b) => b[1] - a[1])[0]?.[0] || 'N/A'
+
+		// 6. Filter uses
+		const { count: filterUses, error: filterUsesError } = await query.eq(
+			'event_type',
+			'filter_used'
+		)
+		if (filterUsesError) throw filterUsesError
+
+		return Response.json({
+			pageViews,
+			uniqueUsers,
+			mostVisitedPage,
+			mostVisitedPost,
+			mostActiveDay,
+			filterUses
+		})
+	} catch (error) {
+		console.error('General stats error:', error)
+		return new Response('Internal Server Error', { status: 500 })
 	}
-
-	// Get all-time page views
-	const { count: pageViews } = await query.eq('event_type', 'page_view')
-
-	// Unique visitors (by visitor_id)
-	const { data: uniqueVisitors } = await query
-		.select('visitor_id')
-		.eq('event_type', 'page_view')
-	const uniqueUsers = new Set(uniqueVisitors?.map(v => v.visitor_id)).size
-
-	// Most visited page (route)
-	const { data: routeCounts } = await query
-		.select('route')
-		.eq('event_type', 'page_view')
-
-	const routeFrequency = routeCounts?.reduce((acc, { route }) => {
-		acc[route] = (acc[route] || 0) + 1
-		return acc
-	}, {})
-
-	const mostVisitedPage =
-		Object.entries(routeFrequency || {}).sort((a, b) => b[1] - a[1])[0]?.[0] ||
-		'N/A'
-
-	// Most visited post (join with posts table or use metadata?)
-	// Option 1: use post_visit events and join with posts table to get title
-	const { data: postVisits } = await query
-		.select('post_id')
-		.eq('event_type', 'post_visit')
-		.not('post_id', 'is', null)
-	// Count per post_id, then fetch post titles in a second query
-	// ... (similar logic)
-
-	// Most active day (by created_at)
-	const { data: dayCounts } = await query
-		.select('created_at')
-		.eq('event_type', 'page_view')
-	const dayFrequency = dayCounts?.reduce((acc, { created_at }) => {
-		const day = new Date(created_at).toISOString().split('T')[0]
-		acc[day] = (acc[day] || 0) + 1
-		return acc
-	}, {})
-	const mostActiveDay =
-		Object.entries(dayFrequency || {}).sort((a, b) => b[1] - a[1])[0]?.[0] ||
-		'N/A'
-
-	// Filter uses
-	const { count: filterUses } = await query.eq('event_type', 'filter_used')
-
-	return Response.json({
-		pageViews,
-		uniqueUsers,
-		mostVisitedPage,
-		mostVisitedPost: '…', // implement similarly
-		mostActiveDay,
-		filterUses
-	})
 }

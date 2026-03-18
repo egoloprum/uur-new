@@ -1,48 +1,182 @@
 'use client'
 
-import { Pie, PieChart } from 'recharts'
+import { useEffect, useState } from 'react'
+import { useApp } from '@/src/entities'
 
-import {
-	ChartConfig,
-	ChartContainer,
-	ChartTooltip,
-	ChartTooltipContent
-} from '@/src/shared/shadcn/components/ui/chart'
-
-const chartData = [
-	{ topic: 'Шинжлэх ухаан', interactions: 275, fill: '#000' },
-	{ topic: 'Технологи', interactions: 200, fill: '#a5b4fc' },
-	{ topic: 'Урлаг', interactions: 187, fill: '#fb923c' }
+const COLOR_PALETTE = [
+	'#000',
+	'#a5b4fc',
+	'#fb923c',
+	'#4ade80',
+	'#f87171',
+	'#c084fc',
+	'#60a5fa',
+	'#fbbf24',
+	'#94a3b8'
 ]
 
-const chartConfig = {
-	interactions: {
-		label: 'Interactions'
-	},
-	science: {
-		label: 'Chrome',
-		color: '#000'
-	},
-	tech: {
-		label: 'Safari',
-		color: '#a5b4fc'
-	},
-	art: {
-		label: 'Firefox',
-		color: '#fb923c'
-	}
-} satisfies ChartConfig
+interface TopicStats {
+	topicId: string
+	count: number
+}
+
+interface ChartItem {
+	topic: string
+	interactions: number
+	fill: string
+	topicId?: string
+}
 
 export function TopicsInteractionSection() {
+	const { filters, topics } = useApp()
+	const [data, setData] = useState<TopicStats[]>([])
+	const [loading, setLoading] = useState(true)
+	const [error, setError] = useState<string | null>(null)
+
+	useEffect(() => {
+		const fetchTopics = async () => {
+			setLoading(true)
+			try {
+				const params = new URLSearchParams()
+				if (filters.seasonId) params.set('seasonId', filters.seasonId)
+				const res = await fetch(`/api/analytics/topics?${params}`)
+				if (!res.ok) throw new Error('Failed to fetch topics data')
+				const json = await res.json()
+				setData(json)
+			} catch (err) {
+				setError(err instanceof Error ? err.message : 'Unknown error')
+			} finally {
+				setLoading(false)
+			}
+		}
+
+		fetchTopics()
+	}, [filters.seasonId])
+
+	if (loading) {
+		return (
+			<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
+				<h2 className="text-black md:text-2xl text-4xl">Topics Interactions</h2>
+				<div className="flex justify-center items-center h-64">Loading...</div>
+			</div>
+		)
+	}
+
+	if (error) {
+		return (
+			<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
+				<h2 className="text-black md:text-2xl text-4xl">Topics Interactions</h2>
+				<div className="text-red-500">Error: {error}</div>
+			</div>
+		)
+	}
+
+	// Build per-topic counts with names (include all topics, even zero counts)
+	const topicMap = new Map(topics.map(t => [t.id, t.name]))
+	const chartData: ChartItem[] = []
+
+	// First add topics that have data
+	data.forEach(({ topicId, count }, index) => {
+		const topicName = topicMap.get(topicId)
+		if (topicName) {
+			chartData.push({
+				topic: topicName,
+				interactions: count,
+				fill: COLOR_PALETTE[index % COLOR_PALETTE.length],
+				topicId
+			})
+		}
+	})
+
+	// Add topics with zero interactions that are not already in chartData
+	const existingTopicIds = new Set(chartData.map(d => d.topicId))
+	const zeroTopics = topics
+		.filter(t => !existingTopicIds.has(t.id))
+		.map((t, index) => ({
+			topic: t.name,
+			interactions: 0,
+			fill: COLOR_PALETTE[(chartData.length + index) % COLOR_PALETTE.length],
+			topicId: t.id
+		}))
+	chartData.push(...zeroTopics)
+
+	// Sort alphabetically by topic name (optional)
+	chartData.sort((a, b) => a.topic.localeCompare(b.topic))
+
 	return (
 		<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
 			<h2 className="text-black md:text-2xl text-4xl">Topics Interactions</h2>
-			<ChartContainer config={chartConfig} className="aspect-square pb-0">
-				<PieChart>
-					<ChartTooltip content={<ChartTooltipContent hideLabel />} />
-					<Pie data={chartData} dataKey="interactions" label nameKey="topic" />
-				</PieChart>
-			</ChartContainer>
+
+			{chartData.every(d => d.interactions === 0) ? (
+				<div className="text-center text-gray-600 py-16">
+					No topic interactions yet.
+				</div>
+			) : (
+				<div className="overflow-x-auto">
+					<table className="w-full text-left border-collapse">
+						<thead>
+							<tr className="border-b border-black/20">
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">#</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Topic
+								</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Interactions
+								</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Share
+								</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{(() => {
+								const total = chartData.reduce(
+									(sum, item) => sum + item.interactions,
+									0
+								)
+
+								// Sort by interactions DESC for ranking
+								const sorted = [...chartData].sort(
+									(a, b) => b.interactions - a.interactions
+								)
+
+								return sorted.map((item, index) => {
+									const percentage =
+										total > 0
+											? ((item.interactions / total) * 100).toFixed(1)
+											: '0'
+
+									return (
+										<tr
+											key={item.topicId || item.topic}
+											className="border-b border-black/10 hover:bg-black/5"
+										>
+											<td className="py-3 px-4">{index + 1}</td>
+
+											<td className="py-3 px-4 font-medium">{item.topic}</td>
+
+											<td className="py-3 px-4">{item.interactions}</td>
+
+											<td className="py-3 px-4 w-[200px]">
+												<div className="flex items-center gap-2">
+													<span className="w-12 text-sm">{percentage}%</span>
+													<div className="flex-1 bg-black/10 h-2 rounded">
+														<div
+															className="h-2 rounded bg-black"
+															style={{ width: `${percentage}%` }}
+														/>
+													</div>
+												</div>
+											</td>
+										</tr>
+									)
+								})
+							})()}
+						</tbody>
+					</table>
+				</div>
+			)}
 		</div>
 	)
 }
