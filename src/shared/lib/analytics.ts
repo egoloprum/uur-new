@@ -1,5 +1,8 @@
 'use client'
 
+import { usePathname } from 'next/navigation'
+import { useCallback } from 'react'
+
 import { AnalyticsEvent } from './types'
 
 const BUFFER_LIMIT = 10
@@ -49,15 +52,26 @@ if (typeof window !== 'undefined') {
 	})
 }
 
-export function trackEvent(event: Omit<AnalyticsEvent, 'ts'>) {
-	const item: AnalyticsEvent = {
-		...event,
-		ts: Date.now()
-	}
+export function useTrackEvent() {
+	const pathname = usePathname()
 
-	buffer.push(item)
+	return useCallback(
+		(event: Omit<AnalyticsEvent, 'ts' | 'route'>) => {
+			if (pathname === '/dashboard' || pathname.startsWith('/dashboard/')) {
+				return
+			}
 
-	if (buffer.length >= BUFFER_LIMIT) {
-		flush()
-	}
+			const item: AnalyticsEvent = {
+				...event,
+				ts: Date.now(),
+				route: pathname
+			}
+
+			buffer.push(item)
+			if (buffer.length >= BUFFER_LIMIT) {
+				flush()
+			}
+		},
+		[pathname]
+	)
 }

@@ -13,3 +13,14 @@ const roleSlugMap: Record<RoleTypes, string> = {
 export const getSlugOfRole = (roleType: RoleTypes): string => {
 	return roleSlugMap[roleType]
 }
+
+export const detectDevice = (
+	userAgent: string | null
+): 'mobile' | 'desktop' | 'bot' => {
+	if (!userAgent) return 'desktop'
+	const ua = userAgent.toLowerCase()
+	if (/bot|crawler|spider/i.test(ua)) return 'bot'
+	if (/mobile|android|iphone|ipad|ipod|blackberry|windows phone/i.test(ua))
+		return 'mobile'
+	return 'desktop'
+}

@@ -1,19 +1,17 @@
 'use client'
 
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 import { useApp } from '@/src/entities'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 import { HeroSection } from '../hero/Hero'
 
 export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 	const { getPostBySlug, getMemberById } = useApp()
+	const trackEvent = useTrackEvent()
 
 	const post = getPostBySlug(slug)
-
-	const pathname = usePathname()
 
 	if (!post) {
 		return (
@@ -48,7 +46,7 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 						onClick={() =>
 							trackEvent({
 								type: 'member_visit',
-								route: pathname,
+
 								post_id: post.id,
 								member_id: member?.id,
 								metadata: {

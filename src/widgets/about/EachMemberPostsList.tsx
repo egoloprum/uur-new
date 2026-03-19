@@ -2,13 +2,12 @@
 
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
-import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 
 import { useApp } from '@/src/entities'
 import { Member } from '@/src/entities/member'
 import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 // TODO: add sorting for posts
 
@@ -20,6 +19,7 @@ export const EachMemberPostsList = ({ member }: { member: Member }) => {
 		getPostsBySeasonId,
 		filters
 	} = useApp()
+	const trackEvent = useTrackEvent()
 
 	const selectedSeasonId = filters.seasonId
 
@@ -34,8 +34,6 @@ export const EachMemberPostsList = ({ member }: { member: Member }) => {
 
 		return contributorPosts
 	}, [selectedSeasonId, member.id, getPostsByContributorId, getPostsBySeasonId])
-
-	const pathname = usePathname()
 
 	if (!filteredPosts.length) {
 		return (
@@ -105,7 +103,7 @@ export const EachMemberPostsList = ({ member }: { member: Member }) => {
 								onClick={() =>
 									trackEvent({
 										type: 'post_visit',
-										route: pathname,
+
 										post_id: post.id,
 										topic_id: topic?.id,
 										member_id: author?.id,

@@ -1,7 +1,5 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-
 import { useApp } from '@/src/entities'
 import { RoleTypes } from '@/src/entities/member'
 import { getSlugOfRole } from '@/src/shared'
@@ -11,7 +9,7 @@ import {
 	DropdownItem,
 	DropdownTrigger
 } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 const Roles: RoleTypes[] = [
 	'Coordinator',
@@ -25,10 +23,9 @@ const Roles: RoleTypes[] = [
 
 export const MembersFilterByRoleDropdown = ({}) => {
 	const { filters, setFilters } = useApp()
+	const trackEvent = useTrackEvent()
 
 	const selectedRole = filters.role
-
-	const pathname = usePathname()
 
 	const setSelectedRole = (role: string) => {
 		setFilters(f => ({ ...f, role: role }))
@@ -48,7 +45,7 @@ export const MembersFilterByRoleDropdown = ({}) => {
 						onClick={() => {
 							trackEvent({
 								type: 'filter_used',
-								route: pathname,
+
 								metadata: {
 									title: role,
 									type: 'role'
@@ -65,7 +62,7 @@ export const MembersFilterByRoleDropdown = ({}) => {
 					onClick={() => {
 						trackEvent({
 							type: 'filter_used',
-							route: pathname,
+
 							metadata: {
 								title: 'Бүх гишүүд',
 								type: 'role'

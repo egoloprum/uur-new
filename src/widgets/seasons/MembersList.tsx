@@ -4,15 +4,11 @@ import { MoveRight } from 'lucide-react'
 import { Member } from '@/src/entities/member'
 import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
-export const MembersList = ({
-	members,
-	pathname
-}: {
-	members: Member[]
-	pathname: string
-}) => {
+export const MembersList = ({ members }: { members: Member[] }) => {
+	const trackEvent = useTrackEvent()
+
 	return (
 		<ul className="">
 			{members.map((member, index) => (
@@ -48,7 +44,7 @@ export const MembersList = ({
 						onClick={() =>
 							trackEvent({
 								type: 'member_visit',
-								route: pathname,
+
 								member_id: member.id,
 								metadata: {
 									title: member.name

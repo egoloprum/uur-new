@@ -5,11 +5,13 @@ import { MoveRight } from 'lucide-react'
 
 import { useApp } from '@/src/entities'
 import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 export const CurrentSeasonPostsSection = ({}) => {
 	const { getPostsBySeasonId, getTopicById, getMemberById, currentSeasonId } =
 		useApp()
+
+	const trackEvent = useTrackEvent()
 
 	const posts = getPostsBySeasonId(currentSeasonId)
 
@@ -110,7 +112,6 @@ export const CurrentSeasonPostsSection = ({}) => {
 										onClick={() =>
 											trackEvent({
 												type: 'post_visit',
-												route: '/',
 												post_id: post.id,
 												topic_id: topic?.id,
 												member_id: member?.id,

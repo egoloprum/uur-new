@@ -1,8 +1,17 @@
+'use client'
+
 import { CardSim, Mail } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 import { Button } from '@/src/shared/components'
 
 export const Footer = ({}) => {
+	const pathname = usePathname()
+
+	if (pathname.split('/').includes('dashboard')) {
+		return null
+	}
+
 	return (
 		<footer className="px-4 md:px-8 lg:px-12 xl:px-16 py-8 space-y-8 bg-[#14110F] font-advent-pro-local">
 			<nav className="flex justify-between items-center">

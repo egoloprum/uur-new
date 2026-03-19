@@ -1,19 +1,17 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
 import { useEffect } from 'react'
 
-import { trackEvent } from '@/src/shared/lib/analytics'
+import { useTrackEvent } from '@/src/shared/lib/analytics'
 
 export function AnalyticsProvider() {
-	const pathname = usePathname()
+	const trackEvent = useTrackEvent()
 
 	useEffect(() => {
 		trackEvent({
-			type: 'page_view',
-			route: pathname
+			type: 'page_view'
 		})
-	}, [pathname])
+	}, [trackEvent])
 
 	return null
 }

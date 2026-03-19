@@ -9,11 +9,11 @@ import { useRef, useLayoutEffect, useState } from 'react'
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 export const CurrentSeasonTeamSection = () => {
 	const { currentSeasonId, getMembersBySeasonId } = useApp()
-	const members = getMembersBySeasonId(currentSeasonId)
+	const trackEvent = useTrackEvent()
 
 	const containerRef = useRef<HTMLUListElement | null>(null)
 	const imageRef = useRef<HTMLDivElement | null>(null)
@@ -108,6 +108,8 @@ export const CurrentSeasonTeamSection = () => {
 		}
 	}, [])
 
+	const members = getMembersBySeasonId(currentSeasonId)
+
 	return (
 		<div className="bg-[#fbfaf2] px-4 md:px-8 lg:px-12 xl:px-16 space-y-8 relative">
 			<div className="flex flex-wrap gap-4 justify-between">
@@ -155,7 +157,6 @@ export const CurrentSeasonTeamSection = () => {
 							onClick={() =>
 								trackEvent({
 									type: 'member_visit',
-									route: '/',
 									member_id: member.id,
 									metadata: {
 										title: member.name
