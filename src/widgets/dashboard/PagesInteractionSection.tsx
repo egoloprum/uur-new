@@ -1,5 +1,8 @@
 'use client'
 
+import * as React from 'react'
+import { CartesianGrid, Line, LineChart, XAxis } from 'recharts'
+
 import { Button } from '@/src/shared/components'
 import {
 	ChartConfig,
@@ -7,8 +10,6 @@ import {
 	ChartTooltip,
 	ChartTooltipContent
 } from '@/src/shared/shadcn/components/ui/chart'
-import * as React from 'react'
-import { CartesianGrid, Line, LineChart, XAxis } from 'recharts'
 
 export const description = 'An interactive line chart'
 

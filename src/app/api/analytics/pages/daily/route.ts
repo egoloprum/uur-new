@@ -1,5 +1,6 @@
-import { createServerSupabase } from '@/src/shared/db/supabase'
 import { NextRequest } from 'next/server'
+
+import { createServerSupabase } from '@/src/shared/db/supabase'
 
 export async function GET(req: NextRequest) {
 	try {
@@ -29,8 +30,7 @@ export async function GET(req: NextRequest) {
 			.map(([date, count]) => ({ date, count }))
 
 		return Response.json(sorted)
-	} catch (error) {
-		console.error('Daily pages error:', error)
+	} catch {
 		return new Response('Internal Server Error', { status: 500 })
 	}
 }

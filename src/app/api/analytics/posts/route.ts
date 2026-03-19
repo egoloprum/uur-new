@@ -1,5 +1,6 @@
-import { createServerSupabase } from '@/src/shared/db/supabase'
 import { NextRequest } from 'next/server'
+
+import { createServerSupabase } from '@/src/shared/db/supabase'
 
 export async function GET(req: NextRequest) {
 	try {
@@ -30,8 +31,7 @@ export async function GET(req: NextRequest) {
 		}))
 
 		return Response.json(result)
-	} catch (error) {
-		console.error('Posts stats error:', error)
+	} catch {
 		return new Response('Internal Server Error', { status: 500 })
 	}
 }

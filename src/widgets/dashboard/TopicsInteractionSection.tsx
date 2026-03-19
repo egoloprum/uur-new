@@ -1,19 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useApp } from '@/src/entities'
 
-const COLOR_PALETTE = [
-	'#000',
-	'#a5b4fc',
-	'#fb923c',
-	'#4ade80',
-	'#f87171',
-	'#c084fc',
-	'#60a5fa',
-	'#fbbf24',
-	'#94a3b8'
-]
+import { useApp } from '@/src/entities'
 
 interface TopicStats {
 	topicId: string
@@ -23,7 +12,6 @@ interface TopicStats {
 interface ChartItem {
 	topic: string
 	interactions: number
-	fill: string
 	topicId?: string
 }
 
@@ -73,41 +61,39 @@ export function TopicsInteractionSection() {
 
 	// Build per-topic counts with names (include all topics, even zero counts)
 	const topicMap = new Map(topics.map(t => [t.id, t.name]))
-	const chartData: ChartItem[] = []
+	const tableData: ChartItem[] = []
 
 	// First add topics that have data
-	data.forEach(({ topicId, count }, index) => {
+	data.forEach(({ topicId, count }) => {
 		const topicName = topicMap.get(topicId)
 		if (topicName) {
-			chartData.push({
+			tableData.push({
 				topic: topicName,
 				interactions: count,
-				fill: COLOR_PALETTE[index % COLOR_PALETTE.length],
 				topicId
 			})
 		}
 	})
 
-	// Add topics with zero interactions that are not already in chartData
-	const existingTopicIds = new Set(chartData.map(d => d.topicId))
+	// Add topics with zero interactions that are not already in tableData
+	const existingTopicIds = new Set(tableData.map(d => d.topicId))
 	const zeroTopics = topics
 		.filter(t => !existingTopicIds.has(t.id))
-		.map((t, index) => ({
+		.map(t => ({
 			topic: t.name,
 			interactions: 0,
-			fill: COLOR_PALETTE[(chartData.length + index) % COLOR_PALETTE.length],
 			topicId: t.id
 		}))
-	chartData.push(...zeroTopics)
+	tableData.push(...zeroTopics)
 
 	// Sort alphabetically by topic name (optional)
-	chartData.sort((a, b) => a.topic.localeCompare(b.topic))
+	tableData.sort((a, b) => a.topic.localeCompare(b.topic))
 
 	return (
 		<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
 			<h2 className="text-black md:text-2xl text-4xl">Topics Interactions</h2>
 
-			{chartData.every(d => d.interactions === 0) ? (
+			{tableData.every(d => d.interactions === 0) ? (
 				<div className="text-center text-gray-600 py-16">
 					No topic interactions yet.
 				</div>
@@ -131,13 +117,12 @@ export function TopicsInteractionSection() {
 
 						<tbody>
 							{(() => {
-								const total = chartData.reduce(
+								const total = tableData.reduce(
 									(sum, item) => sum + item.interactions,
 									0
 								)
 
-								// Sort by interactions DESC for ranking
-								const sorted = [...chartData].sort(
+								const sorted = [...tableData].sort(
 									(a, b) => b.interactions - a.interactions
 								)
 
@@ -158,17 +143,7 @@ export function TopicsInteractionSection() {
 
 											<td className="py-3 px-4">{item.interactions}</td>
 
-											<td className="py-3 px-4 w-[200px]">
-												<div className="flex items-center gap-2">
-													<span className="w-12 text-sm">{percentage}%</span>
-													<div className="flex-1 bg-black/10 h-2 rounded">
-														<div
-															className="h-2 rounded bg-black"
-															style={{ width: `${percentage}%` }}
-														/>
-													</div>
-												</div>
-											</td>
+											<td className="py-3 px-4">{percentage} %</td>
 										</tr>
 									)
 								})

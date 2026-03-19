@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+
 import { useApp } from '@/src/entities'
 
 interface SeasonStats {
@@ -94,37 +95,62 @@ export function SeasonsInteractionSection() {
 	return (
 		<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
 			<h2 className="text-black md:text-2xl text-4xl">Seasons Interactions</h2>
-			{tableData.length === 0 || tableData.every(d => d.interactions === 0) ? (
+
+			{tableData.every(d => d.interactions === 0) ? (
 				<div className="text-center text-gray-600 py-16">
 					No season interactions yet.
 				</div>
 			) : (
 				<div className="overflow-x-auto">
-					<table className="min-w-full bg-white rounded-lg overflow-hidden">
-						<thead className="bg-gray-100">
-							<tr>
-								<th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">
+					<table className="w-full text-left border-collapse">
+						<thead>
+							<tr className="border-b border-black/20">
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">#</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
 									Season
 								</th>
-								<th className="px-4 py-2 text-right text-sm font-semibold text-gray-700">
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
 									Interactions
+								</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Share
 								</th>
 							</tr>
 						</thead>
+
 						<tbody>
-							{tableData.map(row => (
-								<tr
-									key={row.seasonId}
-									className="border-b border-gray-200 hover:bg-gray-50"
-								>
-									<td className="px-4 py-2 text-sm text-gray-800">
-										{row.season}
-									</td>
-									<td className="px-4 py-2 text-sm text-gray-800 text-right">
-										{row.interactions}
-									</td>
-								</tr>
-							))}
+							{(() => {
+								const total = tableData.reduce(
+									(sum, item) => sum + item.interactions,
+									0
+								)
+
+								const sorted = [...tableData].sort(
+									(a, b) => b.interactions - a.interactions
+								)
+
+								return sorted.map((item, index) => {
+									const percentage =
+										total > 0
+											? ((item.interactions / total) * 100).toFixed(1)
+											: '0'
+
+									return (
+										<tr
+											key={item.seasonId || item.season}
+											className="border-b border-black/10 hover:bg-black/5"
+										>
+											<td className="py-3 px-4">{index + 1}</td>
+
+											<td className="py-3 px-4 font-medium">{item.season}</td>
+
+											<td className="py-3 px-4">{item.interactions}</td>
+
+											<td className="py-3 px-4">{percentage} %</td>
+										</tr>
+									)
+								})
+							})()}
 						</tbody>
 					</table>
 				</div>

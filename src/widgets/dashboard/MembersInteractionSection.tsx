@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+
 import { useApp } from '@/src/entities'
 
 interface MemberStats {
@@ -84,14 +85,13 @@ export function MembersInteractionSection() {
 
 	// Prepare table data: limit to top N, group others
 	const MAX_VISIBLE = 5
-	let tableRows: TableRow[] = []
-	let otherMembers: { memberName: string; count: number }[] = []
+	let tableData: TableRow[] = []
 
 	if (memberCounts.length === 0) {
-		tableRows = []
+		tableData = []
 	} else if (memberCounts.length <= MAX_VISIBLE) {
 		// Show all members
-		tableRows = memberCounts.map(item => ({
+		tableData = memberCounts.map(item => ({
 			member: item.memberName,
 			interactions: item.count,
 			memberId: item.memberId
@@ -102,7 +102,7 @@ export function MembersInteractionSection() {
 		const othersItems = memberCounts.slice(MAX_VISIBLE - 1)
 		const othersSum = othersItems.reduce((sum, item) => sum + item.count, 0)
 
-		tableRows = [
+		tableData = [
 			...topItems.map(item => ({
 				member: item.memberName,
 				interactions: item.count,
@@ -113,65 +113,70 @@ export function MembersInteractionSection() {
 				interactions: othersSum
 			}
 		]
-		otherMembers = othersItems.map(item => ({
-			memberName: item.memberName,
-			count: item.count
-		}))
 	}
 
 	return (
 		<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
 			<h2 className="text-black md:text-2xl text-4xl">Members Interactions</h2>
-			{tableRows.length === 0 || tableRows.every(d => d.interactions === 0) ? (
+
+			{tableData.every(d => d.interactions === 0) ? (
 				<div className="text-center text-gray-600 py-16">
-					No member interactions yet.
+					No topic interactions yet.
 				</div>
 			) : (
-				<>
-					<div className="overflow-x-auto">
-						<table className="min-w-full bg-white rounded-lg overflow-hidden">
-							<thead className="bg-gray-100">
-								<tr>
-									<th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">
-										Member
-									</th>
-									<th className="px-4 py-2 text-right text-sm font-semibold text-gray-700">
-										Interactions
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								{tableRows.map((row, idx) => (
-									<tr
-										key={row.memberId || `others-${idx}`}
-										className="border-b border-gray-200 hover:bg-gray-50"
-									>
-										<td className="px-4 py-2 text-sm text-gray-800">
-											{row.member}
-										</td>
-										<td className="px-4 py-2 text-sm text-gray-800 text-right">
-											{row.interactions}
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-					{otherMembers.length > 0 && (
-						<div className="mt-4 text-sm text-gray-700">
-							<p className="font-semibold mb-2">
-								Other members (included in "Others"):
-							</p>
-							<ul className="list-disc list-inside space-y-1">
-								{otherMembers.map((p, i) => (
-									<li key={i}>
-										{p.memberName}: {p.count} interactions
-									</li>
-								))}
-							</ul>
-						</div>
-					)}
-				</>
+				<div className="overflow-x-auto">
+					<table className="w-full text-left border-collapse">
+						<thead>
+							<tr className="border-b border-black/20">
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">#</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Member
+								</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Interactions
+								</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Share
+								</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{(() => {
+								const total = tableData.reduce(
+									(sum, item) => sum + item.interactions,
+									0
+								)
+
+								const sorted = [...tableData].sort(
+									(a, b) => b.interactions - a.interactions
+								)
+
+								return sorted.map((item, index) => {
+									const percentage =
+										total > 0
+											? ((item.interactions / total) * 100).toFixed(1)
+											: '0'
+
+									return (
+										<tr
+											key={item.memberId || item.member}
+											className="border-b border-black/10 hover:bg-black/5"
+										>
+											<td className="py-3 px-4">{index + 1}</td>
+
+											<td className="py-3 px-4 font-medium">{item.member}</td>
+
+											<td className="py-3 px-4">{item.interactions}</td>
+
+											<td className="py-3 px-4">{percentage} %</td>
+										</tr>
+									)
+								})
+							})()}
+						</tbody>
+					</table>
+				</div>
 			)}
 		</div>
 	)

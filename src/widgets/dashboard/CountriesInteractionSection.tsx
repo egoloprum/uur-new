@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+
 import { useApp } from '@/src/entities'
 
 interface CountryStats {
@@ -67,14 +68,13 @@ export function CountriesInteractionSection() {
 
 	// Prepare table data: limit to top N, group others
 	const MAX_VISIBLE = 5
-	let tableRows: TableRow[] = []
-	let otherCountries: { country: string; count: number }[] = []
+	let tableData: TableRow[] = []
 
 	if (sorted.length === 0) {
-		tableRows = []
+		tableData = []
 	} else if (sorted.length <= MAX_VISIBLE) {
 		// Show all countries
-		tableRows = sorted.map(item => ({
+		tableData = sorted.map(item => ({
 			country: item.country,
 			interactions: item.count,
 			key: item.country
@@ -85,7 +85,7 @@ export function CountriesInteractionSection() {
 		const othersItems = sorted.slice(MAX_VISIBLE - 1)
 		const othersSum = othersItems.reduce((sum, item) => sum + item.count, 0)
 
-		tableRows = [
+		tableData = [
 			...topItems.map(item => ({
 				country: item.country,
 				interactions: item.count,
@@ -97,10 +97,6 @@ export function CountriesInteractionSection() {
 				key: 'others'
 			}
 		]
-		otherCountries = othersItems.map(item => ({
-			country: item.country,
-			count: item.count
-		}))
 	}
 
 	return (
@@ -108,56 +104,65 @@ export function CountriesInteractionSection() {
 			<h2 className="text-black md:text-2xl text-4xl">
 				Countries Interactions
 			</h2>
-			{tableRows.length === 0 || tableRows.every(d => d.interactions === 0) ? (
+
+			{tableData.every(d => d.interactions === 0) ? (
 				<div className="text-center text-gray-600 py-16">
-					No country interactions yet.
+					No topic interactions yet.
 				</div>
 			) : (
-				<>
-					<div className="overflow-x-auto">
-						<table className="min-w-full bg-white rounded-lg overflow-hidden">
-							<thead className="bg-gray-100">
-								<tr>
-									<th className="px-4 py-2 text-left text-sm font-semibold text-gray-700">
-										Country
-									</th>
-									<th className="px-4 py-2 text-right text-sm font-semibold text-gray-700">
-										Interactions
-									</th>
-								</tr>
-							</thead>
-							<tbody>
-								{tableRows.map((row, idx) => (
-									<tr
-										key={row.key || idx}
-										className="border-b border-gray-200 hover:bg-gray-50"
-									>
-										<td className="px-4 py-2 text-sm text-gray-800">
-											{row.country}
-										</td>
-										<td className="px-4 py-2 text-sm text-gray-800 text-right">
-											{row.interactions}
-										</td>
-									</tr>
-								))}
-							</tbody>
-						</table>
-					</div>
-					{otherCountries.length > 0 && (
-						<div className="mt-4 text-sm text-gray-700">
-							<p className="font-semibold mb-2">
-								Other countries (included in "Others"):
-							</p>
-							<ul className="list-disc list-inside space-y-1">
-								{otherCountries.map((p, i) => (
-									<li key={i}>
-										{p.country}: {p.count} interactions
-									</li>
-								))}
-							</ul>
-						</div>
-					)}
-				</>
+				<div className="overflow-x-auto">
+					<table className="w-full text-left border-collapse">
+						<thead>
+							<tr className="border-b border-black/20">
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">#</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Country
+								</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Interactions
+								</th>
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">
+									Share
+								</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{(() => {
+								const total = tableData.reduce(
+									(sum, item) => sum + item.interactions,
+									0
+								)
+
+								const sorted = [...tableData].sort(
+									(a, b) => b.interactions - a.interactions
+								)
+
+								return sorted.map((item, index) => {
+									const percentage =
+										total > 0
+											? ((item.interactions / total) * 100).toFixed(1)
+											: '0'
+
+									return (
+										<tr
+											key={item.key || item.country}
+											className="border-b border-black/10 hover:bg-black/5"
+										>
+											<td className="py-3 px-4">{index + 1}</td>
+
+											<td className="py-3 px-4 font-medium">{item.country}</td>
+
+											<td className="py-3 px-4">{item.interactions}</td>
+
+											<td className="py-3 px-4">{percentage} %</td>
+										</tr>
+									)
+								})
+							})()}
+						</tbody>
+					</table>
+				</div>
 			)}
 		</div>
 	)

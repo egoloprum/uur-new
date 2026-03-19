@@ -1,21 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+
 import { useApp } from '@/src/entities'
 
-const COLOR_PALETTE = [
-	'#000',
-	'#a5b4fc',
-	'#fb923c',
-	'#4ade80',
-	'#f87171',
-	'#c084fc',
-	'#60a5fa',
-	'#fbbf24',
-	'#94a3b8'
-]
-
-const OTHERS_COLOR = '#9ca3af'
 const MAX_VISIBLE = 5
 
 interface SourceStats {
@@ -26,7 +14,6 @@ interface SourceStats {
 interface ChartItem {
 	post: string
 	interactions: number
-	fill: string
 	postId?: string
 }
 
@@ -92,16 +79,15 @@ export function SourcesInteractionSection() {
 
 	postCounts.sort((a, b) => b.count - a.count)
 
-	let chartData: ChartItem[] = []
+	let tableData: ChartItem[] = []
 
 	if (postCounts.length === 0) {
-		chartData = []
+		tableData = []
 	} else if (postCounts.length <= MAX_VISIBLE) {
 		// Show all posts
-		chartData = postCounts.map((item, index) => ({
+		tableData = postCounts.map(item => ({
 			post: item.postName,
 			interactions: item.count,
-			fill: COLOR_PALETTE[index % COLOR_PALETTE.length],
 			postId: item.postId
 		}))
 	} else {
@@ -110,17 +96,15 @@ export function SourcesInteractionSection() {
 		const othersItems = postCounts.slice(MAX_VISIBLE - 1)
 		const othersSum = othersItems.reduce((sum, item) => sum + item.count, 0)
 
-		chartData = [
-			...topItems.map((item, index) => ({
+		tableData = [
+			...topItems.map(item => ({
 				post: item.postName,
 				interactions: item.count,
-				fill: COLOR_PALETTE[index % COLOR_PALETTE.length],
 				postId: item.postId
 			})),
 			{
 				post: 'Others',
-				interactions: othersSum,
-				fill: OTHERS_COLOR
+				interactions: othersSum
 			}
 		]
 	}
@@ -129,7 +113,7 @@ export function SourcesInteractionSection() {
 		<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
 			<h2 className="text-black md:text-2xl text-4xl">Sources Interactions</h2>
 
-			{chartData.length === 0 || chartData.every(d => d.interactions === 0) ? (
+			{tableData.every(d => d.interactions === 0) ? (
 				<div className="text-center text-gray-600 py-16">
 					No source interactions yet.
 				</div>
@@ -138,6 +122,7 @@ export function SourcesInteractionSection() {
 					<table className="w-full text-left border-collapse">
 						<thead>
 							<tr className="border-b border-black/20">
+								<th className="py-3 px-4 text-sm uppercase tracking-wide">#</th>
 								<th className="py-3 px-4 text-sm uppercase tracking-wide">
 									Post
 								</th>
@@ -152,12 +137,16 @@ export function SourcesInteractionSection() {
 
 						<tbody>
 							{(() => {
-								const total = chartData.reduce(
+								const total = tableData.reduce(
 									(sum, item) => sum + item.interactions,
 									0
 								)
 
-								return chartData.map((item, index) => {
+								const sorted = [...tableData].sort(
+									(a, b) => b.interactions - a.interactions
+								)
+
+								return sorted.map((item, index) => {
 									const percentage =
 										total > 0
 											? ((item.interactions / total) * 100).toFixed(1)
@@ -165,14 +154,16 @@ export function SourcesInteractionSection() {
 
 									return (
 										<tr
-											key={item.postId || item.post + index}
-											className="border-b border-black/10"
+											key={item.post || item.postId}
+											className="border-b border-black/10 hover:bg-black/5"
 										>
+											<td className="py-3 px-4">{index + 1}</td>
+
 											<td className="py-3 px-4 font-medium">{item.post}</td>
 
 											<td className="py-3 px-4">{item.interactions}</td>
 
-											<td className="py-3 px-4">{percentage}%</td>
+											<td className="py-3 px-4">{percentage} %</td>
 										</tr>
 									)
 								})
