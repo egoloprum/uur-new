@@ -1,6 +1,17 @@
 import { LoginForm } from '@/src/features/dashboard'
+import { createServerSupabase } from '@/src/shared/db/supabase'
+import { redirect } from 'next/navigation'
 
-export const Page = ({}) => {
+export const Page = async ({}) => {
+	const supabase = await createServerSupabase()
+	const {
+		data: { user }
+	} = await supabase.auth.getUser()
+
+	if (user) {
+		redirect('/dashboard')
+	}
+
 	return (
 		<main className="min-h-screen flex justify-center items-center font-advent-pro-local bg-[#14110F] px-4 sm:px-8">
 			<LoginForm />

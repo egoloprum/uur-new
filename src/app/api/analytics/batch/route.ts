@@ -1,7 +1,7 @@
 import { geolocation } from '@vercel/functions'
 import { cookies } from 'next/headers'
 
-import { createServerSupabase } from '@/src/shared/db/supabase'
+import { createServerSupabaseWithoutAuth } from '@/src/shared/db/supabase'
 import { batchSchema } from '@/src/shared/lib'
 
 type EventRow = {
@@ -75,7 +75,7 @@ export async function POST(req: Request) {
 		created_at: new Date(event.ts)
 	}))
 
-	const supabase = createServerSupabase()
+	const supabase = createServerSupabaseWithoutAuth()
 	const { error } = await supabase.from('events').insert(rows)
 
 	if (error) {

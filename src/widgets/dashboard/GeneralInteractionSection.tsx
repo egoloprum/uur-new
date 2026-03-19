@@ -55,7 +55,7 @@ export function GeneralInteractionSection() {
 					))}
 				</>
 			) : error ? (
-				<div className="col-span-full text-center text-red-600 py-4">
+				<div className="p-4 bg-[#e1d9ae] col-span-full text-center font-black uppercase text-lg sm:text-xl md:text-2xl text-red-600 py-4 rounded-xl">
 					Error loading data
 				</div>
 			) : stats ? (

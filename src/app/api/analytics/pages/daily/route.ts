@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server'
-import { createServerSupabase } from '@/src/shared/db/supabase'
+import { createServerSupabaseWithoutAuth } from '@/src/shared/db/supabase'
 
 function detectDevice(userAgent: string | null): 'mobile' | 'desktop' | 'bot' {
 	if (!userAgent) return 'desktop'
@@ -15,7 +15,7 @@ export async function GET(req: NextRequest) {
 		const { searchParams } = new URL(req.url)
 		const seasonId = searchParams.get('seasonId')
 
-		const supabase = createServerSupabase()
+		const supabase = createServerSupabaseWithoutAuth()
 
 		let query = supabase.from('events').select('created_at, user_agent')
 		if (seasonId) {

@@ -1,13 +1,13 @@
 import { NextRequest } from 'next/server'
 
-import { createServerSupabase } from '@/src/shared/db/supabase'
+import { createServerSupabaseWithoutAuth } from '@/src/shared/db/supabase'
 
 export async function GET(req: NextRequest) {
 	try {
 		const { searchParams } = new URL(req.url)
 		const seasonId = searchParams.get('seasonId')
 
-		const supabase = createServerSupabase()
+		const supabase = createServerSupabaseWithoutAuth()
 
 		let query = supabase.from('events').select('country')
 		if (seasonId) {

@@ -1,4 +1,5 @@
-import { Button } from '@/src/shared/components'
+import { LogoutButton } from '@/src/features/dashboard'
+import { createServerSupabase } from '@/src/shared/db/supabase'
 import {
 	CountriesInteractionSection,
 	FilterSection,
@@ -10,17 +11,25 @@ import {
 	TopicsInteractionSection,
 	SourcesInteractionSection
 } from '@/src/widgets/dashboard'
+import { redirect } from 'next/navigation'
 
-export const Page = ({}) => {
+export const Page = async ({}) => {
+	const supabase = await createServerSupabase()
+	const {
+		data: { user }
+	} = await supabase.auth.getUser()
+
+	if (!user) {
+		redirect('/dashboard/login')
+	}
+
 	return (
 		<main className="bg-[#14110F] min-h-screen font-advent-pro-local p-4 md:p-8 lg:p-12 xl:p-16 space-y-8">
 			<div className="flex justify-between items-center mb-16">
 				<h1 className="text-3xl md:text-6xl font-black uppercase tracking-wide text-[#fff5c4]">
 					Uur Dashboard
 				</h1>
-				<Button mode="primary" className="bg-[#fff5c4] px-4">
-					Log out
-				</Button>
+				<LogoutButton />
 			</div>
 			<GeneralInteractionSection />
 			<FilterSection />
