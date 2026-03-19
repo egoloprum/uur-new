@@ -43,18 +43,30 @@ export function PostsInteractionSection() {
 
 	if (loading) {
 		return (
-			<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
-				<h2 className="text-black md:text-2xl text-4xl">Posts Interactions</h2>
-				<div className="flex justify-center items-center h-64">Loading...</div>
+			<div className="flex flex-col gap-4">
+				<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2">
+					<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+						Posts Interactions
+					</h2>
+				</div>
+				<div className="text-center text-gray-600 py-16 bg-[#fff5c4] rounded-2xl">
+					Loading...
+				</div>
 			</div>
 		)
 	}
 
 	if (error) {
 		return (
-			<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
-				<h2 className="text-black md:text-2xl text-4xl">Posts Interactions</h2>
-				<div className="text-red-500">Error: {error}</div>
+			<div className="flex flex-col gap-4">
+				<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2">
+					<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+						Posts Interactions
+					</h2>
+				</div>
+				<div className="text-center text-red-600 py-16 bg-[#fff5c4] rounded-2xl">
+					Error: {error}
+				</div>
 			</div>
 		)
 	}
@@ -109,7 +121,7 @@ export function PostsInteractionSection() {
 
 	return (
 		<div className="flex flex-col gap-4">
-			<div className="bg-[#fff5c4] rounded-2xl px-4 py-1 md:px-4 md:py-2">
+			<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2">
 				<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
 					Posts Interactions
 				</h2>
