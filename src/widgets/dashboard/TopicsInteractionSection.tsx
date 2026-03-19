@@ -90,15 +90,19 @@ export function TopicsInteractionSection() {
 	tableData.sort((a, b) => a.topic.localeCompare(b.topic))
 
 	return (
-		<div className="bg-[#fff5c4] flex flex-col gap-8 px-4 py-8 rounded-2xl">
-			<h2 className="text-black md:text-2xl text-4xl">Topics Interactions</h2>
+		<div className="flex flex-col gap-4">
+			<div className="bg-[#fff5c4] rounded-2xl px-4 py-1 md:px-4 md:py-2">
+				<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+					Topics Interactions
+				</h2>
+			</div>
 
 			{tableData.every(d => d.interactions === 0) ? (
-				<div className="text-center text-gray-600 py-16">
+				<div className="text-center text-gray-600 py-16 bg-[#fff5c4] rounded-2xl">
 					No topic interactions yet.
 				</div>
 			) : (
-				<div className="overflow-x-auto">
+				<div className="overflow-x-auto bg-[#fff5c4] rounded-2xl">
 					<table className="w-full text-left border-collapse">
 						<thead>
 							<tr className="border-b border-black/20">
