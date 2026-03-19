@@ -3,11 +3,10 @@
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MoveRight } from 'lucide-react'
-import { usePathname } from 'next/navigation'
 import { useRef, useLayoutEffect } from 'react'
 
 import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -25,7 +24,7 @@ export const DescriptionSection = () => {
 	const sectionRef = useRef<HTMLDivElement>(null)
 	const listRef = useRef<HTMLUListElement>(null)
 
-	const pathname = usePathname()
+	const trackEvent = useTrackEvent()
 
 	useLayoutEffect(() => {
 		const section = sectionRef.current
@@ -88,7 +87,7 @@ export const DescriptionSection = () => {
 						onClick={() =>
 							trackEvent({
 								type: 'topic_visit',
-								route: pathname,
+
 								topic_id: '34aa259b-2506-4e56-9e1b-c2c520312524',
 								metadata: {
 									title: 'Шинжлэх ухаан'
@@ -111,7 +110,7 @@ export const DescriptionSection = () => {
 						onClick={() =>
 							trackEvent({
 								type: 'topic_visit',
-								route: pathname,
+
 								topic_id: '6bbf7cbb-79e6-4475-adf9-adb68f60cd1e',
 								metadata: {
 									title: 'Технологи'
@@ -134,7 +133,7 @@ export const DescriptionSection = () => {
 						onClick={() =>
 							trackEvent({
 								type: 'topic_visit',
-								route: pathname,
+
 								topic_id: '8c4fbc01-e7ea-4f51-995c-d869f409046d',
 								metadata: {
 									title: 'Урлаг'

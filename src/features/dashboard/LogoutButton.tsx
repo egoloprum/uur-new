@@ -1,9 +1,10 @@
 'use client'
 
 import { useRouter } from 'next/navigation'
+import { useState } from 'react'
+
 import { Button } from '@/src/shared/components'
 import { createSupabaseBrowserClient } from '@/src/shared/db/supabase'
-import { useState } from 'react'
 
 export const LogoutButton = () => {
 	const router = useRouter()

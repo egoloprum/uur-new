@@ -1,7 +1,5 @@
 'use client'
 
-import { usePathname } from 'next/navigation'
-
 import { useApp } from '@/src/entities'
 import {
 	Dropdown,
@@ -9,15 +7,14 @@ import {
 	DropdownItem,
 	DropdownTrigger
 } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 export const EachMemberPostsFilterDropdown = ({}) => {
 	const { seasons, getSeasonById, filters, setFilters } = useApp()
+	const trackEvent = useTrackEvent()
 
 	const selectedSeasonId = filters.seasonId
 	const season = getSeasonById(selectedSeasonId)
-
-	const pathname = usePathname()
 
 	const setSelectedSeasonId = (id: string) => {
 		setFilters(f => ({ ...f, seasonId: id }))
@@ -35,7 +32,6 @@ export const EachMemberPostsFilterDropdown = ({}) => {
 						onClick={() => {
 							trackEvent({
 								type: 'filter_used',
-								route: pathname,
 								season_id: season.id,
 								metadata: {
 									title: season.name,
@@ -53,7 +49,6 @@ export const EachMemberPostsFilterDropdown = ({}) => {
 					onClick={() => {
 						trackEvent({
 							type: 'filter_used',
-							route: pathname,
 							metadata: {
 								title: 'Бүх улиралууд',
 								type: 'season'

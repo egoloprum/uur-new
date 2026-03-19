@@ -1,14 +1,7 @@
 import { NextRequest } from 'next/server'
-import { createServerSupabaseWithoutAuth } from '@/src/shared/db/supabase'
 
-function detectDevice(userAgent: string | null): 'mobile' | 'desktop' | 'bot' {
-	if (!userAgent) return 'desktop'
-	const ua = userAgent.toLowerCase()
-	if (/bot|crawler|spider/i.test(ua)) return 'bot'
-	if (/mobile|android|iphone|ipad|ipod|blackberry|windows phone/i.test(ua))
-		return 'mobile'
-	return 'desktop'
-}
+import { detectDevice } from '@/src/shared'
+import { createServerSupabaseWithoutAuth } from '@/src/shared/db/supabase'
 
 export async function GET(req: NextRequest) {
 	try {

@@ -3,16 +3,16 @@
 import clsx from 'clsx'
 import { MoveRight } from 'lucide-react'
 import Image from 'next/image'
-import { usePathname } from 'next/navigation'
 import { useMemo } from 'react'
 
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
 import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 export const MembersList = ({}) => {
 	const { members, filters, getMembersBySeasonId, getMembersByRole } = useApp()
+	const trackEvent = useTrackEvent()
 
 	const selectedRole = filters.role
 	const selectedSeasonId = filters.seasonId
@@ -55,8 +55,6 @@ export const MembersList = ({}) => {
 				return filteredMembers
 		}
 	}, [filteredMembers, selectedMemberSort])
-
-	const pathname = usePathname()
 
 	if (!sortedMembers.length) {
 		return (
@@ -126,7 +124,6 @@ export const MembersList = ({}) => {
 								onClick={() =>
 									trackEvent({
 										type: 'member_visit',
-										route: pathname,
 										member_id: member.id,
 										metadata: {
 											title: member.name

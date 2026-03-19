@@ -1,7 +1,9 @@
 'use client'
 
+import clsx from 'clsx'
 import * as React from 'react'
 import { CartesianGrid, Line, LineChart, XAxis } from 'recharts'
+
 import { useApp } from '@/src/entities'
 import { Button } from '@/src/shared/components'
 import {
@@ -10,7 +12,6 @@ import {
 	ChartTooltip,
 	ChartTooltipContent
 } from '@/src/shared/shadcn/components/ui/chart'
-import clsx from 'clsx'
 
 interface DailyData {
 	date: string

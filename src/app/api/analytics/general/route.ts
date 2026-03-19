@@ -1,5 +1,10 @@
-import { createServerSupabaseWithoutAuth } from '@/src/shared/db/supabase'
 import { NextRequest } from 'next/server'
+
+import { createServerSupabaseWithoutAuth } from '@/src/shared/db/supabase'
+
+type QueryWithEq<T> = {
+	eq: (column: string, value: unknown) => T
+}
 
 export async function GET(req: NextRequest) {
 	try {
@@ -9,11 +14,8 @@ export async function GET(req: NextRequest) {
 		const supabase = createServerSupabaseWithoutAuth()
 
 		// Helper to build base filter
-		const baseFilter = (query: any) => {
-			if (seasonId) {
-				return query.eq('current_season_id', seasonId)
-			}
-			return query
+		const baseFilter = <T extends QueryWithEq<T>>(query: T): T => {
+			return seasonId ? query.eq('current_season_id', seasonId) : query
 		}
 
 		// 1. Total page views

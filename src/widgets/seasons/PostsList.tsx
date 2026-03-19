@@ -6,16 +6,11 @@ import { MoveRight } from 'lucide-react'
 import { useApp } from '@/src/entities'
 import { Post } from '@/src/entities/post'
 import { Button } from '@/src/shared/components'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
-export const PostsList = ({
-	posts,
-	pathname
-}: {
-	posts: Post[]
-	pathname: string
-}) => {
+export const PostsList = ({ posts }: { posts: Post[] }) => {
 	const { getMemberById, getTopicById } = useApp()
+	const trackEvent = useTrackEvent()
 
 	if (!posts.length) {
 		return (
@@ -85,7 +80,7 @@ export const PostsList = ({
 								onClick={() =>
 									trackEvent({
 										type: 'post_visit',
-										route: pathname,
+
 										post_id: post.id,
 										topic_id: topic?.id,
 										member_id: member?.id,

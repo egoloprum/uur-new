@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation'
+
 import { LogoutButton } from '@/src/features/dashboard'
 import { createServerSupabase } from '@/src/shared/db/supabase'
 import {
@@ -11,7 +13,6 @@ import {
 	TopicsInteractionSection,
 	SourcesInteractionSection
 } from '@/src/widgets/dashboard'
-import { redirect } from 'next/navigation'
 
 export const Page = async ({}) => {
 	const supabase = await createServerSupabase()

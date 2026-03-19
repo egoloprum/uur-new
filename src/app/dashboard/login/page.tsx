@@ -1,6 +1,7 @@
+import { redirect } from 'next/navigation'
+
 import { LoginForm } from '@/src/features/dashboard'
 import { createServerSupabase } from '@/src/shared/db/supabase'
-import { redirect } from 'next/navigation'
 
 export const Page = async ({}) => {
 	const supabase = await createServerSupabase()

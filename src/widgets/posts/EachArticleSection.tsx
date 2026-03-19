@@ -2,11 +2,10 @@
 
 import clsx from 'clsx'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 
 import { useApp } from '@/src/entities'
 import { ContentItem, DefinitionItem, SourceItem } from '@/src/entities/article'
-import { trackEvent } from '@/src/shared/lib'
+import { useTrackEvent } from '@/src/shared/lib'
 
 export const EachArticleSection = ({ slug }: { slug: string }) => {
 	const { getArticleById, getPostBySlug } = useApp()
@@ -127,7 +126,7 @@ const SourcesRenderer = ({
 	title: string
 	articleId: string
 }) => {
-	const pathname = usePathname()
+	const trackEvent = useTrackEvent()
 
 	return (
 		<div className="space-y-6 md:space-y-8">
@@ -144,7 +143,7 @@ const SourcesRenderer = ({
 							onClick={() =>
 								trackEvent({
 									type: 'source_visit',
-									route: pathname,
+
 									post_id: articleId,
 									metadata: {
 										title: title

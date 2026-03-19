@@ -9,7 +9,7 @@ interface TopicStats {
 	count: number
 }
 
-interface ChartItem {
+interface DataItem {
 	topic: string
 	interactions: number
 	topicId?: string
@@ -73,7 +73,7 @@ export function TopicsInteractionSection() {
 
 	// Build per-topic counts with names (include all topics, even zero counts)
 	const topicMap = new Map(topics.map(t => [t.id, t.name]))
-	const tableData: ChartItem[] = []
+	const tableData: DataItem[] = []
 
 	// First add topics that have data
 	data.forEach(({ topicId, count }) => {
@@ -104,8 +104,11 @@ export function TopicsInteractionSection() {
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2">
-				<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
-					Topics Interactions
+				<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl flex justify-between">
+					<span>Topics Interactions</span>
+					<span>
+						{tableData.reduce((sum, item) => sum + item.interactions, 0)}
+					</span>
 				</h2>
 			</div>
 
