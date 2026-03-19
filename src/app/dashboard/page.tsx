@@ -18,7 +18,7 @@ export const Page = ({}) => {
 				<h1 className="text-3xl md:text-6xl font-black uppercase tracking-wide text-[#fff5c4]">
 					Uur Dashboard
 				</h1>
-				<Button mode="primary" className="bg-[#fff5c4]">
+				<Button mode="primary" className="bg-[#fff5c4] px-4">
 					Log out
 				</Button>
 			</div>

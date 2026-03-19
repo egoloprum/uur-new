@@ -10,6 +10,7 @@ import {
 	ChartTooltip,
 	ChartTooltipContent
 } from '@/src/shared/shadcn/components/ui/chart'
+import clsx from 'clsx'
 
 interface DailyData {
 	date: string
@@ -86,20 +87,29 @@ export function PagesInteractionSection() {
 	}
 
 	return (
-		<div className="p-4 bg-[#fff5c4] text-black rounded-2xl">
-			<header className="flex flex-wrap justify-between gap-4">
-				<div className="flex flex-col justify-center">
-					<h2 className="text-2xl font-medium uppercase">Page interactions</h2>
-					<p className="text-xl">
-						{filters.seasonId
-							? `Daily page views for selected season`
-							: 'Daily page views (all time)'}
-					</p>
+		<div className="text-black rounded-2xl space-y-8">
+			<header className="flex max-sm:flex-col justify-between gap-4">
+				<div className="flex flex-col gap-2">
+					<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2 w-full md:w-fit">
+						<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+							Page Interactions
+						</h2>
+					</div>
+					<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2 w-full md:w-fit">
+						<p className="text-base md:text-xl">
+							{filters.seasonId
+								? `Daily page views for selected season`
+								: 'Daily page views for all time'}
+						</p>
+					</div>
 				</div>
-				<div className="grid grid-cols-2 gap-4">
+				<div className="flex gap-2">
 					<Button
 						mode={activeChart === 'desktop' ? 'primary' : 'secondary'}
-						className={activeChart === 'desktop' ? 'bg-orange-300' : ''}
+						className={clsx([
+							activeChart === 'desktop' ? 'bg-[#fff5c4]' : 'bg-gray-500',
+							'max-sm:w-full max-sm:justify-between px-4 py-2'
+						])}
 						onClick={() => setActiveChart('desktop')}
 					>
 						<span>Desktop</span>
@@ -107,7 +117,10 @@ export function PagesInteractionSection() {
 					</Button>
 					<Button
 						mode={activeChart === 'mobile' ? 'primary' : 'secondary'}
-						className={activeChart === 'mobile' ? 'bg-orange-300' : ''}
+						className={clsx([
+							activeChart === 'mobile' ? 'bg-[#fff5c4]' : 'bg-gray-500',
+							'max-sm:w-full max-sm:justify-between px-4 py-2'
+						])}
 						onClick={() => setActiveChart('mobile')}
 					>
 						<span>Mobile</span>
@@ -115,7 +128,7 @@ export function PagesInteractionSection() {
 					</Button>
 				</div>
 			</header>
-			<div className="py-8">
+			<div className="py-8 bg-[#fff5c4] rounded-2xl">
 				<ChartContainer
 					config={chartConfig}
 					className="aspect-auto h-100 w-full"

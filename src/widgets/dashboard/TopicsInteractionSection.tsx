@@ -151,7 +151,7 @@ export function TopicsInteractionSection() {
 									return (
 										<tr
 											key={item.topicId || item.topic}
-											className="border-b border-black/10 hover:bg-black/5"
+											className="border-b border-black/10 hover:bg-black/5 max-sm:text-sm"
 										>
 											<td className="py-3 px-4">{index + 1}</td>
 

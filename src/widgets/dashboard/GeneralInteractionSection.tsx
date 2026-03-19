@@ -8,13 +8,13 @@ interface GeneralStats {
 	pageViews: number
 	uniqueUsers: number
 	mostVisitedPage: string
-	mostVisitedPost: string
+	topPostId: string
 	mostActiveDay: string
 	filterUses: number
 }
 
 export function GeneralInteractionSection() {
-	const { filters } = useApp()
+	const { filters, getPostById } = useApp()
 	const [stats, setStats] = useState<GeneralStats | null>(null)
 	const [loading, setLoading] = useState(true)
 	const [error, setError] = useState<string | null>(null)
@@ -41,7 +41,7 @@ export function GeneralInteractionSection() {
 	}, [filters.seasonId])
 
 	return (
-		<section className="bg-[#fff5c4] p-6 text-black rounded-2xl grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+		<section className="text-black rounded-2xl grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
 			{loading ? (
 				<>
 					{[...Array(6)].map((_, i) => (
@@ -61,56 +61,56 @@ export function GeneralInteractionSection() {
 			) : stats ? (
 				<>
 					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
-						<p className="text-base md:text-2xl uppercase font-medium tracking-wide">
-							All time page view
+						<p className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+							Page view count
 						</p>
-						<p className="font-bold text-3xl tracking-wider">
+						<p className="text-base md:text-xl tracking-wider">
 							{stats.pageViews}
 						</p>
 					</div>
 					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
-						<p className="text-base md:text-2xl uppercase font-medium tracking-wide">
+						<p className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Unique users
 						</p>
-						<p className="font-bold text-3xl tracking-wider">
+						<p className="text-base md:text-xl tracking-wider">
 							{stats.uniqueUsers}
 						</p>
 					</div>
 					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
-						<p className="text-base md:text-2xl uppercase font-medium tracking-wide">
+						<p className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Most visited page
 						</p>
 						<p
-							className="font-bold text-3xl tracking-wider truncate"
+							className="text-base md:text-xl tracking-wider truncate"
 							title={stats.mostVisitedPage}
 						>
 							{stats.mostVisitedPage}
 						</p>
 					</div>
 					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
-						<p className="text-base md:text-2xl uppercase font-medium tracking-wide">
+						<p className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Most visited post
 						</p>
 						<p
-							className="font-bold text-3xl tracking-wider truncate"
-							title={stats.mostVisitedPost}
+							className="text-base md:text-xl tracking-wider truncate"
+							title={stats.topPostId}
 						>
-							{stats.mostVisitedPost}
+							{getPostById(stats.topPostId)?.name || 'N/A'}
 						</p>
 					</div>
 					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
-						<p className="text-base md:text-2xl uppercase font-medium tracking-wide">
+						<p className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Most active day
 						</p>
-						<p className="font-bold text-3xl tracking-wider">
+						<p className="text-base md:text-xl tracking-wider">
 							{stats.mostActiveDay}
 						</p>
 					</div>
 					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
-						<p className="text-base md:text-2xl uppercase font-medium tracking-wide">
+						<p className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Filter uses
 						</p>
-						<p className="font-bold text-3xl tracking-wider">
+						<p className="text-base md:text-xl tracking-wider">
 							{stats.filterUses}
 						</p>
 					</div>
