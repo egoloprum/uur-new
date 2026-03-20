@@ -49,6 +49,7 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
 								index >= posts.length - 3 && 'lg:border-b',
 								index >= posts.length - 2 && 'max-lg:border-b',
 								index === posts.length - 1 &&
+									index !== 0 &&
 									'max-sm:border-b max-sm:border-t-0'
 							])}
 						/>
