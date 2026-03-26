@@ -8,7 +8,7 @@ import {
 	AppProviders,
 	LenisScrollProvider
 } from '../shared/components'
-import { Footer, Sidebar } from '../widgets'
+import { CookieSection, Footer, Sidebar } from '../widgets'
 
 const adventProLocal = localFont({
 	src: [
@@ -80,6 +80,7 @@ export default function RootLayout({
 						{children}
 						<Footer />
 						<Sidebar />
+						<CookieSection />
 					</AppProviders>
 				</LenisScrollProvider>
 			</body>
