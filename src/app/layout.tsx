@@ -6,9 +6,10 @@ import './globals.css'
 import {
 	AnalyticsProvider,
 	AppProviders,
+	ConsentProvider,
 	LenisScrollProvider
 } from '../shared/components'
-import { CookieSection, Footer, Sidebar } from '../widgets'
+import { Footer, Sidebar } from '../widgets'
 
 const adventProLocal = localFont({
 	src: [
@@ -80,7 +81,7 @@ export default function RootLayout({
 						{children}
 						<Footer />
 						<Sidebar />
-						<CookieSection />
+						<ConsentProvider />
 					</AppProviders>
 				</LenisScrollProvider>
 			</body>
