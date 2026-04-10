@@ -21,7 +21,7 @@ export const SeasonsList = ({}) => {
 	}, [seasons, selectedSeasonId])
 
 	return (
-		<ul className="px-4 md:px-8 lg:px-12 xl:px-16 text-black pb-16">
+		<ul className="px-4 md:px-8 lg:px-12 xl:px-16 pb-16">
 			{filteredSeasons.map(season => {
 				const posts = getPostsBySeasonId(season.id)
 				const members = getMembersBySeasonId(season.id)

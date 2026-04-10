@@ -22,7 +22,7 @@ export const EachMemberAboutSection = ({ slug }: { slug: string }) => {
 					alt={`${member.name}.jpg`}
 				/>
 			</div>
-			<div className="sm:col-start-7 sm:col-span-6 lg:col-start-6 lg:col-span-7 grid sm:grid-rows-2 gap-8 md:gap-8 lg:gap-12 xl:gap-16 text-black">
+			<div className="sm:col-start-7 sm:col-span-6 lg:col-start-6 lg:col-span-7 grid sm:grid-rows-2 gap-8 md:gap-8 lg:gap-12 xl:gap-16">
 				<div className="flex flex-col justify-between space-y-4 md:space-y-8 lg:space-y-12 xl:space-y-16">
 					<h2 className="text-2xl lg:text-4xl font-semibold sm:text-end">
 						ҮҮР-ээс гадуур юу хийдэг вэ?

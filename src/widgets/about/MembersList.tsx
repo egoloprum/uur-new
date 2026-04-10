@@ -58,7 +58,7 @@ export const MembersList = ({}) => {
 
 	if (!sortedMembers.length) {
 		return (
-			<div className="text-black p-4 md:p-8 lg:p-12 xl:p-16">
+			<div className="p-4 md:p-8 lg:p-12 xl:p-16">
 				<p className="text-base md:text-2xl">Гишүүн олдсонгүй...</p>
 			</div>
 		)
@@ -68,13 +68,13 @@ export const MembersList = ({}) => {
 		<ul className="grid md:grid-cols-2 2xl:grid-cols-3 pb-16">
 			{sortedMembers.map((member, index) => (
 				<li
-					className="text-black p-4 md:p-8 lg:p-12 xl:p-16 max-md:flex max-md:justify-between max-xl:grid max-xl:grid-cols-12 xl:flex xl:justify-between gap-4 relative group"
+					className="p-4 md:p-8 lg:p-12 xl:p-16 max-md:flex max-md:justify-between max-xl:grid max-xl:grid-cols-12 xl:flex xl:justify-between gap-4 relative group"
 					key={member.name + index}
 				>
 					<div
 						className={clsx([
 							'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
-							'w-full border-l max-sm:border-r border-gray-400 top-1/2 -translate-y-1/2 left-0',
+							'w-full border-l max-sm:border-r border-stone-400 dark:border-stone-500 top-1/2 -translate-y-1/2 left-0',
 							(index === sortedMembers.length - 1 || (index + 1) % 3 === 0) &&
 								'lg:border-r',
 							(index + 1) % 2 === 0 && 'max-lg:border-r',
@@ -84,7 +84,7 @@ export const MembersList = ({}) => {
 					<div
 						className={clsx([
 							'absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full',
-							'border-b border-gray-400 top-0 -translate-x-1/2 left-1/2',
+							'border-b border-stone-400 dark:border-stone-500 top-0 -translate-x-1/2 left-1/2',
 							index >= sortedMembers.length - 3 && 'lg:border-b',
 							index >= sortedMembers.length - 2 && 'max-lg:border-b',
 							index === sortedMembers.length - 1 &&
@@ -94,14 +94,14 @@ export const MembersList = ({}) => {
 					<div className="space-y-4 z-10 flex flex-col gap-4 md:min-h-70 md:col-span-6 lg:col-span-8">
 						<div className="space-y-2">
 							<section className="flex justify-between items-center">
-								<h2 className="text-black font-bold tracking-wide text-2xl md:text-3xl">
+								<h2 className="font-bold tracking-wide text-2xl md:text-3xl">
 									{member.name}
 								</h2>
 							</section>
 							<ul className="flex flex-wrap gap-2">
 								{member.role.map(role => (
 									<li
-										className="text-black uppercase border rounded-full px-2"
+										className="uppercase border rounded-full px-2"
 										key={member.id + role.type}
 										style={{ fontSize: 'clamp(0.75rem, 2vw, .875rem)' }}
 									>

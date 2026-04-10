@@ -28,7 +28,7 @@ export const EachMemberPostsFilterDropdown = ({}) => {
 					<DropdownItem
 						key={season.id}
 						value={season.id}
-						className={`${selectedSeasonId === season.id && 'bg-indigo-300'}`}
+						className={`${selectedSeasonId === season.id && 'bg-indigo-300!'}`}
 						onClick={() => {
 							trackEvent({
 								type: 'filter_used',
@@ -45,7 +45,7 @@ export const EachMemberPostsFilterDropdown = ({}) => {
 				))}
 				<DropdownItem
 					value=""
-					className=" border-t"
+					className="border-t border-stone-400 dark:border-stone-500"
 					onClick={() => {
 						trackEvent({
 							type: 'filter_used',

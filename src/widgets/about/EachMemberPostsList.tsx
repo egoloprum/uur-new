@@ -37,7 +37,7 @@ export const EachMemberPostsList = ({ member }: { member: Member }) => {
 
 	if (!filteredPosts.length) {
 		return (
-			<div className="text-black px-4 md:px-8 lg:px-12 xl:px-16 py-0">
+			<div className="px-4 md:px-8 lg:px-12 xl:px-16 py-0">
 				<p className="text-base md:text-2xl">
 					Нийтлэл одоогоор байхгүй байна...
 				</p>
@@ -53,13 +53,13 @@ export const EachMemberPostsList = ({ member }: { member: Member }) => {
 
 				return (
 					<li
-						className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
+						className="p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
 						key={post.name + post.writerId + index}
 					>
 						<div
 							className={clsx([
 								'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
-								'w-full border-l max-sm:border-r border-gray-400 top-1/2 -translate-y-1/2 left-0',
+								'w-full border-l max-sm:border-r border-stone-400 dark:border-stone-500 top-1/2 -translate-y-1/2 left-0',
 								(index === filteredPosts.length - 1 || (index + 1) % 3 === 0) &&
 									'lg:border-r',
 								(index + 1) % 2 === 0 && 'max-lg:border-r',
@@ -69,7 +69,7 @@ export const EachMemberPostsList = ({ member }: { member: Member }) => {
 						<div
 							className={clsx([
 								'absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full',
-								'border-t border-gray-400 top-0 -translate-x-1/2 left-1/2',
+								'border-t border-stone-400 dark:border-stone-500 top-0 -translate-x-1/2 left-1/2',
 								index >= filteredPosts.length - 3 && 'lg:border-b',
 								index >= filteredPosts.length - 2 && 'max-lg:border-b',
 								index === filteredPosts.length - 1 &&

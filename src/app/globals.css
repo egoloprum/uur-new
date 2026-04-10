@@ -1,6 +1,6 @@
 @import 'tailwindcss';
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
+@import 'tw-animate-css';
+@import 'shadcn/tailwind.css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -85,19 +85,19 @@ input:-moz-autofill {
 }
 
 /* ::-webkit-scrollbar {
-  width: 8px;
+	width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #818cf8;
+	background: #818cf8;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #fb923c;
+	background: #fb923c;
 } */
 
 :root {
-	--background: oklch(1 0 0);
+	--background: #fbfaf2;
 	--foreground: oklch(0.145 0 0);
 	--card: oklch(1 0 0);
 	--card-foreground: oklch(0.145 0 0);
@@ -112,7 +112,7 @@ input:-moz-autofill {
 	--accent: oklch(0.97 0 0);
 	--accent-foreground: oklch(0.205 0 0);
 	--destructive: oklch(0.577 0.245 27.325);
-	--border: oklch(0.922 0 0);
+	--border: #14110f;
 	--input: oklch(0.922 0 0);
 	--ring: oklch(0.708 0 0);
 	--chart-1: oklch(0.809 0.105 251.813);
@@ -129,11 +129,18 @@ input:-moz-autofill {
 	--sidebar-accent-foreground: oklch(0.205 0 0);
 	--sidebar-border: oklch(0.922 0 0);
 	--sidebar-ring: oklch(0.708 0 0);
+
+	--section-bg-0: #000;
+	--section-bg-1: #a5b4fc;
+	--section-bg-2: #fb923c;
+	--section-text-0: #fffae0;
+	--section-text-1: #000;
+	--section-text-2: #000;
 }
 
 .dark {
-	--background: oklch(0.145 0 0);
-	--foreground: oklch(0.985 0 0);
+	--background: #252526;
+	--foreground: #fffae0;
 	--card: oklch(0.205 0 0);
 	--card-foreground: oklch(0.985 0 0);
 	--popover: oklch(0.205 0 0);
@@ -147,7 +154,7 @@ input:-moz-autofill {
 	--accent: oklch(0.269 0 0);
 	--accent-foreground: oklch(0.985 0 0);
 	--destructive: oklch(0.704 0.191 22.216);
-	--border: oklch(1 0 0 / 10%);
+	--border: #fffae0;
 	--input: oklch(1 0 0 / 15%);
 	--ring: oklch(0.556 0 0);
 	--chart-1: oklch(0.809 0.105 251.813);
@@ -163,16 +170,31 @@ input:-moz-autofill {
 	--sidebar-accent-foreground: oklch(0.985 0 0);
 	--sidebar-border: oklch(1 0 0 / 10%);
 	--sidebar-ring: oklch(0.556 0 0);
+
+	--section-bg-0: #fffae0;
+	--section-bg-1: #91a3ff;
+	--section-bg-2: #fdba74;
+	--section-text-0: #000;
+	--section-text-1: #000;
+	--section-text-2: #000;
+}
+
+.description-section {
+	background-color: var(--section-bg, var(--section-bg-0));
+	color: var(--section-text, var(--section-text-0));
+	transition:
+		background-color 0.4s,
+		color 0.4s;
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+	* {
+		@apply border-border outline-ring/50;
 	}
-  body {
-    @apply bg-background text-foreground;
+	body {
+		@apply bg-background text-foreground;
 	}
-  html {
-    @apply font-mono;
+	html {
+		@apply font-mono;
 	}
 }

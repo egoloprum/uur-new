@@ -7,7 +7,8 @@ import {
 	AnalyticsProvider,
 	AppProviders,
 	ConsentProvider,
-	LenisScrollProvider
+	LenisScrollProvider,
+	ThemeProvider
 } from '../shared/components'
 import { Footer, Sidebar } from '../widgets'
 
@@ -74,17 +75,21 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body className={`${adventProLocal.variable} antialiased`}>
-				<LenisScrollProvider>
-					<AppProviders>
-						<AnalyticsProvider />
-						{children}
-						<Footer />
-						<Sidebar />
-						<ConsentProvider />
-					</AppProviders>
-				</LenisScrollProvider>
-			</body>
+			<ThemeProvider>
+				<body
+					className={`${adventProLocal.variable} antialiased min-h-screen flex flex-col`}
+				>
+					<LenisScrollProvider>
+						<AppProviders>
+							<AnalyticsProvider />
+							{children}
+							<Footer />
+							<Sidebar />
+							<ConsentProvider />
+						</AppProviders>
+					</LenisScrollProvider>
+				</body>
+			</ThemeProvider>
 		</html>
 	)
 }

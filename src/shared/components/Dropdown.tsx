@@ -161,7 +161,7 @@ export const DropdownContent = ({
 	return (
 		<div
 			className={clsx(
-				'absolute left-0 mt-2 w-48 bg-[#fbfaf2] shadow-lg border border-black focus:outline-none z-50',
+				'absolute left-0 mt-2 w-48 shadow-lg border border-black focus:outline-none z-50',
 				'max-sm:w-full',
 				className
 			)}
@@ -188,7 +188,7 @@ export const DropdownItem = ({
 	const { close, setSelectedItem } = useDropdown()
 
 	const classNames = clsx(
-		'block w-full px-4 py-2 text-left text-black hover:bg-indigo-300 focus:bg-indigo-400 cursor-pointer',
+		'block w-full px-4 py-2 text-left hover:bg-indigo-300! focus:bg-indigo-400 cursor-pointer bg-white dark:bg-[#fffae0] text-black',
 		className
 	)
 

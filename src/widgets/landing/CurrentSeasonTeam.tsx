@@ -111,10 +111,10 @@ export const CurrentSeasonTeamSection = () => {
 	const members = getMembersBySeasonId(currentSeasonId)
 
 	return (
-		<div className="bg-[#fbfaf2] px-4 md:px-8 lg:px-12 xl:px-16 space-y-8 relative">
+		<div className="px-4 md:px-8 lg:px-12 xl:px-16 space-y-8 relative">
 			<div className="flex flex-wrap gap-4 justify-between">
-				<h2 className="text-black font-bold text-4xl uppercase">
-					Энэ улиралын багийн гишүүд{' '}
+				<h2 className="font-bold text-4xl uppercase">
+					Энэ улиралын багийн гишүүд
 				</h2>
 				<Button mode="primary" href="/about" className="max-sm:mt-4">
 					<span>Бүх гишүүд</span>
@@ -128,20 +128,18 @@ export const CurrentSeasonTeamSection = () => {
 						data-member
 						data-image={member.imageUrl}
 						className={clsx(
-							'py-4 md:py-6 border-t border-gray-400 flex max-sm:flex-col sm:items-center sm:justify-between',
-							'md:hover:bg-indigo-300 md:hover:px-12 transition-all duration-300 relative',
+							'py-4 md:py-6 border-t border-stone-400 dark:border-stone-500 flex max-sm:flex-col sm:items-center sm:justify-between',
+							'md:hover:bg-indigo-300 md:hover:dark:bg-[#91a3ff] md:hover:px-12 transition-all duration-300 relative',
 							members.length - 1 === index && 'border-b'
 						)}
 					>
 						<div className="space-y-2">
-							<p className="text-black font-bold text-2xl md:text-3xl">
-								{member.name}
-							</p>
+							<p className="font-bold text-2xl md:text-3xl">{member.name}</p>
 
 							<ul className="flex flex-wrap gap-2">
 								{member.role.map(role => (
 									<li
-										className="text-black uppercase border rounded-full px-2 text-nowrap text-xs sm:text-sm md:text-base"
+										className="uppercase border rounded-full px-2 text-nowrap text-xs sm:text-sm md:text-base"
 										key={member.id + role.type}
 									>
 										{getSlugOfRole(role.type)}

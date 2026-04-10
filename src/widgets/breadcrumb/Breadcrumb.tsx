@@ -21,14 +21,17 @@ export const Breadcrumb = () => {
 
 	return (
 		<nav aria-label="Breadcrumb">
-			<ul className="gap-2 text-black">
+			<ul className="gap-2">
 				{breadcrumbs.map((crumb, index) => (
 					<li key={crumb.href} className="inline-flex text-xl tracking-wide">
 						{index > 0 && <span className="mr-2 text-gray-400">/</span>}
 						{index === breadcrumbs.length - 1 ? (
-							<span className="">{crumb.label}</span>
+							<span className="dark:text-gray-200">{crumb.label}</span>
 						) : (
-							<Link href={crumb.href} className="hover:underline inline mr-2">
+							<Link
+								href={crumb.href}
+								className="hover:underline inline mr-2 dark:text-gray-200"
+							>
 								{crumb.label}
 							</Link>
 						)}

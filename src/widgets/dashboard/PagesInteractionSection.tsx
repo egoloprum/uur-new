@@ -70,7 +70,7 @@ export function PagesInteractionSection() {
 
 	if (loading) {
 		return (
-			<div className="p-4 bg-[#fff5c4] text-black rounded-2xl">
+			<div className="p-4 bg-[#fff5c4] rounded-2xl">
 				<div className="animate-pulse space-y-4">
 					<div className="h-8 bg-gray-400 rounded w-1/3"></div>
 					<div className="h-64 bg-gray-400 rounded"></div>
@@ -81,18 +81,18 @@ export function PagesInteractionSection() {
 
 	if (error) {
 		return (
-			<div className="p-4 bg-[#fff5c4] text-black rounded-2xl">
+			<div className="p-4 bg-[#fff5c4] rounded-2xl">
 				<div className="text-red-600">Error: {error}</div>
 			</div>
 		)
 	}
 
 	return (
-		<div className="text-black rounded-2xl space-y-8">
+		<div className="rounded-2xl space-y-8">
 			<header className="flex max-sm:flex-col justify-between gap-4">
 				<div className="flex flex-col gap-2">
 					<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2 w-full md:w-fit">
-						<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+						<h2 className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Page Interactions
 						</h2>
 					</div>

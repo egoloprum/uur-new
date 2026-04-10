@@ -16,28 +16,28 @@ export const CurrentSeasonPostsSection = ({}) => {
 	const posts = getPostsBySeasonId(currentSeasonId)
 
 	return (
-		<div className="bg-[#fbfaf2] space-y-8">
+		<div className="space-y-8">
 			<div className="flex flex-col lg:flex-row gap-8 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
-				<h2 className="text-black font-bold text-4xl uppercase">
+				<h2 className="font-bold text-4xl uppercase">
 					Энэ улиралын нийтлэлүүд
 				</h2>
 				<div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
 					<div className="flex flex-col md:flex-row max-sm:flex-row md:items-center gap-2 max-sm:gap-4 md:gap-8">
 						<p className="flex gap-2">
-							<span className="h-3 w-3 md:h-4 md:w-4 aspect-square rounded-full bg-black"></span>
-							<span className="text-black tracking-wide uppercase text-nowrap text-sm md:text-base">
+							<span className="h-3 w-3 md:h-4 md:w-4 aspect-square rounded-full bg-black dark:bg-[#fffae0]"></span>
+							<span className="tracking-wide uppercase text-nowrap text-sm md:text-base">
 								Шинжлэх ухаан
 							</span>
 						</p>
 						<p className="flex gap-2">
-							<span className="h-3 w-3 md:h-4 md:w-4 aspect-square rounded-full bg-indigo-400"></span>
-							<span className="text-black tracking-wide uppercase text-nowrap text-sm md:text-base">
+							<span className="h-3 w-3 md:h-4 md:w-4 aspect-square rounded-full bg-indigo-400 dark:bg-[#91a3ff]"></span>
+							<span className="tracking-wide uppercase text-nowrap text-sm md:text-base">
 								Технологи
 							</span>
 						</p>
 						<p className="flex gap-2">
-							<span className="h-3 w-3 md:h-4 md:w-4 aspect-square rounded-full bg-orange-400"></span>
-							<span className="text-black tracking-wide uppercase text-nowrap text-sm md:text-base">
+							<span className="h-3 w-3 md:h-4 md:w-4 aspect-square rounded-full bg-orange-400 dark:bg-orange-300"></span>
+							<span className="tracking-wide uppercase text-nowrap text-sm md:text-base">
 								Урлаг
 							</span>
 						</p>
@@ -52,11 +52,11 @@ export const CurrentSeasonPostsSection = ({}) => {
 
 			<ul className="grid sm:grid-cols-2 lg:grid-cols-3">
 				{!posts.length ? (
-					<div className="text-black px-4 md:px-8 lg:px-12 xl:px-16 py-0">
+					<li className="px-4 md:px-8 lg:px-12 xl:px-16 py-0">
 						<p className="text-base md:text-2xl">
 							Нийтлэл одоогоор байхгүй байна...
 						</p>
-					</div>
+					</li>
 				) : (
 					posts.map((post, index) => {
 						const member = getMemberById(post.writerId)
@@ -64,13 +64,13 @@ export const CurrentSeasonPostsSection = ({}) => {
 
 						return (
 							<li
-								className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
+								className="p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
 								key={post.name + member?.name + index}
 							>
 								<div
 									className={clsx([
 										'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
-										'w-full border-gray-400 top-1/2 -translate-y-1/2 left-0',
+										'w-full border-stone-400 dark:border-stone-500 top-1/2 -translate-y-1/2 left-0',
 										index !== 0 && 'border-l',
 										index === posts.length - 1 && 'border-r'
 									])}
@@ -78,7 +78,7 @@ export const CurrentSeasonPostsSection = ({}) => {
 								<div
 									className={clsx([
 										'absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)] h-full',
-										'border-t border-gray-400 top-0 -translate-x-1/2 left-1/2',
+										'border-t border-stone-400 dark:border-stone-500 top-0 -translate-x-1/2 left-1/2',
 										index >= posts.length - 3 && 'lg:border-b',
 										index >= posts.length - 2 && 'max-lg:border-b',
 										index === posts.length - 1 &&

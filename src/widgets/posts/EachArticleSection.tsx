@@ -23,7 +23,7 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
 	}
 
 	return (
-		<article className="text-black flex justify-center pb-20 p-4 md:p-8 lg:p-12 xl:p-16 py-16">
+		<article className="flex justify-center pb-20 p-4 md:p-8 lg:p-12 xl:p-16 py-16">
 			<section className="md:w-[80%] xl:w-[60%] space-y-6 md:space-y-12 lg:space-y-16">
 				{!!article.preQuestions.length && (
 					<QuestionsRenderer

@@ -2,10 +2,10 @@ import { HeroSection } from '@/src/widgets'
 
 export const Page = ({}) => {
 	return (
-		<main className="bg-[#fbfaf2] font-advent-pro-local">
-			<HeroSection className="pb-5!">
+		<main className="font-advent-pro-local">
+			<HeroSection className="pb-10!">
 				<h1
-					className="font-bold uppercase z-10 text-black tracking-wide mt-20 leading-12"
+					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"
 					style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
 				>
 					Privacy Policy
@@ -13,7 +13,7 @@ export const Page = ({}) => {
 			</HeroSection>
 
 			<section className="p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col">
-				<p className="text-gray-700 text-xl">Last updated: 10.04.2026</p>
+				<p className="text-stone-500 text-xl">Last updated: 10.04.2026</p>
 				<p className="text-xl my-2 md:my-4">
 					We value your privacy and are committed to handling your information
 					with care, transparency, and respect. This Privacy Policy explains, in
@@ -108,7 +108,7 @@ export const Page = ({}) => {
 					If you have questions or concerns about this Privacy Policy, you may
 					reach out through the available contact methods on this website.
 				</p>
-				<span className="border-t-2 border-gray-700 w-full mt-4"></span>
+				<span className="border-t-2 border-stone-400 dark:border-stone-500 w-full mt-4"></span>
 				<p className="text-xl my-2 md:my-4">
 					By using this website, you acknowledge that you have read and
 					understood this Privacy Policy.

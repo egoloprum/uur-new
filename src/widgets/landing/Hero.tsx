@@ -50,13 +50,13 @@ export const HeroSection = () => {
 	}, [])
 
 	return (
-		<div className="bg-[#fbfaf2] lg:min-h-dvh p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col max-sm:gap-40 max-md:gap-60 max-lg:gap-80 relative overflow-hidden">
+		<div className="lg:min-h-dvh p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col max-sm:gap-40 max-md:gap-60 max-lg:gap-80 relative overflow-hidden">
 			<section className="flex flex-col justify-between">
 				<h1 className="font-bold uppercase z-10">
-					<span className="block text-8xl md:text-[10rem] tracking-wide text-black">
+					<span className="block text-8xl md:text-[10rem] tracking-wide">
 						Үүр
 					</span>
-					<span className="block text-6xl md:text-[6rem] tracking-wide text-orange-500">
+					<span className="block text-6xl md:text-[6rem] tracking-wide text-orange-500 dark:text-orange-400">
 						Товхимол
 					</span>
 				</h1>
@@ -65,7 +65,7 @@ export const HeroSection = () => {
 			<section className="grow flex flex-col justify-between gap-20">
 				<div
 					ref={text1Ref}
-					className="text-black lg:absolute lg:top-40 lg:right-24 will-change-transform"
+					className="lg:absolute lg:top-40 lg:right-24 will-change-transform"
 				>
 					<span className="text-xl md:text-2xl">[01]</span>
 					<p className="text-xl md:text-2xl lg:text-4xl font-semibold">
@@ -75,7 +75,7 @@ export const HeroSection = () => {
 
 				<div
 					ref={text2Ref}
-					className="text-black lg:absolute lg:bottom-24 lg:left-24 will-change-transform ml-auto"
+					className="lg:absolute lg:bottom-24 lg:left-24 will-change-transform ml-auto"
 				>
 					<span className="text-xl md:text-2xl">[02]</span>
 					<p className="text-xl md:text-2xl lg:text-4xl font-semibold">
@@ -85,7 +85,7 @@ export const HeroSection = () => {
 
 				<div
 					ref={text3Ref}
-					className="text-black lg:absolute lg:bottom-24 lg:right-24 will-change-transform"
+					className="lg:absolute lg:bottom-24 lg:right-24 will-change-transform"
 				>
 					<span className="text-xl md:text-2xl">[03]</span>
 					<p className="text-xl md:text-2xl lg:text-4xl font-semibold">

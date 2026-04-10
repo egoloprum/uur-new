@@ -27,7 +27,7 @@ export const FilterByTopicDropdown = ({}) => {
 					<DropdownItem
 						key={topic.id}
 						value={topic.id}
-						className={`${selectedTopicId === topic.id && 'bg-indigo-300'}`}
+						className={`${selectedTopicId === topic.id && 'bg-indigo-300!'}`}
 						onClick={() => {
 							trackEvent({
 								type: 'filter_used',
@@ -43,7 +43,20 @@ export const FilterByTopicDropdown = ({}) => {
 						{topic.name}
 					</DropdownItem>
 				))}
-				<DropdownItem value="" className=" border-t">
+				<DropdownItem
+					value=""
+					className="border-t border-stone-400 dark:border-stone-500"
+					onClick={() => {
+						trackEvent({
+							type: 'filter_used',
+
+							metadata: {
+								title: 'Бүх сэдвүүд',
+								type: 'topic'
+							}
+						})
+					}}
+				>
 					Бүх сэдвүүд
 				</DropdownItem>
 			</DropdownContent>

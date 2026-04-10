@@ -39,7 +39,7 @@ export function SeasonsInteractionSection() {
 		return (
 			<div className="flex flex-col gap-4">
 				<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2">
-					<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+					<h2 className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 						Seasons Interactions
 					</h2>
 				</div>
@@ -54,7 +54,7 @@ export function SeasonsInteractionSection() {
 		return (
 			<div className="flex flex-col gap-4">
 				<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2">
-					<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl">
+					<h2 className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 						Seasons Interactions
 					</h2>
 				</div>
@@ -103,7 +103,7 @@ export function SeasonsInteractionSection() {
 	return (
 		<div className="flex flex-col gap-4">
 			<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2">
-				<h2 className="text-black font-black uppercase text-lg sm:text-xl md:text-2xl flex justify-between">
+				<h2 className="font-black uppercase text-lg sm:text-xl md:text-2xl flex justify-between">
 					<span>Seasons Interactions</span>
 					<span>
 						{tableData.reduce((sum, item) => sum + item.interactions, 0)}

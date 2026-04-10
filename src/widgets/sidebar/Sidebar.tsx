@@ -2,16 +2,24 @@
 
 import clsx from 'clsx'
 import { gsap } from 'gsap'
-import { Menu, MoveRight, Search, X } from 'lucide-react'
+import {
+	Lightbulb,
+	LightbulbOff,
+	Menu,
+	MoveRight,
+	Search,
+	X
+} from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useRef, useLayoutEffect } from 'react'
 
-import { Button } from '@/src/shared/components'
+import { Button, useTheme } from '@/src/shared/components'
 
 export const Sidebar = () => {
 	const [isOpen, setIsOpen] = useState(false)
 	const [mode, setMode] = useState<'Menu' | 'Search'>('Menu')
+	const { theme, toggleTheme } = useTheme()
 
 	const pathname = usePathname()
 
@@ -78,18 +86,27 @@ export const Sidebar = () => {
 	return (
 		<>
 			<aside className="fixed top-0 right-0 z-100">
-				<div className="flex flex-col gap-2 z-20 px-1 py-8 bg-[#fb923c] border-l border-b md:border-l-2 md:border-b-2 border-black">
+				<div className="flex flex-col gap-2 z-20 px-1 py-8 bg-[#fb923c] dark:bg-orange-300 border-l border-b md:border-l-2 md:border-b-2 border-black">
 					<Button
 						onClick={() => toggleSidebar('Menu')}
-						className="p-2! md:p-4! border-none"
+						className="p-2! md:p-4! border-none text-black!"
+						aria-label="toggle menu"
 					>
 						{isOpen && mode === 'Menu' ? <X /> : <Menu />}
 					</Button>
 					<Button
 						onClick={() => toggleSidebar('Search')}
-						className="p-2! md:p-4! border-none"
+						className="p-2! md:p-4! border-none text-black!"
+						aria-label="search in website"
 					>
 						{isOpen && mode === 'Search' ? <X /> : <Search />}
+					</Button>
+					<Button
+						onClick={toggleTheme}
+						className="p-2! md:p-4! border-none text-black!"
+						aria-label="toggle theme"
+					>
+						{theme === 'dark' ? <Lightbulb /> : <LightbulbOff />}
 					</Button>
 				</div>
 			</aside>
@@ -103,7 +120,7 @@ export const Sidebar = () => {
 			<div
 				ref={panelRef}
 				className={clsx([
-					'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] z-50 pr-12 md:pr-16 flex items-center translate-x-full font-advent-pro-local'
+					'fixed top-0 right-0 h-dvh w-fit bg-[#fb923c] dark:bg-orange-300 z-50 pr-12 md:pr-16 flex items-center translate-x-full font-advent-pro-local'
 				])}
 			>
 				<div className="py-20 px-4 md:py-4 md:px-8 w-fit md:w-100 h-[calc(100vh-6rem)] border-r md:border-r-2 border-black flex justify-center">

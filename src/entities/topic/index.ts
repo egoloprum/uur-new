@@ -16,7 +16,7 @@ export const defaultTopicData: Topic[] = [
 			'Хүн төрөлхтний дэлхий ертөнцийг ойлгох хэрэгсэл. Микробиомын амьдралаас сансар огторгуй, хүний сэтгэл зүйгээс дэлхийн эдийн засаг хүртэлх ойлголтууд.',
 
 		serial: 1,
-		color: 'bg-black',
+		color: 'bg-black dark:bg-[#fffae0]',
 		postId: ['12b00a56-8253-44ac-a53a-25ff73b63f99']
 	},
 	{
@@ -26,7 +26,7 @@ export const defaultTopicData: Topic[] = [
 			'Хүн төрөлхтний амьдралаа бүтээх зэвсэг. Уурын хөдөлгүүрээс хиймэл оюун ухаан хүртэлх бүтээлүүд.',
 
 		serial: 2,
-		color: 'bg-indigo-400',
+		color: 'bg-indigo-400 dark:bg-[#91a3ff]',
 		postId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8']
 	},
 	{
@@ -36,7 +36,7 @@ export const defaultTopicData: Topic[] = [
 			'Хүн төрөлхтний өөрсдийгөө илэрхийлэх илэрхийлэмж. Гудамжны графитигаас жазз хөгжим хүртэлх бүтээлүүд.',
 
 		serial: 3,
-		color: 'bg-orange-400',
+		color: 'bg-orange-400 dark:bg-orange-300',
 		postId: ['41b0081f-d6a3-45f8-a09b-884fc0145f17']
 	}
 ]

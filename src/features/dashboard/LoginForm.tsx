@@ -68,10 +68,10 @@ export const LoginForm = ({}) => {
 			onSubmit={handleSubmit(onSubmit)}
 			className="p-4 py-8 md:p-8 md:py-16 rounded-2xl w-120 flex flex-col gap-4 bg-indigo-300"
 		>
-			<h1 className="text-2xl md:text-4xl font-bold uppercase text-black">
+			<h1 className="text-2xl md:text-4xl font-bold uppercase">
 				Uur dashboard
 			</h1>
-			<p className="text-xl text-black">
+			<p className="text-xl">
 				By entering your information, you can see your own stats and
 				interactions.
 			</p>

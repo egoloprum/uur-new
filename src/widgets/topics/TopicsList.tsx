@@ -19,7 +19,7 @@ export const TopicsList = ({}) => {
 	}, [topics, selectedTopicId])
 
 	return (
-		<ul className="px-4 md:px-8 lg:px-12 xl:px-16 text-black pb-16">
+		<ul className="px-4 md:px-8 lg:px-12 xl:px-16 pb-16">
 			{filteredTopics.map(topic => {
 				const posts = getPostsByTopicId(topic.id)
 
@@ -28,9 +28,12 @@ export const TopicsList = ({}) => {
 						<h2
 							className={clsx([
 								'flex gap-2',
-								topic.name === 'Шинжлэх ухаан' && 'bg-black text-white',
-								topic.name === 'Технологи' && 'bg-indigo-400',
-								topic.name === 'Урлаг' && 'bg-orange-400'
+								topic.name === 'Шинжлэх ухаан' &&
+									'bg-black text-white dark:bg-[#fffae0] dark:text-black',
+								topic.name === 'Технологи' &&
+									'bg-indigo-400 dark:bg-[#91a3ff] dark:text-black',
+								topic.name === 'Урлаг' &&
+									'bg-orange-400 dark:bg-orange-300 dark:text-black'
 							])}
 						>
 							<span className="text-2xl">[0{topic.serial}]</span>

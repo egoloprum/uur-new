@@ -19,9 +19,7 @@ export const ConsentProvider = () => {
 		setConsent(hasConsent)
 	}, [])
 
-	// Avoid SSR mismatch
 	if (accepted === null) return null
-
 	if (accepted) return null
 
 	return <CookieSection onAccept={() => setAccepted(true)} />

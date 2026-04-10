@@ -64,7 +64,7 @@ export const PostsList = () => {
 
 	if (!sortedPosts.length) {
 		return (
-			<div className="text-black p-4 md:p-8 lg:p-12 xl:p-16 py-16">
+			<div className="p-4 md:p-8 lg:p-12 xl:p-16 py-16">
 				<p className="text-base md:text-2xl">Нийтлэл олдсонгүй...</p>
 			</div>
 		)
@@ -78,13 +78,13 @@ export const PostsList = () => {
 
 				return (
 					<li
-						className="text-black p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
+						className="p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col gap-16 relative"
 						key={post.name + post.writerId + index}
 					>
 						<div
 							className={clsx([
 								'absolute h-[calc(100%-2rem)] md:h-[calc(100%-4rem)] lg:h-[calc(100%-6rem)] xl:h-[calc(100%-8rem)]',
-								'w-full border-gray-400 top-1/2 -translate-y-1/2 left-0',
+								'w-full border-stone-400 dark:border-stone-500 top-1/2 -translate-y-1/2 left-0',
 								index !== 0 && 'border-l',
 								index === sortedPosts.length - 1 && 'border-r'
 							])}
@@ -92,7 +92,7 @@ export const PostsList = () => {
 						<div
 							className={clsx([
 								'absolute w-[calc(100%-2rem)] md:w-[calc(100%-4rem)] lg:w-[calc(100%-6rem)] xl:w-[calc(100%-8rem)]',
-								'h-full border-b border-gray-400 top-0 -translate-x-1/2 left-1/2'
+								'h-full border-b border-stone-400 dark:border-stone-500 top-0 -translate-x-1/2 left-1/2'
 							])}
 						/>
 						<div className="space-y-4 z-10">
