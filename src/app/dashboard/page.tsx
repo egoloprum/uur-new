@@ -34,7 +34,7 @@ export const Page = async ({}) => {
 			</div>
 			<GeneralInteractionSection />
 			<FilterSection />
-			<div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 *:break-inside-avoid">
+			<div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4 *:break-inside-avoid text-black">
 				<TopicsInteractionSection />
 				<SeasonsInteractionSection />
 				<MembersInteractionSection />

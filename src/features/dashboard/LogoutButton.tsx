@@ -26,7 +26,7 @@ export const LogoutButton = () => {
 	return (
 		<Button
 			mode="primary"
-			className="bg-[#fff5c4] px-4"
+			className="bg-[#fff5c4] px-4 text-black!"
 			onClick={handleLogout}
 			disabled={isLoading}
 		>

@@ -66,7 +66,7 @@ export const LoginForm = ({}) => {
 	return (
 		<form
 			onSubmit={handleSubmit(onSubmit)}
-			className="p-4 py-8 md:p-8 md:py-16 rounded-2xl w-120 flex flex-col gap-4 bg-indigo-300"
+			className="p-4 py-8 md:p-8 md:py-16 rounded-2xl w-120 flex flex-col gap-4 bg-indigo-300 text-black"
 		>
 			<h1 className="text-2xl md:text-4xl font-bold uppercase">
 				Uur dashboard
@@ -100,7 +100,7 @@ export const LoginForm = ({}) => {
 				<button
 					type="button"
 					onClick={() => setShowPassword(!showPassword)}
-					className="mr-2 p-1 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-blue-500"
+					className="mr-2 p-1 rounded-full hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500"
 					aria-label={showPassword ? 'Hide password' : 'Show password'}
 				>
 					{showPassword ? (
@@ -119,7 +119,7 @@ export const LoginForm = ({}) => {
 
 			<Button
 				mode="primary"
-				className="bg-orange-300 w-full justify-center mt-4"
+				className="bg-orange-300 w-full justify-center mt-4 text-black! border-black!"
 				type="submit"
 				disabled={isLoading}
 			>

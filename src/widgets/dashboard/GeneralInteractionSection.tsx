@@ -41,13 +41,13 @@ export function GeneralInteractionSection() {
 	}, [filters.seasonId])
 
 	return (
-		<section className="rounded-2xl grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+		<section className="rounded-2xl grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4 text-black">
 			{loading ? (
 				<>
 					{[...Array(6)].map((_, i) => (
 						<div
 							key={i}
-							className="p-4 bg-[#e1d9ae] rounded-xl space-y-4 animate-pulse"
+							className="p-4 bg-[#fff5c4] rounded-xl space-y-4 animate-pulse"
 						>
 							<div className="h-4 bg-gray-400 rounded w-3/4"></div>
 							<div className="h-8 bg-gray-400 rounded w-1/2"></div>
@@ -55,12 +55,12 @@ export function GeneralInteractionSection() {
 					))}
 				</>
 			) : error ? (
-				<div className="p-4 bg-[#e1d9ae] col-span-full text-center font-black uppercase text-lg sm:text-xl md:text-2xl text-red-600 py-4 rounded-xl">
+				<div className="p-4 bg-[#fff5c4] col-span-full text-center font-black uppercase text-lg sm:text-xl md:text-2xl text-red-600 py-4 rounded-xl">
 					Error loading data
 				</div>
 			) : stats ? (
 				<>
-					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
+					<div className="p-4 bg-[#fff5c4] rounded-xl space-y-4">
 						<p className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Page view count
 						</p>
@@ -68,7 +68,7 @@ export function GeneralInteractionSection() {
 							{stats.pageViews}
 						</p>
 					</div>
-					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
+					<div className="p-4 bg-[#fff5c4] rounded-xl space-y-4">
 						<p className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Unique users
 						</p>
@@ -76,7 +76,7 @@ export function GeneralInteractionSection() {
 							{stats.uniqueUsers}
 						</p>
 					</div>
-					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
+					<div className="p-4 bg-[#fff5c4] rounded-xl space-y-4">
 						<p className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Most visited page
 						</p>
@@ -87,7 +87,7 @@ export function GeneralInteractionSection() {
 							{stats.mostVisitedPage}
 						</p>
 					</div>
-					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
+					<div className="p-4 bg-[#fff5c4] rounded-xl space-y-4">
 						<p className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Most visited post
 						</p>
@@ -98,7 +98,7 @@ export function GeneralInteractionSection() {
 							{getPostById(stats.topPostId)?.name || 'N/A'}
 						</p>
 					</div>
-					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
+					<div className="p-4 bg-[#fff5c4] rounded-xl space-y-4">
 						<p className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Most active day
 						</p>
@@ -106,7 +106,7 @@ export function GeneralInteractionSection() {
 							{stats.mostActiveDay}
 						</p>
 					</div>
-					<div className="p-4 bg-[#e1d9ae] rounded-xl space-y-4">
+					<div className="p-4 bg-[#fff5c4] rounded-xl space-y-4">
 						<p className="font-black uppercase text-lg sm:text-xl md:text-2xl">
 							Filter uses
 						</p>

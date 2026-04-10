@@ -20,7 +20,7 @@ export const FilterSection = ({}) => {
 
 	return (
 		<Dropdown setSelectedItem={setSelectedSeasonId} className="w-fit">
-			<DropdownTrigger className="bg-[#fff5c4] max-sm:py-2 rounded-xl md:w-50! justify-between">
+			<DropdownTrigger className="bg-[#fff5c4] text-black! max-sm:py-2 rounded-xl md:w-50! justify-between">
 				{season ? season.name : 'Улиралууд'}
 			</DropdownTrigger>
 			<DropdownContent>

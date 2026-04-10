@@ -88,7 +88,7 @@ export function PagesInteractionSection() {
 	}
 
 	return (
-		<div className="rounded-2xl space-y-8">
+		<div className="rounded-2xl space-y-8  text-black">
 			<header className="flex max-sm:flex-col justify-between gap-4">
 				<div className="flex flex-col gap-2">
 					<div className="bg-[#fff5c4] rounded-xl px-4 py-1 md:px-4 md:py-2 w-full md:w-fit">
@@ -109,7 +109,7 @@ export function PagesInteractionSection() {
 						mode={activeChart === 'desktop' ? 'primary' : 'secondary'}
 						className={clsx([
 							activeChart === 'desktop' ? 'bg-[#fff5c4]' : 'bg-gray-500',
-							'max-sm:w-full max-sm:justify-between px-4 py-2'
+							'max-sm:w-full max-sm:justify-between px-4 py-2 text-black! border-black!'
 						])}
 						onClick={() => setActiveChart('desktop')}
 					>
@@ -120,7 +120,7 @@ export function PagesInteractionSection() {
 						mode={activeChart === 'mobile' ? 'primary' : 'secondary'}
 						className={clsx([
 							activeChart === 'mobile' ? 'bg-[#fff5c4]' : 'bg-gray-500',
-							'max-sm:w-full max-sm:justify-between px-4 py-2'
+							'max-sm:w-full max-sm:justify-between px-4 py-2 text-black! border-black!'
 						])}
 						onClick={() => setActiveChart('mobile')}
 					>
