@@ -1,14 +1,13 @@
 export interface Article {
 	id: string
 	preQuestions: string[]
-	wordDefinitions: DefinitionItem[]
+	wordDefinitions: WordDefinitionItem[]
 	content: ContentItem[]
 	postQuestions: string[]
-	sourcesText: SourceItem[]
-	sourcesImage: SourceItem[]
+	sources: Source[]
 }
 
-export interface DefinitionItem {
+export interface WordDefinitionItem {
 	word: string
 	explanation: string
 }
@@ -28,9 +27,14 @@ export interface ParagraphDetail {
 
 export interface ImageDetail {
 	type: 'image'
-	url: string
+	url: string[]
 	alt: string
 	caption: string
+}
+
+export interface Source {
+	type: string
+	sourceItem: SourceItem[]
 }
 
 export interface SourceItem {
@@ -40,7 +44,7 @@ export interface SourceItem {
 
 export const defaultArticleData: Article[] = [
 	{
-		id: '5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8',
+		id: 'Bidnii-anzaardaggui-AI-iin-nuutsuud',
 		preQuestions: [],
 		wordDefinitions: [
 			{
@@ -141,7 +145,7 @@ export const defaultArticleData: Article[] = [
 							},
 							{
 								type: 'image',
-								url: '',
+								url: [],
 								alt: '',
 								caption: 'OpenAI swallows Neptune.ai in a major leap'
 							}
@@ -175,7 +179,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'Workers younger than 50 are more likely to have used AI chatbots'
@@ -273,7 +277,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption: 'Minister of Education is giving interview'
 					},
@@ -287,7 +291,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption: 'Robot is pushing button'
 					}
@@ -323,84 +327,88 @@ export const defaultArticleData: Article[] = [
 			}
 		],
 		postQuestions: [],
-		sourcesText: [
+		sources: [
 			{
-				definition: '',
-				href: 'https://www.nasa.gov/what-is-artificial-intelligence/'
-			},
-			{
-				definition: '',
-				href: 'https://cloud.google.com/ai/llms'
-			},
-			{
-				definition: '',
-				href: 'https://arxiv.org/abs/1706.03762'
-			},
-			{
-				definition: '',
-				href: 'https://www.cnbc.com/2025/11/26/mit-study-finds-ai-can-already-replace-11point7percent-of-us-workforce.html'
-			},
-			{
-				definition: '',
-				href: 'https://www.nytimes.com/2023/05/27/nyregion/avianca-airline-lawsuit-chatgpt.html'
-			},
-			{
-				definition: '',
-				href: 'https://openai.com/index/openai-to-acquire-neptune/'
-			},
-			{
-				definition: '',
-				href: 'https://www.stlouisfed.org/on-the-economy/2025/feb/impact-generative-ai-work-productivity'
-			},
-			{
-				definition: '',
-				href: 'https://www.salesforce.com/news/stories/agentforce-it-service-announcement/'
-			},
-			{
-				definition: '',
-				href: 'https://news.med.virginia.edu/research/does-chat-gpt-improve-doctors-diagnoses-study-puts-it-to-the-test/'
-			},
-			{
-				definition: '',
-				href: 'https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/abstract'
-			},
-			{
-				definition: '',
-				href: 'https://arxiv.org/pdf/2303.08774'
-			},
-			{
-				definition: '',
-				href: 'https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/'
-			},
-			{
-				definition: '',
-				href: 'https://www.nasa.gov/technology/nasa-turns-to-ai-to-design-mission-hardware/'
-			},
-			{
-				definition: '',
-				href: 'https://www.youtube.com/watch?v=WvIbKT2Xdqo&t=6427s'
-			},
-			{
-				definition: '',
-				href: 'https://www.youtube.com/watch?v=w3EL0QiCvFw'
-			},
-			{
-				definition: '',
-				href: 'https://www.ai-academy.asia/en/blog/41'
-			},
-			{
-				definition: '',
-				href: 'https://www.ohchr.org/en/press-releases/2024/04/gaza-un-experts-deplore-use-purported-ai-commit-domicide-gaza-call, https://www.democracynow.org/2024/4/5/israel_ai'
-			},
-			{
-				definition: 'DOI 10.1007/s10676-006-0004-4',
-				href: ''
+				type: 'Эх сурвалж',
+				sourceItem: [
+					{
+						definition: '',
+						href: 'https://www.nasa.gov/what-is-artificial-intelligence/'
+					},
+					{
+						definition: '',
+						href: 'https://cloud.google.com/ai/llms'
+					},
+					{
+						definition: '',
+						href: 'https://arxiv.org/abs/1706.03762'
+					},
+					{
+						definition: '',
+						href: 'https://www.cnbc.com/2025/11/26/mit-study-finds-ai-can-already-replace-11point7percent-of-us-workforce.html'
+					},
+					{
+						definition: '',
+						href: 'https://www.nytimes.com/2023/05/27/nyregion/avianca-airline-lawsuit-chatgpt.html'
+					},
+					{
+						definition: '',
+						href: 'https://openai.com/index/openai-to-acquire-neptune/'
+					},
+					{
+						definition: '',
+						href: 'https://www.stlouisfed.org/on-the-economy/2025/feb/impact-generative-ai-work-productivity'
+					},
+					{
+						definition: '',
+						href: 'https://www.salesforce.com/news/stories/agentforce-it-service-announcement/'
+					},
+					{
+						definition: '',
+						href: 'https://news.med.virginia.edu/research/does-chat-gpt-improve-doctors-diagnoses-study-puts-it-to-the-test/'
+					},
+					{
+						definition: '',
+						href: 'https://www.thelancet.com/journals/lanonc/article/PIIS1470-2045(23)00298-X/abstract'
+					},
+					{
+						definition: '',
+						href: 'https://arxiv.org/pdf/2303.08774'
+					},
+					{
+						definition: '',
+						href: 'https://github.blog/news-insights/research/research-quantifying-github-copilots-impact-on-developer-productivity-and-happiness/'
+					},
+					{
+						definition: '',
+						href: 'https://www.nasa.gov/technology/nasa-turns-to-ai-to-design-mission-hardware/'
+					},
+					{
+						definition: '',
+						href: 'https://www.youtube.com/watch?v=WvIbKT2Xdqo&t=6427s'
+					},
+					{
+						definition: '',
+						href: 'https://www.youtube.com/watch?v=w3EL0QiCvFw'
+					},
+					{
+						definition: '',
+						href: 'https://www.ai-academy.asia/en/blog/41'
+					},
+					{
+						definition: '',
+						href: 'https://www.ohchr.org/en/press-releases/2024/04/gaza-un-experts-deplore-use-purported-ai-commit-domicide-gaza-call, https://www.democracynow.org/2024/4/5/israel_ai'
+					},
+					{
+						definition: 'DOI 10.1007/s10676-006-0004-4',
+						href: ''
+					}
+				]
 			}
-		],
-		sourcesImage: []
+		]
 	},
 	{
-		id: '41b0081f-d6a3-45f8-a09b-884fc0145f17',
+		id: 'Jazz',
 		preQuestions: [],
 		wordDefinitions: [],
 		content: [
@@ -417,7 +425,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption: 'Lou Armstrong'
 					},
@@ -427,7 +435,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption: 'The Great Migration'
 					},
@@ -500,46 +508,54 @@ export const defaultArticleData: Article[] = [
 				children: []
 			}
 		],
-		sourcesText: [
+		sources: [
 			{
-				definition: '',
-				href: 'https://www.bbc.com/travel/article/20120224-travelwise-the-birthplace-of-jazz'
+				type: 'Эх сурвалж',
+				sourceItem: [
+					{
+						definition: '',
+						href: 'https://www.bbc.com/travel/article/20120224-travelwise-the-birthplace-of-jazz'
+					},
+					{
+						definition: '',
+						href: 'https://www.dawnsnewday.org/wp-content/uploads/2018/11/JazzOrigins_formatted.pdf'
+					},
+					{
+						definition: '',
+						href: 'https://www.britannica.com/event/Great-Migration'
+					},
+					{
+						definition: '',
+						href: 'https://www.archives.gov/research/african-americans/migrations/great-migration'
+					},
+					{
+						definition: '',
+						href: 'https://www.archives.gov/milestone-documents/plessy-v-ferguson'
+					},
+					{
+						definition: '',
+						href: 'https://www.npr.org/2010/08/06/129025516/strange-fruit-anniversary-of-a-lynching'
+					}
+				]
 			},
 			{
-				definition: '',
-				href: 'https://www.dawnsnewday.org/wp-content/uploads/2018/11/JazzOrigins_formatted.pdf'
-			},
-			{
-				definition: '',
-				href: 'https://www.britannica.com/event/Great-Migration'
-			},
-			{
-				definition: '',
-				href: 'https://www.archives.gov/research/african-americans/migrations/great-migration'
-			},
-			{
-				definition: '',
-				href: 'https://www.archives.gov/milestone-documents/plessy-v-ferguson'
-			},
-			{
-				definition: '',
-				href: 'https://www.npr.org/2010/08/06/129025516/strange-fruit-anniversary-of-a-lynching'
+				type: 'Зураг',
+				sourceItem: [
+					{
+						definition: '',
+						href: 'https://www.britannica.com/biography/Louis-Armstrong'
+					},
+					{
+						definition: '',
+						href: 'https://cdn.britannica.com/61/248961-050-CB9C09A5/The-Great-Migration-1916-1970.jpg'
+					}
+				]
 			}
 		],
-		postQuestions: [],
-		sourcesImage: [
-			{
-				definition: '',
-				href: 'https://www.britannica.com/biography/Louis-Armstrong'
-			},
-			{
-				definition: '',
-				href: 'https://cdn.britannica.com/61/248961-050-CB9C09A5/The-Great-Migration-1916-1970.jpg'
-			}
-		]
+		postQuestions: []
 	},
 	{
-		id: '12b00a56-8253-44ac-a53a-25ff73b63f99',
+		id: 'Suunii-paradoks',
 		preQuestions: [
 			'Хүнийг сүү боловсруулдаг болгосон генийн мутаци гэж юу вэ?',
 			'Монголчуудын сүү цагаан идээг хэрэглэсээр ирсэний нууц нь юу вэ?',
@@ -643,7 +659,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption: '1. “What a fine day for science”.'
 					}
@@ -663,13 +679,13 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption: ''
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'2.а, 2.б. Энзим хэрхэн өөрт нь яг таардаг молекулыг задалдаг тухай.'
@@ -680,7 +696,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption: '3. Лактозны бүтэц'
 					},
@@ -726,14 +742,14 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'4. Дундад Зүүнээс сүүний хэрэглээ хэрхэн Европ руу ан агнуурын аж ахуйгаас тариалангийн аж ахуй руу шилжих үед тархсаныг харуулсан зураг.'
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'5. Лактаза энзимийг насанд хүрснийхээ дараа ч боловсруулдаг болон хувьссан хүн амын тархалтын зураг.'
@@ -777,7 +793,7 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'6. Эртний Монголын цаг үе ба ДНХ-ийн анализад ашигласан олдлогуудын байршлын зураг.'
@@ -824,21 +840,21 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'7. 4 өөр газарт лактозыг хэдэн хувьтай боловмсруулж байгааг харуулсан диаграм. Улаанаар лактоз боловсруулж чадаагүй хүн амын хувь, ногооноор боловсруулж чадсан хүн амын хувийг харуулсан.'
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'8. Лактозыг боловсруулж чадсан хүн ам дотор хэдэн хувь нь генийн хувьд лактаза энзимээ хадгалж чаддаг болон хувьссаныг бараан ногооноор харуулсан.'
 					},
 					{
 						type: 'image',
-						url: '',
+						url: [],
 						alt: '',
 						caption:
 							'9. Хөдөө ба хотын хүмүүсийн гэдэсний микробиомын тархалтын ялгаатай байдал. Ногооноор малчдын микробиомын ихэссэн тархалтыг, улаанаар Улаанбаатарынханы тархалтыг дүрсэлжээ.'
@@ -871,103 +887,1221 @@ export const defaultArticleData: Article[] = [
 			'Генийн мутаци болон генийн алдааны ялгаа юу вэ?',
 			'Яагаад Евролт мутацид эртнээс ороод Төв Азийнхан мутацид ороогүй вэ?'
 		],
-		sourcesText: [
+		sources: [
 			{
-				definition:
-					'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
-				href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+				type: 'Эх сурвалж',
+				sourceItem: [
+					{
+						definition:
+							'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
+						href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+					},
+					{
+						definition: '',
+						href: 'https://www.healthline.com/health/how-long-does-it-take-to-digest-food#digestion-timeline'
+					},
+					{
+						definition: '',
+						href: 'https://www.genome.gov/genetics-glossary/Enzyme'
+					},
+					{
+						definition:
+							'InformedHealth.org [Internet]. Cologne, Germany: Institute for Quality and Efficiency in Health Care (IQWiG); 2006-. Lactose intolerance: Learn More – Causes and diagnosis of lactose intolerance.',
+						href: 'https://www.ncbi.nlm.nih.gov/books/NBK310263/'
+					},
+					{
+						definition:
+							'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
+						href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+					},
+					{
+						definition: '',
+						href: 'https://www.genome.gov/genetics-glossary/Mutation'
+					},
+					{
+						definition: '',
+						href: 'https://www.nature.com/scitable/topicpage/evolutionary-adaptation-in-the-human-lineage-12397/'
+					},
+					{
+						definition: '',
+						href: 'https://www.nature.com/articles/500020a'
+					},
+					{
+						definition: '',
+						href: 'https://dairycultures.org/'
+					},
+					{
+						definition: '',
+						href: 'https://www.cell.com/cell/fulltext/S0092-8674%2820%2931321-0'
+					},
+					{
+						definition: '',
+						href: 'https://christinawarinner.com/outreach/dairy-cultures-virtual-exhibit-2/4716-2/'
+					},
+					{
+						definition: '',
+						href: 'https://www.science.org/doi/10.1126/sciadv.adf3904'
+					},
+					{
+						definition: '',
+						href: 'https://www.nature.com/articles/s41559-020-1120-y'
+					}
+				]
 			},
 			{
-				definition: '',
-				href: 'https://www.healthline.com/health/how-long-does-it-take-to-digest-food#digestion-timeline'
+				type: 'Зураг',
+				sourceItem: [
+					{
+						definition: 'Cartoon Network, Dexter’s Laboratory',
+						href: ''
+					},
+					{
+						definition: '',
+						href: 'https://www.amoebasisters.com/gifs.html'
+					},
+					{
+						definition: '',
+						href: 'https://dairyprocessinghandbook.tetrapak.com/chapter/lactose-free-dairy-products'
+					},
+					{
+						definition: '',
+						href: 'https://www.nature.com/articles/500020a'
+					},
+					{
+						definition: '',
+						href: 'https://christinawarinner.com/outreach/dairy-cultures-virtual-exhibit-2/4716-2/'
+					},
+					{
+						definition:
+							'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
+						href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+					},
+					{
+						definition:
+							'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
+						href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+					},
+					{
+						definition:
+							'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
+						href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+					},
+					{
+						definition:
+							'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
+						href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+					}
+				]
+			}
+		]
+	},
+	{
+		id: 'Khudulguur',
+		preQuestions: [],
+		wordDefinitions: [],
+		content: [
+			{
+				header: '',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Одоогийн бидний хэрэглэдэг хувцас, тавилга, электрон төхөөрөмж, машин тэрэг гээд ихэнх зүйлс олон тоогоор үйлдвэрлэгдсэн үйлдвэрийн бүтээгдэхүүнүүд. Өнөөдрийн ертөнцийг үйлдвэрийн бүтээгдэхүүнгүйгээр төсөөлөхийн аргагүй. '
+					},
+					{
+						type: 'paragraph',
+						text: 'Уурын хөдөлгүүр, цахилгаан генератор, мотор зэрэг технологиуд бол хүн төрөлхтөн хэрхэн өөрсдийн биеийн хүчнээс илүү гарч, аливаа зүйлсийг хийх бүтээмжээ асар ихээр нэмэгдүүлж, аж үйлдвэржин, орчин үеийн нийгмийг бүтээсний суурь “хүч чадал” билээ. '
+					},
+					{
+						type: 'paragraph',
+						text: 'Энэхүү бичвэрээрээ уурын хөдөлгүүр болон дулаанаар ажиллах хөдөлгүүр хэрхэн зохион бүтээгдэж, одоогийн түвшинд хүртлээ хөгжсөн, аж үйлдвэрийн хувьсгалыг хэрхэн явуулсан тухай судалцгаая.'
+					}
+				],
+				children: []
 			},
 			{
-				definition: '',
-				href: 'https://www.genome.gov/genetics-glossary/Enzyme'
+				header: 'Аж Үйлдвэрийн Хувсгал',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Хүн төрөлхтний бусад амьд биетээс ялгарах гол шинжүүдийн нэг нь шинэ технологи зохион бүтээх чадвар билээ. Чулуун зэвсэг, галыг анх олж нээснээс эхлүүлээд хүрэл, төмрийг боловсруулах, газар тариалан эрхлэх гээд технологийн ололтыг даган хүн төрөлхтний соёл иргэншил хөгжиж худалдаа, эдийн засаг, нийгмийн анги давхарга үүсэн хөгжсөн.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Аж үйлдвэрийн хувьсгалаас өмнө хүмүүс өөрсдийн хувцас, аж ахуйд хэрэглэдэг зүйлсээ өөрсдөө хийх эсвэл гар урлаачдаас худалдан авдаг байв. Дэлхийн ихэнх хүмүүс газар тариалан эрхэлж эсвэл гар урлал хийн амь зуудаг байсан ба их хэмжээний бүтээгдэхүүнийг нэг дор үйлдвэрлэх гэсэн ойлголт байхгүй байв [1][2].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Газар тариалан, барилга, уурхай зэрэгт бүгд хүний бие эсвэл анжис, тэрэгт хөллөсөн морь, үхэр зэрэг амьтад л бүх юмыг хөдөлгөх, зөөх хүчийг ихэвчлэн гаргадаг байв.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Харин 18-р зууны үед хүн төрөлхтөний гаргасан нэг том амжилт нь түлш шатааж, тэрнээсээ хөдөлгөөн авах боломжтой уурын хөдөлгүүр гэсэн технологийг зохион бүтээж, энэ технологиороо бүр хувцас, эд хэрэглэлийг олон тоогоор үйлдвэрлэх боломжтой болж, үйлдвэрлэл гэсэн ойлголтыг гаргаж ирсэн явдал юм. Энэ цаг үеийг Аж Үйлдвэрийн Нэгдүгээр Хувьсгал хэмээн нэрлэжээ. Эдгээр технологийн ололтууд гарснаар масс үйлдвэрлэл үүсч хүн төрөлхтний бүтээмж асар хурдтайгаар өсөж, дэлхийн эдийн засаг томорч, Их Британи, АНУ, Европийн улсаад дэлхийн эдийн засагт хүчтэй байр суурь эзэлсэн түүхийг бичжээ [3].'
+					}
+				],
+				children: []
 			},
 			{
-				definition:
-					'InformedHealth.org [Internet]. Cologne, Germany: Institute for Quality and Efficiency in Health Care (IQWiG); 2006-. Lactose intolerance: Learn More – Causes and diagnosis of lactose intolerance.',
-				href: 'https://www.ncbi.nlm.nih.gov/books/NBK310263/'
+				header: '“Хөдөлгөөн”-ийг гаргаж авсан нь',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Хүн өөрсдийн эсвэл амьтны яс, үе, булчингийн тусламжтай хөдөлж, алхах, гүйх, юмыг өргөх, чирэх гэх мэтээр өөрсдөдөө хэрэгтэй зүйлсийг бүтээх хөдөлгөх чадвартай. Биеийн хүчээр ажилладаг байсан сонирхолтой технологиудын жишээг дурдваас, гараар эргүүлдэг тээрэмтэй ус дээш нь татдаг худаг, усан онгоцны хүний хүчээр ажилладаг хөдөлгүүр харагдана [4][5]. Гэвч эдгээр технологиуд булчингийн чадлаар хязгаарлагдана.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 1. Хүний хүчээр ажиллах технологиуд'
+					},
+					{
+						type: 'paragraph',
+						text: 'Хүмүүс салхи болон усны урсгалаар хөдөлгөөн гаргадаг үр тариа бутлагч тээрэм, гэх мэт технологиуд бас хэрэглэдэг байсан ч салхи усны хүчийг хэзээ юунд хэрэглэж болох нь хязгаарлагдмал байв [6].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Харин хүмүүс гал түлж сурсанаас хойш, шаталт гэдэг басхүү нэгэн хэрэглэгдэх боломжтой энергийн эх үүсвэртэй болж, хүмүүс хоол хийх, дулаацахад гал түлэх технологийг ашигладаг байв. Цаашлаад шаталтаас хөдөлгөөн гаргаад сурчихвал хүн төрөлхтний хүч чадал түлшнийхээ хэрээр тэлэх боломжтой байв.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Буцалж буй усны уурыг ашиглан хөдлөх энерги гаргаж авах боломжтойг бүр МЭӨ 1-р зуунаас хүмүүс ажиглаж эхэлжээ. Тухайн үеийн аелопил гэх эртний технологи усны уурын тусламжтайгаар эргэлдэх хөдөлгөөнийг гаргаж авдаг [7].'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption:
+							'Зураг 2. Усны уурны даралтанд эргэлдэх Аелопил гэх технологи.'
+					},
+					{
+						type: 'paragraph',
+						text: '18-р зууны үед Их Британид олон өөр зохион бүтээгчид буцалж, халж буй усны уурнаас технологи гарган авахаар оролдсоор 1712 онд Томас Ньюкомен анхны үйлдвэрлэлд хэрэглэгдэхүйц уурын хөдөлгүүр [8],  1769 онд Жэймс Ватт үр бүтээмж сайтай уурын хөдөлгүүр зохион бүтээснээр уурын хөдөлгүүрийг нүүрсний уурхайн усны насос, хөвөнгийн үр салгагч, утас нэхэгч ээрүүл, галт тэрэг гэх мэт олон бүтээлүүд үйлдвэрлэлд ашиглах болжээ [9][10]. Хүн төрөлхтөн нүүрс, мод зэрэг түлшийг шатаан уурын хөдөлгүүрээр асар их чадалтай, асар их хөдөлгөөнийг гаргаж аван, өөрсдийн үр бүтээмжээ асар ихээр нэмэгдүүлж, дэлхийн эдийн засгийн ДНБ 19-р зуунаас хойш зэрэгтээр нэмэгдэх болж, орчин үеийн үйлдвэрлэл, даяаршлын эрин иржээ [11].'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 3. Дэлхийн ДНБ-ний түүхэн хэмжээ.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 4. Томас Ньюконмений уурын хөдөлгүүр.'
+					}
+				],
+				children: []
 			},
 			{
-				definition:
-					'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
-				href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+				header: 'Уурын хөдөлгүүр хэрхэн ажилладаг вэ?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Тэгвэл уурын хөдөлгүүр хэрхэн ажилладгийг харцгаая.'
+					}
+				],
+				children: [
+					{
+						header: 'Халах хөрөх, тэлэх агших',
+						detail: [
+							{
+								type: 'paragraph',
+								text: 'Уурын молекулуудыг халаахад молекулуудын хөдөлгөөний хурд ихсэж, савныхаа ханыг ихээр мөргөж эхэлдэг. Ингэснээр сав нь тэлэх боломжтой бол тэлж, тэлэх боломжгүй бол саванд учрах даралт нь ихэсдэг. Харин уурыг хөргөхөд эсрэгээрээ молекулуудын хөдөлгөөн удааширч, буцаж агшдаг. Энэхүү халах хөрөх, тэлэх агших зарчмыг ашиглан уурын хөдалгүүр хөдөлгөөн гаргаж авдаг байна.'
+							},
+							{
+								type: 'image',
+								url: [],
+								alt: '',
+								caption:
+									'Зураг 5. Хий халснаар молекулууд нь хурдасч, сав нь тэлнэ.'
+							},
+							{
+								type: 'paragraph',
+								text: 'Бүлүүр гэсэн цилиндр саван дотор усны уурыг халааж хөргөхөд савных нь таг дээш доош хөдлөх хөдөлгөөн үүснэ. Энэ шулуун дээш доош хөдлөх хөдөлгөөнийг доорх зурагт үзүүлсэн бүлүүрийг нугастай саваанд холбосон механизмаар эргэлдэх хөдөлгөөнд оруулж бас болно.'
+							},
+							{
+								type: 'image',
+								url: [],
+								alt: '',
+								caption:
+									'Зураг 6. Шулуун хөдөлгөөнийг эргэлдэх хөдөлгөөнд хувиргах нь.'
+							},
+							{
+								type: 'paragraph',
+								text: 'Энэхүү эргэлдэх хөдөлгөөнийг галт тэрэг, утасны ээрүүл, даавуу нэхэгч, хөвөнгийн үр салгагч, гурилын тээрэм гэх мэт машин техникийн хөдөлгөөнд ашиглах боломжтой [10].'
+							}
+						],
+						children: []
+					},
+					{
+						header: 'Цикл',
+						detail: [
+							{
+								type: 'paragraph',
+								text: 'Уурын хөдөлгүүрийн гаргах хөдөлгөөн нь тасралтгүй хөдөлгөөн байж галт тэрэг, утасны ээрүүл гэх мэт машин техникуудыг ажиллуулна. Эргэлдэх хөдөлгөөн нь ганцхан эргээд зогсдоггүй үргэлжлэн эргэлдсээр байдаг байж гэмээнэ галт тэрэг хол явна, утасны ээрүүл нь их утас ээрч, хувцас нэхэгч нь их хувцас үйлдвэрлэнэ. Тиймээс бүлүүртэй саван дахь уурны халах хөрөх үйл явц дахин давтагддаг цикл байх шаардлагатай. Ийм ч учраас уурын хөдөлгүүр нь цикл байх боломжтойгоор зохион бүтээгдсэн технологи юм.'
+							},
+							{
+								type: 'paragraph',
+								text: 'Ийнхүү уурын хийн халах хөрөхөөс циклээс эргэлдэх хөдөлгөөн гаргаж авсанаар уурын хөдөлгүүр бүх л хөдөлгөөнд суурилсан технологийг ажиллуулах үндсэн хүч болсон.'
+							}
+						],
+						children: []
+					}
+				]
 			},
 			{
-				definition: '',
-				href: 'https://www.genome.gov/genetics-glossary/Mutation'
+				header: 'Дулааны хөдөлгүүр',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Уурын хөдөлгүүрээр бид хөдөлгөөн гаргаад авчихдаг юм байж, гэхдээ бүр том зургаар нь дулаанаас хөдөлгөөн гаргаж авна гэдэг юу гэсэн үг вэ?'
+					},
+					{
+						type: 'paragraph',
+						text: 'Уурын хөдөлгүүрээс гадна одоогийн бүх л төрлийн дулааны энергээс хөдөлгөөний энерги эсвэл өөр хэрэгтэй ажил гаргаж авдаг технологийг ерөнхийд нь дулааны хөдөлгүүр хэмээн нэрлэдэг. Эдгээрийн жишээнд машины дугуйны эргэлдэх хөдөлгөөнийг гаргах бензиний шаталтат хөдөлгүүр, онгоцны тийрэлтэт агаарыг гаргах хөдөлгүүр, цахилгаан станцын турбинууд, хөргөгч зэрэг ордог.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Уурын хөдөлгүүрт усны уурыг ашиглан хөдөлгөөн гаргаж байсан бол ерөнхий дулааны хөдөлгүүрт агшиж, тэлж буй бодис нь заавал усны уур гэлтгүй ямар ч бодис байж болдог. Тэр ашиглагдаж буй бодисыг нь ерөнхийд нь ажлын шингэн гэж нэрлэдэг байна.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Дулааны хөдөлгүүрийн циклийг физик болон инженерчлэлд ойлгохын тулд циклд болж буй үйл явц болгонд ажлын шингэн ямар төлөвт байгааг нь ихэвчлэн даралт ба эзэлхүүн, энтропи ба температурын графикаар дүрсэлдэг [12].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Дулааны хөдөлгүүр  нь дулааныг хөдөлгөөн болгож ашиглан, хүн төрөлхтөн өөрсддөө байгаагүй их чадлыг гаргаж авч, асар их энерги, эрчим хүчийг амьдралдаа хэрэглэх боломжтой болоход нөлөөлсөн чухал ойлголт юм аа. Үүнд жишээ болгож онгоцны хөдөлгүүр, уурын турбин гэсэн дулааны хөдөлгүүрүүд хэрхэн ажилладгийг тайлбарлая.'
+					}
+				],
+				children: []
 			},
 			{
-				definition: '',
-				href: 'https://www.nature.com/scitable/topicpage/evolutionary-adaptation-in-the-human-lineage-12397/'
+				header: 'Онгоцны хөдөлгүүр',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Онгоцны хөдөлгүүрийн бүтцийг доорх зураг 9-т харуулав. Онгоц нь урдаасаа агаарыг сорох сэнс, агаарыг шахах компрессор, түлшийг агаартай холих шатаагч, халуун онгоцны утаанд эргэлдэх турбинаас бүрддэг. Онгоцны хөдөлгүүрийн циклийг Брэйтон цикл гэдэг [nasa]. Энэ циклд агаар эхлээд сэнсээр сорогдон хөдөлгүүрийн урдаас орж компрессор дотор орон шахагдаж, шахагдан агшсаны улмаас даралт болон температур нь ихэсдэг. Ингэхдээ онгоцны хөдөлгүүрийн урд байх сэнс нь 1 секундэд 1.3 тонн агаарыг сордог боловч энэ сорсон агаарын 90% нь хөдөлгүүрийн хажуугаар нь зүгээр өнгөрдөг. Гэхдээ ингэж өнгөрөх нь онгоцыг урагшаа явахад ихээр нөлөөлдөг байна. Үлдсэн 10% нь тэгэхээр хөдөлгүүрийн компрессор дотор орж шахагдахдаа 50 дахин агшиж, үүний улмаас температур нь 600°C болтлоо ихэсдэг байна. Ийнхүү халсан өндөр даралтат агаарыг шатаагч дотор онгоцны түлштэй холиход шаталт үүсдэг. Тэгснээр шатсан түлш ба агаарын холоимог нь 2100°C болтлоо халдаг. Үүний дараа энэ халуун агаар турбинаар өнгөрөхдөө тэлж, турбиныг эргүүлэн онгоцны сэнс болон компрессорыг эргэхэд шаардлагатай эрчим хүчийг гаргаж авдаг байна. Ингэж сэнсээр үлээгдэх агаар болон онгоцны халуун утаагаар онгоц урагш түлхэгдэн асар хурдтай нисдэг [13].'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 7. Брэйтоны циклийн график.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 8. Онгоц ба онгоцны хөдөлгүүрийн сэнс.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 9. Онгоцны хөдөлгүүр.'
+					}
+				],
+				children: []
 			},
 			{
-				definition: '',
-				href: 'https://www.nature.com/articles/500020a'
+				header: 'Бусад дулааны хөдөлгүүрүүдийн жишээ',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Уурын турбинт цахилгаан станцууд нь бас нэгэн бидний өргөн ашигладаг дулааны хөдөлгүүр юм. Нүүрсний болон цөмийн цахилгаан станцууд Ранкины цикл (Rankine Cycle) гэсэн дулааны хөлөлгүүрийг ашигладаг. Ранкины циклийн ажилллах зарчим нь онгоцны хөдөлгүүртэй төстэй ба насос нь эхлээд усыг шахаж, ийнхүү шахагдаж өндөр даралттай болж халсан усыг тогтмол даралтанд нүүрс эсвэл цөмийн шаталтаар нэмж халаадаг. Энэ халах үйл явцад ус нь ууршиж хий төлөвт шилжиж, энэ халуун уур нь уурын турбиныг эргүүлж, турбинаасаа гарсныхаа дараа дахин анхны төлөв хүртлээ конденсатор дотор хөрдөг. Турбин эргэлдэх хөдөлгөөнөөс нь бид цахилгаан генератор ашиглан эрчим хүч гарган авдаг. Цахилгаан генератор нь соронз болон эргэлдэх хөдөлгөөнийг ашиглан цахилгаан соронзон оронгоос цахилгаан эрчим хүч гарган авдаг технологийг хэлдэг.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Хөргөгч, агаарын кондишн нь уурын шахалтын циклийг (Vapor Compression Cycle) хөргөгчний R-134A, R600a гэсэн тусгай шингэн дээр хийж, хөргөх ажлыг гаргаж авдаг бас дулааны хөдөлгүүрүүд юм [12].'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 10. Уурын турбин.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 11. Ранкины цикл.'
+					}
+				],
+				children: []
 			},
 			{
-				definition: '',
-				href: 'https://dairycultures.org/'
-			},
-			{
-				definition: '',
-				href: 'https://www.cell.com/cell/fulltext/S0092-8674%2820%2931321-0'
-			},
-			{
-				definition: '',
-				href: 'https://christinawarinner.com/outreach/dairy-cultures-virtual-exhibit-2/4716-2/'
-			},
-			{
-				definition: '',
-				href: 'https://www.science.org/doi/10.1126/sciadv.adf3904'
-			},
-			{
-				definition: '',
-				href: 'https://www.nature.com/articles/s41559-020-1120-y'
+				header: 'Эцэст нь, ирээдүй?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Дулааны хөдөлгүүрийн гол эх үүсвэр нь нүүрс, газрын тос, био түлш ч, эдгээрийг шатаасны үр дүнд нь нүүрсхүчлийн хий ялгардаг. Шатах процесс нь түлш хэмээх нүүрсхүчил дээр суурилсан органик бодисыг өндөр температурт хүчилтөрөгчтэй урвалдуулсны үр дүнд дулаан гаргах үйл явцыг хэлдэг. Энэ урвалын үр дүнд нүүрсхүчлийн диоксид буюу нүүрсхүчлийн хий ялгардаг. Энэхүү ялгарсан нүүрсхүчлийн хий нь хүлэмж шиг давхарга болон дэлхийгээс ялгарах дулааныг сансарт цааш нь гаргахгүй буцаж дэлхий рүү ойлгон эсвэл өөртөө шингээн дэлхийн дулаарал, үүнээс үүдээд уур амьсгалын өөрчлөлтийг бий болгодог [14]. Бидний шаталтаар ялгаруулсан нүүрсхүчлийн хий нь агаар мандалд маш удаан хугацаагаар буюу ойролцоогоор 10000-аад жилийн турш үлддэг байна [15] [16]. Хэдийгээр мод, хөрс, ус нь нүүрсхүчлийн хийг өөртөө шингээдэг ч, Аж Үйлдвэрийн Хуьсгалаас эхэлсэн хүн төрөлхтөн бидний энэ үйлдвэржсэн ертөнцөд гаргаж буй нүүрсхүчлийн хийн хэмжээ байгаль дэлхийн шингээж амжихаас хамаагүй хурдан, хамаагүй их хэмжээгээр ялгарч байна.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Одоогийн дэлхий хэр их халж, хэр их уур амьсгалын өөрчлөлтөд орох нь бид хэр их нүүрсхүчлийн хий гаргахаас шалтгаална. 2015 онд Нэгдсэн Үндэсний Байгууллагын Уур Амьсгалын Өөрчлөлтийн Талуудын Хурлын Парисын хэлэлцээрт улс орнууд дэлхийн дулаарлыг Аж Үйлдвэрийн Хувсгалын өмнөх үеээс хойш ихсэх хэмжээг 1.5 С-д барина гэж амлалт өгцгөөсөн. Шаталтаас дулаан, хөдөлгөөн гаргаж аван, аж үйлдвэржиж, одоогийн хөгжилд бид хүрсэн ч, уур амьсгалын өөрчлөлт одоогийн хүн төрөлхтний хамгийн том асуудлуудын нэг болоод байна. Хүн төрөлхтөн өөрсдөөсөө гаргаж чадахгүй их хүссэн хүч чадлаа гарган авч технологийн дэвшилтэт эрин үеийг бүтээсэн ч, энэ хүч чадлын төлөөс нь дэлхийн дулаарал, уур амьсгалын өөрчлөлт, эргээд хүн төрөлхтний оршихуйн заналхийлэл болов уу? Технологийн дэвшил хүмүүсийн амьдралыг өөрчлөх, сайжруулах хүчтэй ч бас нийгэм байгаль орчныг доройтуулах хүчтэй aжээ.'
+					}
+				],
+				children: []
 			}
 		],
-		sourcesImage: [
+		postQuestions: [
+			'Эргэн тойронд тань буй хөдөлж буй зүйлс хэр их хүч чадлаар хөдөлдөг бол? Хэрвээ тухайн хүч чадлуудыг нь хүний хүчээр хийх байсан бол хэдэн хүн хэрэг болох бол?',
+			'Хүч чадал, энерги, эрчим хүчтэй хэрхэн холбогддог вэ?',
+			'Үйлдвэрүүд хэр их энерги, эрчим хүчийг үйлдвэрлэлд зарцуулдаг вэ?',
+			'Бидний хэрэглэж буй эд зүйлсийг үйлдвэрлэхэд хэр их энерги, эрчим хүч, түлш зарцуулагдлаг вэ?',
+			'Уур амьсгалын өөрчлөлт, дэлхийн дулаарал танд хэрхэн одоо болон ирээдүйд нөлөөлөх вэ?',
+			'Уур амьсгалын өөрчлөлтийг зогсооход дэлхий нийтээрээ бид юу хийх хэрэгтэй вэ?'
+		],
+		sources: [
 			{
-				definition: 'Cartoon Network, Dexter’s Laboratory',
-				href: ''
+				type: 'Эх сурвалж',
+				sourceItem: [
+					{
+						definition:
+							'Wilkinson, Freddie. 2025. “Industrialization, Labor and Life.” Industrialization, Labor and Life. ',
+						href: 'https://education.nationalgeographic.org/resource/industrialization-labor-and-life/6th-grade/'
+					},
+					{
+						definition:
+							'BBC. n.d. “What was life like before the Industrial Revolution?” BBC Bitesize. Accessed April 28, 2026. ',
+						href: 'https://www.bbc.co.uk/bitesize/articles/zm9r4xs#zrntp4j'
+					},
+					{
+						definition:
+							'Beckert, Sven. 2015. “How the West got rich and modern capitalism was born.” PBS. ',
+						href: 'https://www.pbs.org/newshour/nation/west-got-rich-modern-capitalism-born'
+					},
+					{
+						definition:
+							'Major, J. Kenneth. 2014. “The Pre-Industrial Sources of Power: Muscle Power.” History Today 30, no. 3 (May).',
+						href: 'https://bpb-us-w2.wpmucdn.com/voices.uchicago.edu/dist/a/1299/files/2019/07/sti2014_the-pre-industrial-sources-of-power_-muscle-power-_-history-today.pdf'
+					},
+					{
+						definition:
+							'Smil, Vaclav. 2017. Energy and Civilization: A History. N.p.: MIT Press.',
+						href: ''
+					},
+					{
+						definition:
+							'Fletcher, Stella. 2000. The Longman Companion to Renaissance Europe, 1390-1530. N.p.: Longman.',
+						href: ''
+					},
+					{
+						definition:
+							"Knight, Edward H. 1876. “Knight's American Mechanical Dictionary: A Description of Tools, Instruments, Machines, Processes, And Engineering, History of Inventions, General Technological Vocabulary, And Digest of Mechanical Appliances In Science And the Arts.” HathiTrust.",
+						href: 'https://catalog.hathitrust.org/Record/005762472/Cite'
+					},
+					{
+						definition:
+							'Morris, Charles R. 2014. The Dawn of Innovation: The First American Industrial Revolution. N.p.: PublicAffairs.',
+						href: 'https://books.google.com/books?id=n97K02J6eQgC&q=newcomen+in+1712#v=snippet&q=newcomen%20in%201712&f=false'
+					},
+					{
+						definition: 'Watt, James. 1769. Steam Engines, patent.',
+						href: 'https://www.dpma.de/docs/dpma/veroeffentlichungen/gb000176900913a_watt1769.pdf#page=3.00'
+					},
+					{
+						definition:
+							'Wilkinson, Freddie. 2024. “Industrial Revolution and Technology.” Industrial Revolution and Technology.',
+						href: 'https://education.nationalgeographic.org/resource/industrial-revolution-and-technology/7th-grade/'
+					},
+					{
+						definition:
+							'Our World in Data, Eurostat, OECD, IMF, World Bank, Bolt and van Zanden – Maddison Project Database 2023, and Maddison Database 2010. 2024. “Global GDP over the long run.” Our World in Data.',
+						href: 'https://ourworldindata.org/grapher/global-gdp-over-the-long-run'
+					},
+					{
+						definition:
+							'Cravalho, Ernest G., Joseph L. Smith, John G. Brisson, and Gareth McKinley. 2005. “Thermal-Fluids Engineering,” An Integrated Approach to Thermodynamics, Fluid Mechanics, and Heat Transfer. Course Notes.',
+						href: 'https://web.mit.edu/snively/www/2_005%20Coursenotes-1.pdf#page=2.00'
+					},
+					{
+						definition:
+							'Rolls-Royce University Technology Center in Advanced Materials. n.d. “How does a Jet Engine work? | Rolls-Royce UTC.” Rolls-Royce UTC. Accessed May 27, 2026.',
+						href: 'https://www.rrutc.msm.cam.ac.uk/outreach/what-do-we-do/how-does-a-jet-engine-work'
+					},
+					{
+						definition:
+							'Fecht, Sarah. n.d. “How Exactly Does Carbon Dioxide Cause Global Warming.” Columbia Climate School.',
+						href: 'https://news.climate.columbia.edu/2021/02/25/carbon-dioxide-cause-global-warming/'
+					},
+					{
+						definition:
+							'Archer, David, Michael Eby, Victor Brovkin, Andy Ridgwell, Long Cao, Uwe Mikolajewicz, Ken Caldeira, et al. 2009. “Atmospheric Lifetime of Fossil Fuel Carbon Dioxide.” Annual Review of Earth and Planetary Sciences 37 (May): 117-134.',
+						href: 'https://doi.org/10.1146/annurev.earth.031208.100206'
+					},
+					{
+						definition:
+							'Inman, Mason. 2008. “Carbon is forever.” Nature Climate Change 1, no. December 2008 (November): 156-158',
+						href: 'https://doi.org/10.1038/climate.2008.122'
+					}
+				]
 			},
 			{
-				definition: '',
-				href: 'https://www.amoebasisters.com/gifs.html'
+				type: 'Зурагнуудын эх сурвалж',
+				sourceItem: [
+					{
+						definition:
+							'Smil, Vaclav. 2017. Energy and Civilization: A History. N.p.: MIT Press.',
+						href: ''
+					},
+					{
+						definition: '',
+						href: 'https://en.wikipedia.org/wiki/Aeolipile'
+					},
+					{
+						definition: '',
+						href: 'https://ourworldindata.org/grapher/global-gdp-over-the-long-run'
+					},
+					{
+						definition: '',
+						href: 'https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine'
+					},
+					{
+						definition: 'ChatGPT-ээр үүсгэсэн зураг',
+						href: ''
+					},
+					{
+						definition: '',
+						href: 'https://en.wikipedia.org/wiki/Piston'
+					},
+					{
+						definition: '',
+						href: 'https://www.grc.nasa.gov/www/k-12/airplane/brayton.html'
+					},
+					{
+						definition: '',
+						href: 'https://www.rd.com/article/why-airplane-also-spelled-aeroplane/'
+					},
+					{
+						definition: '',
+						href: 'https://www.boldmethod.com/learn-to-fly/aircraft-systems/how-does-a-jet-engine-turbofan-system-work-the-basic-steps/'
+					},
+					{
+						definition: '',
+						href: 'https://www.britannica.com/technology/jet-engine'
+					},
+					{
+						definition: '',
+						href: 'https://en.wikipedia.org/wiki/Jet_engine'
+					},
+					{
+						definition: '',
+						href: 'https://www.linkedin.com/pulse/operation-maintenance-steam-turbine-innovative-engineers-network-grokc'
+					},
+					{
+						definition: '',
+						href: 'https://www.nuclear-power.com/nuclear-engineering/thermodynamics/thermodynamic-cycles/rankine-cycle-steam-turbine-cycle/'
+					}
+				]
+			}
+		]
+	},
+	{
+		id: 'Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee',
+		preQuestions: [],
+		wordDefinitions: [],
+		content: [
+			{
+				header: 'Бидний хиймэл оюун ухааны хэрэглээ',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Сүүлийн жилүүдэд хиймэл оюун ухаан хурдацтай хөгжин дэвшиснээр усны ба цахилгааны хэрэглээ мөн хурдацтай нэмэгдсэн. Энэхүү өсөлт нь олон улсын томоохон технологийн корпорациудын хиймэл оюун ухааны чиглэлд хийсэн өргөн хүрээний хөрөнгө оруулалттай нягт уялдаа холбоотой [1].'
+					}
+				],
+				children: []
 			},
 			{
-				definition: '',
-				href: 'https://dairyprocessinghandbook.tetrapak.com/chapter/lactose-free-dairy-products'
+				header: 'Тоног төхөөрөмжийн эрэлт',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Олон улсын корпорациуд өгөгдөл дамжуулах хурдаа өсгөхийн тулд DDR5 RAM их хэмжээгээр ашиглаж эхэлсэн ба үүнээс үүдээд тус түүхийн эдийн эрэлт ихсэж, үнэ өссөн. Ойролцоогоор гурваас дөрөв дахин үнэ нь өссөн буюу 16 GB DDR5 RAM нь одоогоор $70 - $210 болон өсжээ [2]. Үүнээс улбаалан технологийн салбарын томоохон төлөөлөгч  компани болох SAMSUNG үйлдвэрлэж буй утасныхаа RAM-ын хэмжээг багасгах нөхцөл байдалд хүрсэн байна [3].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Олон улсын эрчим хүчний агентлаг (IEA)-ийн 2025 оны тайланд дурдаснаар  хиймэл оюун ухааны дата төвүүд 2024 оны эцсийн байдлаар дэлхийн нийт цахилгаан хэрэглээний 1.5%-ийг бүрдүүлсэн бөгөөд 2030 он гэхэд энэ тоо 2 дахин өсөх таамагтай байна [4].'
+					}
+				],
+				children: []
 			},
 			{
-				definition: '',
-				href: 'https://www.nature.com/articles/500020a'
+				header: 'Усны хэрэглээ',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Лоуренс Берклигийн Үндэсний Лабораторийн 2024 оны тайланд дурдсанаар 2023 оны эцсээр АНУ-ын дата өгөгдлийн төвүүд хөргөлтийн системээрээ дамжуулан шууд 64 тэрбум литр ус хэрэглэсэн бөгөөд цахилгаан эрчим хүчээр дамжуулан шууд бусаар 800 тэрбум литр ус хэрэглэжээ [5]. АНУ-ийн зөвхөн дата төвийн нийт усны хэрэглээ гэхэд л Их Британийн нийт усны хэрэглээтэй дүйцэхүйц хэмжээнд хүржээ. Одоогийн байдлаар дунд хэмжээний дата төв өдөрт дунджаар шууд бусаар 1.1 сая литр цэвэр ус хэрэглэдэг бол томоохон AI дата төвүүд өдөрт 19 cая литр хүртэл ус зарцуулдаг [6]. Хэрвээ энэ байдлаараа байгаад байх юм бол усны хомсдолд өртөх аюул тулгараад байна.'
+					}
+				],
+				children: []
 			},
 			{
-				definition: '',
-				href: 'https://christinawarinner.com/outreach/dairy-cultures-virtual-exhibit-2/4716-2/'
+				header: 'Ил тод байдал',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'OpenAI-ийн гүйцэтгэх захирал Сам Алтман “ChatGPT-ийн нэг асуулт ойролцоогоор халбага усны 1/15 буюу 1 мл-ийг ашигладаг” гэж хэлсэн байдаг. Калифорниагийн Их Сургуулийн професор Шаолэй Рэн энэ тал дээр, “Энэхүү тоонд батлах хангалттай мэдээлэл алга. Үүн дээр нэмж хэлэхэд бидний судалснаар дунд хэмжээний хиймэл ухааныг аваад үзвэл 10н урт промпт эсвэл 50н богино асуултанд ойролцоогоор 500 мл ус зарцуулдаг ба энэ нь дээрх тоотой нийцэхгүй байна” гэжээ. Тэрбээр OpenAI-аас тодруулга авах гэсэн ч хариулахаас татгалзжээ [7]. Энэхүү ил тод бус байдал нь компанийн хэтэрхий өндөр усны хэрэглээтэй холбоотойг нууцалж  байх магадлалтай.'
+					}
+				],
+				children: []
 			},
 			{
-				definition:
-					'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
-				href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+				header: 'Яагаад AI моделууд их ус ашигладаг вэ?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'ChatGPT болон бусад AI чатботууд өөрсдийн дата төвдөө тасралттгүй ажиллаж байгаа хэрэгслүүдээ хөргөхийн тулд ус ашигладаг.'
+					}
+				],
+				children: [
+					{
+						header: 'Хөргүүрийн систем',
+						detail: [
+							{
+								type: 'paragraph',
+								text: 'Ойрын жилүүдэд дата төвүүдийг хангах хэрэгцээт цахилгааны хүч эрс нэмэгдэж байгаатай холбоотойгоор агаараар хөргөх систем аажмаар хэрэглээнээс гарч байна. Учир нь агаараар хөргөх арга нь орчин үеийн өндөр хүчин чадалтай дата төвүүдийг хангалттай үр ашигтай хөргөж чадахгүй болсон. Иймээс шингэн хөргөх систем нь илүү үр ашигтай, найдвартай шийдэл болж, салбарын шинэ стандарт болон нэвтэрч байна [8].'
+							},
+							{
+								type: 'paragraph',
+								text: 'Усан суурьтай хөргөлтийн систем нь эрчим хүчний хувьд илүү хэмнэлттэй байж болох ч усны хэрэглээг нэмэгдүүлдэг. Харин агаарт суурилсан хөргөлтийн систем нь ус бага ашигладаг давуу талтай боловч илүү их цахилгаан эрчим хүч шаарддаг. Харин зарим тохиолдолд байршилаас хамаардаг буюу ус багатай нөхцөлд баригдсан дата төвүүд агаарын хөргөлтийн систем ашигладаг бол усны нөөц ихтэй гэхдээ эрчим хүчний хангалт бага газарт усны шингэн хөргүүр ашигладаг [9].'
+							}
+						],
+						children: []
+					},
+					{
+						header:
+							'Тэгвэл liquid cooling буюу шингэн хөргүүр хэрхэн ажилладаг вэ?',
+						detail: [
+							{
+								type: 'image',
+								url: [],
+								alt: '',
+								caption: 'zurag oruulah'
+							},
+							{
+								type: 'paragraph',
+								text: 'Шингэн хөргүүрийн системийг ажиллуулахын тулд цэвэр ус буюу ямар ч эрдэс бодисгүй ус хэрэгтэй. Энэ нь бидний уудаг ус л гэсэн үг юм.'
+							},
+							{
+								type: 'paragraph',
+								text: 'Ажиллах процесс:'
+							},
+							{
+								type: 'paragraph',
+								text: 'Сервер доторх чипүүдийн дээгүүр хөргөлтийн шингэн урсаж, ялгарсан дулааныг шингээж авна. Үүний дараа дулаан солилцох хэсэг буюу хөргүүр дээр очдог.'
+							},
+							{
+								type: 'paragraph',
+								text: 'Дулаан солилцох хэсэгт ус ашиглаж халсан хөргөлтийн шингэний дулааныг усанд шингээн авдаг. Хөрсөн шингэн нь сервер рүү буцаж очин дахин дулаан шингээх үйл явцад оролцоно.'
+							},
+							{
+								type: 'paragraph',
+								text: 'Харин халсан ус нь хөргөлтийн сэнсрүү шахагдаж, тэндээ сэнсээр хөрдөг ба зарим ус нь агаарт замхардаг. Үүний дараа хэд хэдэн удаа эргэлтэнд орж, ашигласан усны үлдэгдлээ ойр хавийн усны эх үүсвэр лүү нийлүүлдэг. '
+							},
+							{
+								type: 'paragraph',
+								text: 'Энэхүү процессын улмаас ашигласан усны 80 хүртэлх хувь нь ууршдаг ба үүнийг нь дахин ашиглах боломжгүй [7].'
+							},
+							{
+								type: 'paragraph',
+								text: '*AI дата төвийн хөргөх процесс-оос  ихэнх ус нь ууршаад алга болдог. Үүнээс болоод AI маш их хэмжээний ус ашиглагдаг. Энэ хэрэглээ нь өссөөр байх юм бол ус багатай газрууд усны хомсдолд орох эрсдэлтэй.'
+							}
+						],
+						children: []
+					}
+				]
 			},
 			{
-				definition:
-					'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
-				href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+				header: 'Дата төвийн нөлөө',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Дэлхийн дата төвүүд 2024 онд 415 тераватт цаг буюу дэлхийн нийт цахилгааны хэрэглээний 1.5%-ийг бүрдүүлсэн ба АНУ гэхэд дангаараа 183 тераватт цагийг нь ашигласан байна [4]. Энэ нь Пакистан улсын жилийн цахилгааны хэрэглээтэй тэнцүү юм [11]. Одоо баригдаж буй ердийн нэг дата төв нь л гэхэд жилд 1000 өрхтэй тэнцэх хэмжээний цахилгаан хэрэглэдэг [12].'
+					},
+					{
+						type: 'paragraph',
+						text: 'AI дата төв нь дэлхий даяарх нийт 11000 гаруй дата боловсруулах  төвүүдийн 5-15%-ийг эзэлдэг энэхүү тоо нь 2030 он гэхэд 35-50% болох төлөвтэй байна. Үүнээс харахад дата төвүүд илүү AI тал руугаа чиглэж байгаа нь яалт ч үгүй үнэн байна [13] [14].'
+					},
+					{
+						type: 'paragraph',
+						text: 'AI-ийн хэрэглээ нэмэгдсэнтэй холбоотойгоор эрчим хүчний хэрэглээ өссөөр байна. АНУ-ын Мэриланд мужийн Балтимор хот дахь нэгэн иргэнээс ярилцлага авахад сүүлийн 3-н жилийн дотор цахилгааны төлбөр 80%-аар өссөн гэсэн мэдээлэл өгсөн ба шалтгаан нь хэдэн жилийн өмнө баригдсан дата боловсруулах төв аж. [17]'
+					},
+					{
+						type: 'paragraph',
+						text: 'Харин AI дэлхийн дулааралд тийм ч их нөлөө үзүүлдэггүй буюу байгалийн хийн нийт хэрэглээний ердөө 0.5%-ийг  эзэлдэг. Гэхдээ энэхүү өсөлт хэт хурдан байвал ирээдүйд дэлхийн дулаарлын томоохон үүсвэр болох боломжтой.'
+					}
+				],
+				children: []
 			},
 			{
-				definition:
-					'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
-				href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+				header: 'Ашигладаг энергийн төрөл',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Тэгвэл AI ямар төрлийн энерги ашигладаг вэ гэдгийг хамтдаа харцгаая. Дэлхий даяар AI-ийн ашигладаг энергийн 27% нь л сэргээгдэх эрчим хүч, 26% нь байгалийн хий, 15% нь цөмийн,  үлдсэн 31% нь нүүрснээс гаралтай ажээ. Цаашлаад 2034 он гэхэд цөмийн болон сэргээгдэх эрчим хүчний эх үүсвэр нь ойролцоогоор 50%-ийг бүрдүүлэх ба үлдсэн 40 гаруй хувь нь нүүрс болон байгалийн хийнээс бүрдэх төсөөлөлтэй байна [15]. Яг одоогоор нүүрсний хэрэглээ хамгийн их байгаа боловч 2034 он гэхэд тогтворжиж сэргээгдэх эрчим хүчний эх үүсвэр нь өсөх болно.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'zurag-oruulah'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'zurag-oruulah'
+					},
+					{
+						type: 'paragraph',
+						text: 'Дэлхийн цахилгаан эрчим хүчний үйлдвэрлэлийн эх үүсвэрүүд, 2020-2035 он [15] тераватт цагаар хэмжигдсэн болно.'
+					},
+					{
+						type: 'paragraph',
+						text: 'AI нь эрчим хүчний хэрэглээ хэдийнээ их байгаа ба энэ хэрэглээ нь өссөөр ч байх болно. Эрчим хүчний эх үүсвэрийн тал орчим нь нүүрснээс гаралтай ба үүгээрээ дэлхий дээр нүүрсхүчлийн хий ялгаруулж, дэлхийн дулаарал, уур амьсгалын өөрчлөлтөнд нөлөөлж байна. Үүнээс харахад сүүлийн жилүүд дэх AI-н хурдацтай хөгжлөөс болж дата төвүүдийн тоо өссөн ба үр дагавар нь иргэддээ хүнд тусах төлөвтэй байна. AI-ийн хөгжлөөс болоод  цахилгааны үнэ өсөж, усны нөөц хомсдож, байгальд орчинд сөрөг нөлөөтэй байсаар байх болно. Ийм олон сөрөг үр дагавар дагуулах ч гэсэн AI-г ашигласаар л байх уу?'
+					}
+				],
+				children: []
+			}
+		],
+		postQuestions: [],
+		sources: [
+			{
+				type: 'Эх сурвалжууд',
+				sourceItem: [
+					{
+						definition: '',
+						href: 'https://www.cnbc.com/2025/10/31/tech-ai-google-meta-amazon-microsoft-spend.html'
+					},
+					{
+						definition: '',
+						href: 'https://www.alvareztg.com/ram-prices/?utm_source=chatgpt.com'
+					},
+					{
+						definition: '',
+						href: 'https://novyny.live/en/tehnologii/dram-shortage-may-force-smartphones-to-cut-memory-capacity-300031.html'
+					},
+					{
+						definition: '',
+						href: 'https://www.iea.org/reports/energy-and-ai/energy-demand-from-ai?utm_source=chatgpt.com'
+					},
+					{
+						definition: '',
+						href: 'https://planetdetroit.org/2025/08/great-lakes-data-centers/?utm_source=chatgpt.com'
+					},
+					{
+						definition: '',
+						href: 'https://www.brookings.edu/articles/ai-data-centers-and-water/?utm_source=chatgpt.com'
+					},
+					{
+						definition: '',
+						href: 'https://youtu.be/b0C56yqIkbk?si=_puySlVHcsFonoft'
+					},
+					{
+						definition: '',
+						href: 'https://iaeimagazine.org/electrical-fundamentals/how-much-electricity-does-a-data-center-use-complete-2025-analysis/'
+					},
+					{
+						definition:
+							'Water-energy tradeoffs in data centers: A case study in hot-arid climates - ScienceDirect',
+						href: 'https://www.sciencedirect.com/science/article/abs/pii/S0921344922000428'
+					},
+					{
+						definition: '',
+						href: 'https://www.jysterling.com/articles/ethical-issues-with-ai/generative-ai-energy-consumption?utm_source=chatgpt.com'
+					},
+					{
+						definition: '',
+						href: 'https://www.pewresearch.org/short-reads/2025/10/24/what-we-know-about-energy-use-at-us-data-centers-amid-the-ai-boom/'
+					},
+					{
+						definition: '',
+						href: 'https://www.congress.gov/crs_external_products/R/PDF/R48646/R48646.1.pdf'
+					},
+					{
+						definition: '',
+						href: 'https://www.mckinsey.com/industries/technology-media-and-telecommunications/our-insights/ai-power-expanding-data-center-capacity-to-meet-growing-demand'
+					},
+					{
+						definition: '',
+						href: 'https://www.datacentermap.com/datacenters/?utm_source=chatgpt.com'
+					},
+					{
+						definition: '',
+						href: 'https://www.iea.org/data-and-statistics/charts/sources-of-global-electricity-generation-for-data-centres-base-case-2020-2035'
+					},
+					{
+						definition: '',
+						href: 'https://eta-publications.lbl.gov/sites/default/files/2024-12/lbnl-2024-united-states-data-center-energy-usage-report_1.pdf'
+					},
+					{
+						definition: '',
+						href: 'https://www.bloomberg.com/graphics/2025-ai-data-centers-electricity-prices/'
+					},
+					{
+						definition: '',
+						href: 'https://www.congress.gov/crs-product/R48646'
+					}
+				]
+			}
+		]
+	},
+	{
+		id: 'Uls-turiin-khuch-chadluud',
+		preQuestions: [],
+		wordDefinitions: [],
+		content: [
+			{
+				header: 'Улс төр, засаглал юунаас эхлэлтэй вэ?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Ардчилал гэж юу вэ? Автократ засаглал гэж юу вэ? Олигархи гэж юу вэ? Улс орнууд ямар, ямар засаглалын хэлбэртэй байдаг вэ?'
+					},
+					{
+						type: 'paragraph',
+						text: 'Дэлхийн улс орнууд ямар нэгэн засаглалын хэлбэртэй байдаг. Гэхдээ засаглалын хэлбэрүүд нь олон төрөл байдаг бөгөөд ямар засаглалын хэлбэр нь хамгийн сайн хэлбэр вэ гэдэг дээр хүн болгоны санал нийлдэг зүйл биш. Хүмүүс хамтдаа амьдарч, нийгэм бүтээж амьдрах дүрэм журам, хуулийг хэн тогтоох вэ? Хэн эдгээр хууль дүрмийг хэрэгжүүлэх вэ? Эдгээр хууль дүрэм биелж байгаа эсэхийг хэн шийдэх вэ? Хууль дүрмүүдийг нь хэн нэгэн зөрчвөөс хариуцлага шийтгэл нь юу байх вэ? Хууль дүрмийг тогтоох, хэрэгжүүлэх хүмүүсийг хэрхэн сонгох вэ? Улс төрийн хүч чадал хэнд төвлөрч, эрх мэдэл хэрхэн хуваарьлагддаг вэ? Тэдгээр хүмүүс нь хэрхэн, хэр удаан засаглах вэ? Нийгмийн хууль дүрэм ер нь байх ёстой юм уу? Хүмүүс бид хэрхэн өөрсдийн нийгмээ бүтээж, засагладаг(govern) вэ?'
+					},
+					{
+						type: 'paragraph',
+						text: 'Эдгээр асуултын хариултууд хар цагаан ганц л хариулт биш бөгөөд хүн бүрийн итгэл үнэмшил өөр ч, одоогийн нийгэмд түгээмэл байдаг улс орнуудын засаглалын хэлбэрүүд, улс төрийн хүч чадал хэрхэн төвлөрч, эрх мэдэл хэрхэн хуваарьлагдсан байдаг, эдгээрийг хэрхэн нэрлэдгийг бүгдээрээ судалцгаая.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Улс төрийн онолд улс төрийн хүч чадал хэрхэн төвлөрсөн хэлбэрээр нь анархи, автократ засаглал, олигархи, ардчилал хэмээн хуваадаг.'
+					}
+				],
+				children: []
 			},
 			{
-				definition:
-					'Christina Warnier, “Making Milk - Mongolia’s Unique Role in Dairy’s History” talk at Harvard Peadbody Museum',
-				href: 'https://peabody.harvard.edu/video-making-milk-mongolias-unique-role-dairys-history'
+				header: 'Анархи - хүч чадал хэнд ч төвлөрөхгүй байх',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Маш цөөн хүмүүс ямар ч төрлийн төр, засаглал байх хэрэггүй гэж үздэг ба төр, улс, засаглал, нийгмийн шатлал байхын эсрэг үзлийг анархизм гэдэг. Анархизм үзэлд хүн эрх чөлөөгөө эдлэхэд төр саад болдог учир аливаа албадлага, хууль дүрэмгүйгээр нийгэм оршин тогтнох ёстой гэж үздэг [1].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Заримдаа улс орнуудын төрийн тогтворгүй байдлын үед ард иргэд нь төрдөө итгэхгүй, захирагдахгүй, цагдаа, цэргийн хүч тодорхойгүй болж, хэн нь эрх мэдэлд, ямар засаглалд байгаа нь тодорхойгүй үед хүч чадал хэнд ч төвлөрөөгүй байдлыг анархи гэдэг. Ийм анархи харин ихэнхдээ эмх замбараагүй байдал байдаг.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Энэхүү эмх замбараагүй үеийн анархи байдал болон анархизмын онолын үзлийг бас тусдаа ойлговол зүгээр. Анархизмын үзэл санаа төр нь цагдаа цэргийн хүчээр ард хүмүүсийг албадан хүчилж, хууль дүрмийг хэрэгжүүлдэг бөгөөд үүнд хувь хүн өөрийн сонголтогүйгээр захирагддаг, хувь хүн өөрийн эрх чөлөөний зөвшөөрлөө өгөх боломжгүй гэсэн үзэл дээр суурилдаг. Төр нь хүч чадалтай эрх мэдэлд байгаа хүмүүсээр л удирдагдагдаж, засаглагдах учир цөөнх, хувь хүн бүр өөрийн бүрэн зөвшөөрлийг өгөх боломжгүй, хувь хүний зөвшөөрөл, эрх чөлөөний эсрэг шийдвэрийг төр хийх боломжтой. Харин хүн бүр өөрийн зөвшөөрлийг өгч, өөрийн сайн дураараа шийдвэр гарган, хүн бүрийн зөвшөөрөл санаа нийлсэн үед тухайн бүлэг хүмүүс ямар нэгэн шийдвэрт хүрэх боломжтой болж хэний ч зөвшөөрөлгүйгээр ямар нэгэн шийдвэр гарахгүй [2].  Филисофи, үзэл санаа, онолын хувьд анархизмд улс төрийн хүч чадал, албадлага, хүчирхийлэл, тэдгээрээс ангид анархи нийгэм байж болох уу гэдэг дээр бодсон бодлууд олон байгаа.'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Автократ засаглал - хүч чадал нь нэг хүнд төвлөрөх',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Автократ засаглал нь улс төрийн хууль тогтоох шийдвэр гаргах эрх мэдэл хүч чадал нь нэг хүнд төвлөрсөн засаглалыг хэлдэг. Бүрэн эрхт хаант засаглал болон нэг удирдагч диктатортой орнууд одоогийн автократ засаглалтай орнуудын гол төрлүүд болдог. Бүрэн эрхт хаант засаглалтай Саудын Араб, диктатортой Хойд Солонгос нь автократ засаглалтай улсуудын жишээ юм [3].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Төр засаглал, удирдлага нэг гарт төвлөлрсөн байх нь хурдан шийдвэр гаргах давуу талтай ч, хувь хүний эрх чөлөө, үзэл бодол хязгаарлагдмал байдаг. Хувь хүн, иргэдийн шийдвэр гаргалтанд нөлөөлөх эрх чөлөө автократ засаглалд байдаггүй. Автократ засаглалын удирдагчид хяналт тавих, хууль, механизм байдаггүй учраас удирдагч нь өөрийн хүссэн юуг ч хэрэгжүүлэх хүчтэй байдаг.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Энэ засаглалд диктатор нь цэрэг цагдаагийн хүчийг ашиглан гаргасан хууль, шийдвэрээ иргэддээ мөрдүүлж, төрийн хүчийг шууд иргэдийн эсрэг ашиглах боломжтой ба мэдээ мэдээллийн сувгуудад нөлөөлж, суртал ухуулга, гуйвуулсан мэдээг бас иргэддээ тараан, хэвлэл мэдээллийн эрх чөлөөг бас хязгаарлах хүчтэй байдаг. Шийдвэр гаргагч, хэрэгжүүлэгч, хууль тогтоогчид хяналт тавих систем, иргэдэд өөрсдийн үзэл бодлоо илэрхийлэх суваг, эрх чөлөө байдаггүй учир диктаторт бүх эрх мэдэл хүч чадал төвлөрч, өөрийн хүссэн ямар ч шийдвэрийг гаргах боломжтой учир, энэхүү засаглалын доор олон хүмүүс сонголтгүй, эрх чөлөөгүй амьдрахаас өөр аргагүй болдог.'
+					}
+				],
+				children: []
+			},
+			{
+				header:
+					'Олигархи - цөөхөн, эрх мэдэлтэй бүлэг хүмүүст хүч чадал нь төвлөрөх',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Улс төр, засаглалын хүч чадал эрх мэдэл цөөн тооны хүмүүст төвлөрөхийг олигархи гэдэг. Зөвхөн нэг улс төрийн бүлэглэл, нам, шашны бүлэг эсвэл мөнгөтэй нөлөөтэй хүмүүс улс төр, засаглалд эрх мэдэл хүч чадлаа хадгалж шийдвэр гарган, энэ хүч чадал эрх мэдлээ цөөн тооны хүмүүсийн бүлэгтээ хадгалдаг. Энэхүү цөөн тооны хүмүүс эрх мэдэл, хүч чадлаа цэргийн хүч, хөрөнгө мөнгө, нийгмийн давхарга, авлигал зэргийг ашиглан хадгалдаг [4].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Жишээлбэл БНХАУ нь зөвхөн Хятадын Коммунист Нам дотроосоо улсын даргаа сонгодог, улсын их хурлын ихэнх гишүүд нь нийгмийн цөөн тооны 1949 оны хувьсгалын үед  Хятадын Коммунист Намын гишүүд байсан эсвэл 1980-аад оны үед хөрөнгө мөнгөтэй болсон хүмүүсийн бүлгээс бүрддэг [4][5][6].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Теокраси буюу шашны үзэл төр, засаглалын хуулийг тогтоодог, төр ба шашин хамтдаа байдаг засгалалтай Иран бас олигархи засаглалын төрөлд багтдаг. Ираны дээд удирдагч болон шашны удирдагчид нь төрийн эрх мэдлийг атгадаг [7].'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Ардчилал - хүч чадал нь хүн бүрд хуваагдах',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Ардчилал нь хүн бүрийн оролцоон дээр тогтдог улс төр, засаглалын хүч чадлын тархсан хэлбэр юм. МЭӨ 6-р зууны Эртний Грекийн Афин хотод анх ардчилсан засаглал үүссэн бөгөөд эртний грек хэлний demokratias гэдэг үг нь ард түмэн (демос, δημος) болон эрх мэдэл/хүч чадал (кратос, κρατος) гэсэн үгсээс үүдэлтэй.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Ардчилал нь дотроо шууд болон төлөөллийн гэсэн төрөлтэй. Шууд ардчилал гэдэг нь засаглалын шийдвэр бүрт иргэн бүр саналаа өгч, шийдвэр гаргадаг тогтолцоог хэлдэг. Афины ардчилал шууд ардчилал байсан бөгөөд жил бүр 500 иргэд сонгогдон төрийн хууль санаачлан бичих үүргийг хашиж, бүх иргэд нь шийдвэр гаргахад саналаа өгдөг байжээ [8][9]. Шууд ардчилалд  цөөнхийн санал тусгагдахгүй байх, бүх шийдвэрт бүх хүмүүс санал өгөхөд удаан байх гэсэн сул талууд бас байдаг.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Одоогийн ардчилсан засаглалт улс орнууд ихэвчлэн ард иргэд нь өөрсдийгөө төлөөлөх хүмүүсийг сонгож сонгогдсон хүмүүс нь засаглалын шийдвэр гаргадаг төлөөллийн ардчилалт (representative democracy) засаглалтай байдаг. Төлөөллийн ардчилал нь дотроо хууль гаргах, хэрэгжүүлэх, шүүх үүргүүд нь хэрхэн хуваарьлагдсанаас шалтгаалаад ерөнхийлөгчийн засаглал, парламентийн засаглал, үндсэн хуульт хаант засаглал, холимог засаглалын хэлбэртэй байж болно. Эдгээрт гол нь хэн хуулийг гаргаж, хэн тэрийг нь хэрэгжүүлж, хэн шүүж, хэрхэн эдгээр хүчнүүд бие биедээ хяналт тавьж, ард түмэн хэрхэн эрх мэдэлд буй төлөөлөгчиддөө хяналт тавих боломжтой нь чухал. Монгол улсад хууль тогтоох эрх мэдлийг Улсын Их Хурал, хэрэгжүүлэх эрх мэдлийг Засгийн Газар, шүүх эрх мэдлийг Улсын Дээд Шүүх, цэргийн хүчний эрх мэдлийг ерөнхийлөгч хуваарилан авдаг. Гэхдээ бас УИХ гишүүн давхар Засгийн Газрын гишүүн байх боломжтой давхар дээл нь хүч чадал тархан бие биенээсээ ангид байхтай зөрчилдсөн байдал Монголд байдаг.'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Ардчилалын индекс',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Ардчилалын хамгийн том давуу тал нь хүн бүрт засаглал, шийдвэр гаргалтанд оролцох боломж байдаг учраас бусад түүхэн дэх системүүдээсээ хамгийн эрх тэгш нь гэж хэлэгддэг. Гэхдээ ардчилал хэрхэн хэрэгжиж байгаасаа шалтгаалаад жинхэнэ амьдрал дээр хүн бүрт эрх тэгш боломж, эрх чөлөөгөө эдлэх боломж байна уу гэдэг нь улс орнуудад харилцан адилгүй байдаг. Улс орнуудыг хэр ардчилсан байна вэ гэдгийг ардчилалын индекс гэсэн тоон хэмжигдэхүүнээр хэмждэг. Эдгээр хэмжигдэхүүнүүдийг өөр өөр байгууллагууд өөр өөрөөр тооцдог ба жишээ нь, V-Dem индекст санал өгөх эрхтэй насанд хүрсэн иргэдийн эзлэх хувь, сонгогдсон албан тушаалтнууд, чөлөөт бөгөөд шударга сонгууль, үзэл бодлоо илэрхийлэх эрх чөлөө, эвлэлдэн нэгдэх эрх чөлөө, хууль тогтоох байгууллагын гүйцэтгэх засаглалд тавих хязгаарлалт, шүүхийн гүйцэтгэх засаглалд тавих хяналт, мөн хувь хүний эрх чөлөө ба хуулийн өмнө тэгш байдлын үзүүлэлтүүдийг оноожуулж ардчилалын индексийг тооцоолдог [10]. Энэ индексээр Монгол улс 2024 онд 81-р байранд жагсаж, 2020 онтой харьцуулахад 20 байраар ухарсан байна [11].'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Эцэст нь',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Улс болгоны засаглалын хэлбэр, хүч чадлын төвлөрөл харилцан адилгүй. Ардчилсан улс дотроо ч ардчилал хэрхэн хэрэгжиж байгаагаасаа хамаараад шийдвэр гаргах хүч чадал хэрхэн төвлөрсөн, эрх мэдэл олгох сонгууль нь хэрхэн явагддаг зэрэг нь ялгаатай. Улс төрийн хүч чадал, хүч чадал хэнд байгаа, хэрхэн төвлөрч байгаа тухай бодох нь улс төрийн ямар шийдвэрүүд яагаад гардаг тухай ойлгоход чухал юм.'
+					}
+				],
+				children: []
+			}
+		],
+		postQuestions: [
+			'Хувь хүний эрх чөлөө засаглалын хүч чадал хэрхэн хуваарьлагдсантай ямар хамааралтай вэ?',
+			'Автократ засаглалд яагаад хувь хүний эрх чөлөө хязгаарлагдмал байдаг вэ?',
+			'Хууль боловсруулах, хуулийг хэрэгжүүлэх, шүүх, цэргийг удирдах хүч чадлууд хэрхэн хуваарилагдвал тэнцвэртэй байх вэ?',
+			'Эдгээр хүч чадлуудын хуваарилалтын тэнцвэртэй байдал, хяналт тавих боломжийг ямар механизмаар бүрдүүлэх вэ?',
+			'Ардчилал хамгийн сайн систем мөн үү?',
+			'Ардчилал болгон хэрхэн хэрэгждэг нь адилгүй. Ардчилалыг сайжруулахад юу чухал вэ?',
+			'Ардчилал болон олигархийн зааг юу вэ?'
+		],
+		sources: [
+			{
+				type: '',
+				sourceItem: [
+					{
+						definition:
+							'Levy, Carl, and Matthew S. Adams, eds. 2026. The Palgrave Handbook of Anarchism. N.p.: Springer Nature Switzerland.',
+						href: 'https://link.springer.com/chapter/10.1007/978-3-319-75620-2_1'
+					},
+					{
+						definition:
+							'Rooum, Donald. 2016. What Is Anarchism? An Introduction. Edited by Vernon Richards. N.p.: PM Press.',
+						href: ''
+					},
+					{
+						definition:
+							'National Geographic Society. 2025. “Autocracy.” National Geographic Education.',
+						href: 'https://education.nationalgeographic.org/resource/autocracy/'
+					},
+					{
+						definition:
+							'National Geographic Society. 2025. “Oligarchy.” National Geographic Education.',
+						href: 'https://education.nationalgeographic.org/resource/oligarchy/'
+					},
+					{
+						definition:
+							"Walder, Andrew G. 2014. “China's Evolving Oligarchy.” Edited by David B. Grusky and Katherine R. Weisshaar. In Social Stratification: Class, Race and Gender in Sociological Perspective. N.p.: Taylor & Francis Group.",
+						href: ''
+					},
+					{
+						definition:
+							'Wee, Sui. 2018. “China’s Parliament Is a Growing Billionaires’ Club.” The New York Times, March 1, 2018.',
+						href: 'https://www.nytimes.com/2018/03/01/business/china-parliament-billionaires.html'
+					},
+					{
+						definition:
+							"Boroumand, Ladan. 2018. “Iran's Exclusionary Republic.” Journal of Democracy 29, no. 2 (April): 173-177.",
+						href: 'https://www.journals.uchicago.edu/doi/10.1086/697506'
+					},
+					{
+						definition:
+							'National Geographic Society. 2025. “Democracy (Ancient Greece).” National Geographic Education.',
+						href: 'https://education.nationalgeographic.org/resource/democracy-ancient-greece/'
+					},
+					{
+						definition:
+							'Thorley, John. 1996. Athenian Democracy. N.p.: Taylor & Francis.',
+						href: ''
+					},
+					{
+						definition:
+							'“Varieties of Democracy (V-Dem).” n.d. V-Dem. Accessed April 26, 2026.',
+						href: 'https://v-dem.net/'
+					},
+					{
+						definition:
+							'uih.mn. 2025. “АРДЧИЛЛЫН ИНДЕКС: Тэд юу гэж дүгнэв, манайхан юу гэж ярив.” United Info Hub, March 28, 2025.',
+						href: 'https://www.uih.mn/n/654'
+					}
+				]
+			},
+			{
+				type: 'Нэмэлт сурвалж',
+				sourceItem: [
+					{
+						definition:
+							'“Өглөө” төслийн сошиал медиа хуудаснаас улс төрийн онолын энгийн ойлголтуудыг тайлбарласан бичлэгүүдийг сонирхоорой.',
+						href: 'https://www.facebook.com/uglooo/posts/%D0%B0%D1%80%D0%B4%D1%87%D0%B8%D0%BB%D0%B0%D0%BB-%D0%B3%D1%8D%D0%B6-%D1%8E%D1%83-%D0%B2%D1%8D-%D0%B0%D1%80%D0%B4%D1%87%D0%B8%D0%BB%D0%BB%D1%8B%D0%BD-%D3%A9%D3%A9%D1%80-%D1%82%D3%A9%D1%80%D0%BB%D2%AF%D2%AF%D0%B4%D0%B8%D0%B9%D0%B3-%D1%85%D1%8D%D1%80%D1%85%D1%8D%D0%BD-%D1%8F%D0%BB%D0%B3%D0%B0%D1%85-%D0%B2%D1%8D-%D1%8D%D0%BD%D1%8D-%D1%83%D0%B4%D0%B0%D0%B0%D0%B3%D0%B8%D0%B9%D0%BD-%D1%86%D1%83%D0%B2%D1%80%D0%B0%D0%BB%D0%B0/185705299831980/'
+					}
+				]
+			}
+		]
+	},
+	{
+		id: 'Quant-computeriin-khuch-chadal',
+		preQuestions: [],
+		wordDefinitions: [],
+		content: [
+			{
+				header: '',
+				detail: [
+					{
+						type: 'paragraph',
+						text: '“The first principles of the universe are atoms and empty space. Everything else is merely thought to exist.” — Democritus'
+					},
+					{
+						type: 'paragraph',
+						text: '“Орчлон ертөнцийн анхны бөгөөд тулгуур зарчим бол атомууд болон хоосон орон зай юм. Үүнээс бусад бүх зүйлс нь зөвхөн оршин буй мэтээр төсөөлөгддөг төдий зүйл билээ.”  — Демокрит'
+					},
+					{
+						type: 'paragraph',
+						text: 'Арван жилийн шинжлэх ухааны хичээлүүд дээр бид оршихуй бүхэн ямар нэг жижиг хэсгээс бүрддэг талаар сурдаг. Энэхүү санаа нь бүр МЭӨ V зууны үеийн Грекийн философичдоос гаралтай ойлголт бөгөөд үүнийг “атомизм” (atomism) гэж нэрлэдэг аж. Өнөөгийн эрдэмтэд тухайн үед зөвхөн таамаг, санаа төдий байсан зүйлийг яг үнэндээ оршихуйн тулгуур зарчим гэдгийг нээж илрүүлснээр, одоо бидний хувьд “Тэнгэр бол цэнхэр өнгөтэй” гэдэг шиг л наад захын энгийн ойлголт болжээ. Тиймдээ ч одоо энэхүү бичвэрийг уншиж буй дэлгэц тань л гэхэд нарийн төвөгтэй электроникийн хэсгүүд, тэдний доторх силикон, силиконыг бүрдүүлдэг молекул, цаашлаад атом, цөм, электроноос бүрддэг гэдэг нь огт сонин биш байгаа нь гарцаагүй.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Тэгвэл та тэдгээр бөөмсийн амьдардаг квант ертөнцийн талаар хэр их мэдэх вэ? Ньютоны толгой дээр алим унаж (үнэн худал нь асуудалтай ч гэсэн), бидний мэдэх  классик физикийн хуулиуд бичигдэж, түүнээсээ хөгжин явсаар одоогийн инженерчлэл, технологийн үндэс болсон билээ. Гэтэл энэхүү хуулиуд квант ертөнц гэх тэрхүү жижиг ертөнцөд үйлчлэхээ больдог байна. Тиймээс ч бөөмсийн түвшний үзэгдлүүдийг маш нарийн төвөгтэй шугаман алгебрийн хэлээр тайлбарладаг квант механик гэх сэдэв урган гарч ирсэн билээ. Одоогоор физикчид квант ертөнцийн бүх нууцыг хараахан тайлаагүй байгаа ч (квант таталцал гэх мэт), хэдийн тэрхүү сонирхолтой хуулиудыг нь ашиглаад технологи бүтээгээд эхэлжээ. Энэ бичвэрээрээ түүний хамгийн том жишээ болох Квант Компьютерийн талаар товчхон тайлбарлая.'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Квант анхааралд оров',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Квант Компьютерийн салбар харьцангуй залуу боловч сүүлийн 5-10 жилээс олонд ихээхэн танигдаж эхэлж байгаа аж. Үүнийг сүүлийн жилүүдийн Нобелийн физикийн шагналаас тод харж болно. Тухайлбал, 2022 оны Нобелийн шагналыг орооцолдол (entanglement) хэмээх бөөмсийн квант шинж чанарыг нээн илрүүлсэн эрдэмтдэд олгосон бөгөөд энэхүү нээлт цаашлаад квант мэдээллийн шинжлэх ухааны суурь ойлголт болсон юм [1]. Харин 2025 оны Нобелийн шагналыг квант компьютерийн  "транзистор" шиг суурь бүрэлдэхүүн хэсэг болох хэт дамжуулагч кюбит (superconducting qubits)-ийн шинж чанарыг нээн илрүүлсэн эрдэмтдэд олгосон [2]. Цаашлаад 2025 оныг "Квантын жил" болгож зарласан нь энэхүү салбар хэр их олны анхаарлыг татаж байгааг харуулж байна [3]. Хиймэл оюун ухаан (AI) эрчээ авч буй энэ үед “хөшигний ард” квант компьютер хөгжсөөр байгаа бөгөөд үүнийг дараагийн "AI Boom" болж магадгүй гэж хүмүүс үзэж, хөрөнгө оруулалт нь жил ирэх тусам өссөөр байгаа аж [4].'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Квант гэж яг юу юм бэ?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: "Квант компьютерыг ойлгохын тулд бид эхлээд “квант”-ыг буюу квант физикийг ойлгох хэрэгтэй. 1900 оны эхээр 'хоёр нүхний туршилт'-аар гэрлийг яг л усны долгион шиг гагцхүү долгионлог шинж чанартай гэж үздэг байсан нь няцаагдаж, бөөмлөг болон долгионлог чанартай болох нь батлагджээ [5]. Үүнээс л Квант Механик (Quantum Mechanics) гэх чиглэл урган гарсан бөгөөд тэрхүү өчүүхэн төвшинд бөөмс яаж авирладгийг Шрёдингерийн тэгшитгэл (Schrödinger's equation), суперпозици, Гейзенбергийн тодорхойгүйн зарчим зэрэг ойлголтуудаар тайлбарлах болсон билээ."
+					},
+					{
+						type: 'paragraph',
+						text: "Эдгээрийн гол санааг маш энгийнээр тайлбарлахад: Классик буюу бидний сайн мэддэг энэхүү макро ертөнцөд модноос нэг алим унахад бид түүний хөдөлгөөнийг Ньютоны хуулиар тооцоолж, хором секунд бүрт хаана байхыг нь бараг л 100%-ийн магадлалтай зөв тодорхойлж чадна. Гэтэл квант ертөнцөд электроныг нэг хэмжээд, дараа нь дахин хэмжихэд 'яг энд байна' гэж 100% итгэлтэй хэлэх боломжгүй болдог бөгөөд гагцхүү 'А цэгт 50%, Б цэгт 50% байх магадлалтай' гэж хэлэх хэмжээний л мэдлэгтэй болох боломжтой байдаг. Тэгэхээр классик механикт бид аливаа биетийн байршлыг Евклидийн шугам (огторгуй) дээр тодорхой цэгээр тэмдэглэдэг бол квант ертөнцөд тэр нь боломжгүй болж, харин цэг бүр дээрх хэмжигдэж болох магадлалуудын нийлбэр буюу магадлалын тархалт (probability distribution) болж хувирдаг. Өөрөөр хэлбэл, тэрхүү биетийн байршлыг 100 удаа хэмжвэл 50 удаа А цэгт, 30 удаа Б цэгт, 20 удаа С цэгт хэмжигдэж болох бөгөөд хамгийн гол нь нэг цэгтээ байнга хэмжигддэггүй тодорхойгүй шинж чанартай байдаг байна. Энэ нь Эйнштейнд ч сонин санагдаж байсан бөгөөд тэрээр “Бурхан шоогоор тоглодоггүй” гэж хэлж байсан аж. Сонирхолтой нь, Эйнштейн квант физикт үхэн үхтлээ үл итгэгч байсан гэдэг [6]."
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption:
+							'Зураг 1. Кюбитүүдийн суперпозиц магадлалуудын нийлбэр болох нь. '
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Энэ бүхнийг яаж квант компьютер болгодог вэ?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Үүний тулд эхлээд ердийн компьютер яаж ажилладаг вэ гэдгийг багахан ойлгох хэрэгтэй. Компьютер "хоёртын систем" (binary system) буюу 0 ба 1-ийг илэрхийлдэг битийг (bits) ашигладаг. Үүгээр бүх тоо, үсэг, логик үйлдлийг илэрхийлдэг.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Харин квант компьютерийн бит болох кюбит (qubit)  нь квант шинж чанараараа ойролцоогоор 0-ээс 1-ийн хоорондох бүхий л боломжит төлөвүүдийг нэгэн зэрэг илэрхийлж болдог. 1 кюбит л тийм их төлвийг агуулдаг тул квант компьютер нэгэн ёсондоо маш олон өгөгдлийг нэгэн зэрэг тооцоолох боломжтой юм.'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Яагаад квант компьютер гэж?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Hamgiin huchirheg super computer ch tootsoolj chaddaggui зарим нэг бодлого, асуудлуудыг квант компьютер асар хурдан тооцоолох боломжтой аж. Жишээлбэл, Шорын алгоритм (Shor’s algorithm) ашиглан классик компьютерт хэдэн зуун жил зарцуулагдах тооцооллыг квант компьютер маш богино хугацаанд хийх боломжтой [7]. Энэ нь Шорын алгоритмын гол механизм болох Квант Фурье Хувиргалт (Quantum Fourier Transform)-ын хурдтай шууд холбоотой юм. Квант Фурье Хувиргалт нь суперпозици, орооцолдол зэрэг квант механикийн суурь шинж чанаруудын тусламжтайгаар ийм хурдан гүйцэтгэдэг. Хэрэв Шорын алгоритмыг бүрэн ашиглах чадалтай квант компьютер бүтээгдвэл бидний одоогийн интернетийн нууцлал болон аюулгүй байдал орвонгоороо эргэх болно. Яагаад гэвэл одоогийн нууцлалын (encryption) амин сүнс нь RSA алгоритм юм. Энэ маш том хоёр анхны тооны үржвэрээс бүрдсэн тоо бөгөөд аливаа мэдээллийг аюулгүй байлгах "түлхүүр" болгон ашигладаг. Үүний ачаар зөвхөн мэдээлэл илгээгч болон хүлээн авагч л тухайн нууц түлхүүрийг мэдэх боломжтой байдаг.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Хэрэв гадны хүн тэрхүү мэдээллийг авахын тулд түлхүүрийг нь олох гэж оролдвол, тухайн том тоог бүрдүүлж байгаа хоёр анхны тоог олж мэдэх шаардлагатай болно. Гэвч ийм том тоог анхны тооны үржвэрт задлах алгоритм нь сонгодог компьютерын хувьд бараг л боломжгүй буюу хэдэн зуун жил зарцуулагдах даалгавар юм. Харин квант компьютер Шорын алгоритмын тусламжтайгаар эдгээр тоог анхны тооны үржвэрт нь хялбархан задалснаар тухайн мэдээллийн нууц кодыг тайлах "түлхүүр"-ийг шууд олж авч байна гэсэн үг юм.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Мөн өөр нэг хүчирхэг алгоритм бол Гроверын алгоритм (Grover’s algorithm) буюу квант хайлтын алгорит. Жишээ нь, монгол хэлний цагаан толгойн өгөгдлийн сан (dataset) байхад түүнээс ямар нэгэн үсгийг олж, гаргаж авах үйлдэл нь хайлтын алгоритмын тусламжтай хийгддэг. Гэвч сонгодог алгоритмууд нь хамгийн хурдандаа O(N) хугацаа зарцуулдаг бол Гроверын алгоритм нь үүнийг O(N​) болгон хурдасгадаг. Юу гэсэн үг вэ гэвэл, танд 16 хайрцаг байлаа гэж бодъё. Хайрцаг бүрт ямар нэгэн зүйл байгаа бөгөөд зөвхөн нээж байж л доторхыг нь мэдэх боломжтой гэвэл хайж буй зүйлээ олохын тулд классик компьютероор дунджаар 8 хайрцаг нээх шаардлагатай болно. Харин Гроверын квант алгоритмоор ердөө 4 хайрцаг нээхэд л хангалттай. Хамгийн гол нь өгөгдлийн тоо (N) ихсэх тусам энэхүү ялгаа нь асар том болдог. 16 биш 64 хайрцаг байвал классик компьютер дунджаар 32  хайрцаг нээх шаардлагатай гэхэд квант компьютер 8 гэх мэт.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Түүгээр ч зогсохгүй квант компьютер нь материал судлалын салбарт шинэ төрлийн материалын шинж чанарыг загварчлахад (material simulation) асар их ач холбогдолтой юм. Энэхүү салбарыг квант симуляци (quantum simulation) гэж нэрлэдэг. Жишээлбэл, Ферми-Хаббардын загвар (Fermi-Hubbard model) зэрэг хими, физикийн квант процессуудыг тооцоолох нь сонгодог компьютеруудын хувьд асар хэцүү (хэтэрхий их нөөц шаарддаг) байдаг. Учир нь квант механик дахь тодорхойгүй шинж чанар болон бусад суперпозици төлөвүүдийг сонгодог компьютераар дуурайлган тооцоолох гэж оролдохоос илүүтэйгээр, физик механизм нь яг ижилхэн квант компьютер дээр шууд загварчлах нь хамаагүй амар байдагтай холбоотой юм. Энэхүү технологи нь цаашлаад нарийн төвөгтэй уургийн динамикийг (protein dynamics) кодчилж, Альцгеймер зэрэг өвчнийг эмчлэх шинэ эм гаргаж авахад асар их тус хүргэх боломжтой [8].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Гэвч одоогоор алгоритм гэхээсээ илүү яаж энэ квант компьютерыг бүтээх вэ гэдэг нь "bottleneck" буюу гол тулгамдаад байгаа асуудал нь болоод байгаа юм.'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Яаж?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Ердийн компьютерийн ашигладаг хоёртын системийг  бодит ертөнцөд буулгадаг зүйл нь транзистор (бит буюу 0 ба 1 төлөв нь транзистороор "гүйдэл гүйж байгаа эсвэл гүйхгүй байгаа"-гаар тодорхойлогддог)) байдаг шиг кюбитийг өөр өөр байдлаар бүтээж болдог. Цаашлаад яаж, юугаар бүтээх  вэ гэдгээсээ хамаараад хэд хэдэн төрлөөр квант компьютер болон инженерчлэлийн судалгаа хийгдэж байна.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Кюбит гэдэг зүйлийг бүтээхийн тулд ерөнхийдөө энергийн хувьд ялгаатай (0 ба 1 болох) хоёр төлөв хэрэгтэй бөгөөд тэрхүү хоёр төлөвийн хооронд шилжилт хийх, түүнийгээ хэрэгжүүлээд дараа нь "уншиж" авах чадамж хэрэгтэй байдаг. Тэгээд хамгийн гол нь квант компьютер болон кюбитийг содон болгодог тэрхүү квант шинж чанаруудыг агуулсан байх ёстой байдаг байна.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Tэдгээрээс хамгийн түгээмэл нь:'
+					},
+					{
+						type: 'paragraph',
+						text: 'Хэт дамжуулагч кюбит (Superconducting qubits):  Josephson Junction гэх зүйлийг ашиглан гүйдлийн чиглэл эсвэл соронзон урсгалыг удирдах замаар 0 ба 1 төлөвийг үүсгэдэг. Энэхүү бичил хэлхээг үнэмлэхүй тэг градуст ойр хөргөснөөр цахилгаан эсэргүүцэл үгүй болж, кюбитүүд квант суперпозици төлөвт орж ажилладаг. Google, IBM, Microsoft зэрэг томоохон компаниуд өөрсдийн квант компьютерийг хөгжүүлдэг.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Сайн тал нь: Логик үйлдлүүдийг маш хурдан гүйцэтгэдэг. Ерөнхий бүтэц нь одоогийн классик компьютеруудын чиптэй их төстэй учраас инженерүүд сайн мэддэг техникүүдээ ашиглан "өргөжүүлэх" (scale up) боломжтой.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Сөрөг тал нь: Хэт дамжуулагч шинж чанар нь маш бага температурт л ажиглагддаг тул системийн ихэнх хэсэг нь маш хүйтэн температурт орших шаардлагатай байдаг. Жишээлбэл, доор оруулсан IBM-ийн квант компьютерын зурагнаас бидний өдөр тутмын хэрэглээний компьютераас хэд дахин том овортой болохыг харж болно. Үүний нэг шалтгаан нь маш нарийн, өчүүхэн (квант) түвшинд хийгдсэн үйлдлүүдийн сул дохиог (signals) гаднах орчинд алдалгүй хүргэж "томруулдаг" өсгөгчүүд (amplifier) нь өөрсдөө асар овор ихтэй байдагт оршино. Ерөнхий процесс нь квант чип -> квант өсгөгч -> криоген өсгөгч -> тасалгааны температурын электроник гэсэн дарааллаар явагддаг бөгөөд эдгээр дундаас өсгөгчүүд нь хамгийн их зай эзэлдэг байна. Мөн түүнчлэн системийг үнэмлэхүй тэг градуст ойртуулан хөргөхийн тулд асар том, нүсэр бүтэцтэй "хөргүүр" (dilution refrigerator) шаардлагатай болдог. Гэвч ийм нөхцөлийг бүрдүүлсэн ч хэт дамжуулагч кюбитүүд нь квант шинж чанараа маш хурдан алдах (decoherence) дутагдалтай байдаг аж.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 2. Google-ийн Квант Компьютер'
+					},
+					{
+						type: 'paragraph',
+						text: 'Атом, молекулын хэлхээ (Atom, molecular arrays): Атомуудыг лазераар "хорьж", нарийн торлог хэлхээнд байршуулан (optical tweezers), тэдгээрийн энергийн төлөвөөр мэдээллийг кодлодог. Улмаар атомуудыг Ридбергийн өндөр энергийн төлөвт оруулж, хооронд нь хүчтэй харилцан үйлчлэл үүсгэх замаар квант логик үйлдлүүдийг гүйцэтгэдэг байна (саармаг атомын квант тооцоолол).'
+					},
+					{
+						type: 'paragraph',
+						text: 'Сайн тал нь: Кюбитүүд нь квант шинж чанараа удаан хадгалдаг (coherence time). Энэ тал дээрээ хэт дамжуулагч кюбиттэй харьцуулахад хамаагүй алдаа багатай, хамаагүй тогтвортой ажилладаг. Мөн олон тооны атомыг торлог хэлхээнд олноор нь зэрэгцүүлэн байршуулах боломжтой тул нарийн төвөгтэй материалын шинж чанарыг дуурайлган загварчлах (квант симуляци) салбарт хамгийн өндөр үр дүнтэй байгаа юм. 2025 онд Caltech-ийн эрдэмтэд 6,100 кюбитийг ийм төрлийн торлог хэлхээнд хураан хорьж чадсан нь одоогоор дэлхийн хамгийн дээд амжилт болоод байна [9].'
+					},
+					{
+						type: 'paragraph',
+						text: 'Сөрөг тал: Гэвч үйлдэл гүйцэтгэх хурд (gate operation speed) нь хэт дамжуулагч кюбитийг бодвол арай удаан байдаг аж.'
+					},
+					{
+						type: 'paragraph',
+						text: 'Хэт дамжуулагч квант компьютер хийдэг хүмүүс өөрсдийнхийгөө зөв зам нь гэж үзэж, атомаар хийдэг хүмүүс нь өөрсдийнхийгөө мөн зөв гэж үзэж өрсөлдсөөр байгаа ажээ.'
+					},
+					{
+						type: 'image',
+						url: [],
+						alt: '',
+						caption: 'Зураг 3. Атом, молекулуудын хэлхээ'
+					},
+					{
+						type: 'paragraph',
+						text: 'Тэгвэл эдгээр квант компьютер нь классик компьютерыг орлох уу? Үгүй. Классик компьютерууд хэдийн маш сайн хөгжсөн, тэгээд ч квант компьютерийн сайн тооцоолох чадах бодлогууд маш нарийн бөгөөд одоогоор цөөн ажээ. Квант компьютер нь классик компьютерийг бүрмөсөн орлох гэхээсээ илүүтэйгээр тооцож чадахгүй байгаа нарийн, ярвигтай асуудлуудыг шийдэж, хүн төрөлхтний мэдлэг, технологийн хүрээг улам тэлэх боломжтой юм.'
+					}
+				],
+				children: []
+			},
+			{
+				header: 'Шинэ эриний "Цөмийн бөмбөг"?',
+				detail: [
+					{
+						type: 'paragraph',
+						text: 'Хэдий квант компьютерийг хэрэглэж болох салбарууд цөөхөн гэдэг ч тэдгээр салбарууд нь маш чухал салбарууд ажээ. Өмнө нь дурьдсан RSA алгоритм буюу кибер аюулгүй байдал (cybersecurity) юм. Квант компьютерийн судалгаа маш өндөр зардалтай тул одоогоор зөвхөн баян орнууд үүнийг хөгжүүлж байна. Хэрэв аль нэг улс түрүүлж бүтээвэл одоогийн бүх нууцлал (encryption) үгүй болж, асар их мэдээлэл алдагдах аюултай. Тиймээс зарим судлаачид үүнийг шинэ эриний "дижитал  цөмийн бөмбөг" ч гэж нэрлэж байна.'
+					}
+				],
+				children: []
+			}
+		],
+		postQuestions: [],
+		sources: [
+			{
+				type: 'Эх сурвалж',
+				sourceItem: [
+					{
+						definition: '',
+						href: 'https://www.nobelprize.org/prizes/physics/2022/press-release/'
+					},
+					{
+						definition: '',
+						href: 'https://www.nobelprize.org/prizes/physics/2025/press-release/'
+					},
+					{
+						definition: '',
+						href: 'https://quantum2025.org/'
+					},
+					{
+						definition: '',
+						href: 'https://spectrum.ieee.org/quantum-mechanics'
+					},
+					{
+						definition: '',
+						href: 'https://www.ebsco.com/research-starters/history/de-broglie-explains-wave-particle-duality-light'
+					},
+					{
+						definition: '',
+						href: 'https://aeon.co/ideas/what-einstein-meant-by-god-does-not-play-dice'
+					},
+					{
+						definition: '',
+						href: 'https://arxiv.org/abs/quant-ph/9508027'
+					},
+					{
+						definition: '',
+						href: 'https://pme.uchicago.edu/news/sensing-cure-quantum-technology-takes-aim-neurodegenerative-disease'
+					},
+					{
+						definition: '',
+						href: 'https://www.caltech.edu/about/news/caltech-team-sets-record-with-6100-qubit-array'
+					}
+				]
+			},
+			{
+				type: 'Зурагнуудын эх сурвалж:',
+				sourceItem: [
+					{
+						definition: '',
+						href: 'https://www.researchgate.net/figure/Figure-a-Classical-and-quantum-state-b-Quantum-superposition-and-entanglement_fig1_383592990'
+					},
+					{
+						definition: '',
+						href: 'https://share.google/dt0SkNGYRdIn8nToP'
+					}
+				]
+			},
+			{
+				type: 'Нэмэлт эх сурвалж:',
+				sourceItem: [
+					{
+						definition: 'Largest quantum computer right now: ',
+						href: 'https://www.caltech.edu/about/news/caltech-team-sets-record-with-6100-qubit-array'
+					},
+					{
+						definition:
+							'The quantum computer we need to break the internet: 10000 - 100000?',
+						href: 'https://www.sciencenews.org/article/quantum-bits-crack-internet-encryption'
+					},
+					{
+						definition: 'Энэхүү видео үүнийг маш тодорхой тайлбарласан.',
+						href: 'https://youtu.be/lvTqbM5Dq4Q'
+					},
+					{
+						definition: 'Энэхүү бичлэг үүнийг маш гоё тайлбарласан байна:',
+						href: 'https://youtu.be/RQWpF2Gb-gU?si=Sa6oyj1FD90EP_Ud'
+					},
+					{
+						definition:
+							'Үүнээс гадна Quantum Machine Learning гэх салбар ч бас байдаг аж. Кюбит нь Гильбертийн огторгуйд (Hilbert space) байдаг тул нарийн төвөгтэй өгөгдлүүдийг илэрхийлэх хэл нь болоход арай дөхөм байдаг байна.',
+						href: ''
+					}
+				]
 			}
 		]
 	}

@@ -41,105 +41,83 @@ export const defaultMemberData: Member[] = [
 		role: [
 			{
 				type: 'Coordinator',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Writer',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Designer',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Developer',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-1.jpg',
+		imageUrl: '/members/member-tsolmon.jpg',
 		duration: '1-3/2026',
 
-		seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
-		contributerOfPostId: ['12b00a56-8253-44ac-a53a-25ff73b63f99']
+		seasonId: ['season-khuch-chadal'],
+		contributerOfPostId: [
+			'Suunii-paradoks',
+			'Khudulguur',
+			'Uls-turiin-khuch-chadluud'
+		]
 	},
 	{
 		id: '537df664-4972-4c8d-b0e5-b44b50033d7a',
 		name: 'Ундаръяа',
 		slug: 'Undariya',
 		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
+			'Зах зээлийн эрсдэлийн шинжээч, дата аналист, дотоод аудитор, Математикийн цагийн багш',
 		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+			'Ойрын үед баримтат нэвтрүүлэг их үзэж байгаа. Our Ocean, The New Yorker 100 нэртэй нэвтрүүлгүүдийг сүүлд үзсэн. Хүүхэлдэйн киногоор дамжуулан франц хэл бас сурч эхэлсэн.',
 		role: [
 			{
 				type: 'Coordinator',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Redactor',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Writer',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Marketer',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-2.jpg',
+		imageUrl: '/members/member-undariya.png',
 		duration: '1-3/2026',
 
-		seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
-		contributerOfPostId: ['41b0081f-d6a3-45f8-a09b-884fc0145f17']
+		seasonId: ['season-khuch-chadal'],
+		contributerOfPostId: ['Jazz']
 	},
 	{
 		id: 'f8c7f364-7074-436f-8632-fe9e747c4826',
 		name: 'Минжинсор',
 		slug: 'Minjinsor',
-		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
-		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+		description: 'Хиймэл оюун, компьютерын хараа сонирхогч',
+		recentActivity: '',
 		role: [
 			{
 				type: 'Researcher',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			},
 			{
 				type: 'Writer',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-1.jpg',
+		imageUrl: '/members/member-minjinsor.jpg',
 		duration: '1-3/2026',
 
-		seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
+		seasonId: ['season-khuch-chadal'],
 		contributerOfPostId: ['']
 	},
 	{
@@ -147,129 +125,110 @@ export const defaultMemberData: Member[] = [
 		name: 'Мөнх-Оргил',
 		slug: 'Munkh-Orgil',
 		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
-		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+			'Нийслэлийн 1р сургуулийн 12р ангийн сурагч, физикийн олимпиадад оролцдог, ирээдүйд судлаач болох төлөвлөгөөтэй',
+		recentActivity: '',
 		role: [
 			{
 				type: 'Researcher',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Writer',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-2.jpg',
+		imageUrl: '/members/member-default.jpg',
 		duration: '1-3/2026',
 
-		seasonId: [
-			'56a6a473-4733-4204-8b29-1633f0084d97',
-			'405e4a2d-e198-4fa8-942d-3727d36861e2'
-		],
-		contributerOfPostId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8']
+		seasonId: ['season-nuuts', 'season-khuch-chadal'],
+		contributerOfPostId: ['Bidnii-anzaardaggui-AI-iin-nuutsuud']
 	},
 	{
 		id: '569d55a5-580b-469f-9218-b3dcb53ab48a',
 		name: 'Бат-Ирээдүй',
 		slug: 'Bat-Ireedui',
 		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
+			'Нийслэлийн 1р сургуулийн 12р ангийн сурагч, MUST-ийн судалгааны багийн залуу судлаач, Robocon багийн гишүүн. Engineer болох зорилготой, волейболын спортын тамирчин.',
 		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+			'Ойрд программ хангамж(Low level programming), rocket engineering чиглэлээр суралцаж байгаа. THP Strength Daily Podcast. Artificial Intelligence: A Modern Approach (4th edition) ном уншиж байна.',
 		role: [
 			{
 				type: 'Redactor',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			},
 			{
 				type: 'Writer',
-				seasonId: [
-					'56a6a473-4733-4204-8b29-1633f0084d97',
-					'405e4a2d-e198-4fa8-942d-3727d36861e2'
-				]
+				seasonId: ['season-nuuts', 'season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-1.jpg',
+		imageUrl: '/members/member-default.jpg',
 		duration: '1-3/2026',
 
-		seasonId: [
-			'405e4a2d-e198-4fa8-942d-3727d36861e2',
-			'405e4a2d-e198-4fa8-942d-3727d36861e2'
-		],
-		contributerOfPostId: ['5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8']
+		seasonId: ['season-khuch-chadal', 'season-khuch-chadal'],
+		contributerOfPostId: ['Bidnii-anzaardaggui-AI-iin-nuutsuud']
 	},
 	{
 		id: '9cbd7817-ad9b-4a8b-81ca-e8a657a21f36',
-		name: 'Aнхмандах',
+		name: 'Анхмандах',
 		slug: 'Ankhmandakh',
 		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
+			'Нийслэлийн 1-р сургуулийн 12-р ангийн сурагч, инженер буюу физик мате хими хийдэг.',
 		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+			'Дайнтай баримтат нэвтрүүлэг үзэж байгаа. Түүхтэй холбоотой ном уншиж байгаа. Харгис зуун...',
 		role: [
 			{
 				type: 'Writer',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-2.jpg',
+		imageUrl: '/members/member-default.jpg',
 		duration: '1-3/2026',
 
-		seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
-		contributerOfPostId: ['']
+		seasonId: ['season-khuch-chadal'],
+		contributerOfPostId: [
+			'Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee'
+		]
 	},
 	{
 		id: '012085c6-b343-489b-8dd9-506c1166baab',
-		name: 'Aмар',
+		name: 'Амар',
 		slug: 'Amar',
 		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
+			'Нийслэлийн 1р сургуулийн 12р ангийн сурагч, инженер болох төлөвлөгөөтэй, физик болон математикаар хичээллэж олимпиадад тогтмол оролцдог, түүх ба эдийн засаг сонирхогч',
 		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+			'Физик болоод математикийн бэлтгэл хийх, Монголын Гээгдсэн Түүх подкаст, TIKhistory youtube channel, The End of Alchemy гэдэг ном уншиж буй',
 		role: [
 			{
 				type: 'Writer',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-1.jpg',
+		imageUrl: '/members/member-default.jpg',
 		duration: '1-3/2026',
 
-		seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
+		seasonId: ['season-khuch-chadal'],
 		contributerOfPostId: ['']
 	},
 	{
 		id: 'f6a5855a-5386-42d2-a63e-592efd217228',
 		name: 'Ганбаяр',
 		slug: 'Ganbayar',
-		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
-		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+		description: 'empty',
+		recentActivity: 'empty',
 		role: [
 			{
 				type: 'Designer',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			},
 			{
 				type: 'Developer',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-2.jpg',
+		imageUrl: '/members/member-default.jpg',
 		duration: '1-3/2026',
 
-		seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
+		seasonId: ['season-khuch-chadal'],
 		contributerOfPostId: ['']
 	},
 	{
@@ -277,23 +236,41 @@ export const defaultMemberData: Member[] = [
 		name: 'Ган-Эрдэнэ',
 		slug: 'Gan-Erdene',
 		description:
-			'Нүүрсхүчлийн хийгээс онгоцны түлш гарган авч буй стартапд механикийн инженер, циркийн трапезийн анхлан суралцагч',
+			'Системийн гүн рүү орж судлах дуртай инженер, техникт сонирхолтой. Электроник болон программ хангамжийн ажил хийдэг. Олон спортоор хийллэх дуртай. Хамгийн дуртай нь BMX дугуйгаар хичээллэх.',
 		recentActivity:
-			'Ойрд түүх сонирхож байгаа. Жак Уэтерфордын Монголын Их Хатдын Нууц Товчоо: Чингис хааны эзэнт гүрнийг охид нь аварч хамгаалсан түүх ном, Wiser World дэлхийн түүхийн подкаст, The Prince гэсэн нэртэй Ши Жинпиний тухай подкаст',
+			'Авто машинтай холбоотой номнуудыг уншиж байна. Механик талаас нь судалж байгаа.',
 		role: [
 			{
 				type: 'Developer',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			},
 			{
 				type: 'Marketer',
-				seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2']
+				seasonId: ['season-khuch-chadal']
 			}
 		],
-		imageUrl: '/members/member-1.jpg',
+		imageUrl: '/members/member-gan-erdene.png',
 		duration: '1-3/2026',
 
-		seasonId: ['405e4a2d-e198-4fa8-942d-3727d36861e2'],
+		seasonId: ['season-khuch-chadal'],
 		contributerOfPostId: ['']
+	},
+	{
+		id: 'dcb3719d-65f1-4af1-8b14-77e69e3fac28',
+		name: 'Анирчулуу',
+		slug: 'Anirchuluu',
+		description: 'empty',
+		recentActivity: 'empty',
+		role: [
+			{
+				type: 'Marketer',
+				seasonId: ['season-khuch-chadal']
+			}
+		],
+		imageUrl: '/members/member-default.jpg',
+		duration: '1-3/2026',
+
+		seasonId: ['season-khuch-chadal'],
+		contributerOfPostId: ['Quant-computeriin-khuch-chadal']
 	}
 ]

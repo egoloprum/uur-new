@@ -16,7 +16,7 @@ export interface Post {
 
 export const defaultPostData: Post[] = [
 	{
-		id: '5c6bfd0c-60c4-4f36-af37-a9a5e38fa4b8',
+		id: 'Bidnii-anzaardaggui-AI-iin-nuutsuud',
 		name: 'Бидний анзаардаггүй AI-ын нууцууд',
 		slug: 'Bidnii-anzaardaggui-AI-iin-nuutsuud',
 		description:
@@ -30,10 +30,10 @@ export const defaultPostData: Post[] = [
 			'02b8538a-ff85-40ed-ae38-bd68cdfa5567'
 		],
 		redactorId: [''],
-		topicId: '6bbf7cbb-79e6-4475-adf9-adb68f60cd1e'
+		topicId: 'Tekhnologi'
 	},
 	{
-		id: '41b0081f-d6a3-45f8-a09b-884fc0145f17',
+		id: 'Jazz',
 		name: 'Жазз',
 		slug: 'Jazz',
 		description:
@@ -44,10 +44,10 @@ export const defaultPostData: Post[] = [
 		writerId: '537df664-4972-4c8d-b0e5-b44b50033d7a',
 		researchId: ['537df664-4972-4c8d-b0e5-b44b50033d7a'],
 		redactorId: [''],
-		topicId: '8c4fbc01-e7ea-4f51-995c-d869f409046d'
+		topicId: 'Urlag'
 	},
 	{
-		id: '12b00a56-8253-44ac-a53a-25ff73b63f99',
+		id: 'Suunii-paradoks',
 		name: 'Сүүний парадокс',
 		slug: 'Suunii-paradoks',
 		description:
@@ -58,6 +58,59 @@ export const defaultPostData: Post[] = [
 		writerId: 'a7c1aa0b-2257-4025-b92e-c99fc72afb99',
 		researchId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
 		redactorId: [''],
-		topicId: '34aa259b-2506-4e56-9e1b-c2c520312524'
+		topicId: 'Shinjlekh-ukhaan'
+	},
+
+	{
+		id: 'Khudulguur',
+		name: 'Хөдөлгүүр',
+		slug: 'Khudulguur',
+		description: 'empty',
+		releaseDate: 'empty',
+		imageUrl: 'empty',
+		imageAlt: 'Khudulguur',
+		writerId: 'a7c1aa0b-2257-4025-b92e-c99fc72afb99',
+		researchId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
+		redactorId: [''],
+		topicId: 'Tekhnologi'
+	},
+	{
+		id: 'Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee',
+		name: 'Хиймэл оюун ухааны эрин үед үл тоомсорлогдсон хэрэглээ',
+		slug: 'Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee',
+		description: 'empty',
+		releaseDate: 'empty',
+		imageUrl: 'empty',
+		imageAlt: 'Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee',
+		writerId: '9cbd7817-ad9b-4a8b-81ca-e8a657a21f36',
+		researchId: ['9cbd7817-ad9b-4a8b-81ca-e8a657a21f36'],
+		redactorId: [''],
+		topicId: 'Tekhnologi'
+	},
+	{
+		id: 'Uls-turiin-khuch-chadluud',
+		name: 'Улс төрийн хүч чадлууд',
+		slug: 'Uls-turiin-khuch-chadluud',
+		description: 'empty',
+		releaseDate: 'empty',
+		imageUrl: 'empty',
+		imageAlt: 'Uls-turiin-khuch-chadluud',
+		writerId: 'a7c1aa0b-2257-4025-b92e-c99fc72afb99',
+		researchId: ['a7c1aa0b-2257-4025-b92e-c99fc72afb99'],
+		redactorId: [''],
+		topicId: 'Shinjlekh-ukhaan'
+	},
+	{
+		id: 'Quant-computeriin-khuch-chadal',
+		name: 'Квант компьютерийн хүч чадал',
+		slug: 'Quant-computeriin-khuch-chadal',
+		description: 'empty',
+		releaseDate: 'empty',
+		imageUrl: 'empty',
+		imageAlt: 'Quant-computeriin-khuch-chadal',
+		writerId: 'dcb3719d-65f1-4af1-8b14-77e69e3fac28',
+		researchId: ['dcb3719d-65f1-4af1-8b14-77e69e3fac28'],
+		redactorId: [''],
+		topicId: 'Shinjlekh-ukhaan'
 	}
 ]

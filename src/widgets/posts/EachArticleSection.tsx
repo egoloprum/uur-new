@@ -4,7 +4,11 @@ import clsx from 'clsx'
 import Link from 'next/link'
 
 import { useApp } from '@/src/entities'
-import { ContentItem, DefinitionItem, SourceItem } from '@/src/entities/article'
+import {
+	ContentItem,
+	WordDefinitionItem,
+	SourceItem
+} from '@/src/entities/article'
 import { useTrackEvent } from '@/src/shared/lib'
 
 export const EachArticleSection = ({ slug }: { slug: string }) => {
@@ -48,21 +52,15 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
 					/>
 				)}
 
-				{!!article.sourcesText.length && (
-					<SourcesRenderer
-						items={article.sourcesText}
-						title="Бичвэрийн эх сурвалжууд"
-						articleId={article.id}
-					/>
-				)}
-
-				{!!article.sourcesImage.length && (
-					<SourcesRenderer
-						items={article.sourcesImage}
-						title="Зурагнуудын эх сурвалжууд"
-						articleId={article.id}
-					/>
-				)}
+				{!!article.sources.length &&
+					article.sources.map(source => (
+						<SourcesRenderer
+							key={source.type}
+							items={source.sourceItem}
+							title={source.type}
+							articleId={article.id}
+						/>
+					))}
 			</section>
 		</article>
 	)
@@ -72,7 +70,7 @@ const DefinitionsRenderer = ({
 	items,
 	title
 }: {
-	items: DefinitionItem[]
+	items: WordDefinitionItem[]
 	title: string
 }) => {
 	return (
@@ -135,24 +133,26 @@ const SourcesRenderer = ({
 				{items.map((item, index) => (
 					<li key={title + index} className="mb-2 text-base md:text-xl">
 						<p className="mb-2">[{++index}]</p>
-						<p className="ml-6">{item.definition}</p>
-						<Link
-							href={item.href}
-							target="_blank"
-							className="ml-6 underline underline-offset-2 break-all"
-							onClick={() =>
-								trackEvent({
-									type: 'source_visit',
+						{!!item.definition && <p className="ml-6">{item.definition}</p>}
+						{!!item.href && (
+							<Link
+								href={item.href}
+								target="_blank"
+								className="ml-6 underline underline-offset-2 break-all"
+								onClick={() =>
+									trackEvent({
+										type: 'source_visit',
 
-									post_id: articleId,
-									metadata: {
-										title: title
-									}
-								})
-							}
-						>
-							{item.href}
-						</Link>
+										post_id: articleId,
+										metadata: {
+											title: title
+										}
+									})
+								}
+							>
+								{item.href}
+							</Link>
+						)}
 					</li>
 				))}
 			</ul>
