@@ -20,6 +20,14 @@ export const CurrentSeasonTeamSection = () => {
 
 	const [activeImage, setActiveImage] = useState<string | null>(null)
 
+	const mouseXRef = useRef(0)
+	const mouseYRef = useRef(0)
+
+	const trackMousePosition = (e: PointerEvent) => {
+		mouseXRef.current = e.clientX
+		mouseYRef.current = e.clientY
+	}
+
 	useLayoutEffect(() => {
 		const container = containerRef.current
 		const image = imageRef.current
@@ -38,6 +46,7 @@ export const CurrentSeasonTeamSection = () => {
 		let lastX = 0
 		let lastY = 0
 		let activeItem: HTMLElement | null = null
+		let rafId: number | null = null
 
 		const moveImage = (e: PointerEvent) => {
 			if (!activeItem) return
@@ -50,7 +59,6 @@ export const CurrentSeasonTeamSection = () => {
 			const dx = e.clientX - lastX
 			const dy = e.clientY - lastY
 			const velocity = Math.sqrt(dx * dx + dy * dy)
-
 			const rotation = gsap.utils.clamp(-15, 15, dx * 0.2 + velocity * 0.05)
 
 			rTo(rotation)
@@ -69,6 +77,30 @@ export const CurrentSeasonTeamSection = () => {
 			})
 
 			window.removeEventListener('pointermove', moveImage)
+			if (rafId !== null) {
+				cancelAnimationFrame(rafId)
+				rafId = null
+			}
+		}
+
+		const checkBounds = () => {
+			if (!activeItem) return
+
+			const rect = container.getBoundingClientRect()
+			const mouseX = mouseXRef.current
+			const mouseY = mouseYRef.current
+
+			const inside =
+				mouseX >= rect.left &&
+				mouseX <= rect.right &&
+				mouseY >= rect.top &&
+				mouseY <= rect.bottom
+
+			if (!inside) {
+				hideImage()
+			} else {
+				rafId = requestAnimationFrame(checkBounds)
+			}
 		}
 
 		const pointerOver = (e: PointerEvent) => {
@@ -89,22 +121,23 @@ export const CurrentSeasonTeamSection = () => {
 			})
 
 			window.addEventListener('pointermove', moveImage)
-		}
 
-		const pointerOut = (e: PointerEvent) => {
-			const related = e.relatedTarget as HTMLElement | null
-			if (!related || !container.contains(related)) {
-				hideImage()
+			if (rafId === null) {
+				rafId = requestAnimationFrame(checkBounds)
 			}
 		}
 
+		window.addEventListener('pointermove', trackMousePosition)
 		container.addEventListener('pointerover', pointerOver)
-		container.addEventListener('pointerout', pointerOut)
 
 		return () => {
+			window.removeEventListener('pointermove', trackMousePosition)
 			window.removeEventListener('pointermove', moveImage)
 			container.removeEventListener('pointerover', pointerOver)
-			container.removeEventListener('pointerout', pointerOut)
+
+			if (rafId !== null) {
+				cancelAnimationFrame(rafId)
+			}
 		}
 	}, [])
 
@@ -174,7 +207,10 @@ export const CurrentSeasonTeamSection = () => {
 			>
 				{activeImage && (
 					<Image
+						key={activeImage}
 						src={activeImage}
+						unoptimized
+						priority
 						width={170}
 						height={170}
 						alt="member preview"

@@ -103,7 +103,7 @@ export const defaultMemberData: Member[] = [
 		name: 'Минжинсор',
 		slug: 'Minjinsor',
 		description: 'Хиймэл оюун, компьютерын хараа сонирхогч',
-		recentActivity: '',
+		recentActivity: 'Мэдээлэл одоогоор байхгүй байна.',
 		role: [
 			{
 				type: 'Researcher',
@@ -213,8 +213,8 @@ export const defaultMemberData: Member[] = [
 		id: 'f6a5855a-5386-42d2-a63e-592efd217228',
 		name: 'Ганбаяр',
 		slug: 'Ganbayar',
-		description: 'empty',
-		recentActivity: 'empty',
+		description: 'Мэдээлэл одоогоор байхгүй байна.',
+		recentActivity: 'Мэдээлэл одоогоор байхгүй байна.',
 		role: [
 			{
 				type: 'Designer',
@@ -259,8 +259,8 @@ export const defaultMemberData: Member[] = [
 		id: 'dcb3719d-65f1-4af1-8b14-77e69e3fac28',
 		name: 'Анирчулуу',
 		slug: 'Anirchuluu',
-		description: 'empty',
-		recentActivity: 'empty',
+		description: 'Принстоны их сургуулийн физикийн чиглэлийн оюутан.',
+		recentActivity: 'Мэдээлэл одоогоор байхгүй байна.',
 		role: [
 			{
 				type: 'Marketer',

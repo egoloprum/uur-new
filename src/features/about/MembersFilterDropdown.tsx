@@ -22,7 +22,7 @@ export const MembersFilterDropdown = ({}) => {
 
 	return (
 		<Dropdown setSelectedItem={setSelectedSeasonId}>
-			<DropdownTrigger>{season ? season.name : 'Улиралууд'}</DropdownTrigger>
+			<DropdownTrigger>{season ? season.name : 'Улирлууд'}</DropdownTrigger>
 			<DropdownContent>
 				{seasons.map(season => (
 					<DropdownItem
@@ -52,13 +52,13 @@ export const MembersFilterDropdown = ({}) => {
 							type: 'filter_used',
 
 							metadata: {
-								title: 'Бүх улиралууд',
+								title: 'Бүх улирлууд',
 								type: 'season'
 							}
 						})
 					}}
 				>
-					Бүх улиралууд
+					Бүх улирлууд
 				</DropdownItem>
 			</DropdownContent>
 		</Dropdown>

@@ -1,7 +1,6 @@
 import {
 	MembersFilterByRoleDropdown,
-	MembersFilterDropdown,
-	MembersSortDropdown
+	MembersFilterDropdown
 } from '@/src/features/about'
 import { HeroSection } from '@/src/widgets'
 import { MembersList } from '@/src/widgets/about'
@@ -23,7 +22,7 @@ export const Page = ({}) => {
 					<div className="flex flex-wrap max-sm:flex-col gap-4">
 						<MembersFilterDropdown />
 						<MembersFilterByRoleDropdown />
-						<MembersSortDropdown />
+						{/* <MembersSortDropdown /> */}
 					</div>
 				</div>
 			</section>

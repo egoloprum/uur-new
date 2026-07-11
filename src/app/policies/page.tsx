@@ -8,110 +8,120 @@ export const Page = ({}) => {
 					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"
 					style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
 				>
-					Privacy Policy
+					Нууцлалын бодлого
 				</h1>
 			</HeroSection>
 
 			<section className="p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col">
-				<p className="text-stone-500 text-xl">Last updated: 10.04.2026</p>
+				<p className="text-stone-500 text-xl">Сүүлд шинэчилсэн: 2026.04.10</p>
 				<p className="text-xl my-2 md:my-4">
-					We value your privacy and are committed to handling your information
-					with care, transparency, and respect. This Privacy Policy explains, in
-					general terms, how information may be collected, used, and protected
-					when you interact with this website.
+					Бид таны нууцлалыг эрхэмлэн дээдэлж, мэдээллийг тань хариуцлагатай, ил
+					тод, хүндэтгэлтэйгээр боловсруулахыг зорьдог. Энэхүү Нууцлалын бодлого
+					нь та энэхүү вэбсайттай харилцах үед мэдээллийг хэрхэн цуглуулж,
+					ашиглаж, хамгаалж болох талаар ерөнхий байдлаар тайлбарлана.
 				</p>
 				<h2 className="text-4xl font-bold my-4 md:my-8">
-					1. Information We Collect
+					1. Бидний цуглуулж болох мэдээлэл
 				</h2>
 				<p className="text-xl my-2 md:my-4">
-					When you use this website, certain types of information may be
-					collected automatically. This can include technical details such as
-					browser type, device information, approximate location, and general
-					interaction patterns (for example, pages visited or features used).
+					Та энэхүү вэбсайтыг ашиглах үед зарим төрлийн мэдээлэл автоматаар
+					цугларч болзошгүй. Үүнд хөтчийн төрөл, төхөөрөмжийн мэдээлэл,
+					ойролцоох байршил, мөн ерөнхий хэрэглээний хэв маяг (жишээлбэл, үзсэн
+					хуудсууд эсвэл ашигласан функцууд) зэрэг техникийн мэдээлэл орно.
 				</p>
 				<p className="text-xl my-2 md:my-4">
-					In some cases, small data files such as cookies may be stored on your
-					device to support basic functionality, improve performance, and
-					provide a smoother browsing experience.
+					Зарим тохиолдолд вэбсайтын үндсэн үйл ажиллагааг дэмжих, гүйцэтгэлийг
+					сайжруулах, илүү жигд хэрэглээний туршлага бүрдүүлэх зорилгоор cookies
+					зэрэг жижиг өгөгдлийн файлууд таны төхөөрөмж дээр хадгалагдаж болно.
 				</p>
 				<p className="text-xl my-2 md:my-4">
-					We do not aim to collect personally identifiable information unless it
-					is explicitly provided by you.
+					Таны зүгээс шууд өгөгдөөгүй бол бид хувь хүнийг таньж болох мэдээлэл
+					цуглуулахыг зорьдоггүй.
 				</p>
 				<h2 className="text-4xl font-bold my-4 md:my-8">
-					2. How Information Is Used
+					2. Мэдээллийг хэрхэн ашиглах
 				</h2>
 				<p className="text-xl my-2 md:my-4">
-					Collected information is used in a limited and responsible manner,
-					primarily to:
+					Цуглуулсан мэдээллийг хязгаарлагдмал бөгөөд хариуцлагатай байдлаар
+					дараах зорилгоор ашиглана:
 				</p>
 				<ul className="text-xl ml-4">
-					<li>- Ensure the website functions correctly and efficiently</li>
+					<li>- Вэбсайтын үйл ажиллагааг зөв, үр ашигтай байлгах</li>
 					<li>
-						- Understand general usage patterns and improve user experience
+						- Ерөнхий хэрэглээний хэв маягийг ойлгож, хэрэглэгчийн туршлагыг
+						сайжруулах
 					</li>
-					<li>- Maintain security and prevent misuse</li>
+					<li>- Аюулгүй байдлыг хангаж, буруу ашиглалтаас сэргийлэх</li>
 				</ul>
 				<p className="text-xl my-2 md:my-4">
-					All usage is oriented toward improving the quality, stability, and
-					relevance of the platform rather than identifying individual users.
+					Мэдээллийг ашиглахдаа хувь хэрэглэгчийг тодорхойлох бус, харин
+					платформын чанар, тогтвортой байдал, хэрэгцээнд нийцтэй байдлыг
+					сайжруулахад чиглэнэ.
 				</p>
 				<h2 className="text-4xl font-bold my-4 md:my-8">
-					3. Cookies and Similar Technologies
+					3. Cookies болон ижил төстэй технологи
 				</h2>
 				<p className="text-xl my-2 md:my-4">
-					Cookies and similar technologies may be used to maintain session
-					consistency, remember preferences, and gather anonymous usage
-					insights.
+					Cookies болон ижил төрлийн технологийг вэб хуудасны тогтвортой байдлыг
+					хангах, хэрэглэгчийн тохиргоог санах, нэргүй хэрэглээний мэдээлэл
+					цуглуулах зорилгоор ашиглаж болно.
 				</p>
 				<p className="text-xl my-2 md:my-4">
-					You can control or disable cookies through your browser settings.
-					Please note that some parts of the website may not function as
-					intended if cookies are disabled.
-				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">4. Data Sharing</h2>
-				<p className="text-xl my-2 md:my-4">
-					We do not sell, trade, or rent user data. Information may be processed
-					using trusted third-party services that help operate and maintain the
-					website. These services are expected to handle data securely and only
-					for necessary purposes.
-				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">5. Data Security</h2>
-				<p className="text-xl my-2 md:my-4">
-					Reasonable technical and organizational measures are taken to protect
-					information from unauthorized access, loss, or misuse. However, no
-					system can be guaranteed to be completely secure, and users should
-					exercise standard caution when using online services.
-				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">6. Data Retention</h2>
-				<p className="text-xl my-2 md:my-4">
-					Information is retained only for as long as it is necessary to fulfill
-					its intended purpose, after which it is either deleted or anonymized.
-				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">7. Your Rights</h2>
-				<p className="text-xl my-2 md:my-4">
-					Depending on your location, you may have rights related to your
-					personal data, including the ability to request access, correction, or
-					deletion. If applicable, such requests can be made through appropriate
-					contact channels.
+					Та вэб браузарынхаа тохиргоогоор cookies-ийг хянах эсвэл идэвхгүй
+					болгох боломжтой. Гэхдээ cookies-ийг идэвхгүй болгосноор вэбсайтын
+					зарим хэсэг хэвийн ажиллахгүй байж болно.
 				</p>
 				<h2 className="text-4xl font-bold my-4 md:my-8">
-					8. Changes to This Policy
+					4. Мэдээлэл хуваалцах
 				</h2>
 				<p className="text-xl my-2 md:my-4">
-					This Privacy Policy may be updated periodically to reflect changes in
-					practices or legal requirements. Updates will be reflected by revising
-					the “Last updated” date.
+					Бид хэрэглэгчийн мэдээллийг худалдах, солилцох, түрээслэхгүй.
+					Вэбсайтыг ажиллуулах, арчлахад тусалдаг найдвартай гуравдагч талын
+					үйлчилгээ үзүүлэгчдээр мэдээллийг боловсруулах боломжтой. Эдгээр
+					үйлчилгээ үзүүлэгчид мэдээллийг зөвхөн шаардлагатай зорилгоор, аюулгүй
+					байдлыг ханган ашиглах ёстой.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">9. Contact</h2>
+				<h2 className="text-4xl font-bold my-4 md:my-8">
+					5. Мэдээллийн аюулгүй байдал
+				</h2>
 				<p className="text-xl my-2 md:my-4">
-					If you have questions or concerns about this Privacy Policy, you may
-					reach out through the available contact methods on this website.
+					Мэдээллийг зөвшөөрөлгүй хандалт, алдагдал, буруу ашиглалтаас
+					хамгаалахын тулд зохистой техник болон зохион байгуулалтын арга
+					хэмжээг авдаг. Гэсэн хэдий ч ямар ч систем бүрэн аюулгүй байх
+					баталгаагүй тул хэрэглэгчид онлайн үйлчилгээг ашиглахдаа ердийн
+					болгоомжтой байдлыг баримтлах хэрэгтэй.
+				</p>
+				<h2 className="text-4xl font-bold my-4 md:my-8">
+					6. Мэдээлэл хадгалах хугацаа
+				</h2>
+				<p className="text-xl my-2 md:my-4">
+					Мэдээллийг зөвхөн зориулалтын хэрэгцээг хангах хугацаанд хадгалж,
+					дараа нь устгах эсвэл таних боломжгүй болгоно.
+				</p>
+				<h2 className="text-4xl font-bold my-4 md:my-8">7. Таны эрх</h2>
+				<p className="text-xl my-2 md:my-4">
+					Таны байршлаас хамааран та өөрийн хувийн мэдээлэлтэй холбоотой
+					тодорхой эрхтэй байж болно. Үүнд мэдээлэлд хандах, засварлах,
+					устгуулах хүсэлт гаргах эрх орно. Боломжтой тохиолдолд ийм хүсэлтийг
+					холбогдох сувгаар дамжуулан гаргаж болно.
+				</p>
+				<h2 className="text-4xl font-bold my-4 md:my-8">
+					8. Энэхүү бодлогын өөрчлөлт
+				</h2>
+				<p className="text-xl my-2 md:my-4">
+					Энэхүү Нууцлалын бодлогыг үйл ажиллагаа эсвэл хууль эрх зүйн
+					шаардлагад нийцүүлэх зорилгоор үе үе шинэчилж болно. Шинэчлэл бүр
+					“Сүүлд шинэчилсэн” огноог өөрчлөх замаар илэрхийлэгдэнэ.
+				</p>
+				<h2 className="text-4xl font-bold my-4 md:my-8">9. Холбоо барих</h2>
+				<p className="text-xl my-2 md:my-4">
+					Хэрэв танд энэхүү Нууцлалын бодлоготой холбоотой асуулт, санал байвал
+					вэбсайт дээрх боломжит холбоо барих сувгаар дамжуулан холбогдоно уу.
 				</p>
 				<span className="border-t-2 border-stone-400 dark:border-stone-500 w-full mt-4"></span>
 				<p className="text-xl my-2 md:my-4">
-					By using this website, you acknowledge that you have read and
-					understood this Privacy Policy.
+					Энэхүү вэбсайтыг ашигласнаар та энэхүү Нууцлалын бодлогыг уншиж,
+					ойлгосноо зөвшөөрч байна.
 				</p>
 			</section>
 		</main>

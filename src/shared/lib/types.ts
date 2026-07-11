@@ -45,13 +45,21 @@ export const batchSchema = z.object({
 
 export const routes: Record<string, string> = {
 	posts: 'Нийтлэлүүд',
-	seasons: 'Улиралууд',
+	seasons: 'Улирлууд',
 	topics: 'Сэдвүүд',
 	about: 'Бидний тухай',
 	'/': 'Нүүр',
+	policies: 'Бодлогууд',
+
 	'Bidnii-anzaardaggui-AI-iin-nuutsuud': 'Бидний анзаардаггүй AI-ын нууцууд',
 	Jazz: 'Жазз',
 	'Suunii-paradoks': 'Сүүний парадокс',
+	Khudulguur: 'Хөдөлгүүр',
+	'Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee':
+		'Хиймэл оюун ухааны эрин үед үл тоомсорлогдсон хэрэглээ',
+	'Uls-turiin-khuch-chadluud': 'Улс төрийн хүч чадлууд',
+	'Quant-computeriin-khuch-chadal': 'Квант компьютерийн хүч чадал',
+
 	Tsolmon: 'Цолмон',
 	Undariya: 'Ундаръяа',
 	Minjinsor: 'Минжинсор',
@@ -60,5 +68,6 @@ export const routes: Record<string, string> = {
 	Ankhmandakh: 'Aнхмандах',
 	Amar: 'Aмар',
 	Ganbayar: 'Ганбаяр',
-	'Gan-Erdene': 'Ган-Эрдэнэ'
+	'Gan-Erdene': 'Ган-Эрдэнэ',
+	Anirchuluu: 'Анирчулуу'
 }

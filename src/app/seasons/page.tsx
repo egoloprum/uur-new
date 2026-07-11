@@ -11,7 +11,7 @@ export const Page = ({}) => {
 					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"
 					style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
 				>
-					Улиралууд
+					Улирлууд
 				</h1>
 			</HeroSection>
 

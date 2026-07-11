@@ -1,6 +1,5 @@
 import {
 	FilterBySeasonDropdown,
-	SortDropdown,
 	FilterByTopicDropdown
 } from '@/src/features/posts'
 import { TopicsList } from '@/src/shared/components'
@@ -24,7 +23,7 @@ export const Page = ({}) => {
 					<div className="flex flex-wrap max-sm:flex-col gap-4">
 						<FilterBySeasonDropdown />
 						<FilterByTopicDropdown />
-						<SortDropdown />
+						{/* <SortDropdown /> */}
 					</div>
 					<TopicsList />
 				</div>

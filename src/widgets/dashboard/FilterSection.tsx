@@ -21,7 +21,7 @@ export const FilterSection = ({}) => {
 	return (
 		<Dropdown setSelectedItem={setSelectedSeasonId} className="w-fit">
 			<DropdownTrigger className="bg-[#fff5c4] text-black! max-sm:py-2 rounded-xl md:w-50! justify-between">
-				{season ? season.name : 'Улиралууд'}
+				{season ? season.name : 'Улирлууд'}
 			</DropdownTrigger>
 			<DropdownContent>
 				{seasons.map(season => (
@@ -34,7 +34,7 @@ export const FilterSection = ({}) => {
 					</DropdownItem>
 				))}
 				<DropdownItem value="" className=" border-t">
-					Бүх улиралууд
+					Бүх улирлууд
 				</DropdownItem>
 			</DropdownContent>
 		</Dropdown>

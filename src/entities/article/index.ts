@@ -145,9 +145,11 @@ export const defaultArticleData: Article[] = [
 							},
 							{
 								type: 'image',
-								url: [],
+								url: [
+									'/seasons/0/Bidnii-anzaardaggui-AI-iin-nuutsuud/image-1.png'
+								],
 								alt: '',
-								caption: 'OpenAI swallows Neptune.ai in a major leap'
+								caption: 'Зураг 1. OpenAI swallows Neptune.ai in a major leap'
 							}
 						],
 						children: []
@@ -179,10 +181,10 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: ['/seasons/0/Bidnii-anzaardaggui-AI-iin-nuutsuud/image-2.png'],
 						alt: '',
 						caption:
-							'Workers younger than 50 are more likely to have used AI chatbots'
+							'Зураг 2. Workers younger than 50 are more likely to have used AI chatbots'
 					}
 				],
 				children: [
@@ -277,9 +279,9 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: ['/seasons/0/Bidnii-anzaardaggui-AI-iin-nuutsuud/image-3.png'],
 						alt: '',
-						caption: 'Minister of Education is giving interview'
+						caption: 'Зураг 3. Minister of Education is giving interview'
 					},
 					{
 						type: 'paragraph',
@@ -291,9 +293,9 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: ['/seasons/0/Bidnii-anzaardaggui-AI-iin-nuutsuud/image-4.png'],
 						alt: '',
-						caption: 'Robot is pushing button'
+						caption: 'Зураг 4. Robot is pushing button'
 					}
 				],
 				children: []
@@ -425,9 +427,9 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
-						caption: 'Lou Armstrong'
+						url: ['/seasons/0/Jazz/image-1.png'],
+						alt: 'Зураг 1. Луис Армстронг',
+						caption: 'Зураг 1. Луис Армстронг'
 					},
 					{
 						type: 'paragraph',
@@ -435,9 +437,10 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
-						caption: 'The Great Migration'
+						url: ['/seasons/0/Jazz/image-2.png'],
+						alt: 'Зураг 2. Их Нүүдэл хаанаас хаашаа нүүдэлснийг харуулсан зураг',
+						caption:
+							'Зураг 2. Их Нүүдэл хаанаас хаашаа нүүдэлснийг харуулсан зураг'
 					},
 					{
 						type: 'paragraph',
@@ -659,8 +662,8 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-1.png'],
+						alt: 'Зураг 1. “What a fine day for science”.',
 						caption: '1. “What a fine day for science”.'
 					}
 				],
@@ -679,14 +682,14 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-2-1.png'],
+						alt: 'Зураг 2.а. Энзим хэрхэн өөрт нь яг таардаг молекулыг задалдаг тухай.',
 						caption: ''
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-2-2.png'],
+						alt: 'Зураг 2.б. Энзим хэрхэн өөрт нь яг таардаг молекулыг задалдаг тухай.',
 						caption:
 							'2.а, 2.б. Энзим хэрхэн өөрт нь яг таардаг молекулыг задалдаг тухай.'
 					},
@@ -696,8 +699,8 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-3.png'],
+						alt: 'Зураг 3. Лактозны бүтэц',
 						caption: '3. Лактозны бүтэц'
 					},
 					{
@@ -742,15 +745,15 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-4.png'],
+						alt: 'Зураг 4. Дундад Зүүнээс сүүний хэрэглээ хэрхэн Европ руу ан агнуурын аж ахуйгаас тариалангийн аж ахуй руу шилжих үед тархсаныг харуулсан зураг.',
 						caption:
 							'4. Дундад Зүүнээс сүүний хэрэглээ хэрхэн Европ руу ан агнуурын аж ахуйгаас тариалангийн аж ахуй руу шилжих үед тархсаныг харуулсан зураг.'
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-5.png'],
+						alt: 'Зураг 5. Лактаза энзимийг насанд хүрснийхээ дараа ч боловсруулдаг болон хувьссан хүн амын тархалтын зураг.',
 						caption:
 							'5. Лактаза энзимийг насанд хүрснийхээ дараа ч боловсруулдаг болон хувьссан хүн амын тархалтын зураг.'
 					},
@@ -793,8 +796,8 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-6.png'],
+						alt: 'Зураг 6. Эртний Монголын цаг үе ба ДНХ-ийн анализад ашигласан олдлогуудын байршлын зураг.',
 						caption:
 							'6. Эртний Монголын цаг үе ба ДНХ-ийн анализад ашигласан олдлогуудын байршлын зураг.'
 					}
@@ -840,22 +843,22 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-7.png'],
+						alt: 'Зураг 7. 4 өөр газарт лактозыг хэдэн хувьтай боловмсруулж байгааг харуулсан диаграм.',
 						caption:
 							'7. 4 өөр газарт лактозыг хэдэн хувьтай боловмсруулж байгааг харуулсан диаграм. Улаанаар лактоз боловсруулж чадаагүй хүн амын хувь, ногооноор боловсруулж чадсан хүн амын хувийг харуулсан.'
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-8.png'],
+						alt: 'Зураг 8. Лактозыг боловсруулж чадсан хүн ам дотор хэдэн хувь нь генийн хувьд лактаза энзимээ хадгалж чаддаг болон хувьссаныг бараан ногооноор харуулсан.',
 						caption:
 							'8. Лактозыг боловсруулж чадсан хүн ам дотор хэдэн хувь нь генийн хувьд лактаза энзимээ хадгалж чаддаг болон хувьссаныг бараан ногооноор харуулсан.'
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/0/Suunii-paradoks/image-9.png'],
+						alt: 'Зураг 9. Хөдөө ба хотын хүмүүсийн гэдэсний микробиомын тархалтын ялгаатай байдал.',
 						caption:
 							'9. Хөдөө ба хотын хүмүүсийн гэдэсний микробиомын тархалтын ялгаатай байдал. Ногооноор малчдын микробиомын ихэссэн тархалтыг, улаанаар Улаанбаатарынханы тархалтыг дүрсэлжээ.'
 					},
@@ -1049,8 +1052,12 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: [
+							'/seasons/1/Khudulguur/image-1-1.png',
+							'/seasons/1/Khudulguur/image-1-2.png',
+							'/seasons/1/Khudulguur/image-1-3.png'
+						],
+						alt: 'Зураг 1. Хүний хүчээр ажиллах технологиуд',
 						caption: 'Зураг 1. Хүний хүчээр ажиллах технологиуд'
 					},
 					{
@@ -1067,7 +1074,10 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: [
+							'/seasons/1/Khudulguur/image-2-1.png',
+							'/seasons/1/Khudulguur/image-2-2.png'
+						],
 						alt: '',
 						caption:
 							'Зураг 2. Усны уурны даралтанд эргэлдэх Аелопил гэх технологи.'
@@ -1078,13 +1088,16 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: ['/seasons/1/Khudulguur/image-3.png'],
 						alt: '',
 						caption: 'Зураг 3. Дэлхийн ДНБ-ний түүхэн хэмжээ.'
 					},
 					{
 						type: 'image',
-						url: [],
+						url: [
+							'/seasons/1/Khudulguur/image-4-1.png',
+							'/seasons/1/Khudulguur/image-4-2.png'
+						],
 						alt: '',
 						caption: 'Зураг 4. Томас Ньюконмений уурын хөдөлгүүр.'
 					}
@@ -1109,7 +1122,7 @@ export const defaultArticleData: Article[] = [
 							},
 							{
 								type: 'image',
-								url: [],
+								url: ['/seasons/1/Khudulguur/image-5.png'],
 								alt: '',
 								caption:
 									'Зураг 5. Хий халснаар молекулууд нь хурдасч, сав нь тэлнэ.'
@@ -1120,7 +1133,10 @@ export const defaultArticleData: Article[] = [
 							},
 							{
 								type: 'image',
-								url: [],
+								url: [
+									'/seasons/1/Khudulguur/image-6-1.png',
+									'/seasons/1/Khudulguur/image-6-2.png'
+								],
 								alt: '',
 								caption:
 									'Зураг 6. Шулуун хөдөлгөөнийг эргэлдэх хөдөлгөөнд хувиргах нь.'
@@ -1183,19 +1199,28 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: [
+							'/seasons/1/Khudulguur/image-7-1.png',
+							'/seasons/1/Khudulguur/image-7-2.png'
+						],
 						alt: '',
 						caption: 'Зураг 7. Брэйтоны циклийн график.'
 					},
 					{
 						type: 'image',
-						url: [],
+						url: [
+							'/seasons/1/Khudulguur/image-8-1.png',
+							'/seasons/1/Khudulguur/image-8-2.png'
+						],
 						alt: '',
 						caption: 'Зураг 8. Онгоц ба онгоцны хөдөлгүүрийн сэнс.'
 					},
 					{
 						type: 'image',
-						url: [],
+						url: [
+							'/seasons/1/Khudulguur/image-9-1.png',
+							'/seasons/1/Khudulguur/image-9-2.png'
+						],
 						alt: '',
 						caption: 'Зураг 9. Онгоцны хөдөлгүүр.'
 					}
@@ -1215,13 +1240,13 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: ['/seasons/1/Khudulguur/image-10.png'],
 						alt: '',
 						caption: 'Зураг 10. Уурын турбин.'
 					},
 					{
 						type: 'image',
-						url: [],
+						url: ['/seasons/1/Khudulguur/image-11.png'],
 						alt: '',
 						caption: 'Зураг 11. Ранкины цикл.'
 					}
@@ -1474,9 +1499,11 @@ export const defaultArticleData: Article[] = [
 						detail: [
 							{
 								type: 'image',
-								url: [],
-								alt: '',
-								caption: 'zurag oruulah'
+								url: [
+									'/seasons/1/Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee/image-1.png'
+								],
+								alt: 'Зураг 1. Liquid cooling',
+								caption: 'Зураг 1. Liquid cooling'
 							},
 							{
 								type: 'paragraph',
@@ -1542,15 +1569,11 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
+						url: [
+							'/seasons/1/Khiimel-oyun-ukhaanii-erin-uyd-ul-toomsorlogdson-khereglee/image-2.png'
+						],
 						alt: '',
-						caption: 'zurag-oruulah'
-					},
-					{
-						type: 'image',
-						url: [],
-						alt: '',
-						caption: 'zurag-oruulah'
+						caption: 'Зураг 2. AI энерги ашиглалт'
 					},
 					{
 						type: 'paragraph',
@@ -1899,10 +1922,10 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/1/Quant-computeriin-khuch-chadal/image-1.png'],
+						alt: 'Зураг 1. Кюбитүүдийн суперпозиц магадлалуудын нийлбэр болох нь.',
 						caption:
-							'Зураг 1. Кюбитүүдийн суперпозиц магадлалуудын нийлбэр болох нь. '
+							'Зураг 1. Кюбитүүдийн суперпозиц магадлалуудын нийлбэр болох нь.'
 					}
 				],
 				children: []
@@ -1976,8 +1999,8 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/1/Quant-computeriin-khuch-chadal/image-2.png'],
+						alt: 'Зураг 2. Google-ийн Квант Компьютер',
 						caption: 'Зураг 2. Google-ийн Квант Компьютер'
 					},
 					{
@@ -1998,8 +2021,8 @@ export const defaultArticleData: Article[] = [
 					},
 					{
 						type: 'image',
-						url: [],
-						alt: '',
+						url: ['/seasons/1/Quant-computeriin-khuch-chadal/image-3.png'],
+						alt: 'Зураг 3. Атом, молекулуудын хэлхээ',
 						caption: 'Зураг 3. Атом, молекулуудын хэлхээ'
 					},
 					{

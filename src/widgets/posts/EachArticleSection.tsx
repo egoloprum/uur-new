@@ -1,6 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { useApp } from '@/src/entities'
@@ -79,7 +80,7 @@ const DefinitionsRenderer = ({
 			<ul>
 				{items.map((item, index) => (
 					<li key={'word-items-' + index} className="mb-2">
-						<p className="text-base md:text-xl">
+						<p className="text-base md:text-2xl text-justify">
 							<span className="mr-4">{++index}</span>
 							<span>{item.word} - </span>
 							<span>{item.explanation}</span>
@@ -104,7 +105,7 @@ const QuestionsRenderer = ({
 			<ul>
 				{items.map((item, index) => (
 					<li key={title + index} className="mb-2">
-						<p className="space-x-4 text-base md:text-xl">
+						<p className="space-x-4 text-base md:text-2xl text-justify">
 							<span>{++index}</span>
 							<span>{item}</span>
 						</p>
@@ -131,7 +132,10 @@ const SourcesRenderer = ({
 			<h2 className="text-2xl md:text-4xl font-semibold">{title}</h2>
 			<ul>
 				{items.map((item, index) => (
-					<li key={title + index} className="mb-2 text-base md:text-xl">
+					<li
+						key={title + index}
+						className="mb-2 text-base md:text-2xl text-justify"
+					>
 						<p className="mb-2">[{++index}]</p>
 						{!!item.definition && <p className="ml-6">{item.definition}</p>}
 						{!!item.href && (
@@ -160,8 +164,6 @@ const SourcesRenderer = ({
 	)
 }
 
-// TODO: image rendering
-
 const ContentRenderer: React.FC<{
 	items: ContentItem[]
 	prefixPath?: number[]
@@ -169,7 +171,10 @@ const ContentRenderer: React.FC<{
 	return (
 		<ul>
 			{items.map((item, index) => {
-				const currentNumber = index + 1
+				const currentNumber = items
+					.slice(0, index + 1)
+					.filter(i => i.header && i.header.length !== 0).length
+
 				const currentPath = prefixPath
 					? [...prefixPath, currentNumber]
 					: [currentNumber]
@@ -181,7 +186,7 @@ const ContentRenderer: React.FC<{
 							<div className="mb-4 md:mb-8">
 								<h3
 									className={clsx([
-										'font-bold text-xl md:text-3xl',
+										'font-bold text-xl md:text-4xl',
 										prefixPath ? 'space-x-3' : 'space-x-4'
 									])}
 								>
@@ -196,7 +201,7 @@ const ContentRenderer: React.FC<{
 								if (det.type === 'paragraph') {
 									return (
 										<li key={detailIndex} className="mb-2 md:mb-4">
-											<p className="text-base md:text-xl">
+											<p className="text-base md:text-2xl text-justify">
 												<span
 													className={clsx(['mr-6', prefixPath && 'md:mr-10'])}
 												></span>
@@ -208,9 +213,42 @@ const ContentRenderer: React.FC<{
 									return (
 										<li key={detailIndex} className="mb-4 md:mb-6">
 											<figure>
-												{/* <Image ... /> */}
+												<div
+													className={`w-full sm:flex gap-2 md:gap-4 [column-fill:balance] ${
+														det.url.length === 1
+															? 'max-w-2xl mx-auto columns-1'
+															: det.url.length === 2
+																? 'columns-1 sm:columns-2'
+																: det.url.length >= 3 &&
+																	'columns-1 sm:columns-3'
+													}`}
+												>
+													{det.url.map(image => (
+														<div
+															key={image}
+															className="break-inside-avoid mb-2 md:mb-4 w-full inline-block"
+														>
+															<Image
+																src={image}
+																alt={det.alt}
+																width={600}
+																height={800}
+																sizes={
+																	det.url.length === 1
+																		? '(max-width: 768px) 100vw, 672px'
+																		: det.url.length === 2
+																			? '(max-width: 768px) 100vw, 50vw'
+																			: '(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw'
+																}
+																className="w-full h-auto object-contain rounded-lg"
+																priority={det.url.length === 1}
+															/>
+														</div>
+													))}
+												</div>
+
 												{det.caption && (
-													<figcaption className="text-sm text-gray-600 mt-1">
+													<figcaption className="text-sm md:text-xl text-center text-gray-800 dark:text-gray-300 mt-1">
 														{det.caption}
 													</figcaption>
 												)}
