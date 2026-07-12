@@ -28,8 +28,8 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
 	}
 
 	return (
-		<article className="flex justify-center pb-20 p-4 md:p-8 lg:p-12 xl:p-16 py-16">
-			<section className="md:w-[80%] xl:w-[60%] space-y-6 md:space-y-12 lg:space-y-16">
+		<article className="flex justify-center pb-20 p-4 md:p-8 lg:p-12 xl:p-16 py-16 font-roboto-serif-local">
+			<section className="md:w-[80%] xl:w-[60%]">
 				{!!article.preQuestions.length && (
 					<QuestionsRenderer
 						items={article.preQuestions}
@@ -75,12 +75,14 @@ const DefinitionsRenderer = ({
 	title: string
 }) => {
 	return (
-		<div className="space-y-4 md:space-y-8">
-			<h2 className="text-2xl md:text-4xl font-semibold">{title}</h2>
+		<div className="">
+			<h2 className="text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify">
+				{title}
+			</h2>
 			<ul>
 				{items.map((item, index) => (
-					<li key={'word-items-' + index} className="mb-2">
-						<p className="text-base md:text-2xl text-justify">
+					<li key={'word-items-' + index} className="">
+						<p className="text-base/8 md:text-xl/10 text-justify">
 							<span className="mr-4">{++index}</span>
 							<span>{item.word} - </span>
 							<span>{item.explanation}</span>
@@ -100,12 +102,14 @@ const QuestionsRenderer = ({
 	title: string
 }) => {
 	return (
-		<div className="space-y-6 md:space-y-8">
-			<h2 className="text-2xl md:text-4xl font-semibold">{title}</h2>
+		<div className="">
+			<h2 className="text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify">
+				{title}
+			</h2>
 			<ul>
 				{items.map((item, index) => (
-					<li key={title + index} className="mb-2">
-						<p className="space-x-4 text-base md:text-2xl text-justify">
+					<li key={title + index} className="">
+						<p className="space-x-4 text-base/8 md:text-xl/10 text-justify">
 							<span>{++index}</span>
 							<span>{item}</span>
 						</p>
@@ -128,15 +132,17 @@ const SourcesRenderer = ({
 	const trackEvent = useTrackEvent()
 
 	return (
-		<div className="space-y-6 md:space-y-8">
-			<h2 className="text-2xl md:text-4xl font-semibold">{title}</h2>
+		<div className="">
+			<h2 className="text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify">
+				{title}
+			</h2>
 			<ul>
 				{items.map((item, index) => (
 					<li
 						key={title + index}
-						className="mb-2 text-base md:text-2xl text-justify"
+						className="text-base/8 md:text-xl/8 text-justify space-y-2"
 					>
-						<p className="mb-2">[{++index}]</p>
+						<p className="">[{++index}]</p>
 						{!!item.definition && <p className="ml-6">{item.definition}</p>}
 						{!!item.href && (
 							<Link
@@ -181,12 +187,12 @@ const ContentRenderer: React.FC<{
 				const displayIndex = currentPath.join('.')
 
 				return (
-					<li key={item.header + index} className="mb-6 md:mb-12">
+					<li key={item.header + index} className="">
 						{!!item.header.length && (
-							<div className="mb-4 md:mb-8">
+							<div className="my-4">
 								<h3
 									className={clsx([
-										'font-bold text-xl md:text-4xl',
+										'text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify',
 										prefixPath ? 'space-x-3' : 'space-x-4'
 									])}
 								>
@@ -200,8 +206,8 @@ const ContentRenderer: React.FC<{
 							{item.detail.map((det, detailIndex) => {
 								if (det.type === 'paragraph') {
 									return (
-										<li key={detailIndex} className="mb-2 md:mb-4">
-											<p className="text-base md:text-2xl text-justify">
+										<li key={detailIndex} className="">
+											<p className="text-base/8 md:text-xl/10 text-justify">
 												<span
 													className={clsx(['mr-6', prefixPath && 'md:mr-10'])}
 												></span>
@@ -211,7 +217,7 @@ const ContentRenderer: React.FC<{
 									)
 								} else if (det.type === 'image') {
 									return (
-										<li key={detailIndex} className="mb-4 md:mb-6">
+										<li key={detailIndex} className="my-4">
 											<figure>
 												<div
 													className={`w-full sm:flex gap-2 md:gap-4 [column-fill:balance] ${
@@ -226,7 +232,7 @@ const ContentRenderer: React.FC<{
 													{det.url.map(image => (
 														<div
 															key={image}
-															className="break-inside-avoid mb-2 md:mb-4 w-full inline-block"
+															className="break-inside-avoid w-full inline-block"
 														>
 															<Image
 																src={image}
@@ -248,7 +254,7 @@ const ContentRenderer: React.FC<{
 												</div>
 
 												{det.caption && (
-													<figcaption className="text-sm md:text-xl text-center text-gray-800 dark:text-gray-300 mt-1">
+													<figcaption className="text-sm/6 md:text-lg/10 text-center text-gray-800 dark:text-gray-300 mt-1">
 														{det.caption}
 													</figcaption>
 												)}
@@ -261,7 +267,7 @@ const ContentRenderer: React.FC<{
 						</ul>
 
 						{item.children && item.children.length > 0 && (
-							<div className="md:ml-6 mt-6 md:mt-12">
+							<div className="md:ml-6 my-4">
 								<ContentRenderer
 									items={item.children}
 									prefixPath={currentPath}

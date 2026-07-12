@@ -51,16 +51,12 @@ body {
 	font-family: var(--font-advent-pro-local) sans-serif;
 }
 
-.font-montserrat {
-	font-family: var(--font-montserrat);
-}
-
-.font-advent-pro {
-	font-family: var(--font-advent-pro);
-}
-
 .font-advent-pro-local {
 	font-family: var(--font-advent-pro-local);
+}
+
+.font-roboto-serif-local {
+	font-family: var(--font-roboto-serif-local);
 }
 
 input:-webkit-autofill {

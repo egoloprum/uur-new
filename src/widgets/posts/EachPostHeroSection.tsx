@@ -34,7 +34,7 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 		<>
 			<HeroSection className={post ? '' : 'pb-20! md:pb-40! lg:pb-60!'}>
 				<h1
-					className="font-bold uppercase z-10 tracking-wide mt-20 leading-20"
+					className="font-bold uppercase z-10 tracking-wide mt-20 leading-16 md:leading-20"
 					style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
 				>
 					{post.name || 'Нийтлэл олдсонгүй'}
