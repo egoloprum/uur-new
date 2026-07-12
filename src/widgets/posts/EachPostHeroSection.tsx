@@ -16,7 +16,7 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 	if (!post) {
 		return (
 			<HeroSection className="pb-20! md:pb-40! lg:pb-60!">
-				<h1 className="font-bold uppercase z-10 tracking-wide text-3xl/12 md:text-4xl/12 lg:text-5xl/16 xl:text-6xl/20">
+				<h1 className="font-bold uppercase z-10 tracking-wide text-4xl/10 md:text-5xl/14 lg:text-6xl/18 xl:text-7xl/20">
 					Нийтлэл олдсонгүй
 				</h1>
 			</HeroSection>
@@ -28,13 +28,13 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 	return (
 		<HeroSection className="pb-0!">
 			<div className="flex flex-col items-center">
-				<h1 className="font-roboto-serif-local font-bold uppercase tracking-wide text-3xl/12 md:text-4xl/12 lg:text-5xl/16 xl:text-6xl/20 z-10 md:text-center">
+				<h1 className="font-bold uppercase tracking-wide text-4xl/10 md:text-5xl/14 lg:text-6xl/18 xl:text-7xl/20 z-10 md:text-center">
 					{post.name || 'Нийтлэл олдсонгүй'}
 				</h1>
-				<p className="text-gray-800 dark:text-gray-300 mt-4 space-x-4 font-roboto-serif-local w-full md:w-[80%] xl:w-[60%] text-end italic">
+				<p className="text-gray-800 dark:text-gray-300 mt-4 space-x-4 w-full md:w-[80%] xl:w-[60%] text-end italic">
 					<Link
 						href={`/about/${member?.slug}`}
-						className="text-base md:text-2xl underline hover:underline underline-offset-4"
+						className="text-xl md:text-2xl underline hover:underline underline-offset-4"
 						onClick={() =>
 							trackEvent({
 								type: 'member_visit',
@@ -49,7 +49,7 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 					>
 						{member?.name}
 					</Link>
-					<span className="text-sm md:text-xl">{post.releaseDate}</span>
+					<span className="text-lg md:text-xl">{post.releaseDate}</span>
 				</p>
 			</div>
 		</HeroSection>

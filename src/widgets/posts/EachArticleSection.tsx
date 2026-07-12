@@ -76,7 +76,7 @@ const DefinitionsRenderer = ({
 }) => {
 	return (
 		<div className="">
-			<h2 className="text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify">
+			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local">
 				{title}
 			</h2>
 			<ul>
@@ -103,7 +103,7 @@ const QuestionsRenderer = ({
 }) => {
 	return (
 		<div className="">
-			<h2 className="text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify">
+			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local">
 				{title}
 			</h2>
 			<ul>
@@ -133,7 +133,7 @@ const SourcesRenderer = ({
 
 	return (
 		<div className="">
-			<h2 className="text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify">
+			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local">
 				{title}
 			</h2>
 			<ul>
@@ -190,15 +190,15 @@ const ContentRenderer: React.FC<{
 					<li key={item.header + index} className="">
 						{!!item.header.length && (
 							<div className="my-4">
-								<h3
+								<h2
 									className={clsx([
-										'text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify font-roboto-mono-local',
+										'text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local',
 										prefixPath ? 'space-x-3' : 'space-x-4'
 									])}
 								>
 									<span>{displayIndex}.</span>
 									<span>{item.header}</span>
-								</h3>
+								</h2>
 							</div>
 						)}
 
@@ -254,7 +254,7 @@ const ContentRenderer: React.FC<{
 												</div>
 
 												{det.caption && (
-													<figcaption className="text-sm/6 md:text-lg/10 text-center text-gray-800 dark:text-gray-300 mt-1">
+													<figcaption className="text-sm/6 md:text-lg/10 text-center text-gray-800 dark:text-gray-300 mt-1 italic">
 														{det.caption}
 													</figcaption>
 												)}

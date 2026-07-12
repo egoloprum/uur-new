@@ -35,11 +35,11 @@ export const SeasonsList = ({}) => {
 						<p className="text-base md:text-2xl">{season.description}</p>
 
 						<div className="px-4 md:px-8 lg:px-12 xl:px-16 mt-12 my-8">
-							<h3 className="text-2xl font-semibold">Улиралын нийтлэлүүд</h3>
+							<h3 className="text-2xl font-semibold">Улирлын нийтлэлүүд</h3>
 						</div>
 						<PostsList posts={posts} />
 						<div className="px-4 md:px-8 lg:px-12 xl:px-16 mt-12 my-8">
-							<h3 className="text-2xl font-semibold">Улиралын гишүүд</h3>
+							<h3 className="text-2xl font-semibold">Улирлын гишүүд</h3>
 						</div>
 						<MembersList members={members} />
 					</li>

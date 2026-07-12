@@ -19,7 +19,7 @@ export const PreviousSeasonPostsSection = ({}) => {
 		<div className="space-y-8">
 			<div className="flex flex-col lg:flex-row gap-8 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
 				<h2 className="font-bold text-4xl uppercase">
-					Өмнөх улиралын нийтлэлүүд
+					Өмнөх улирлын нийтлэлүүд
 				</h2>
 				<div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
 					<div className="flex flex-col md:flex-row max-sm:flex-row md:items-center gap-2 max-sm:gap-4 md:gap-8">

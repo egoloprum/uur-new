@@ -114,17 +114,6 @@ const robotoSerifLocal = localFont({
 	variable: '--font-roboto-serif-local'
 })
 
-const robotoMonoLocal = localFont({
-	src: [
-		{
-			path: '../../public/fonts/RobotoMono-Bold.ttf',
-			weight: '700',
-			style: 'bold'
-		}
-	],
-	variable: '--font-roboto-mono-local'
-})
-
 export const metadata: Metadata = {
 	title: 'Үүр товхимол',
 	description: 'Монгол хэл дээрх шинжлэх ухаан, технологи, урлагийн товхимол'
@@ -139,7 +128,7 @@ export default function RootLayout({
 		<html lang="en">
 			<ThemeProvider>
 				<body
-					className={`${adventProLocal.variable} ${robotoSerifLocal.variable} ${robotoMonoLocal.variable} antialiased min-h-screen flex flex-col`}
+					className={`${adventProLocal.variable} ${robotoSerifLocal.variable} antialiased min-h-screen flex flex-col`}
 				>
 					<LenisScrollProvider>
 						<AppProviders>
