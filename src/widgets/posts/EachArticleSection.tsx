@@ -28,7 +28,7 @@ export const EachArticleSection = ({ slug }: { slug: string }) => {
 	}
 
 	return (
-		<article className="flex justify-center pb-20 p-4 md:p-8 lg:p-12 xl:p-16 py-16 font-roboto-serif-local">
+		<article className="flex justify-center pb-20 p-4 md:p-8 lg:p-12 xl:p-16 font-roboto-serif-local">
 			<section className="md:w-[80%] xl:w-[60%]">
 				{!!article.preQuestions.length && (
 					<QuestionsRenderer
@@ -192,11 +192,11 @@ const ContentRenderer: React.FC<{
 							<div className="my-4">
 								<h3
 									className={clsx([
-										'text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify',
+										'text-xl/8 md:text-2xl/12 font-semibold my-4 text-justify font-roboto-mono-local',
 										prefixPath ? 'space-x-3' : 'space-x-4'
 									])}
 								>
-									<span>{displayIndex}</span>
+									<span>{displayIndex}.</span>
 									<span>{item.header}</span>
 								</h3>
 							</div>

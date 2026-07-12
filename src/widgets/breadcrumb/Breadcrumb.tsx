@@ -34,7 +34,7 @@ export const Breadcrumb = () => {
 						) : (
 							<Link
 								href={crumb.href}
-								className="hover:underline inline mr-2 text-gray-800 dark:text-gray-300"
+								className="underline underline-offset-4 inline mr-2 text-gray-800 dark:text-gray-300"
 							>
 								{crumb.label}
 							</Link>

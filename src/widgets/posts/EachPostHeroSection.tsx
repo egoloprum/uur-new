@@ -15,34 +15,26 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 
 	if (!post) {
 		return (
-			<>
-				<HeroSection className={post ? '' : 'pb-20! md:pb-40! lg:pb-60!'}>
-					<h1
-						className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"
-						style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
-					>
-						Нийтлэл олдсонгүй
-					</h1>
-				</HeroSection>
-			</>
+			<HeroSection className="pb-20! md:pb-40! lg:pb-60!">
+				<h1 className="font-bold uppercase z-10 tracking-wide text-3xl/12 md:text-4xl/12 lg:text-5xl/16 xl:text-6xl/20">
+					Нийтлэл олдсонгүй
+				</h1>
+			</HeroSection>
 		)
 	}
 
 	const member = getMemberById(post.writerId)
 
 	return (
-		<>
-			<HeroSection className={post ? '' : 'pb-20! md:pb-40! lg:pb-60!'}>
-				<h1
-					className="font-bold uppercase z-10 tracking-wide mt-20 leading-16 md:leading-20"
-					style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
-				>
+		<HeroSection className="pb-0!">
+			<div className="flex flex-col items-center">
+				<h1 className="font-roboto-serif-local font-bold uppercase tracking-wide text-3xl/12 md:text-4xl/12 lg:text-5xl/16 xl:text-6xl/20 z-10 md:text-center">
 					{post.name || 'Нийтлэл олдсонгүй'}
 				</h1>
-				<p className="text-gray-800 dark:text-gray-300 mt-4 space-x-4">
+				<p className="text-gray-800 dark:text-gray-300 mt-4 space-x-4 font-roboto-serif-local w-full md:w-[80%] xl:w-[60%] text-end italic">
 					<Link
 						href={`/about/${member?.slug}`}
-						className="text-base md:text-2xl hover:underline underline-offset-4"
+						className="text-base md:text-2xl underline hover:underline underline-offset-4"
 						onClick={() =>
 							trackEvent({
 								type: 'member_visit',
@@ -59,7 +51,7 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 					</Link>
 					<span className="text-sm md:text-xl">{post.releaseDate}</span>
 				</p>
-			</HeroSection>
-		</>
+			</div>
+		</HeroSection>
 	)
 }

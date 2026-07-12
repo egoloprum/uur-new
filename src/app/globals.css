@@ -59,6 +59,10 @@ body {
 	font-family: var(--font-roboto-serif-local);
 }
 
+.font-roboto-mono-local {
+	font-family: var(--font-roboto-mono-local);
+}
+
 input:-webkit-autofill {
 	background-color: transparent !important;
 	-webkit-box-shadow: 0 0 0px 1000px transparent inset !important;
