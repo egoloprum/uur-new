@@ -12,55 +12,55 @@ import {
 } from '../shared/components'
 import { Footer, Sidebar } from '../widgets'
 
-const adventProLocal = localFont({
+const montserratAlternativesLocal = localFont({
 	src: [
 		{
-			path: '../../public/fonts/AdventPro-Thin.ttf',
+			path: '../../public/fonts/MontserratAlternates-Thin.ttf',
 			weight: '100',
 			style: 'thin'
 		},
 		{
-			path: '../../public/fonts/AdventPro-ExtraLight.ttf',
+			path: '../../public/fonts/MontserratAlternates-ExtraLight.ttf',
 			weight: '200',
 			style: 'extralight'
 		},
 		{
-			path: '../../public/fonts/AdventPro-Light.ttf',
+			path: '../../public/fonts/MontserratAlternates-Light.ttf',
 			weight: '300',
 			style: 'light'
 		},
 		{
-			path: '../../public/fonts/AdventPro-Regular.ttf',
+			path: '../../public/fonts/MontserratAlternates-Regular.ttf',
 			weight: '400',
 			style: 'normal'
 		},
 		{
-			path: '../../public/fonts/AdventPro-Medium.ttf',
+			path: '../../public/fonts/MontserratAlternates-Medium.ttf',
 			weight: '500',
 			style: 'medium'
 		},
 		{
-			path: '../../public/fonts/AdventPro-SemiBold.ttf',
+			path: '../../public/fonts/MontserratAlternates-SemiBold.ttf',
 			weight: '600',
 			style: 'semibold'
 		},
 		{
-			path: '../../public/fonts/AdventPro-Bold.ttf',
+			path: '../../public/fonts/MontserratAlternates-Bold.ttf',
 			weight: '700',
 			style: 'bold'
 		},
 		{
-			path: '../../public/fonts/AdventPro-ExtraBold.ttf',
+			path: '../../public/fonts/MontserratAlternates-ExtraBold.ttf',
 			weight: '800',
 			style: 'extrabold'
 		},
 		{
-			path: '../../public/fonts/AdventPro-Black.ttf',
+			path: '../../public/fonts/MontserratAlternates-Black.ttf',
 			weight: '900',
 			style: 'black'
 		}
 	],
-	variable: '--font-advent-pro-local'
+	variable: '--font-montserrat-alternates-local'
 })
 
 const robotoSerifLocal = localFont({
@@ -128,7 +128,7 @@ export default function RootLayout({
 		<html lang="en">
 			<ThemeProvider>
 				<body
-					className={`${adventProLocal.variable} ${robotoSerifLocal.variable} antialiased min-h-screen flex flex-col`}
+					className={`${montserratAlternativesLocal.variable} ${robotoSerifLocal.variable} antialiased min-h-screen flex flex-col`}
 				>
 					<LenisScrollProvider>
 						<AppProviders>

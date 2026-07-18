@@ -29,13 +29,13 @@ export const Button = ({
 	const classNames = clsx([
 		'flex gap-2 items-center w-fit h-fit',
 		'cursor-pointer px-2 py-1 md:px-4 md:py-2 border md:border-2 rounded-full',
-		'border-black dark:border-[#fffae0] text-black dark:text-[#fffae0]',
-		'uppercase text-nowrap font-bold tracking-wide',
+		'border-(--button-border)',
+		'uppercase text-nowrap font-bold tracking-wide outline-none',
 		'transition duration-300',
 		mode === 'primary' &&
-			'hover:bg-orange-400 focus:bg-orange-500 hover:dark:border-orange-500! focus:dark:border-orange-600! hover:text-black! focus:text-black!',
+			'hover:bg-(--orange) focus:bg-(--orange-focus-bg) focus:border-(--orange-focus-border)',
 		mode === 'secondary' &&
-			'hover:bg-indigo-400 focus:bg-indigo-500 hover:dark:border-indigo-500! focus:dark:border-indigo-600! hover:text-black! focus:text-black!',
+			'hover:bg-(--blue) focus:bg-(--blue-focus-bg) focus:border-(--blue-focus-border)',
 		mode === 'clear' && 'hover:bg-orange-100 hover:text-black',
 		className
 	])

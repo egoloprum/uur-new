@@ -29,7 +29,7 @@ export const TopicsList = ({}) => {
 							className={clsx([
 								'flex gap-2',
 								topic.name === 'Шинжлэх ухаан' &&
-									'bg-(--black) dark:bg-(--black) text-white dark:text-black',
+									'bg-(--topic-black) dark:bg-(--topic-black) text-white dark:text-black',
 								topic.name === 'Технологи' &&
 									'bg-(--blue) dark:bg-(--blue) dark:text-black',
 								topic.name === 'Урлаг' &&

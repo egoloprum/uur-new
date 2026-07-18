@@ -1,10 +1,7 @@
 'use client'
 
 import clsx from 'clsx'
-import { gsap } from 'gsap'
 import { MoveRight } from 'lucide-react'
-import Image from 'next/image'
-import { useRef, useLayoutEffect, useState } from 'react'
 
 import { useApp } from '@/src/entities'
 import { getSlugOfRole } from '@/src/shared'
@@ -14,132 +11,6 @@ import { useTrackEvent } from '@/src/shared/lib'
 export const CurrentSeasonTeamSection = () => {
 	const { currentSeasonId, getMembersBySeasonId } = useApp()
 	const trackEvent = useTrackEvent()
-
-	const containerRef = useRef<HTMLUListElement | null>(null)
-	const imageRef = useRef<HTMLDivElement | null>(null)
-
-	const [activeImage, setActiveImage] = useState<string | null>(null)
-
-	const mouseXRef = useRef(0)
-	const mouseYRef = useRef(0)
-
-	const trackMousePosition = (e: PointerEvent) => {
-		mouseXRef.current = e.clientX
-		mouseYRef.current = e.clientY
-	}
-
-	useLayoutEffect(() => {
-		const container = containerRef.current
-		const image = imageRef.current
-		if (!container || !image) return
-
-		const isDesktop = window.matchMedia('(min-width: 1024px)').matches
-		if (!isDesktop) return
-
-		const xTo = gsap.quickTo(image, 'x', { duration: 0.25, ease: 'power3' })
-		const yTo = gsap.quickTo(image, 'y', { duration: 0.25, ease: 'power3' })
-		const rTo = gsap.quickTo(image, 'rotation', {
-			duration: 0.35,
-			ease: 'power3'
-		})
-
-		let lastX = 0
-		let lastY = 0
-		let activeItem: HTMLElement | null = null
-		let rafId: number | null = null
-
-		const moveImage = (e: PointerEvent) => {
-			if (!activeItem) return
-			const x = e.clientX + 24
-			const y = e.clientY + 24
-
-			xTo(x)
-			yTo(y)
-
-			const dx = e.clientX - lastX
-			const dy = e.clientY - lastY
-			const velocity = Math.sqrt(dx * dx + dy * dy)
-			const rotation = gsap.utils.clamp(-15, 15, dx * 0.2 + velocity * 0.05)
-
-			rTo(rotation)
-
-			lastX = e.clientX
-			lastY = e.clientY
-		}
-
-		const hideImage = () => {
-			activeItem = null
-			gsap.to(image, {
-				opacity: 0,
-				scale: 0.8,
-				rotation: 0,
-				duration: 0.2
-			})
-
-			window.removeEventListener('pointermove', moveImage)
-			if (rafId !== null) {
-				cancelAnimationFrame(rafId)
-				rafId = null
-			}
-		}
-
-		const checkBounds = () => {
-			if (!activeItem) return
-
-			const rect = container.getBoundingClientRect()
-			const mouseX = mouseXRef.current
-			const mouseY = mouseYRef.current
-
-			const inside =
-				mouseX >= rect.left &&
-				mouseX <= rect.right &&
-				mouseY >= rect.top &&
-				mouseY <= rect.bottom
-
-			if (!inside) {
-				hideImage()
-			} else {
-				rafId = requestAnimationFrame(checkBounds)
-			}
-		}
-
-		const pointerOver = (e: PointerEvent) => {
-			const li = (e.target as HTMLElement).closest(
-				'li[data-member]'
-			) as HTMLElement | null
-			if (!li || li === activeItem) return
-
-			activeItem = li
-
-			const memberImage = li.dataset.image
-			if (memberImage) setActiveImage(memberImage)
-
-			gsap.to(image, {
-				opacity: 1,
-				scale: 1,
-				duration: 0.25
-			})
-
-			window.addEventListener('pointermove', moveImage)
-
-			if (rafId === null) {
-				rafId = requestAnimationFrame(checkBounds)
-			}
-		}
-
-		window.addEventListener('pointermove', trackMousePosition)
-		container.addEventListener('pointerover', pointerOver)
-
-		return () => {
-			window.removeEventListener('pointermove', trackMousePosition)
-			window.removeEventListener('pointermove', moveImage)
-			container.removeEventListener('pointerover', pointerOver)
-
-			if (rafId !== null) {
-				cancelAnimationFrame(rafId)
-			}
-		}
-	}, [])
 
 	const members = getMembersBySeasonId(currentSeasonId)
 
@@ -154,7 +25,7 @@ export const CurrentSeasonTeamSection = () => {
 					<MoveRight />
 				</Button>
 			</div>
-			<ul ref={containerRef}>
+			<ul>
 				{members.map((member, index) => (
 					<li
 						key={member.id}
@@ -162,7 +33,7 @@ export const CurrentSeasonTeamSection = () => {
 						data-image={member.imageUrl}
 						className={clsx(
 							'py-4 md:py-6 border-t border-stone-400 dark:border-stone-500 flex max-sm:flex-col sm:items-center sm:justify-between',
-							'md:hover:bg-indigo-300 md:hover:dark:bg-[#91a3ff] md:hover:px-12 transition-all duration-300 relative',
+							'md:hover:bg-(--blue) md:hover:px-12 transition-normal duration-300',
 							members.length - 1 === index && 'border-b'
 						)}
 					>
@@ -184,7 +55,7 @@ export const CurrentSeasonTeamSection = () => {
 						<Button
 							mode="primary"
 							href={`/about/${member.slug}`}
-							className="text-xs md:text-sm px-2! py-1! max-sm:mt-4"
+							className="text-xs md:text-sm px-2! py-1! max-sm:mt-4 transition-none"
 							onClick={() =>
 								trackEvent({
 									type: 'member_visit',
@@ -201,23 +72,6 @@ export const CurrentSeasonTeamSection = () => {
 					</li>
 				))}
 			</ul>
-			<div
-				ref={imageRef}
-				className="fixed top-0 left-0 pointer-events-none opacity-0 scale-75 z-50 will-change-transform"
-			>
-				{activeImage && (
-					<Image
-						key={activeImage}
-						src={activeImage}
-						unoptimized
-						priority
-						width={170}
-						height={170}
-						alt="member preview"
-						className="object-contain select-none"
-					/>
-				)}
-			</div>
 		</div>
 	)
 }

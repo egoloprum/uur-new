@@ -76,7 +76,7 @@ const DefinitionsRenderer = ({
 }) => {
 	return (
 		<div className="">
-			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local">
+			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local">
 				{title}
 			</h2>
 			<ul>
@@ -103,7 +103,7 @@ const QuestionsRenderer = ({
 }) => {
 	return (
 		<div className="">
-			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local">
+			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local">
 				{title}
 			</h2>
 			<ul>
@@ -133,7 +133,7 @@ const SourcesRenderer = ({
 
 	return (
 		<div className="">
-			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local">
+			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local">
 				{title}
 			</h2>
 			<ul>
@@ -192,7 +192,7 @@ const ContentRenderer: React.FC<{
 							<div className="my-4">
 								<h2
 									className={clsx([
-										'text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-advent-pro-local',
+										'text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local',
 										prefixPath ? 'space-x-3' : 'space-x-4'
 									])}
 								>

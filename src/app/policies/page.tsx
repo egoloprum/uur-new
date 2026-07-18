@@ -2,7 +2,7 @@ import { HeroSection } from '@/src/widgets'
 
 export const Page = ({}) => {
 	return (
-		<main className="font-advent-pro-local">
+		<main className="font-montserrat-alternates-local">
 			<HeroSection className="pb-10!">
 				<h1
 					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"

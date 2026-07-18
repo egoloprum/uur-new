@@ -16,7 +16,7 @@ export const Page = async ({
 	const decodedTitle = decodeURIComponent(slug)
 
 	return (
-		<main className="font-advent-pro-local">
+		<main className="font-montserrat-alternates-local">
 			<EachPostHeroSection slug={decodedTitle} />
 			<EachArticleSection slug={decodedTitle} />
 		</main>

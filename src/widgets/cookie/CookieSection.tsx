@@ -12,7 +12,7 @@ export const CookieSection = ({ onAccept }: { onAccept: () => void }) => {
 	}
 
 	return (
-		<aside className="p-3 px-4 md:p-6 md:px-8 sm:max-w-96 max-sm:w-[calc(100%-2rem)] w-full fixed bg-black text-white bottom-4 left-4 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12 xl:bottom-16 xl:left-16 font-advent-pro-local space-y-4 z-100 rounded-xl opacity-85">
+		<aside className="p-3 px-4 md:p-6 md:px-8 sm:max-w-96 max-sm:w-[calc(100%-2rem)] w-full fixed bg-black text-white bottom-4 left-4 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12 xl:bottom-16 xl:left-16 font-montserrat-alternates-local space-y-4 z-100 rounded-xl opacity-85">
 			<p className="flex gap-2 items-center">
 				<Cookie className="w-6 h-6" />
 				<span className="text-xl md:text-3xl tracking-wide font-bold">

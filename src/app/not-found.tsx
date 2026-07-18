@@ -2,7 +2,7 @@ import { HeroSection } from '../widgets'
 
 const NotFoundPage = ({}) => {
 	return (
-		<main className="font-advent-pro-local">
+		<main className="font-montserrat-alternates-local">
 			<HeroSection className="pb-20! md:pb-40! lg:pb-60!">
 				<h1
 					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"

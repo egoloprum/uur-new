@@ -30,7 +30,7 @@ export const defaultTopicData: Topic[] = [
 			'Хүн төрөлхтний амьдралаа бүтээх зэвсэг. Уурын хөдөлгүүрээс хиймэл оюун ухаан хүртэлх бүтээлүүд.',
 
 		serial: 2,
-		color: 'bg-indigo-400 dark:bg-[#91a3ff]',
+		color: 'bg-(--blue) dark:bg-(--blue)',
 		postId: [
 			'Bidnii-anzaardaggui-AI-iin-nuutsuud',
 			'Khudulguur',
@@ -44,7 +44,7 @@ export const defaultTopicData: Topic[] = [
 			'Хүн төрөлхтний өөрсдийгөө илэрхийлэх илэрхийлэмж. Гудамжны графитигаас жазз хөгжим хүртэлх бүтээлүүд.',
 
 		serial: 3,
-		color: 'bg-orange-400 dark:bg-orange-300',
+		color: 'bg-(--orange) dark:bg-(--orange)',
 		postId: ['Jazz']
 	}
 ]

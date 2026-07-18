@@ -7,7 +7,7 @@ import { MembersList } from '@/src/widgets/about'
 
 export const Page = ({}) => {
 	return (
-		<main className="font-advent-pro-local">
+		<main className="font-montserrat-alternates-local">
 			<HeroSection className="pb-20!">
 				<h1
 					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"

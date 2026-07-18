@@ -48,15 +48,15 @@
 }
 
 body {
-	font-family: var(--font-advent-pro-local) sans-serif;
-}
-
-.font-advent-pro-local {
-	font-family: var(--font-advent-pro-local);
+	font-family: var(--font-montserrat-alternates-local) sans-serif;
 }
 
 .font-roboto-serif-local {
 	font-family: var(--font-roboto-serif-local);
+}
+
+.font-montserrat-alternates-local {
+	font-family: var(--font-montserrat-alternates-local);
 }
 
 input:-webkit-autofill {
@@ -80,107 +80,55 @@ input:-moz-autofill {
 	-webkit-text-fill-color: #fff !important;
 }
 
-/* ::-webkit-scrollbar {
-	width: 8px;
-}
-
-::-webkit-scrollbar-track {
-	background: #818cf8;
-}
-
-::-webkit-scrollbar-thumb {
-	background: #fb923c;
-} */
-
 :root {
 	--background: #fbfaf2;
-	--foreground: oklch(0.145 0 0);
-	--card: oklch(1 0 0);
-	--card-foreground: oklch(0.145 0 0);
-	--popover: oklch(1 0 0);
-	--popover-foreground: oklch(0.145 0 0);
-	--primary: oklch(0.205 0 0);
-	--primary-foreground: oklch(0.985 0 0);
-	--secondary: oklch(0.97 0 0);
-	--secondary-foreground: oklch(0.205 0 0);
-	--muted: oklch(0.97 0 0);
-	--muted-foreground: oklch(0.556 0 0);
-	--accent: oklch(0.97 0 0);
-	--accent-foreground: oklch(0.205 0 0);
-	--destructive: oklch(0.577 0.245 27.325);
-	--border: #14110f;
-	--input: oklch(0.922 0 0);
-	--ring: oklch(0.708 0 0);
-	--chart-1: oklch(0.809 0.105 251.813);
-	--chart-2: oklch(0.623 0.214 259.815);
-	--chart-3: oklch(0.546 0.245 262.881);
-	--chart-4: oklch(0.488 0.243 264.376);
-	--chart-5: oklch(0.424 0.199 265.638);
-	--radius: 0.625rem;
-	--sidebar: oklch(0.985 0 0);
-	--sidebar-foreground: oklch(0.145 0 0);
-	--sidebar-primary: oklch(0.205 0 0);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.97 0 0);
-	--sidebar-accent-foreground: oklch(0.205 0 0);
-	--sidebar-border: oklch(0.922 0 0);
-	--sidebar-ring: oklch(0.708 0 0);
+	--foreground: #121212;
 
-	--section-bg-0: #000;
-	--section-bg-1: #a5b4fc;
-	--section-bg-2: #fb923c;
+	--section-bg-0: #121212;
+	--section-bg-1: rgba(66, 82, 252, 0.6);
+	--section-bg-2: rgba(255, 93, 68, 0.8);
 	--section-text-0: #fffae0;
 	--section-text-1: #000;
 	--section-text-2: #000;
 
-	--black: #000;
-	--blue: #a5b4fc;
-	--orange: #fb923c;
+	--button-border: #121212;
+	--topic-black: #121212;
+
+	--orange: rgba(255, 93, 68, 0.8);
+	--orange-focus-bg: rgba(255, 93, 68, 0.3);
+	--orange-focus-border: rgba(255, 93, 68, 1);
+
+	--blue: rgba(66, 82, 252, 0.6);
+	--blue-focus-bg: rgba(66, 82, 252, 0.3);
+	--blue-focus-border: rgba(66, 82, 252, 1);
 }
 
 .dark {
-	--background: #212121;
-	--foreground: #fffae0;
-	--card: oklch(0.205 0 0);
-	--card-foreground: oklch(0.985 0 0);
-	--popover: oklch(0.205 0 0);
-	--popover-foreground: oklch(0.985 0 0);
-	--primary: oklch(0.922 0 0);
-	--primary-foreground: oklch(0.205 0 0);
-	--secondary: oklch(0.269 0 0);
-	--secondary-foreground: oklch(0.985 0 0);
-	--muted: oklch(0.269 0 0);
-	--muted-foreground: oklch(0.708 0 0);
-	--accent: oklch(0.269 0 0);
-	--accent-foreground: oklch(0.985 0 0);
-	--destructive: oklch(0.704 0.191 22.216);
-	--border: #fffae0;
-	--input: oklch(1 0 0 / 15%);
-	--ring: oklch(0.556 0 0);
-	--chart-1: oklch(0.809 0.105 251.813);
-	--chart-2: oklch(0.623 0.214 259.815);
-	--chart-3: oklch(0.546 0.245 262.881);
-	--chart-4: oklch(0.488 0.243 264.376);
-	--chart-5: oklch(0.424 0.199 265.638);
-	--sidebar: oklch(0.205 0 0);
-	--sidebar-foreground: oklch(0.985 0 0);
-	--sidebar-primary: oklch(0.488 0.243 264.376);
-	--sidebar-primary-foreground: oklch(0.985 0 0);
-	--sidebar-accent: oklch(0.269 0 0);
-	--sidebar-accent-foreground: oklch(0.985 0 0);
-	--sidebar-border: oklch(1 0 0 / 10%);
-	--sidebar-ring: oklch(0.556 0 0);
+	--background: #121212;
+	--foreground: #fbfaf2;
 
-	--section-bg-0: #fffcec;
-	--section-bg-1: #91a3ff;
-	--section-bg-2: #ff9a2e;
+	--section-bg-0: #fbfaf2;
+	--section-bg-1: rgba(66, 82, 252, 0.8);
+	--section-bg-2: rgba(255, 93, 68, 0.9);
 	--section-text-0: #000;
 	--section-text-1: #000;
 	--section-text-2: #000;
 
-	--black: #fffcec;
-	--blue: #91a3ff;
-	--orange: #ff9a2e;
+	--button-border: #fbfaf2;
+	--topic-black: #fbfaf2;
+
+	--orange: rgba(255, 93, 68, 0.9);
+	--orange-focus-bg: rgba(255, 93, 68, 0.5);
+	--orange-focus-border: rgba(255, 120, 100, 1);
+
+	--blue: rgba(66, 82, 252, 0.8);
+	--blue-focus-bg: rgba(66, 82, 252, 0.5);
+	--blue-focus-border: rgba(100, 114, 255, 1);
+}
+
+::selection {
+	background-color: rgba(56, 255, 73, 0.75);
+	color: black;
 }
 
 .description-section {
