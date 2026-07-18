@@ -23,7 +23,10 @@ export const Breadcrumb = () => {
 		<nav aria-label="Breadcrumb">
 			<ul className="gap-2">
 				{breadcrumbs.map((crumb, index) => (
-					<li key={crumb.href} className="inline-flex text-xl tracking-wide">
+					<li
+						key={crumb.href}
+						className="inline-flex text-[calc(1vw+0.75rem)] lg:text-[calc(0.75vw+0.75rem)] xl:text-[calc(0.5vw+0.75rem)] tracking-wide"
+					>
 						{index > 0 && (
 							<span className="mr-2 text-gray-800 dark:text-gray-300">/</span>
 						)}

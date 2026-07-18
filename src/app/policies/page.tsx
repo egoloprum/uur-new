@@ -1,12 +1,15 @@
 import { HeroSection } from '@/src/widgets'
+import clsx from 'clsx'
 
 export const Page = ({}) => {
 	return (
 		<main className="font-montserrat-alternates-local">
-			<HeroSection className="pb-10!">
+			<HeroSection className="">
 				<h1
-					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"
-					style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
+					className={clsx(
+						'font-bold uppercase z-10 tracking-wide leading-[1.1]',
+						'text-[calc(8vw+0.5rem)] md:text-6xl lg:text-8xl'
+					)}
 				>
 					Нууцлалын бодлого
 				</h1>

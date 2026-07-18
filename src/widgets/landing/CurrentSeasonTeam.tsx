@@ -17,10 +17,14 @@ export const CurrentSeasonTeamSection = () => {
 	return (
 		<div className="px-4 md:px-8 lg:px-12 xl:px-16 space-y-8 relative">
 			<div className="flex flex-wrap gap-4 justify-between">
-				<h2 className="font-bold text-4xl uppercase">
+				<h2 className="font-bold text-[calc(4vw+0.75rem)] md:text-4xl leading-[1.1] uppercase">
 					Энэ улирлын багийн гишүүд
 				</h2>
-				<Button mode="primary" href="/about" className="max-sm:mt-4">
+				<Button
+					mode="primary"
+					href="/about"
+					className="text-sm md:text-base max-sm:mt-4"
+				>
 					<span>Бүх гишүүд</span>
 					<MoveRight />
 				</Button>
@@ -37,8 +41,10 @@ export const CurrentSeasonTeamSection = () => {
 							members.length - 1 === index && 'border-b'
 						)}
 					>
-						<div className="space-y-2">
-							<p className="font-bold text-2xl md:text-3xl">{member.name}</p>
+						<div className="space-y-4">
+							<p className="text-xl sm:text-[calc(2vw+0.5rem)] lg:text-[calc(1.25vw+0.5rem)] leading-[1.1] font-semibold">
+								{member.name}
+							</p>
 
 							<ul className="flex flex-wrap gap-2">
 								{member.role.map(role => (

@@ -31,7 +31,7 @@ export const DescriptionSection = () => {
 				ease: 'none',
 				scrollTrigger: {
 					trigger: section,
-					start: 'top bottom-=300',
+					start: 'top bottom-=500',
 					end: 'top top+=300',
 					scrub: 1,
 					invalidateOnRefresh: true

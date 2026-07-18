@@ -11,7 +11,7 @@ export const TopicsList = ({
 	return (
 		<div
 			className={clsx([
-				'flex flex-wrap md:flex-row md:items-center gap-2 max-sm:gap-4 md:gap-8',
+				'flex flex-wrap md:flex-row md:items-center gap-2 max-sm:gap-x-4 md:gap-x-8',
 				className
 			])}
 		>

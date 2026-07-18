@@ -10,7 +10,7 @@ import {
 	LenisScrollProvider,
 	ThemeProvider
 } from '../shared/components'
-import { Footer, Sidebar } from '../widgets'
+import { Footer, Navbar } from '../widgets'
 
 const montserratAlternativesLocal = localFont({
 	src: [
@@ -133,9 +133,9 @@ export default function RootLayout({
 					<LenisScrollProvider>
 						<AppProviders>
 							<AnalyticsProvider />
+							<Navbar />
 							{children}
 							<Footer />
-							<Sidebar />
 							<ConsentProvider />
 						</AppProviders>
 					</LenisScrollProvider>

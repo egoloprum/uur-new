@@ -161,8 +161,8 @@ export const DropdownContent = ({
 	return (
 		<div
 			className={clsx(
-				'absolute left-0 mt-2 w-48 shadow-lg border border-black focus:outline-none z-50',
-				'max-sm:w-full',
+				'absolute left-0 mt-2 shadow-lg border border-black focus:outline-none z-50',
+				'max-sm:w-full w-fit',
 				className
 			)}
 			role="listbox"
@@ -188,7 +188,10 @@ export const DropdownItem = ({
 	const { close, setSelectedItem } = useDropdown()
 
 	const classNames = clsx(
-		'block w-full px-4 py-2 text-left hover:bg-indigo-300! focus:bg-indigo-400 cursor-pointer bg-white dark:bg-[#fffae0] text-black',
+		'block w-full px-4 py-2 cursor-pointer',
+		'text-left text-black focus:dark:text-(--white)',
+		'text-lg lg:text-xl text-nowrap',
+		'bg-(--white) hover:bg-(--blue) focus:bg-(--blue-focus-bg) focus:outline-(--blue-focus-border)',
 		className
 	)
 
@@ -196,7 +199,6 @@ export const DropdownItem = ({
 		<li>
 			<button
 				className={classNames}
-				style={{ fontSize: 'clamp(1rem, 2vw, 1.5rem)' }}
 				role="option"
 				aria-selected
 				onClick={() => {

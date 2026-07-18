@@ -6,6 +6,7 @@ import { useApp } from '@/src/entities'
 import { useTrackEvent } from '@/src/shared/lib'
 
 import { HeroSection } from '../hero/Hero'
+import clsx from 'clsx'
 
 export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 	const { getPostBySlug, getMemberById } = useApp()
@@ -15,8 +16,13 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 
 	if (!post) {
 		return (
-			<HeroSection className="pb-20! md:pb-40! lg:pb-60!">
-				<h1 className="font-bold uppercase z-10 tracking-wide text-4xl/10 md:text-5xl/14 lg:text-6xl/18 xl:text-7xl/20">
+			<HeroSection className="">
+				<h1
+					className={clsx(
+						'font-bold uppercase z-10 tracking-wide leading-[1.1]',
+						'text-[calc(8vw+0.5rem)] md:text-6xl lg:text-8xl'
+					)}
+				>
 					Нийтлэл олдсонгүй
 				</h1>
 			</HeroSection>
@@ -26,15 +32,27 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 	const member = getMemberById(post.writerId)
 
 	return (
-		<HeroSection className="pb-0!">
+		<HeroSection className="">
 			<div className="flex flex-col items-center">
-				<h1 className="font-bold uppercase tracking-wide text-4xl/10 md:text-5xl/14 lg:text-6xl/18 xl:text-7xl/20 z-10 md:text-center">
-					{post.name || 'Нийтлэл олдсонгүй'}
+				<h1
+					className={clsx(
+						'font-bold uppercase z-10 tracking-wide leading-[1.1] text-center',
+						'text-[calc(8vw+0.5rem)] md:text-6xl lg:text-8xl',
+						'pb-10 md:pb-15 lg:pb-20'
+					)}
+				>
+					{post.name}
 				</h1>
-				<p className="text-gray-800 dark:text-gray-300 mt-4 space-x-4 w-full md:w-[80%] xl:w-[60%] text-end italic">
+				<p
+					className={clsx(
+						'text-gray-800 dark:text-gray-300 text-[calc(1vw+0.75rem)] md:text-xl',
+						'text-end italic',
+						'mt-4 space-x-4 w-full md:w-[80%] xl:w-[60%]'
+					)}
+				>
 					<Link
 						href={`/about/${member?.slug}`}
-						className="text-xl md:text-2xl underline hover:underline underline-offset-4"
+						className="underline hover:underline underline-offset-4"
 						onClick={() =>
 							trackEvent({
 								type: 'member_visit',
@@ -49,7 +67,7 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 					>
 						{member?.name}
 					</Link>
-					<span className="text-lg md:text-xl">{post.releaseDate}</span>
+					<span className="">{post.releaseDate}</span>
 				</p>
 			</div>
 		</HeroSection>

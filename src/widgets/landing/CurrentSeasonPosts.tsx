@@ -17,12 +17,18 @@ export const CurrentSeasonPostsSection = ({}) => {
 
 	return (
 		<div className="space-y-8">
-			<div className="flex flex-col lg:flex-row gap-8 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
-				<h2 className="font-bold text-4xl uppercase">Энэ улирлын нийтлэлүүд</h2>
+			<div className="flex flex-col lg:flex-row gap-x-8 gap-y-4 justify-between px-4 md:px-8 lg:px-12 xl:px-16">
+				<h2 className="font-bold text-[calc(4vw+0.75rem)] md:text-4xl leading-[1.1] uppercase">
+					Энэ улирлын нийтлэлүүд
+				</h2>
 				<div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-8">
 					<TopicsList />
 
-					<Button mode="primary" href="/posts" className="max-sm:mt-4">
+					<Button
+						mode="primary"
+						href="/posts"
+						className="text-sm md:text-base max-sm:mt-4"
+					>
 						<span>Бүх нийтлэлүүд</span>
 						<MoveRight />
 					</Button>
@@ -65,16 +71,16 @@ export const CurrentSeasonPostsSection = ({}) => {
 									])}
 								/>
 								<div className="space-y-4 z-10">
-									<h3 className="text-2xl md:text-4xl font-semibold">
+									<h3 className="text-xl sm:text-[calc(2vw+0.5rem)] lg:text-[calc(1.25vw+0.5rem)] leading-[1.1] font-semibold">
 										{post.name}
 									</h3>
-									<p className="text-base md:text-xl line-clamp-4">
+									<p className="text-sm sm:text-base md:text-lg line-clamp-4">
 										{post.description}
 									</p>
 								</div>
 
-								<div className="flex flex-wrap justify-between items-center gap-4 tracking-wide mt-auto z-10">
-									<div className="flex gap-2 md:gap-8">
+								<div className="flex flex-wrap justify-between items-center gap-y-2 gap-x-4 tracking-wide mt-auto z-10">
+									<div className="flex gap-2 md:gap-8 text-sm">
 										<span
 											className={clsx(
 												['h-4 w-4 aspect-square rounded-full'],

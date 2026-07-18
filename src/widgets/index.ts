@@ -1,6 +1,5 @@
 export * from './footer/Footer'
-export * from './sidebar/Sidebar'
 export * from './breadcrumb/Breadcrumb'
-export * from './logo/Logo'
 export * from './hero/Hero'
 export * from './cookie/CookieSection'
+export * from './navbar/Navbar'

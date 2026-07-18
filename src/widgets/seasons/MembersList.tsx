@@ -22,7 +22,9 @@ export const MembersList = ({ members }: { members: Member[] }) => {
 					key={member.id}
 				>
 					<div className="space-y-2">
-						<p className="font-bold text-2xl md:text-3xl">{member.name}</p>
+						<p className="text-xl sm:text-[calc(2vw+0.5rem)] lg:text-[calc(1.25vw+0.5rem)] leading-[1.1] font-semibold">
+							{member.name}
+						</p>
 						<ul className="flex flex-wrap gap-2">
 							{member.role.map(role => (
 								<li

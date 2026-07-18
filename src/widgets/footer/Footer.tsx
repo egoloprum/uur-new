@@ -13,7 +13,7 @@ export const Footer = ({}) => {
 	}
 
 	return (
-		<footer className="mt-auto px-4 md:px-8 lg:px-12 xl:px-16 py-8 space-y-8 bg-[#121212] text-[#fffae0] font-montserrat-alternates-local">
+		<footer className="mt-auto px-4 md:px-8 lg:px-12 xl:px-16 py-8 space-y-8 border-t dark:border-stone-500 bg-[#121212] text-[#fffae0] font-montserrat-alternates-local">
 			<nav className="flex justify-between items-center">
 				<p className="text-xl md:text-2xl tracking-wide">Үүртэй хамтрах</p>
 				<div className="flex gap-2">

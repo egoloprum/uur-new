@@ -24,7 +24,7 @@ export const EachMemberAboutSection = ({ slug }: { slug: string }) => {
 			</div>
 			<div className="sm:col-start-7 sm:col-span-6 lg:col-start-6 lg:col-span-7 grid sm:grid-rows-2 gap-8 md:gap-8 lg:gap-12 xl:gap-16">
 				<div className="flex flex-col justify-between space-y-4 md:space-y-8 lg:space-y-12 xl:space-y-16">
-					<h2 className="text-2xl lg:text-4xl font-semibold sm:text-end">
+					<h2 className="font-bold text-[calc(2vw+0.75rem)] md:text-2xl xl:text-4xl leading-[1.1] uppercase sm:text-end">
 						ҮҮР-ээс гадуур юу хийдэг вэ?
 					</h2>
 					<p className="text-base md:text-xl lg:text-2xl">
@@ -32,7 +32,7 @@ export const EachMemberAboutSection = ({ slug }: { slug: string }) => {
 					</p>
 				</div>
 				<div className="flex flex-col justify-between space-y-4 md:space-y-8 lg:space-y-12 xl:space-y-16">
-					<h2 className="text-2xl lg:text-4xl font-semibold sm:text-end">
+					<h2 className="font-bold text-[calc(2vw+0.75rem)] md:text-2xl xl:text-4xl leading-[1.1] uppercase sm:text-end">
 						Ойрд уншиж, үзэж буй зүйлс
 					</h2>
 					<p className="text-base md:text-xl lg:text-2xl">

@@ -3,6 +3,7 @@
 import { useApp } from '@/src/entities'
 
 import { HeroSection } from '../hero/Hero'
+import clsx from 'clsx'
 
 export const EachMemberHeroSection = ({ slug }: { slug: string }) => {
 	const { getMemberBySlug } = useApp()
@@ -10,10 +11,12 @@ export const EachMemberHeroSection = ({ slug }: { slug: string }) => {
 	const member = getMemberBySlug(slug)
 
 	return (
-		<HeroSection className={member ? '' : 'pb-20!'}>
+		<HeroSection className="">
 			<h1
-				className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"
-				style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
+				className={clsx(
+					'font-bold uppercase z-10 tracking-wide leading-[1.1]',
+					'text-[calc(8vw+0.5rem)] md:text-6xl lg:text-8xl'
+				)}
 			>
 				{member?.name || 'Гишүүн олдсонгүй'}
 			</h1>

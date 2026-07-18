@@ -94,12 +94,18 @@ input:-moz-autofill {
 	--button-border: #121212;
 	--topic-black: #121212;
 
+	--white: #fbfaf2;
+
+	--clear-text: #121212;
+	--clear-hover-bg: #121212;
+	--clear-hover-text: #fbfaf2;
+
 	--orange: rgba(255, 93, 68, 0.8);
 	--orange-focus-bg: rgba(255, 93, 68, 0.3);
 	--orange-focus-border: rgba(255, 93, 68, 1);
 
-	--blue: rgba(66, 82, 252, 0.6);
-	--blue-focus-bg: rgba(66, 82, 252, 0.3);
+	--blue: #8c95f8;
+	--blue-focus-bg: #c3c8f5;
 	--blue-focus-border: rgba(66, 82, 252, 1);
 }
 
@@ -117,12 +123,18 @@ input:-moz-autofill {
 	--button-border: #fbfaf2;
 	--topic-black: #fbfaf2;
 
+	--white: #fbfaf2;
+
+	--clear-text: #fbfaf2;
+	--clear-hover-bg: #fbfaf2;
+	--clear-hover-text: #121212;
+
 	--orange: rgba(255, 93, 68, 0.9);
 	--orange-focus-bg: rgba(255, 93, 68, 0.5);
 	--orange-focus-border: rgba(255, 120, 100, 1);
 
-	--blue: rgba(66, 82, 252, 0.8);
-	--blue-focus-bg: rgba(66, 82, 252, 0.5);
+	--blue: #3947ce;
+	--blue-focus-bg: #2a3287;
 	--blue-focus-border: rgba(100, 114, 255, 1);
 }
 

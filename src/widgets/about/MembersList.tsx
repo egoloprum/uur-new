@@ -94,16 +94,15 @@ export const MembersList = ({}) => {
 					<div className="space-y-4 z-10 flex flex-col gap-4 md:min-h-70 md:col-span-6 lg:col-span-8">
 						<div className="space-y-2">
 							<section className="flex justify-between items-center">
-								<h2 className="font-bold tracking-wide text-2xl md:text-3xl">
+								<h2 className="text-xl sm:text-[calc(2vw+0.5rem)] lg:text-[calc(1.25vw+0.5rem)] leading-[1.1] font-semibold">
 									{member.name}
 								</h2>
 							</section>
 							<ul className="flex flex-wrap gap-2">
 								{member.role.map(role => (
 									<li
-										className="uppercase border rounded-full px-2"
+										className="uppercase border rounded-full px-2 text-xs"
 										key={member.id + role.type}
-										style={{ fontSize: 'clamp(0.75rem, 2vw, .875rem)' }}
 									>
 										{getSlugOfRole(role.type)}
 									</li>
@@ -112,8 +111,10 @@ export const MembersList = ({}) => {
 						</div>
 						<div className="mt-auto space-y-4">
 							<p
-								className="line-clamp-2 md:line-clamp-3 lg:line-clamp-4"
-								style={{ fontSize: 'clamp(1rem, 2vw, 1.25rem)' }}
+								className={clsx(
+									'line-clamp-4 md:line-clamp-3 lg:line-clamp-4',
+									'text-sm lg:text-base'
+								)}
 							>
 								{member.description}
 							</p>
@@ -136,7 +137,13 @@ export const MembersList = ({}) => {
 							</Button>
 						</div>
 					</div>
-					<div className="relative min-w-35 md:min-w-37.5 lg:min-w-40 max-md:min-h-60 md:col-span-6 lg:col-span-4 md:grayscale md:brightness-75 md:group-hover:grayscale-0 md:group-hover:brightness-100 transition-all duration-300">
+					<div
+						className={clsx(
+							'min-w-35 md:min-w-37.5 lg:min-w-40 max-md:min-h-60',
+							'relative md:col-span-6 lg:col-span-4 transition-all duration-300',
+							'md:grayscale md:brightness-75 md:group-hover:grayscale-0 md:group-hover:brightness-100'
+						)}
+					>
 						<Image
 							src={member.imageUrl}
 							className="object-cover"

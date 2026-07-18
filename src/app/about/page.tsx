@@ -4,21 +4,30 @@ import {
 } from '@/src/features/about'
 import { HeroSection } from '@/src/widgets'
 import { MembersList } from '@/src/widgets/about'
+import clsx from 'clsx'
 
 export const Page = ({}) => {
 	return (
 		<main className="font-montserrat-alternates-local">
-			<HeroSection className="pb-20!">
+			<HeroSection className="">
 				<h1
-					className="font-bold uppercase z-10 tracking-wide mt-20 leading-12"
-					style={{ fontSize: 'clamp(3rem, 4vw, 8rem)' }}
+					className={clsx(
+						'font-bold uppercase z-10 tracking-wide leading-[1.1]',
+						'text-[calc(8vw+0.5rem)] md:text-6xl lg:text-8xl'
+					)}
 				>
 					Багийн гишүүд
 				</h1>
 			</HeroSection>
 
 			<section className="px-4 md:px-8 lg:px-12 xl:px-16">
-				<div className="border-y border-stone-400 dark:border-stone-500 py-4 md:py-8 lg:py-12 xl:py-16 flex flex-wrap max-sm:flex-col gap-4 sm:justify-between sm:items-center">
+				<div
+					className={clsx(
+						'border-y border-stone-400 dark:border-stone-500',
+						'py-4 md:py-8 lg:py-12 xl:py-16',
+						'flex flex-wrap max-sm:flex-col gap-4 sm:justify-between sm:items-center'
+					)}
+				>
 					<div className="flex flex-wrap max-sm:flex-col gap-4">
 						<MembersFilterDropdown />
 						<MembersFilterByRoleDropdown />

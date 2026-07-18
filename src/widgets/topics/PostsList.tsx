@@ -54,16 +54,16 @@ export const PostsList = ({ posts }: { posts: Post[] }) => {
 							])}
 						/>
 						<div className="space-y-4 z-10">
-							<h3 className="text-2xl md:text-4xl font-semibold">
+							<h3 className="text-xl sm:text-[calc(2vw+0.5rem)] lg:text-[calc(1.25vw+0.5rem)] leading-[1.1] font-semibold">
 								{post.name}
 							</h3>
-							<p className="text-base md:text-xl line-clamp-4">
+							<p className="text-sm sm:text-base md:text-lg line-clamp-4">
 								{post.description}
 							</p>
 						</div>
 
-						<div className="flex flex-wrap justify-between items-center gap-4 tracking-wide mt-auto z-10">
-							<div className="flex gap-2 md:gap-8">
+						<div className="flex flex-wrap justify-between items-center gap-y-2 gap-x-4 tracking-wide mt-auto z-10">
+							<div className="flex gap-2 md:gap-8 text-sm">
 								<p>{post.releaseDate}</p>
 								<p className="uppercase">{member?.name}</p>
 							</div>
