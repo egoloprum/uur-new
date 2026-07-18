@@ -76,13 +76,13 @@ const DefinitionsRenderer = ({
 }) => {
 	return (
 		<div className="">
-			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local">
+			<h2 className="text-xl/6 md:text-2xl/8 lg:text-3xl/12 font-semibold my-2 md:my-4 text-justify font-montserrat-alternates-local">
 				{title}
 			</h2>
 			<ul>
 				{items.map((item, index) => (
 					<li key={'word-items-' + index} className="">
-						<p className="text-base/8 md:text-xl/10 text-justify">
+						<p className="leading-[1.65] text-sm md:text-xl text-justify">
 							<span className="mr-4">{++index}</span>
 							<span>{item.word} - </span>
 							<span>{item.explanation}</span>
@@ -103,13 +103,13 @@ const QuestionsRenderer = ({
 }) => {
 	return (
 		<div className="">
-			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local">
+			<h2 className="text-xl/6 md:text-2xl/8 lg:text-3xl/12 font-semibold my-2 md:my-4 text-justify font-montserrat-alternates-local">
 				{title}
 			</h2>
 			<ul>
 				{items.map((item, index) => (
 					<li key={title + index} className="">
-						<p className="space-x-4 text-base/8 md:text-xl/10 text-justify">
+						<p className="space-x-4 leading-[1.65] text-sm md:text-xl text-justify">
 							<span>{++index}</span>
 							<span>{item}</span>
 						</p>
@@ -133,14 +133,14 @@ const SourcesRenderer = ({
 
 	return (
 		<div className="">
-			<h2 className="text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local">
+			<h2 className="text-xl/6 md:text-2xl/8 lg:text-3xl/12 font-semibold my-2 md:my-4 text-justify font-montserrat-alternates-local">
 				{title}
 			</h2>
 			<ul>
 				{items.map((item, index) => (
 					<li
 						key={title + index}
-						className="text-base/8 md:text-xl/8 text-justify space-y-2"
+						className="leading-[1.65] text-sm md:text-xl text-justify space-y-2"
 					>
 						<p className="">[{++index}]</p>
 						{!!item.definition && <p className="ml-6">{item.definition}</p>}
@@ -192,7 +192,7 @@ const ContentRenderer: React.FC<{
 							<div className="my-4">
 								<h2
 									className={clsx([
-										'text-2xl/8 md:text-3xl/12 font-semibold my-4 text-justify font-montserrat-alternates-local',
+										'text-xl/6 md:text-2xl/8 lg:text-3xl/12 font-semibold my-2 md:my-4 text-justify font-montserrat-alternates-local',
 										prefixPath ? 'space-x-3' : 'space-x-4'
 									])}
 								>
@@ -207,7 +207,7 @@ const ContentRenderer: React.FC<{
 								if (det.type === 'paragraph') {
 									return (
 										<li key={detailIndex} className="">
-											<p className="text-base/8 md:text-xl/10 text-justify">
+											<p className="leading-[1.65] text-sm md:text-xl text-justify">
 												<span
 													className={clsx(['mr-6', prefixPath && 'md:mr-10'])}
 												></span>

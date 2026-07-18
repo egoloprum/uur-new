@@ -17,39 +17,41 @@ export const Page = ({}) => {
 			</HeroSection>
 
 			<section className="p-4 md:p-8 lg:p-12 xl:p-16 flex flex-col">
-				<p className="text-stone-500 text-xl">Сүүлд шинэчилсэн: 2026.04.10</p>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl text-stone-500">
+					Сүүлд шинэчилсэн: 2026.04.10
+				</p>
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Бид таны нууцлалыг эрхэмлэн дээдэлж, мэдээллийг тань хариуцлагатай, ил
 					тод, хүндэтгэлтэйгээр боловсруулахыг зорьдог. Энэхүү Нууцлалын бодлого
 					нь та энэхүү вэбсайттай харилцах үед мэдээллийг хэрхэн цуглуулж,
 					ашиглаж, хамгаалж болох талаар ерөнхий байдлаар тайлбарлана.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
 					1. Бидний цуглуулж болох мэдээлэл
 				</h2>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Та энэхүү вэбсайтыг ашиглах үед зарим төрлийн мэдээлэл автоматаар
 					цугларч болзошгүй. Үүнд хөтчийн төрөл, төхөөрөмжийн мэдээлэл,
 					ойролцоох байршил, мөн ерөнхий хэрэглээний хэв маяг (жишээлбэл, үзсэн
 					хуудсууд эсвэл ашигласан функцууд) зэрэг техникийн мэдээлэл орно.
 				</p>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Зарим тохиолдолд вэбсайтын үндсэн үйл ажиллагааг дэмжих, гүйцэтгэлийг
 					сайжруулах, илүү жигд хэрэглээний туршлага бүрдүүлэх зорилгоор cookies
 					зэрэг жижиг өгөгдлийн файлууд таны төхөөрөмж дээр хадгалагдаж болно.
 				</p>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Таны зүгээс шууд өгөгдөөгүй бол бид хувь хүнийг таньж болох мэдээлэл
 					цуглуулахыг зорьдоггүй.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
 					2. Мэдээллийг хэрхэн ашиглах
 				</h2>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Цуглуулсан мэдээллийг хязгаарлагдмал бөгөөд хариуцлагатай байдлаар
 					дараах зорилгоор ашиглана:
 				</p>
-				<ul className="text-xl ml-4">
+				<ul className="text-sm md:text-base lg:text-xl ml-4">
 					<li>- Вэбсайтын үйл ажиллагааг зөв, үр ашигтай байлгах</li>
 					<li>
 						- Ерөнхий хэрэглээний хэв маягийг ойлгож, хэрэглэгчийн туршлагыг
@@ -57,73 +59,77 @@ export const Page = ({}) => {
 					</li>
 					<li>- Аюулгүй байдлыг хангаж, буруу ашиглалтаас сэргийлэх</li>
 				</ul>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Мэдээллийг ашиглахдаа хувь хэрэглэгчийг тодорхойлох бус, харин
 					платформын чанар, тогтвортой байдал, хэрэгцээнд нийцтэй байдлыг
 					сайжруулахад чиглэнэ.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
 					3. Cookies болон ижил төстэй технологи
 				</h2>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Cookies болон ижил төрлийн технологийг вэб хуудасны тогтвортой байдлыг
 					хангах, хэрэглэгчийн тохиргоог санах, нэргүй хэрэглээний мэдээлэл
 					цуглуулах зорилгоор ашиглаж болно.
 				</p>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Та вэб браузарынхаа тохиргоогоор cookies-ийг хянах эсвэл идэвхгүй
 					болгох боломжтой. Гэхдээ cookies-ийг идэвхгүй болгосноор вэбсайтын
 					зарим хэсэг хэвийн ажиллахгүй байж болно.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
 					4. Мэдээлэл хуваалцах
 				</h2>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Бид хэрэглэгчийн мэдээллийг худалдах, солилцох, түрээслэхгүй.
 					Вэбсайтыг ажиллуулах, арчлахад тусалдаг найдвартай гуравдагч талын
 					үйлчилгээ үзүүлэгчдээр мэдээллийг боловсруулах боломжтой. Эдгээр
 					үйлчилгээ үзүүлэгчид мэдээллийг зөвхөн шаардлагатай зорилгоор, аюулгүй
 					байдлыг ханган ашиглах ёстой.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
 					5. Мэдээллийн аюулгүй байдал
 				</h2>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Мэдээллийг зөвшөөрөлгүй хандалт, алдагдал, буруу ашиглалтаас
 					хамгаалахын тулд зохистой техник болон зохион байгуулалтын арга
 					хэмжээг авдаг. Гэсэн хэдий ч ямар ч систем бүрэн аюулгүй байх
 					баталгаагүй тул хэрэглэгчид онлайн үйлчилгээг ашиглахдаа ердийн
 					болгоомжтой байдлыг баримтлах хэрэгтэй.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
 					6. Мэдээлэл хадгалах хугацаа
 				</h2>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Мэдээллийг зөвхөн зориулалтын хэрэгцээг хангах хугацаанд хадгалж,
 					дараа нь устгах эсвэл таних боломжгүй болгоно.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">7. Таны эрх</h2>
-				<p className="text-xl my-2 md:my-4">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
+					7. Таны эрх
+				</h2>
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Таны байршлаас хамааран та өөрийн хувийн мэдээлэлтэй холбоотой
 					тодорхой эрхтэй байж болно. Үүнд мэдээлэлд хандах, засварлах,
 					устгуулах хүсэлт гаргах эрх орно. Боломжтой тохиолдолд ийм хүсэлтийг
 					холбогдох сувгаар дамжуулан гаргаж болно.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
 					8. Энэхүү бодлогын өөрчлөлт
 				</h2>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Энэхүү Нууцлалын бодлогыг үйл ажиллагаа эсвэл хууль эрх зүйн
 					шаардлагад нийцүүлэх зорилгоор үе үе шинэчилж болно. Шинэчлэл бүр
 					“Сүүлд шинэчилсэн” огноог өөрчлөх замаар илэрхийлэгдэнэ.
 				</p>
-				<h2 className="text-4xl font-bold my-4 md:my-8">9. Холбоо барих</h2>
-				<p className="text-xl my-2 md:my-4">
+				<h2 className="text-xl md:text-2xl lg:text-4xl font-bold my-2 md:my-4 lg:my-8">
+					9. Холбоо барих
+				</h2>
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Хэрэв танд энэхүү Нууцлалын бодлоготой холбоотой асуулт, санал байвал
 					вэбсайт дээрх боломжит холбоо барих сувгаар дамжуулан холбогдоно уу.
 				</p>
 				<span className="border-t-2 border-stone-400 dark:border-stone-500 w-full mt-4"></span>
-				<p className="text-xl my-2 md:my-4">
+				<p className="text-sm md:text-base lg:text-xl my-1 md:my-2 lg:my-4">
 					Энэхүү вэбсайтыг ашигласнаар та энэхүү Нууцлалын бодлогыг уншиж,
 					ойлгосноо зөвшөөрч байна.
 				</p>
