@@ -1,5 +1,6 @@
-import { HeroSection } from '@/src/widgets'
 import clsx from 'clsx'
+
+import { HeroSection } from '@/src/widgets'
 
 export const Page = ({}) => {
 	return (

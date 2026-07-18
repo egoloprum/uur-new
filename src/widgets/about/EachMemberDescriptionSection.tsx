@@ -1,9 +1,10 @@
 'use client'
 
+import clsx from 'clsx'
+
 import { useApp } from '@/src/entities'
 import { RoleTypes } from '@/src/entities/member'
 import { getSlugOfRole } from '@/src/shared'
-import clsx from 'clsx'
 
 export const EachMemberDescriptionSection = ({ slug }: { slug: string }) => {
 	const { getMemberBySlug } = useApp()

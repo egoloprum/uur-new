@@ -1,3 +1,5 @@
+import clsx from 'clsx'
+
 import {
 	FilterBySeasonDropdown,
 	FilterByTopicDropdown
@@ -5,7 +7,6 @@ import {
 import { TopicsList } from '@/src/shared/components'
 import { HeroSection } from '@/src/widgets'
 import { PostsList } from '@/src/widgets/posts'
-import clsx from 'clsx'
 
 export const Page = ({}) => {
 	return (

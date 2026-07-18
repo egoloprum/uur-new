@@ -1,12 +1,12 @@
 'use client'
 
+import clsx from 'clsx'
 import { useMemo } from 'react'
 
 import { useApp } from '@/src/entities'
 
 import { MembersList } from './MembersList'
 import { PostsList } from './PostsList'
-import clsx from 'clsx'
 
 export const SeasonsList = ({}) => {
 	const { seasons, getMembersBySeasonId, getPostsBySeasonId, filters } =

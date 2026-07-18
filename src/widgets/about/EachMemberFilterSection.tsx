@@ -1,9 +1,10 @@
 'use client'
 
+import clsx from 'clsx'
+
 import { useApp } from '@/src/entities'
 import { EachMemberPostsFilterDropdown } from '@/src/features/about'
 import { TopicsList } from '@/src/shared/components'
-import clsx from 'clsx'
 
 export const EachMemberFilterSection = ({ slug }: { slug: string }) => {
 	const { getMemberBySlug } = useApp()

@@ -1,10 +1,11 @@
 'use client'
 
-import { Button, useTheme } from '@/src/shared/components'
 import clsx from 'clsx'
 import { Lightbulb, LightbulbOff, Menu, X } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { useEffect, useRef, useState } from 'react'
+
+import { Button, useTheme } from '@/src/shared/components'
 
 const NAV_LINKS = [
 	{ href: '/posts', label: 'Нийтлэлүүд' },
@@ -20,7 +21,6 @@ export const Navbar = ({}) => {
 	const pathname = usePathname()
 
 	const ref = useRef<HTMLHeadElement>(null)
-	const overlayRef = useRef<HTMLDivElement | null>(null)
 
 	useEffect(() => {
 		function handleClick(e: MouseEvent) {
@@ -85,7 +85,7 @@ export const Navbar = ({}) => {
 							: 'opacity-0 translate-y-2 scale-95 pointer-events-none'
 					)}
 				>
-					{NAV_LINKS.map((link, i) => (
+					{NAV_LINKS.map(link => (
 						<Button
 							key={link.href}
 							mode="clear"

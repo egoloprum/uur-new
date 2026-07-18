@@ -1,8 +1,9 @@
+import clsx from 'clsx'
+
 import { FilterBySeasonDropdown } from '@/src/features/seasons'
 import { TopicsList } from '@/src/shared/components'
 import { HeroSection } from '@/src/widgets'
 import { SeasonsList } from '@/src/widgets/seasons'
-import clsx from 'clsx'
 
 export const Page = ({}) => {
 	return (

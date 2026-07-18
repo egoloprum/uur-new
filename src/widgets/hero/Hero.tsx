@@ -1,8 +1,8 @@
 import clsx from 'clsx'
+import Link from 'next/link'
 import { ReactNode } from 'react'
 
 import { Breadcrumb } from '@/src/widgets'
-import Link from 'next/link'
 
 export const HeroSection = ({
 	className,

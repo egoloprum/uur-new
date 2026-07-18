@@ -1,12 +1,12 @@
 'use client'
 
+import clsx from 'clsx'
 import Link from 'next/link'
 
 import { useApp } from '@/src/entities'
 import { useTrackEvent } from '@/src/shared/lib'
 
 import { HeroSection } from '../hero/Hero'
-import clsx from 'clsx'
 
 export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 	const { getPostBySlug, getMemberById } = useApp()

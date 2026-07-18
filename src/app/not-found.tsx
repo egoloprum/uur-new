@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+
 import { HeroSection } from '../widgets'
 
 const NotFoundPage = ({}) => {

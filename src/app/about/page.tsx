@@ -1,10 +1,11 @@
+import clsx from 'clsx'
+
 import {
 	MembersFilterByRoleDropdown,
 	MembersFilterDropdown
 } from '@/src/features/about'
 import { HeroSection } from '@/src/widgets'
 import { MembersList } from '@/src/widgets/about'
-import clsx from 'clsx'
 
 export const Page = ({}) => {
 	return (

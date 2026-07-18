@@ -1,7 +1,8 @@
+import clsx from 'clsx'
+
 import { FilterByTopicDropdown } from '@/src/features/topics'
 import { HeroSection } from '@/src/widgets'
 import { TopicsList } from '@/src/widgets/topics'
-import clsx from 'clsx'
 
 export const Page = ({}) => {
 	return (

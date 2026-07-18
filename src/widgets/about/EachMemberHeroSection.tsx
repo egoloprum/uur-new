@@ -1,9 +1,10 @@
 'use client'
 
+import clsx from 'clsx'
+
 import { useApp } from '@/src/entities'
 
 import { HeroSection } from '../hero/Hero'
-import clsx from 'clsx'
 
 export const EachMemberHeroSection = ({ slug }: { slug: string }) => {
 	const { getMemberBySlug } = useApp()
