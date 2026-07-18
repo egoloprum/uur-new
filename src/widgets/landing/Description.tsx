@@ -1,5 +1,6 @@
 'use client'
 
+import clsx from 'clsx'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { MoveRight } from 'lucide-react'
@@ -31,8 +32,8 @@ export const DescriptionSection = () => {
 				ease: 'none',
 				scrollTrigger: {
 					trigger: section,
-					start: 'top bottom-=500',
-					end: 'top top+=300',
+					start: 'top bottom-=350',
+					end: 'top top+=250',
 					scrub: 1,
 					invalidateOnRefresh: true
 				}
@@ -42,8 +43,8 @@ export const DescriptionSection = () => {
 				ScrollTrigger.create({
 					trigger: items[index],
 					containerAnimation: horizontalTween,
-					start: 'left center+=300',
-					end: 'right center-=300',
+					start: 'left center+=0',
+					end: 'right center-=0',
 					onEnter: () => {
 						gsap.to(section, {
 							'--section-bg': `var(--section-bg-${index})`,
@@ -77,7 +78,12 @@ export const DescriptionSection = () => {
 					</span>
 					<Button
 						mode="clear"
-						className="text-xs sm:text-base md:text-xl text-orange-100 dark:text-black border-orange-100 dark:border-black hover:bg-orange-100 hover:dark:bg-black hover:dark:text-[#fffae0]"
+						className={clsx(
+							'text-xs sm:text-base md:text-xl',
+							'text-[#fbfaf2] border-[#fbfaf2] dark:text-[#121212] dark:border-[#121212]',
+							'hover:text-[#121212] hover:bg-[#fbfaf2] hover:dark:text-[#fbfaf2] hover:dark:bg-[#121212]',
+							'focus:bg-[#fbfaf2] focus:text-[#121212] focus:hover:bg-[#121212] focus:hover:text-[#fbfaf2]'
+						)}
 						href="/topics"
 						onClick={() =>
 							trackEvent({
