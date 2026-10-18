@@ -14,13 +14,36 @@ const NAV_LINKS = [
 	{ href: '/about', label: 'Бидний тухай' }
 ]
 
-export const Navbar = ({}) => {
+const THEME_STORAGE_KEY = 'theme'
+
+export const Navbar = () => {
 	const { theme, toggleTheme } = useTheme()
 	const [toggleNavbar, setToggleNavbar] = useState<boolean>(false)
 
 	const pathname = usePathname()
-
 	const ref = useRef<HTMLHeadElement>(null)
+	const themeRef = useRef(theme)
+
+	useEffect(() => {
+		themeRef.current = theme
+	}, [theme])
+
+	useEffect(() => {
+		const mq = window.matchMedia('(prefers-color-scheme: dark)')
+
+		const syncToSystem = (isDark: boolean) => {
+			if (localStorage.getItem(THEME_STORAGE_KEY)) return
+
+			const systemTheme = isDark ? 'dark' : 'light'
+			if (themeRef.current !== systemTheme) toggleTheme()
+		}
+
+		syncToSystem(mq.matches)
+
+		const handler = (e: MediaQueryListEvent) => syncToSystem(e.matches)
+		mq.addEventListener('change', handler)
+		return () => mq.removeEventListener('change', handler)
+	}, [toggleTheme])
 
 	useEffect(() => {
 		function handleClick(e: MouseEvent) {
@@ -65,7 +88,6 @@ export const Navbar = ({}) => {
 						{theme === 'dark' ? <Lightbulb /> : <LightbulbOff />}
 					</Button>
 
-					{/* Mobile Toggle Button */}
 					<Button
 						onClick={() => setToggleNavbar(prev => !prev)}
 						className="p-2! md:p-4! sm:hidden text-white dark:text-black bg-(--topic-black)"
