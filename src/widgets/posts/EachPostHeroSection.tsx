@@ -36,8 +36,8 @@ export const EachPostHeroSection = ({ slug }: { slug: string }) => {
 			<div className="flex flex-col items-center">
 				<h1
 					className={clsx(
-						'font-bold uppercase z-10 tracking-wide leading-[1.1] text-center',
-						'text-[calc(8vw+0.5rem)] md:text-6xl lg:text-8xl',
+						'font-bold uppercase z-10 tracking-wide leading-tight md:leading-[1.125] text-center',
+						'max-md:text-[calc(8vw-0.25rem)] md:text-[calc(7vw-0.5rem)] lg:text-[calc(5vw-0.5rem)]',
 						'pb-10 md:pb-15 lg:pb-20'
 					)}
 				>
