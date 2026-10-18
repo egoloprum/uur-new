@@ -12,20 +12,23 @@ export const CookieSection = ({ onAccept }: { onAccept: () => void }) => {
 	}
 
 	return (
-		<aside className="p-3 px-4 md:p-6 md:px-8 sm:max-w-96 max-sm:w-[calc(100%-2rem)] w-full fixed bg-black text-white bottom-4 left-4 md:bottom-8 md:left-8 lg:bottom-12 lg:left-12 xl:bottom-16 xl:left-16 font-montserrat-alternates-local space-y-4 z-100 rounded-xl opacity-85">
-			<p className="flex gap-2 items-center">
-				<Cookie className="w-6 h-6" />
+		<aside className="p-3 px-4 md:p-6 md:px-8 sm:max-w-108 max-sm:w-[calc(100%-2rem)] w-full h-fit fixed bg-black text-white top-10 right-4 md:bottom-40 md:right-8 lg:bottom-42 lg:right-12 xl:bottom-20 xl:left-16 font-montserrat-alternates-local space-y-4 z-100 rounded-[24px] opacity-85">
+			<p className="flex gap-2">
+				<Cookie className="w-6 h-6 lg:w-10 lg:h-10" />
 				<span className="text-xl md:text-3xl tracking-wide font-bold">
-					Cookies consent
+					Күүки ашиглах зөвшөөрөл
 				</span>
 			</p>
 			<p className="text-sm md:text-xl">
 				<span className="mr-1">
-					This website uses cookie to help you have a superior and more
-					admissable browsing experience on the website.
+					Энэ вэбсайт нь танд илүү сайн, илүү тохиромжтой вэб үзэх туршлагыг
+					олгохын тулд күүки ашигладаг.
 				</span>
-				<Link href="/policies" className="underline underline-offset-2">
-					Learn more
+				<Link
+					href="/policies"
+					className="underline underline-offset-2 block mt-2"
+				>
+					Дэлгэрэнгүй
 				</Link>
 			</p>
 			<div className="mt-4 md:mt-8">
@@ -34,7 +37,7 @@ export const CookieSection = ({ onAccept }: { onAccept: () => void }) => {
 					className="w-full justify-center py-1! text-white border-white"
 					onClick={acceptCookies}
 				>
-					Accept
+					Зөвшөөрөх
 				</Button>
 			</div>
 		</aside>

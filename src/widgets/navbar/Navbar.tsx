@@ -46,7 +46,7 @@ export const Navbar = ({}) => {
 			/>
 			<header
 				className={clsx(
-					'fixed bottom-5 right-5 sm:bottom-20 sm:right-1/2 sm:translate-x-1/2',
+					'fixed bottom-5 right-4 sm:bottom-20 md:right-8 lg:right-12 xl:right-16',
 					'border border-(--border-black)',
 					'rounded-full p-1 text-sm md:text-base lg:text-lg',
 					'font-montserrat-alternates-local flex z-100',
